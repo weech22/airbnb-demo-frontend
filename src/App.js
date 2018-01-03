@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import styled from "styled-components";
+import "./font.css";
 import {
   Title,
   Price,
@@ -24,7 +25,7 @@ class App extends Component {
         <Price>$29</Price>
         <See>See all ></See>
         <ExploreItemName>Homes</ExploreItemName>
-        <ExperienceItemName>Forest Therapy</ExperienceItemName>
+        <ExperienceItemName>Forest therapy</ExperienceItemName>
         <Label>44 reviews</Label>
         <Label>97 · Superhost</Label>
         <HomeItemName>$82 La Salentina, see, nature & relax</HomeItemName>
