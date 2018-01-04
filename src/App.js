@@ -1,43 +1,33 @@
 import React, { Component } from "react";
 import styled from "styled-components";
+import "normalize.css";
+import "flexboxgrid2/flexboxgrid2.css";
 import "./font.css";
-import {
-  Title,
-  Price,
-  See,
-  ExploreItemName,
-  ExperienceItemName,
-  Label,
-  HomeItemName,
-  HouseInfo,
-  ResType,
-  ResName,
-  ResPrice,
-  City,
-  Link
-} from "./styles";
+import ExploreSection from "./Explore";
+import ExperienceSection from "./Experience";
+import HomesSection from "./Homes";
+import ReservationSection from "./Reservations";
+import FeaturedSection from "./Featured";
+import Header from "./Header";
 
 class App extends Component {
   render() {
     return (
       <div>
-        <Title>Explore Airbnb</Title>
-        <Price>$29</Price>
-        <See>See all ></See>
-        <ExploreItemName>Homes</ExploreItemName>
-        <ExperienceItemName>Forest therapy</ExperienceItemName>
-        <Label>44 reviews</Label>
-        <Label>97 · Superhost</Label>
-        <HomeItemName>$82 La Salentina, see, nature & relax</HomeItemName>
-        <HouseInfo>Entire house · 9 beds</HouseInfo>
-        <ResName>Chumley’s</ResName>
-        <ResPrice>About $60 per person</ResPrice>
-        <ResType>Speakeasy</ResType>
-        <City>Paris</City>
-        <Link>Become a host</Link>
+        <Header />
+        <ExploreSection />
+        <ExperienceSection />
+        <HomesSection />
+        <ReservationSection />
+        <FeaturedSection />
       </div>
     );
   }
 }
 
 export default App;
+
+/*
+        
+        
+*/

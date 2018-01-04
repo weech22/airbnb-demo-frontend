@@ -5,10 +5,13 @@ export const Title = styled.h3`
   line-height: 34px;
   font-size: 32px;
   font-weight: bold;
+  margin-top: 48px;
+  margin-bottom: 24px;
   color: #383838;
+  display: inline-block;
 `;
 
-export const Price = styled.p`
+export const Price = styled.b`
   font-family: CircularAir, Helvetica Neue, Helvetica, Arial, sans-serif;
   font-weight: Bold;
   font-size: 15px;
@@ -19,13 +22,14 @@ export const Price = styled.p`
   margin: 0;
 `;
 
-export const See = styled.p`
+export const See = styled.span`
   font-family: CircularAir, Helvetica Neue, Helvetica, Arial, sans-serif;
   line-height: 24px;
   font-size: 14px;
-  text-align: right;
   font-weight: normal;
+  border: 1px solid green;
   color: #383838;
+  margin-left: 20px;
 `;
 
 export const ExploreItemName = styled.p`
@@ -33,17 +37,22 @@ export const ExploreItemName = styled.p`
   font-weight: Bold;
   line-height: 20px;
   font-size: 17px;
-  text-align: Left;
+  display: inline-block;
   color: #383838;
+  position: absolute;
+  top: 50%;
+  margin-top: -0.625em;
+  margin-left: 24px;
 `;
 
-export const ExperienceItemName = styled.p`
+export const ExpItemName = styled.div`
   font-family: CircularAir, Helvetica Neue, Helvetica, Arial, sans-serif;
   line-height: 18px;
   font-size: 15px;
   text-align: Left;
   font-weight: lighter;
   color: #383838;
+  display: inline;
 `;
 
 export const Label = styled.p`
@@ -52,24 +61,31 @@ export const Label = styled.p`
   line-height: normal;
   font-size: 12px;
   text-align: Left;
+  display: inline;
   color: #383838;
+  margin-left: 4px;
 `;
 
 export const HomeItemName = styled.p`
   font-family: CircularAir, Helvetica Neue, Helvetica, Arial, sans-serif;
   font-weight: Bold;
-  line-height: normal;
+  line-height: 18px;
+  display: inline;
   font-size: 15px;
   text-align: Left;
+  margin-top: 0;
+  margin-bottom: 2px;
   color: #383838;
 `;
 
 export const HouseInfo = styled.p`
   font-family: CircularAir, Helvetica Neue, Helvetica, Arial, sans-serif;
   font-weight: lighter;
-  line-height: normal;
+  line-height: 18px;
   font-size: 15px;
   text-align: Left;
+  display: inline;
+  margin-bottom: 0;
   color: #383838;
 `;
 
@@ -115,6 +131,8 @@ export const Link = styled.a`
   font-size: 14px;
   text-align: center;
   color: #383838;
+  display: inline;
+  margin-right: 8px;
 `;
 
 export const FooterTitle = styled.p`
