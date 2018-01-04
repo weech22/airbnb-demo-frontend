@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import styled from "styled-components";
 import "normalize.css";
 import "flexboxgrid2/flexboxgrid2.css";
 import "./font.css";

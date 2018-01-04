@@ -26,6 +26,8 @@ export const ExpItemImg = styled.img`
 
 export const StarImg = styled.img`
   margin-right: 4px;
+  margin-top: 7px;
+  margin-bottom: 0;
 `;
 
 export const HomeItemBlock = styled.div``;

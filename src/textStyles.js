@@ -20,6 +20,8 @@ export const Price = styled.b`
   color: #383838;
   padding: 0;
   margin: 0;
+  margin-top: 8px;
+  margin-bottom: 0;
 `;
 
 export const See = styled.span`
@@ -53,6 +55,8 @@ export const ExpItemName = styled.div`
   font-weight: lighter;
   color: #383838;
   display: inline;
+  margin-top: 8px;
+  margin-bottom: 0;
 `;
 
 export const Label = styled.p`
@@ -64,6 +68,8 @@ export const Label = styled.p`
   display: inline;
   color: #383838;
   margin-left: 4px;
+  margin-top: 6px;
+  margin-bottom: 0;
 `;
 
 export const HomeItemName = styled.p`
@@ -74,7 +80,8 @@ export const HomeItemName = styled.p`
   font-size: 15px;
   text-align: Left;
   margin-top: 0;
-  margin-bottom: 2px;
+  margin-top: 8px;
+  margin-bottom: 0;
   color: #383838;
 `;
 
@@ -85,6 +92,7 @@ export const HouseInfo = styled.p`
   font-size: 15px;
   text-align: Left;
   display: inline;
+  margin-top: 2px;
   margin-bottom: 0;
   color: #383838;
 `;
@@ -96,6 +104,8 @@ export const ResType = styled.p`
   font-size: 10px;
   text-transform: uppercase;
   color: #383838;
+  margin-top: 12px;
+  margin-bottom: 0;
 `;
 
 export const ResName = styled.p`
@@ -103,6 +113,8 @@ export const ResName = styled.p`
   font-weight: Bold;
   line-height: normal;
   font-size: 18px;
+  margin-top: 2px;
+  margin-bottom: 0;
   color: #383838;
 `;
 
@@ -113,6 +125,8 @@ export const ResPrice = styled.p`
   font-weight: lighter;
   color: #383838;
   mix-blend-mode: normal;
+  margin-top: 4px;
+  margin-bottom: 0;
   opacity: 0.9;
 `;
 
@@ -121,6 +135,8 @@ export const City = styled.p`
   font-weight: Bold;
   line-height: normal;
   font-size: 15px;
+  margin-top: 8px;
+  margin-bottom: 0;
   color: #383838;
 `;
 
