@@ -91,3 +91,11 @@ export const SectionTitle = styled.div`
 
   border: 1px solid red;
 `;
+
+export const FooterTop = styled.div`
+  border: 1px solid blue;
+`;
+
+export const FooterBottom = styled.div`
+  border: 1px solid green;
+`;

@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import ExpItem from "./ExpItem";
 import { Title } from "../textStyles";
+import SeeAll from "../SeeAll";
 import ExperienceImg1 from "./1.png";
 import ExperienceImg2 from "./2.png";
 import ExperienceImg3 from "./3.png";
@@ -10,7 +11,14 @@ class ExperienceSection extends Component {
   render() {
     return (
       <div className="container">
-        <Title>Experiences</Title>
+        <div className="row between-lg">
+          <div className="col-lg-3">
+            <Title>Experiences</Title>
+          </div>
+          <div className="col-lg-1">
+            <SeeAll />
+          </div>
+        </div>
         <div className="row">
           <ExpItem
             ItemImg={ExperienceImg1}

@@ -3,10 +3,9 @@ import SearchInput from "./SearchInput";
 import { HeaderBlock, HeaderLogo, Nav } from "../blockStyles";
 import { Link } from "../textStyles";
 import logo from "./logo.png";
-import "flexboxgrid2";
+import { SeeAll } from "../SeeAll";
 
 class Header extends Component {
-  //alfa grid
   render() {
     return (
       <div className="container">

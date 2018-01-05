@@ -1,16 +1,31 @@
 import React, { Component } from "react";
-import { ExploreItemBlock, ExploreItemImg } from "./blockStyles";
-import { ExploreItemName } from "./textStyles";
+import Top from "./Top";
+import Bottom from "./Bottom";
+import styled from "styled-components";
 
-class ExploreItem extends Component {
+const FooterMain = styled.div`
+  margin-top: 64px;
+  background: #ffffff;
+  box-shadow: 0px -0.5px 0px rgba(72, 72, 72, 0.3);
+`;
+
+class Footer extends Component {
   render() {
     return (
-      <ExploreItemBlock>
-        <ExploreItemImg src={this.props.itemImg} />
-        <ExploreItemName>{this.props.name}</ExploreItemName>
-      </ExploreItemBlock>
+      <div className="container">
+        <FooterMain>
+          <Top />
+          <Bottom />
+        </FooterMain>
+      </div>
     );
   }
 }
 
-export default ExploreItem;
+export default Footer;
+
+/*
+
+
+
+*/

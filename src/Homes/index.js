@@ -5,12 +5,20 @@ import { SectionTitle } from "../blockStyles";
 import HomesImg1 from "./1.png";
 import HomesImg2 from "./2.png";
 import HomesImg3 from "./3.png";
+import SeeAll from "../SeeAll";
 
 class HomesSection extends Component {
   render() {
     return (
       <div className="container">
-        <Title>Homes</Title>
+        <div className="row between-lg">
+          <div className="col-lg-2">
+            <Title>Homes</Title>
+          </div>
+          <div className="col-lg-1">
+            <SeeAll />
+          </div>
+        </div>
         <div className="row">
           <HomeItem
             ItemImg={HomesImg1}

@@ -24,14 +24,14 @@ export const Price = styled.b`
   margin-bottom: 0;
 `;
 
-export const See = styled.span`
+export const See = styled.p`
   font-family: CircularAir, Helvetica Neue, Helvetica, Arial, sans-serif;
   line-height: 24px;
   font-size: 14px;
   font-weight: normal;
-  border: 1px solid green;
   color: #383838;
-  margin-left: 20px;
+  margin-top: 58px;
+  display: inline-block;
 `;
 
 export const ExploreItemName = styled.p`
@@ -149,20 +149,4 @@ export const Link = styled.a`
   color: #383838;
   display: inline;
   margin-right: 8px;
-`;
-
-export const FooterTitle = styled.p`
-  font-family: CircularAir, Helvetica Neue, Helvetica, Arial, sans-serif;
-  font-weight: bold;
-  line-height: normal;
-  font-size: 15px;
-  color: #383838;
-`;
-
-export const FooterItem = styled.p`
-  font-family: CircularAir, Helvetica Neue, Helvetica, Arial, sans-serif;
-  font-weight: normal;
-  line-height: normal;
-  font-size: 15px;
-  color: #636363;
 `;

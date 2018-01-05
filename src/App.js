@@ -8,6 +8,7 @@ import HomesSection from "./Homes";
 import ReservationSection from "./Reservations";
 import FeaturedSection from "./Featured";
 import Header from "./Header";
+import Footer from "./Footer";
 
 class App extends Component {
   render() {
@@ -19,6 +20,7 @@ class App extends Component {
         <HomesSection />
         <ReservationSection />
         <FeaturedSection />
+        <Footer />
       </div>
     );
   }
@@ -27,6 +29,11 @@ class App extends Component {
 export default App;
 
 /*
-        
+        <Header />
+        <ExploreSection />
+        <ExperienceSection />
+        <HomesSection />
+        <ReservationSection />
+        <FeaturedSection />
         
 */
