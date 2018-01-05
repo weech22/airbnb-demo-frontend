@@ -13,39 +13,19 @@ export const ExploreItemBlock = styled.div`
   overflow: hidden;
 `;
 
+export const CardBlock = styled.a`
+  text-decoration: none;
+`;
+
 export const ExploreItemImg = styled.img`
   width: 96px;
   height: 72px;
-`;
-
-export const ExpItemBlock = styled.div``;
-
-export const ExpItemImg = styled.img`
-  width: 100%;
 `;
 
 export const StarImg = styled.img`
   margin-right: 4px;
   margin-top: 7px;
   margin-bottom: 0;
-`;
-
-export const HomeItemBlock = styled.div``;
-
-export const HomeItemImg = styled.img`
-  width: 100%;
-`;
-
-export const ResItemBlock = styled.div``;
-
-export const ResItemImg = styled.img`
-  width: 100%;
-`;
-
-export const FeatureItemBlock = styled.div``;
-
-export const FeatureItemImg = styled.img`
-  width: 100%;
 `;
 
 export const HeaderInput = styled.input`
@@ -84,18 +64,14 @@ export const HeaderLogo = styled.img`
 export const Nav = styled.div`
   position: relative;
   margin-top: 27px;
+
+  @media only screen and (max-width: 992px) {
+    display: none;
+  }
 `;
 
 export const SectionTitle = styled.div`
   position: relative;
 
   border: 1px solid red;
-`;
-
-export const FooterTop = styled.div`
-  border: 1px solid blue;
-`;
-
-export const FooterBottom = styled.div`
-  border: 1px solid green;
 `;

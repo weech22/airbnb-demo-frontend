@@ -5,20 +5,13 @@ import ResImg1 from "./1.png";
 import ResImg2 from "./2.png";
 import ResImg3 from "./3.png";
 import ResImg4 from "./4.png";
-import SeeAll from "../SeeAll";
 
 class ReservationSection extends Component {
   render() {
     return (
       <div className="container">
-        <div className="row between-lg">
-          <div className="col-lg-8">
-            <Title>Popular reservations around the world</Title>
-          </div>
-          <div className="col-lg-1">
-            <SeeAll />
-          </div>
-        </div>
+        <Title>Popular reservations around the world</Title>
+
         <div className="row between-lg">
           <ResItem
             ItemImg={ResImg1}

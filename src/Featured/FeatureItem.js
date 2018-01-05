@@ -1,15 +1,20 @@
 import React, { Component } from "react";
-import { FeatureItemBlock, FeatureItemImg } from "../blockStyles";
 import { City } from "../textStyles";
+import styled from "styled-components";
+import { CardBlock } from "../blockStyles";
+
+const Img = styled.img`
+  width: 100%;
+`;
 
 class FeatureItem extends Component {
   render() {
     return (
       <div className="col-lg-2">
-        <FeatureItemBlock>
-          <FeatureItemImg src={this.props.ItemImg} />
+        <CardBlock href="#">
+          <Img src={this.props.ItemImg} />
           <City>{this.props.city}</City>
-        </FeatureItemBlock>
+        </CardBlock>
       </div>
     );
   }

@@ -148,5 +148,6 @@ export const Link = styled.a`
   text-align: center;
   color: #383838;
   display: inline;
-  margin-right: 8px;
+  margin-right: 22px;
+  text-decoration: none;
 `;

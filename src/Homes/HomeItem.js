@@ -1,14 +1,19 @@
 import React, { Component } from "react";
-import { HomeItemBlock, HomeItemImg, StarImg } from "../blockStyles";
+import { CardBlock } from "../blockStyles";
 import { HomeItemName, Label, HouseInfo } from "../textStyles";
-import star from "../star.png";
+import Star from "../star";
+import styled from "styled-components";
+
+const Img = styled.img`
+  width: 100%;
+`;
 
 class HomeItem extends Component {
   render() {
     return (
       <div className="col-lg-4">
-        <HomeItemBlock>
-          <HomeItemImg src={this.props.ItemImg} />
+        <CardBlock href="#">
+          <Img src={this.props.ItemImg} />
           <div>
             <HomeItemName>{this.props.name}</HomeItemName>
           </div>
@@ -16,15 +21,14 @@ class HomeItem extends Component {
             <HouseInfo>{this.props.info} </HouseInfo>
           </div>
           <div>
-            <StarImg src={star} />
-            <StarImg src={star} />
-            <StarImg src={star} />
-            <StarImg src={star} />
-            <StarImg src={star} />
-
+            <Star />
+            <Star />
+            <Star />
+            <Star />
+            <Star />
             <Label>{this.props.hosts} · Superhost</Label>
           </div>
-        </HomeItemBlock>
+        </CardBlock>
       </div>
     );
   }

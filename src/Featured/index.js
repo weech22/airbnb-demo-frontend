@@ -7,20 +7,13 @@ import FeatImg3 from "./3.png";
 import FeatImg4 from "./4.png";
 import FeatImg5 from "./5.png";
 import FeatImg6 from "./6.png";
-import SeeAll from "../SeeAll";
 
 class FeaturedSection extends Component {
   render() {
     return (
       <div className="container">
-        <div className="row between-lg">
-          <div className="col-lg-5">
-            <Title>Featured destinations</Title>
-          </div>
-          <div className="col-lg-1">
-            <SeeAll />
-          </div>
-        </div>
+        <Title>Featured destinations</Title>
+
         <div className="row">
           <FeatureItem ItemImg={FeatImg1} city="Paris" />
           <FeatureItem ItemImg={FeatImg2} city="Miami" />
