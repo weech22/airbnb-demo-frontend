@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import styled from "styled-components";
 import SocialButton from "./SocialButton";
-import facebook from "./facebook.png";
-import instagram from "./instagram.png";
-import twitter from "./twitter.png";
+import facebook from "./facebook.svg";
+import instagram from "./instagram.svg";
+import twitter from "./twitter.svg";
 
 const SocialBlock = styled.div`
   box-sizing: border-box;

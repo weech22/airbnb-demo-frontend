@@ -6,7 +6,6 @@ const Img = styled.img`
   margin-top: 32px;
   width: 16px;
   height: 16px;
-  border: 1px solid red;
   @media only screen and (min-width: 767px) {
     width: 24px;
     height: 24px;

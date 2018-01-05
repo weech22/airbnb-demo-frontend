@@ -21,10 +21,22 @@ const Select = styled.select`
 
 const Option = styled.option`
   font-family: CircularAir, Helvetica Neue, Helvetica, Arial, sans-serif;
-  line-height: normal;
+  line-height: 21px;
   font-weight: lighter;
   font-size: 18px;
   color: #383838;
+  @media only screen and (min-width: 320px) {
+    line-height: 14px;
+    font-size: 12px;
+  }
+  @media only screen and (min-width: 768px) {
+    line-height: 18px;
+    font-size: 15px;
+  }
+  @media only screen and (min-width: 992px) {
+    line-height: 21px;
+    font-size: 18px;
+  }
 `;
 
 class Dropdown extends Component {

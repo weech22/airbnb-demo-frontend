@@ -5,34 +5,52 @@ import { CardBlock, Img } from "../blockStyles";
 const Type = styled.p`
   font-family: CircularAir, Helvetica Neue, Helvetica, Arial, sans-serif;
   font-weight: Bold;
-  line-height: normal;
-  font-size: 10px;
   text-transform: uppercase;
   color: #383838;
   margin-top: 12px;
   margin-bottom: 0;
+  @media only screen and (min-width: 320px) {
+    line-height: 9px;
+    font-size: 8px;
+  }
+  @media only screen and (min-width: 768px) {
+    line-height: 12px;
+    font-size: 10px;
+  }
 `;
 
 const Name = styled.p`
   font-family: CircularAir, Helvetica Neue, Helvetica, Arial, sans-serif;
   font-weight: Bold;
-  line-height: normal;
-  font-size: 18px;
   margin-top: 2px;
   margin-bottom: 0;
   color: #383838;
+  @media only screen and (min-width: 320px) {
+    line-height: 16px;
+    font-size: 14px;
+  }
+  @media only screen and (min-width: 768px) {
+    line-height: 21px;
+    font-size: 18px;
+  }
 `;
 
 const Price = styled.p`
   font-family: CircularAir, Helvetica Neue, Helvetica, Arial, sans-serif;
-  line-height: normal;
-  font-size: 18px;
   font-weight: lighter;
   color: #383838;
   mix-blend-mode: normal;
   margin-top: 4px;
   margin-bottom: 0;
   opacity: 0.9;
+  @media only screen and (min-width: 320px) {
+    line-height: 14px;
+    font-size: 12px;
+  }
+  @media only screen and (min-width: 768px) {
+    line-height: 21px;
+    font-size: 18px;
+  }
 `;
 
 class ResCard extends Component {

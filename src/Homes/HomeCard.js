@@ -7,26 +7,38 @@ import { Label } from "../textStyles";
 const Name = styled.p`
   font-family: CircularAir, Helvetica Neue, Helvetica, Arial, sans-serif;
   font-weight: Bold;
-  line-height: 18px;
   display: inline;
-  font-size: 15px;
   text-align: Left;
   margin-top: 0;
   margin-top: 8px;
   margin-bottom: 0;
   color: #383838;
+  @media only screen and (min-width: 320px) {
+    line-height: 15px;
+    font-size: 13px;
+  }
+  @media only screen and (min-width: 768px) {
+    line-height: 18px;
+    font-size: 15px;
+  }
 `;
 
 const Info = styled.p`
   font-family: CircularAir, Helvetica Neue, Helvetica, Arial, sans-serif;
   font-weight: lighter;
-  line-height: 18px;
-  font-size: 15px;
   text-align: Left;
   display: inline;
   margin-top: 2px;
   margin-bottom: 0;
   color: #383838;
+  @media only screen and (min-width: 320px) {
+    line-height: 14px;
+    font-size: 12px;
+  }
+  @media only screen and (min-width: 768px) {
+    line-height: 18px;
+    font-size: 15px;
+  }
 `;
 
 class HomeCard extends Component {

@@ -7,27 +7,51 @@ export const Div = styled.div`
   box-sizing: border-box;
   box-shadow: 0px 2px 4px rgba(72, 72, 72, 0.08);
   border-radius: 4px;
-  height: 72px;
   position: relative;
   overflow: hidden;
+  @media only screen and (min-width: 320px) {
+    height: 118px;
+    width: 144px;
+  }
+  @media only screen and (min-width: 768px) {
+    height: 72px;
+    width: 100%;
+  }
 `;
 
 export const Name = styled.p`
   font-family: CircularAir, Helvetica Neue, Helvetica, Arial, sans-serif;
   font-weight: Bold;
-  line-height: 20px;
-  font-size: 17px;
-  display: inline-block;
+
   color: #383838;
   position: absolute;
-  top: 50%;
-  margin-top: -0.625em;
-  margin-left: 24px;
+
+  @media only screen and (min-width: 320px) {
+    font-size: 12px;
+    line-height: 14px;
+    margin-left: 12px;
+    display: block;
+    margin-top: 12px;
+  }
+  @media only screen and (min-width: 768px) {
+    line-height: 20px;
+    font-size: 17px;
+    margin-left: 24px;
+    display: inline-block;
+    top: 50%;
+    margin-top: -0.625em;
+  }
 `;
 
 const Img = styled.img`
-  width: 96px;
-  height: 72px;
+  @media only screen and (min-width: 320px) {
+    height: 78px;
+    width: 144px;
+  }
+  @media only screen and (min-width: 768px) {
+    height: 72px;
+    width: 96px;
+  }
 `;
 
 class ExploreCard extends Component {

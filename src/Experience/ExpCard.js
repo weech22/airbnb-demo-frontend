@@ -6,27 +6,39 @@ import Star from "../star";
 
 const Name = styled.div`
   font-family: CircularAir, Helvetica Neue, Helvetica, Arial, sans-serif;
-  line-height: 18px;
-  font-size: 15px;
   text-align: Left;
   font-weight: lighter;
   color: #383838;
   display: inline;
   margin-top: 8px;
   margin-bottom: 0;
+  @media only screen and (min-width: 320px) {
+    line-height: 15px;
+    font-size: 13px;
+  }
+  @media only screen and (min-width: 768px) {
+    line-height: 18px;
+    font-size: 15px;
+  }
 `;
 
 const Price = styled.b`
   font-family: CircularAir, Helvetica Neue, Helvetica, Arial, sans-serif;
   font-weight: Bold;
-  font-size: 15px;
-  line-height: 18px;
   text-align: Left;
   color: #383838;
   padding: 0;
   margin: 0;
   margin-top: 8px;
   margin-bottom: 0;
+  @media only screen and (min-width: 320px) {
+    line-height: 15px;
+    font-size: 13px;
+  }
+  @media only screen and (min-width: 768px) {
+    line-height: 18px;
+    font-size: 15px;
+  }
 `;
 
 class ExpCard extends Component {

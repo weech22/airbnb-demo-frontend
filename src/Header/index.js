@@ -41,8 +41,9 @@ class Header extends Component {
                 <Dropdown />
               </Div>
             </div>
-
-            <SearchInput />
+            <div className="col-lg-5 col-md-7 col-sm-10 col-xs-10">
+              <SearchInput />
+            </div>
             <div className="col-lg-4 col-lg-offset-2">
               <Nav>
                 <Link href="#">Become a host</Link>

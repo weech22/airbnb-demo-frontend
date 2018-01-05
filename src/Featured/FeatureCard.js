@@ -5,11 +5,17 @@ import { CardBlock, Img } from "../blockStyles";
 const City = styled.p`
   font-family: CircularAir, Helvetica Neue, Helvetica, Arial, sans-serif;
   font-weight: Bold;
-  line-height: normal;
-  font-size: 15px;
   margin-top: 8px;
   margin-bottom: 0;
   color: #383838;
+  @media only screen and (min-width: 320px) {
+    line-height: 14px;
+    font-size: 12px;
+  }
+  @media only screen and (min-width: 768px) {
+    line-height: 18px;
+    font-size: 15px;
+  }
 `;
 
 class FeatureCard extends Component {

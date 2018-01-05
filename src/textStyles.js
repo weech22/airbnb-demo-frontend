@@ -2,19 +2,27 @@ import styled from "styled-components";
 
 export const Title = styled.h3`
   font-family: CircularAir, Helvetica Neue, Helvetica, Arial, sans-serif;
-  line-height: 34px;
-  font-size: 32px;
   font-weight: bold;
-  margin-top: 48px;
-  margin-bottom: 24px;
   color: #383838;
   display: inline-block;
+  @media only screen and (min-width: 320px) {
+    line-height: 28px;
+    font-size: 24px;
+    margin-bottom: 16px;
+    margin-top: 40px;
+  }
+  @media only screen and (min-width: 768px) {
+    line-height: 34px;
+    font-size: 32px;
+    margin-top: 48px;
+    margin-bottom: 24px;
+  }
 `;
 
 export const Label = styled.p`
   font-family: CircularAir, Helvetica Neue, Helvetica, Arial, sans-serif;
   font-weight: normal;
-  line-height: normal;
+  line-height: 14px;
   font-size: 12px;
   text-align: Left;
   display: inline;

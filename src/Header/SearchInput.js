@@ -3,14 +3,12 @@ import styled from "styled-components";
 import search from "./search.svg";
 
 const Input = styled.input`
-  position: absolute;
   width: 392px;
   height: 48px;
   font-family: CircularAir, Helvetica Neue, Helvetica, Arial, sans-serif;
-  line-height: 24px;
-  font-size: 16px;
   color: #383838;
   mix-blend-mode: normal;
+  line-height: 24px;
   opacity: 0.64;
   background: #ffffff;
   border: 1px solid rgba(72, 72, 72, 0.2);
@@ -22,15 +20,24 @@ const Input = styled.input`
   background-position: 16.2px center;
   padding-left: 53px;
   margin-top: 16px;
+  max-width: 83.3333%;
+  @media only screen and (min-width: 320px) {
+    margin-top: 16px;
+    margin-bottom: 16px;
+    margin-left: 8px;
+    font-size: 14px;
+  }
+  @media only screen and (min-width: 768px) {
+    margin-top: 16px;
+    margin-bottom: 16px;
+    margin-left: 8px;
+    font-size: 16px;
+  }
 `;
 
 class SearchInput extends Component {
   render() {
-    return (
-      <div className="col-lg-5 col-md-7 col-sm-10 col-xs-10">
-        <Input type="text" placeholder="Try &quot;Miami&quot;" />
-      </div>
-    );
+    return <Input type="text" placeholder="Try &quot;Miami&quot;" />;
   }
 }
 
