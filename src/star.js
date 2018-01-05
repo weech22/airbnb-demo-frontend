@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import star from "./star.svg";
 import styled from "styled-components";
+import star from "./star.svg";
 
 const StarImg = styled.img`
   margin-right: 4px;

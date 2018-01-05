@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Dropdown from "./Dropdown";
+import Dropdown from "./DropdownNative";
 import styled from "styled-components";
 
 const FooterCol = styled.div`

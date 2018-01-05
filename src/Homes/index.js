@@ -1,30 +1,30 @@
 import React, { Component } from "react";
-import HomeItem from "./HomeItem";
+import HomeCard from "./HomeCard";
 import SectionTitle from "../SectionTitle";
-import HomesImg1 from "./1.png";
-import HomesImg2 from "./2.png";
-import HomesImg3 from "./3.png";
+import img1 from "./1.png";
+import img2 from "./2.png";
+import img3 from "./3.png";
 
-class HomesSection extends Component {
+class Homes extends Component {
   render() {
     return (
       <div className="container">
         <SectionTitle name="Homes" />
         <div className="row">
-          <HomeItem
-            ItemImg={HomesImg1}
+          <HomeCard
+            img={img1}
             info="Entire house  ·  9 beds"
             name="$82	La Salentina, see, nature & relax"
             hosts="97"
           />
-          <HomeItem
-            ItemImg={HomesImg2}
+          <HomeCard
+            img={img2}
             info="Entire house  ·  5 beds"
             name="$82 Your private 3 bedr. riad and exclusi…"
             hosts="161"
           />
-          <HomeItem
-            ItemImg={HomesImg3}
+          <HomeCard
+            img={img3}
             info="Entire treehouse  ·  1 bed"
             name="$200 Dreamy Tropical Tree House"
             hosts="364"
@@ -35,4 +35,4 @@ class HomesSection extends Component {
   }
 }
 
-export default HomesSection;
+export default Homes;

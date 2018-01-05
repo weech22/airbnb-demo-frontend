@@ -1,24 +1,43 @@
 import React, { Component } from "react";
-import SearchInput from "./SearchInput";
-import { HeaderBlock, HeaderLogo, Nav } from "../blockStyles";
-import { Link } from "../textStyles";
-import logo from "./logo.png";
-import Dropdown from "./Dropdown";
 import styled from "styled-components";
+import SearchInput from "./SearchInput";
+import Dropdown from "./Dropdown";
+import { Link } from "../textStyles";
+import logo from "./logo.svg";
 
 const Div = styled.div`
   position: absolute;
+`;
+
+export const Block = styled.header`
+  height: 80px;
+  background: #ffffff;
+  box-shadow: 0px 0.5px 0px rgba(72, 72, 72, 0.3);
+`;
+
+export const Logo = styled.img`
+  margin-top: 24px;
+  margin-bottom: 24px;
+`;
+
+const Nav = styled.nav`
+  position: relative;
+  margin-top: 27px;
+
+  @media only screen and (max-width: 992px) {
+    display: none;
+  }
 `;
 
 class Header extends Component {
   render() {
     return (
       <div className="container">
-        <HeaderBlock>
+        <Block>
           <div className="row">
             <div className="col-lg-1 col-md-1 col-sm-2 col-xs-2">
               <Div>
-                <HeaderLogo src={logo} />
+                <Logo src={logo} />
                 <Dropdown />
               </Div>
             </div>
@@ -33,7 +52,7 @@ class Header extends Component {
               </Nav>
             </div>
           </div>
-        </HeaderBlock>
+        </Block>
       </div>
     );
   }
