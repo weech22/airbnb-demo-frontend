@@ -15,6 +15,7 @@ export const ExploreItemBlock = styled.div`
 
 export const CardBlock = styled.a`
   text-decoration: none;
+  overflow: hidden;
 `;
 
 export const ExploreItemImg = styled.img`

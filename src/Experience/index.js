@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import ExpItem from "./ExpItem";
-import { Title } from "../textStyles";
+import SectionTitle from "../SectionTitle";
 import ExperienceImg1 from "./1.png";
 import ExperienceImg2 from "./2.png";
 import ExperienceImg3 from "./3.png";
@@ -10,9 +10,7 @@ class ExperienceSection extends Component {
   render() {
     return (
       <div className="container">
-        <div className="row between-lg">
-          <Title>Experiences</Title>
-        </div>
+        <SectionTitle name="Experiences" />
         <div className="row">
           <ExpItem
             ItemImg={ExperienceImg1}

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import FeatureItem from "./FeatureItem";
-import { Title } from "../textStyles";
+import SectionTitle from "../SectionTitle";
 import FeatImg1 from "./1.png";
 import FeatImg2 from "./2.png";
 import FeatImg3 from "./3.png";
@@ -12,8 +12,7 @@ class FeaturedSection extends Component {
   render() {
     return (
       <div className="container">
-        <Title>Featured destinations</Title>
-
+        <SectionTitle name="Featured destinations" />
         <div className="row">
           <FeatureItem ItemImg={FeatImg1} city="Paris" />
           <FeatureItem ItemImg={FeatImg2} city="Miami" />

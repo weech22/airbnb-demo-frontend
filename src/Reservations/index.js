@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import ResItem from "./ResItem";
-import { Title } from "../textStyles";
+import SectionTitle from "../SectionTitle";
 import ResImg1 from "./1.png";
 import ResImg2 from "./2.png";
 import ResImg3 from "./3.png";
@@ -10,8 +10,7 @@ class ReservationSection extends Component {
   render() {
     return (
       <div className="container">
-        <Title>Popular reservations around the world</Title>
-
+        <SectionTitle name="Popular reservations around the world" />
         <div className="row between-lg">
           <ResItem
             ItemImg={ResImg1}

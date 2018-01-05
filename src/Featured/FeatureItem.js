@@ -10,7 +10,7 @@ const Img = styled.img`
 class FeatureItem extends Component {
   render() {
     return (
-      <div className="col-lg-2">
+      <div className="col-lg-2 col-md-3 col-sm-4 col-xs-4">
         <CardBlock href="#">
           <Img src={this.props.ItemImg} />
           <City>{this.props.city}</City>

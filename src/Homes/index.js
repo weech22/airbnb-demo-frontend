@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import HomeItem from "./HomeItem";
-import { Title } from "../textStyles";
+import SectionTitle from "../SectionTitle";
 import HomesImg1 from "./1.png";
 import HomesImg2 from "./2.png";
 import HomesImg3 from "./3.png";
@@ -9,8 +9,7 @@ class HomesSection extends Component {
   render() {
     return (
       <div className="container">
-        <Title>Homes</Title>
-
+        <SectionTitle name="Homes" />
         <div className="row">
           <HomeItem
             ItemImg={HomesImg1}

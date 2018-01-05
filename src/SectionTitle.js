@@ -1,14 +1,14 @@
 import React, { Component } from "react";
 import styled from "styled-components";
+import SeeAll from "./SeeAll";
+import { Title } from "./textStyles";
 
 class SectionTitle extends Component {
   render() {
     return (
-      <div className="row between-lg">
-        <div className="col-lg-2">
-          <Title>Homes</Title>
-        </div>
-        <div className="col-lg-1">
+      <div className="row">
+        <div className="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+          <Title>{this.props.name}</Title>
           <SeeAll />
         </div>
       </div>

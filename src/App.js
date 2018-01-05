@@ -26,13 +26,3 @@ class App extends Component {
 }
 
 export default App;
-
-/*
-        <Header />
-        <ExploreSection />
-        <ExperienceSection />
-        <HomesSection />
-        <ReservationSection />
-        <FeaturedSection />
-        
-*/
