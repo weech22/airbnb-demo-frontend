@@ -1,27 +1,27 @@
 import React, { Component } from "react";
+import styled from "styled-components";
+import SocialButton from "./SocialButton";
 import facebook from "./facebook.png";
 import instagram from "./instagram.png";
 import twitter from "./twitter.png";
-import styled from "styled-components";
 
 const SocialBlock = styled.div`
+  box-sizing: border-box;
   margin-top: 32px;
   text-align: right;
-`;
-
-const Img = styled.img`
-  margin-right: 16px;
+  border: 1px solid green;
+  display: inline-block;
 `;
 
 class Social extends Component {
   render() {
     return (
-      <div className="col-lg-2">
-        <SocialBlock>
-          <Img src={facebook} />
-          <Img src={twitter} />
-          <Img src={instagram} />
-        </SocialBlock>
+      <div className="col-lg-2 col-md-2 col-sm-3 col-xs-3">
+        <div className="row lg-between md-between sm-between xs-between">
+          <SocialButton img={facebook} />
+          <SocialButton img={twitter} />
+          <SocialButton img={instagram} />
+        </div>
       </div>
     );
   }

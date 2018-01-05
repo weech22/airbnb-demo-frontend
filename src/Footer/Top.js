@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Dropdown from "./DropdownNative";
+import Dropdown from "./Dropdown";
 import styled from "styled-components";
 
 const FooterCol = styled.div`
@@ -33,7 +33,12 @@ class Top extends Component {
   render() {
     return (
       <div className="row between-lg">
-        <Dropdown />
+        <div className="col-lg-3">
+          <FooterCol>
+            <Dropdown name="English" />
+            <Dropdown name="United States dollar" />
+          </FooterCol>
+        </div>
         <div className="col-lg-2">
           <FooterCol>
             <FooterTitle>Airbnb</FooterTitle>

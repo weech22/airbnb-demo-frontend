@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import SectionTitle from "../SectionTitle";
+import { SliderBlock, Slider } from "../blockStyles";
 import ExpCard from "./ExpCard";
 import img1 from "./1.png";
 import img2 from "./2.png";
@@ -11,17 +12,19 @@ class Experience extends Component {
     return (
       <div className="container">
         <SectionTitle name="Experiences" />
-        <div className="row">
-          <ExpCard img={img1} price="29" name="Forest therapy" reviews="44" />
-          <ExpCard img={img2} price="69" name="Whale watching" reviews="46" />
-          <ExpCard
-            img={img3}
-            price="69"
-            name="Table Mountain Summit, Cable Car Down"
-            reviews="44"
-          />
-          <ExpCard img={img4} price="50" name="Salsa Night" reviews="44" />
-        </div>
+        <SliderBlock>
+          <Slider>
+            <ExpCard img={img1} price="29" name="Forest therapy" reviews="44" />
+            <ExpCard img={img2} price="69" name="Whale watching" reviews="46" />
+            <ExpCard
+              img={img3}
+              price="69"
+              name="Table Mountain Summit, Cable Car Down"
+              reviews="44"
+            />
+            <ExpCard img={img4} price="50" name="Salsa Night" reviews="44" />
+          </Slider>
+        </SliderBlock>
       </div>
     );
   }

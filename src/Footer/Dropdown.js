@@ -1,26 +1,38 @@
 import React, { Component } from "react";
-import language from "./language.png";
-import money from "./money.png";
 import styled from "styled-components";
 
-const DropdownImg = styled.img`
-  margin-bottom: 16px;
+const Select = styled.select`
+  background: #ffffff;
+  border: 1px solid rgba(72, 72, 72, 0.2);
+  box-sizing: border-box;
+  border-radius: 4px;
+  height: 40px;
   width: 100%;
+  max-width: 229px;
+  @media only screen and (min-width: 767px) {
+    height: 48px;
+  }
+
+  padding-left: 16px;
+  padding-top: 12px;
+  padding-bottom: 13px;
+  margin-bottom: 16px;
 `;
 
-const FooterCol = styled.div`
-  margin-top: 48px;
+const Option = styled.option`
+  font-family: CircularAir, Helvetica Neue, Helvetica, Arial, sans-serif;
+  line-height: normal;
+  font-weight: lighter;
+  font-size: 18px;
+  color: #383838;
 `;
 
 class Dropdown extends Component {
   render() {
     return (
-      <div className="col-lg-3">
-        <FooterCol>
-          <DropdownImg src={language} />
-          <DropdownImg src={money} />
-        </FooterCol>
-      </div>
+      <Select>
+        <option>{this.props.name}</option>
+      </Select>
     );
   }
 }
