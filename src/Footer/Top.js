@@ -33,13 +33,13 @@ class Top extends Component {
   render() {
     return (
       <div className="row between-lg">
-        <div className="col-lg-3">
+        <div className="col-lg-3 col-md-3 col-sm-6 col-xs-6">
           <FooterCol>
             <Dropdown name="English" />
             <Dropdown name="United States dollar" />
           </FooterCol>
         </div>
-        <div className="col-lg-2">
+        <div className="col-lg-2 col-sm-2">
           <FooterCol>
             <FooterTitle>Airbnb</FooterTitle>
             <FooterItem href="#">About us</FooterItem>
@@ -50,7 +50,7 @@ class Top extends Component {
             <FooterItem href="#">Diversity & Belonging</FooterItem>
           </FooterCol>
         </div>
-        <div className="col-lg-2">
+        <div className="col-lg-2 col-sm-2">
           <FooterCol>
             <FooterTitle>Discover</FooterTitle>
             <FooterItem href="#">Trust & Safety</FooterItem>
@@ -62,7 +62,7 @@ class Top extends Component {
             <FooterItem href="#">Airbnbmag</FooterItem>
           </FooterCol>
         </div>
-        <div className="col-lg-2">
+        <div className="col-lg-2 col-sm-2">
           <FooterCol>
             <FooterTitle>Hosting</FooterTitle>
             <FooterItem href="#">Why Host</FooterItem>
