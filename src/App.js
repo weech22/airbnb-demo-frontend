@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "normalize.css";
 import "flexboxgrid2/flexboxgrid2.css";
+import "./Fonts/font.css";
 import Explore from "./Explore";
 import Experience from "./Experience";
 import Homes from "./Homes";
