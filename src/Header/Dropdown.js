@@ -4,7 +4,7 @@ import styled from "styled-components";
 
 const Img = styled.img`
   position: absolute;
-  left: 37px;
+  left: 43px;
   top: 38px;
   @media only screen and (min-width: 992px) {
     display: none;

@@ -5,8 +5,6 @@ import styled from "styled-components";
 const FooterCol = styled.div`
   @media only screen and (min-width: 320px) {
     display: none;
-    margin-top: 0px;
-    margin-bottom: 0px;
   }
   @media only screen and (min-width: 768px) {
     display: block;
@@ -52,11 +50,10 @@ const FooterLink = styled.a`
   }
 `;
 
-export const FooterTitle = styled.p`
+export const FooterTitle = styled.h5`
   font-family: CircularAir, Helvetica Neue, Helvetica, Arial, sans-serif;
   font-weight: bold;
   color: #383838;
-  margin-top: 0;
   display: block;
   @media only screen and (min-width: 768px) {
     line-height: 14px;
@@ -73,14 +70,14 @@ export const FooterTitle = styled.p`
 class Top extends Component {
   render() {
     return (
-      <div className="row between-lg between-md">
-        <div className="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+      <div className="row between-md">
+        <div className="col-md-3 col-xs-12">
           <DropdownCol>
             <Dropdown option1="English" option2="Russian" />
             <Dropdown option1="United States dollar" option2="Rubles" />
           </DropdownCol>
         </div>
-        <div className="col-lg-2 col-md-2">
+        <div className="col-md-2">
           <FooterCol>
             <FooterTitle>Airbnb</FooterTitle>
             <FooterLink href="#">About us</FooterLink>
@@ -91,7 +88,7 @@ class Top extends Component {
             <FooterLink href="#">Diversity & Belonging</FooterLink>
           </FooterCol>
         </div>
-        <div className="col-lg-2 col-md-2">
+        <div className="col-md-2">
           <FooterCol>
             <FooterTitle>Discover</FooterTitle>
             <FooterLink href="#">Trust & Safety</FooterLink>
@@ -103,7 +100,7 @@ class Top extends Component {
             <FooterLink href="#">Airbnbmag</FooterLink>
           </FooterCol>
         </div>
-        <div className="col-lg-2 col-md-2">
+        <div className="col-md-2">
           <FooterCol>
             <FooterTitle>Hosting</FooterTitle>
             <FooterLink href="#">Why Host</FooterLink>

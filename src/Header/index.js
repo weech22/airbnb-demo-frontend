@@ -9,13 +9,13 @@ const Div = styled.div`
   position: absolute;
 `;
 
-export const Block = styled.header`
+const Block = styled.header`
   height: 80px;
   background: #ffffff;
   box-shadow: 0px 0.5px 0px rgba(72, 72, 72, 0.3);
 `;
 
-export const Logo = styled.img`
+const Logo = styled.img`
   margin-top: 24px;
   margin-bottom: 24px;
 `;
@@ -35,7 +35,7 @@ class Header extends Component {
       <div className="container">
         <Block>
           <div className="row">
-            <div className="col-lg-1 col-md-1 col-xs-2">
+            <div className="col-md-1 col-xs-2">
               <Div>
                 <Logo src={logo} />
                 <Dropdown />

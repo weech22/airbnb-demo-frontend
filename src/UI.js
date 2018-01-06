@@ -8,7 +8,7 @@ export const CardBlock = styled.a`
 export const Img = styled.img`
   width: 100%;
 `;
-
+//overflow: hidden - временное решение; когда будем делать настоящий слайдер, сделаю скролл.
 export const SliderBlock = styled.div`
   width: 100%;
   overflow: hidden;

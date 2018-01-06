@@ -24,13 +24,10 @@ const Input = styled.input`
   @media only screen and (min-width: 320px) {
     margin-top: 16px;
     margin-bottom: 16px;
-    margin-left: 8px;
+
     font-size: 14px;
   }
   @media only screen and (min-width: 768px) {
-    margin-top: 16px;
-    margin-bottom: 16px;
-    margin-left: 8px;
     font-size: 16px;
   }
 `;
