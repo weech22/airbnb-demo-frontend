@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import styled from "styled-components";
 import arrow from "./arrowRight.svg";
 
-const A = styled.a`
+const Link = styled.a`
   font-family: CircularAir, Helvetica Neue, Helvetica, Arial, sans-serif;
   font-weight: normal;
   line-height: 24px;
@@ -17,17 +17,22 @@ const A = styled.a`
   }
 `;
 
-const Div = styled.div`
+const SeeAllBlock = styled.div`
   float: right;
-  margin-top: 47px;
+  @media only screen and (min-width: 320px) {
+    margin-top: 3px;
+  }
+  @media only screen and (min-width: 768px) {
+    margin-top: 6px;
+  }
 `;
 
 class SeeAll extends Component {
   render() {
     return (
-      <Div>
-        <A href="#">See all</A> <img src={arrow} />
-      </Div>
+      <SeeAllBlock>
+        <Link href="#">See all</Link> <img src={arrow} />
+      </SeeAllBlock>
     );
   }
 }

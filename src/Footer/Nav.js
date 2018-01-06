@@ -5,29 +5,30 @@ const Link = styled.a`
   font-family: CircularAir, Helvetica Neue, Helvetica, Arial, sans-serif;
   color: #636363;
   text-decoration: none;
+  float: left;
   @media only screen and (min-width: 360px) {
     line-height: 14px;
     font-size: 12px;
-    margin-left: 12px;
+    margin-right: 12px;
   }
   @media only screen and (min-width: 767px) {
     line-height: 18px;
     font-size: 15px;
+    margin-right: 16px;
   }
 `;
 
 const FooterNav = styled.div`
-  @media only screen and (min-width: 320px) {
-    left: -12px;
-    top: 0;
-    margin-right: 0;
-  }
+  display: inline-block;
+  float: left;
   @media only screen and (min-width: 768px) {
-    margin-top: 0px;
+    margin-right: 12px;
+    margin-top: 4px;
   }
   @media only screen and (min-width: 992px) {
+    margin-top: 11px;
+    margin-top: 2px;
   }
-  position: absolute;
 `;
 
 class Nav extends Component {

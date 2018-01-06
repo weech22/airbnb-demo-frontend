@@ -20,7 +20,7 @@ const Select = styled.select`
     padding-left: 8px;
     padding-top: 12px;
     padding-bottom: 12px;
-    background-position: 94.44444444% center;
+    background-position: 94.4444% center;
     margin-left: 8px;
     margin-right: 10px;
   }
@@ -33,7 +33,7 @@ const Select = styled.select`
     padding-bottom: 15px;
     margin-bottom: 16px;
 
-    background-position: 93.18181818% center;
+    background-position: 93.1818% center;
     line-height: 18px;
     font-size: 15px;
   }
@@ -49,7 +49,8 @@ class Dropdown extends Component {
   render() {
     return (
       <Select>
-        <option>{this.props.name}</option>
+        <option>{this.props.option1}</option>
+        <option>{this.props.option2}</option>
       </Select>
     );
   }

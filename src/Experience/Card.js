@@ -1,15 +1,15 @@
 import React, { Component } from "react";
-import { CardBlock, Img } from "../blockStyles";
-import { Label } from "../textStyles";
+import { CardBlock, Img, Label } from "../UI";
 import styled from "styled-components";
-import Star from "../star";
+import Star from "../Star";
 
-const Name = styled.div`
+// С большой буквы здесь и далее потому что не с большой буквы не работает.
+// То ли название в таком случае совпадает со свойством, то ли хз.
+const Name = styled.span`
   font-family: CircularAir, Helvetica Neue, Helvetica, Arial, sans-serif;
   text-align: Left;
   font-weight: lighter;
   color: #383838;
-  display: inline;
   margin-top: 8px;
   margin-bottom: 0;
   @media only screen and (min-width: 320px) {
@@ -30,7 +30,6 @@ const Price = styled.b`
   padding: 0;
   margin: 0;
   margin-top: 8px;
-  margin-bottom: 0;
   @media only screen and (min-width: 320px) {
     line-height: 15px;
     font-size: 13px;
@@ -41,28 +40,26 @@ const Price = styled.b`
   }
 `;
 
-class ExpCard extends Component {
+class Card extends Component {
   render() {
     return (
-      <div className="col-lg-3 col-md-4 col-sm-6 col-xs-6">
-        <CardBlock href="#">
-          <Img src={this.props.img} />
-          <div>
-            <Price>${this.props.price} </Price>
-            <Name>{this.props.name}</Name>
-          </div>
-          <div>
-            <Star />
-            <Star />
-            <Star />
-            <Star />
-            <Star />
-            <Label>{this.props.reviews} reviews</Label>
-          </div>
-        </CardBlock>
-      </div>
+      <CardBlock href="#">
+        <Img src={this.props.img} />
+        <div>
+          <Price>${this.props.price} </Price>
+          <Name>{this.props.name}</Name>
+        </div>
+        <div>
+          <Star />
+          <Star />
+          <Star />
+          <Star />
+          <Star />
+          <Label>{this.props.reviews} reviews</Label>
+        </div>
+      </CardBlock>
     );
   }
 }
 
-export default ExpCard;
+export default Card;

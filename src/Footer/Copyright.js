@@ -2,57 +2,53 @@ import React, { Component } from "react";
 import styled from "styled-components";
 import logo from "./logo.svg";
 
-const CR = styled.span`
+const CopyrightTag = styled.span`
   font-family: CircularAir, Helvetica Neue, Helvetica, Arial, sans-serif;
   color: #636363;
-
-  position: absolute;
+  float: right;
+  display: inline-block;
   @media only screen and (min-width: 320px) {
     line-height: 14px;
     font-size: 12px;
-    top: 2px;
-    left: 26px;
-  }
-  @media only screen and (min-width: 768px) {
-    top: 6px;
-    left: 33px;
+    margin-top: 4px;
   }
   @media only screen and (min-width: 992px) {
     line-height: 18px;
     font-size: 15px;
-    top: 4px;
+    margin-top: 2px;
   }
 `;
 
 const Logo = styled.img`
-  position: absolute;
-  left: 0;
-  top: 0;
+  @media only screen and (min-width: 320px) {
+    margin-right: 8px;
+  }
+  @media only screen and (min-width: 768px) {
+    margin-right: 12px;
+  }
 `;
 
-const Div = styled.div`
-  position: relative;
+const CopyrightBlock = styled.div`
+  display: inline-block;
   @media only screen and (min-width: 320px) {
-    margin-bottom: 11px;
     margin-top: 16px;
   }
   @media only screen and (min-width: 768px) {
+    margin-top: 32px;
     margin-bottom: 44px;
-    margin-top: 30px;
   }
   @media only screen and (min-width: 992px) {
     margin-bottom: 34px;
-    margin-top: 35px;
   }
 `;
 
 class Copyright extends Component {
   render() {
     return (
-      <Div>
+      <CopyrightBlock>
         <Logo src={logo} />
-        <CR>© Airbnb Inc.</CR>
-      </Div>
+        <CopyrightTag>© Airbnb Inc.</CopyrightTag>
+      </CopyrightBlock>
     );
   }
 }

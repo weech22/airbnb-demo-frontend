@@ -1,8 +1,7 @@
 import React, { Component } from "react";
 import styled from "styled-components";
-import Star from "../star";
-import { CardBlock, Img } from "../blockStyles";
-import { Label } from "../textStyles";
+import Star from "../Star";
+import { CardBlock, Img, Label } from "../UI";
 
 const Name = styled.p`
   font-family: CircularAir, Helvetica Neue, Helvetica, Arial, sans-serif;
@@ -41,30 +40,28 @@ const Info = styled.p`
   }
 `;
 
-class HomeCard extends Component {
+class Card extends Component {
   render() {
     return (
-      <div className="col-lg-4 col-md-5 col-sm-6 col-xs-6">
-        <CardBlock href="#">
-          <Img src={this.props.img} />
-          <div>
-            <Name>{this.props.name}</Name>
-          </div>
-          <div>
-            <Info>{this.props.info} </Info>
-          </div>
-          <div>
-            <Star />
-            <Star />
-            <Star />
-            <Star />
-            <Star />
-            <Label>{this.props.hosts} · Superhost</Label>
-          </div>
-        </CardBlock>
-      </div>
+      <CardBlock href="#">
+        <Img src={this.props.img} />
+        <div>
+          <Name>{this.props.name}</Name>
+        </div>
+        <div>
+          <Info>{this.props.info} </Info>
+        </div>
+        <div>
+          <Star />
+          <Star />
+          <Star />
+          <Star />
+          <Star />
+          <Label>{this.props.hosts} · Superhost</Label>
+        </div>
+      </CardBlock>
     );
   }
 }
 
-export default HomeCard;
+export default Card;

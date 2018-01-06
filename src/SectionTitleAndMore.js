@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import styled from "styled-components";
+import SeeAll from "./SeeAll";
 import { Title } from "./UI";
 
 const Wrap = styled.div`
@@ -18,6 +19,7 @@ class SectionTitle extends Component {
     return (
       <Wrap>
         <Title>{this.props.name}</Title>
+        <SeeAll />
       </Wrap>
     );
   }

@@ -5,16 +5,16 @@ const Img = styled.img`
   @media only screen and (min-width: 360px) {
     width: 16px;
     height: 16px;
-    margin-left: 8px;
+    margin-right: 8px;
   }
   @media only screen and (min-width: 767px) {
     width: 24px;
     height: 24px;
-    margin-left: 12px;
+    margin-right: 12px;
   }
 `;
 
-class SocialButton extends Component {
+class SocialLink extends Component {
   render() {
     return (
       <a href="#">
@@ -24,4 +24,4 @@ class SocialButton extends Component {
   }
 }
 
-export default SocialButton;
+export default SocialLink;

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import styled from "styled-components";
-import { CardBlock, Img } from "../blockStyles";
+import { CardBlock, Img } from "../UI";
 
 const City = styled.p`
   font-family: CircularAir, Helvetica Neue, Helvetica, Arial, sans-serif;
@@ -21,12 +21,10 @@ const City = styled.p`
 class FeatureCard extends Component {
   render() {
     return (
-      <div className="col-lg-2 col-md-3 col-sm-4 col-xs-4">
-        <CardBlock href="#">
-          <Img src={this.props.img} />
-          <City>{this.props.city}</City>
-        </CardBlock>
-      </div>
+      <CardBlock href="#">
+        <Img src={this.props.img} />
+        <City>{this.props.city}</City>
+      </CardBlock>
     );
   }
 }

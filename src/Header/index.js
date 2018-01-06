@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import styled from "styled-components";
 import SearchInput from "./SearchInput";
 import Dropdown from "./Dropdown";
-import { Link } from "../textStyles";
+import { Link } from "../UI";
 import logo from "./logo.svg";
 
 const Div = styled.div`
@@ -35,13 +35,13 @@ class Header extends Component {
       <div className="container">
         <Block>
           <div className="row">
-            <div className="col-lg-1 col-md-1 col-sm-2 col-xs-2">
+            <div className="col-lg-1 col-md-1 col-xs-2">
               <Div>
                 <Logo src={logo} />
                 <Dropdown />
               </Div>
             </div>
-            <div className="col-lg-5 col-md-7 col-sm-10 col-xs-10">
+            <div className="col-lg-5 col-md-7 col-xs-10">
               <SearchInput />
             </div>
             <div className="col-lg-4 col-lg-offset-2">

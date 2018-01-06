@@ -76,8 +76,8 @@ class Top extends Component {
       <div className="row between-lg between-md">
         <div className="col-lg-3 col-md-3 col-sm-12 col-xs-12">
           <DropdownCol>
-            <Dropdown name="English" />
-            <Dropdown name="United States dollar" />
+            <Dropdown option1="English" option2="Russian" />
+            <Dropdown option1="United States dollar" option2="Rubles" />
           </DropdownCol>
         </div>
         <div className="col-lg-2 col-md-2">

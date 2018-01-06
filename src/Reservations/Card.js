@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import styled from "styled-components";
-import { CardBlock, Img } from "../blockStyles";
+import { CardBlock, Img } from "../UI";
 
 const Type = styled.p`
   font-family: CircularAir, Helvetica Neue, Helvetica, Arial, sans-serif;
@@ -39,7 +39,6 @@ const Price = styled.p`
   font-family: CircularAir, Helvetica Neue, Helvetica, Arial, sans-serif;
   font-weight: lighter;
   color: #383838;
-  mix-blend-mode: normal;
   margin-top: 4px;
   margin-bottom: 0;
   opacity: 0.9;
@@ -53,25 +52,23 @@ const Price = styled.p`
   }
 `;
 
-class ResCard extends Component {
+class Card extends Component {
   render() {
     return (
-      <div className="col-lg-3 col-md-4 col-sm-6 col-xs-6">
-        <CardBlock href="#">
-          <Img src={this.props.img} />
-          <div>
-            <Type>{this.props.type}</Type>
-          </div>
-          <div>
-            <Name>{this.props.name} </Name>
-          </div>
-          <div>
-            <Price>About ${this.props.price} per person</Price>
-          </div>
-        </CardBlock>
-      </div>
+      <CardBlock href="#">
+        <Img src={this.props.img} />
+        <div>
+          <Type>{this.props.type}</Type>
+        </div>
+        <div>
+          <Name>{this.props.name} </Name>
+        </div>
+        <div>
+          <Price>About ${this.props.price} per person</Price>
+        </div>
+      </CardBlock>
     );
   }
 }
 
-export default ResCard;
+export default Card;
