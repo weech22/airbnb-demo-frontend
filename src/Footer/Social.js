@@ -5,24 +5,28 @@ import facebook from "./facebook.svg";
 import instagram from "./instagram.svg";
 import twitter from "./twitter.svg";
 
-const SocialBlock = styled.div`
+const Block = styled.div`
   box-sizing: border-box;
-  margin-top: 32px;
-  text-align: right;
-  border: 1px solid green;
-  display: inline-block;
+  top: 0;
+  left: 149px;
+  position: absolute;
+  @media only screen and (min-width: 360px) {
+    margin-left: 0;
+  }
+  @media only screen and (min-width: 767px) {
+    margin-left: 24px;
+    margin-top: 0px;
+  }
 `;
 
 class Social extends Component {
   render() {
     return (
-      <div className="col-lg-2 col-md-2 col-sm-3 col-xs-3">
-        <div className="row lg-between md-between sm-between xs-between">
-          <SocialButton img={facebook} />
-          <SocialButton img={twitter} />
-          <SocialButton img={instagram} />
-        </div>
-      </div>
+      <Block>
+        <SocialButton img={facebook} />
+        <SocialButton img={twitter} />
+        <SocialButton img={instagram} />
+      </Block>
     );
   }
 }

@@ -3,30 +3,41 @@ import styled from "styled-components";
 
 const Link = styled.a`
   font-family: CircularAir, Helvetica Neue, Helvetica, Arial, sans-serif;
-  line-height: 18px;
-  font-size: 15px;
   color: #636363;
-  margin-right: 16px;
-  margin-top: 34px;
   text-decoration: none;
+  @media only screen and (min-width: 360px) {
+    line-height: 14px;
+    font-size: 12px;
+    margin-left: 12px;
+  }
+  @media only screen and (min-width: 767px) {
+    line-height: 18px;
+    font-size: 15px;
+  }
 `;
 
 const FooterNav = styled.div`
-  margin-top: 34px;
-  text-align: right;
-  border: 1px solid red;
+  @media only screen and (min-width: 320px) {
+    left: -12px;
+    top: 0;
+    margin-right: 0;
+  }
+  @media only screen and (min-width: 768px) {
+    margin-top: 0px;
+  }
+  @media only screen and (min-width: 992px) {
+  }
+  position: absolute;
 `;
 
 class Nav extends Component {
   render() {
     return (
-      <div className="col-lg-3 col-md-3 col-sm-6 col-xs-6 col-lg-offset-5 col-md-offset-5">
-        <div className="row lg-between md-between sm-between xs-between">
-          <Link href="#">Terms</Link>
-          <Link href="#">Privacy</Link>
-          <Link href="#">Site map</Link>
-        </div>
-      </div>
+      <FooterNav>
+        <Link href="#">Terms</Link>
+        <Link href="#">Privacy</Link>
+        <Link href="#">Site map</Link>
+      </FooterNav>
     );
   }
 }

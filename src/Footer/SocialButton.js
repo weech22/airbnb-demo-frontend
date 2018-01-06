@@ -2,14 +2,15 @@ import React, { Component } from "react";
 import styled from "styled-components";
 
 const Img = styled.img`
-  margin-left: 12px;
-  margin-top: 32px;
-  width: 16px;
-  height: 16px;
+  @media only screen and (min-width: 360px) {
+    width: 16px;
+    height: 16px;
+    margin-left: 8px;
+  }
   @media only screen and (min-width: 767px) {
     width: 24px;
     height: 24px;
-    margin-left: 8px;
+    margin-left: 12px;
   }
 `;
 
