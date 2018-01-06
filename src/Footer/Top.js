@@ -3,72 +3,113 @@ import Dropdown from "./Dropdown";
 import styled from "styled-components";
 
 const FooterCol = styled.div`
-  margin-top: 48px;
+  @media only screen and (min-width: 320px) {
+    display: none;
+    margin-top: 0px;
+    margin-bottom: 0px;
+  }
+  @media only screen and (min-width: 768px) {
+    display: block;
+    margin-top: 50px;
+    margin-bottom: 38px;
+  }
+  @media only screen and (min-width: 992px) {
+    display: block;
+    margin-top: 48px;
+    margin-bottom: 48px;
+  }
 `;
 
-const FooterItem = styled.a`
+const DropdownCol = styled.div`
+  @media only screen and (min-width: 320px) {
+    margin-top: 16px;
+    display: flex;
+    flex-wrap: nowrap;
+    margin-bottom: 24px;
+  }
+  @media only screen and (min-width: 768px) {
+    margin-top: 48px;
+    margin-bottom: 0px;
+    display: block;
+  }
+`;
+
+const FooterLink = styled.a`
   font-family: CircularAir, Helvetica Neue, Helvetica, Arial, sans-serif;
   font-weight: normal;
-  line-height: normal;
-  font-size: 15px;
   color: #636363;
-  margin-top: 8px;
-  margin-bottom: px;
   display: block;
   text-decoration: none;
+  @media only screen and (min-width: 768px) {
+    margin-top: 11px;
+    line-height: 14px;
+    font-size: 12px;
+  }
+  @media only screen and (min-width: 992px) {
+    margin-top: 8px;
+    line-height: 18px;
+    font-size: 15px;
+  }
 `;
 
 export const FooterTitle = styled.p`
   font-family: CircularAir, Helvetica Neue, Helvetica, Arial, sans-serif;
   font-weight: bold;
-  line-height: normal;
-  font-size: 15px;
   color: #383838;
   margin-top: 0;
-  margin-bottom: 8px;
   display: block;
+  @media only screen and (min-width: 768px) {
+    line-height: 14px;
+    font-size: 12px;
+    margin-bottom: 11px;
+  }
+  @media only screen and (min-width: 992px) {
+    line-height: 18px;
+    font-size: 15px;
+    margin-bottom: 8px;
+  }
 `;
 
 class Top extends Component {
   render() {
     return (
-      <div className="row between-lg">
-        <div className="col-lg-3 col-md-3 col-sm-6 col-xs-6">
-          <FooterCol>
+      <div className="row between-lg between-md">
+        <div className="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+          <DropdownCol>
             <Dropdown name="English" />
             <Dropdown name="United States dollar" />
-          </FooterCol>
+          </DropdownCol>
         </div>
-        <div className="col-lg-2 col-sm-2">
+        <div className="col-lg-2 col-md-2">
           <FooterCol>
             <FooterTitle>Airbnb</FooterTitle>
-            <FooterItem href="#">About us</FooterItem>
-            <FooterItem href="#">Careers</FooterItem>
-            <FooterItem href="#">Press</FooterItem>
-            <FooterItem href="#">Policies</FooterItem>
-            <FooterItem href="#">Help</FooterItem>
-            <FooterItem href="#">Diversity & Belonging</FooterItem>
+            <FooterLink href="#">About us</FooterLink>
+            <FooterLink href="#">Careers</FooterLink>
+            <FooterLink href="#">Press</FooterLink>
+            <FooterLink href="#">Policies</FooterLink>
+            <FooterLink href="#">Help</FooterLink>
+            <FooterLink href="#">Diversity & Belonging</FooterLink>
           </FooterCol>
         </div>
-        <div className="col-lg-2 col-sm-2">
+        <div className="col-lg-2 col-md-2">
           <FooterCol>
             <FooterTitle>Discover</FooterTitle>
-            <FooterItem href="#">Trust & Safety</FooterItem>
-            <FooterItem href="#">Travel Credit</FooterItem>
-            <FooterItem href="#">Gift Cards</FooterItem>
-            <FooterItem href="#">Airbnb Citizen</FooterItem>
-            <FooterItem href="#">Business Travel</FooterItem>
-            <FooterItem href="#">Guidebooks</FooterItem>
-            <FooterItem href="#">Airbnbmag</FooterItem>
+            <FooterLink href="#">Trust & Safety</FooterLink>
+            <FooterLink href="#">Travel Credit</FooterLink>
+            <FooterLink href="#">Gift Cards</FooterLink>
+            <FooterLink href="#">Airbnb Citizen</FooterLink>
+            <FooterLink href="#">Business Travel</FooterLink>
+            <FooterLink href="#">Guidebooks</FooterLink>
+            <FooterLink href="#">Airbnbmag</FooterLink>
           </FooterCol>
         </div>
-        <div className="col-lg-2 col-sm-2">
+        <div className="col-lg-2 col-md-2">
           <FooterCol>
             <FooterTitle>Hosting</FooterTitle>
-            <FooterItem href="#">Why Host</FooterItem>
-            <FooterItem href="#">Hospitality</FooterItem>
-            <FooterItem href="#">Responsible Hosting</FooterItem>
-            <FooterItem href="#">Community Center</FooterItem>
+            <FooterLink href="#">Why Host</FooterLink>
+            <FooterLink href="#">Hospitality</FooterLink>
+            <FooterLink href="#">Responsible Hosting</FooterLink>
+            <FooterLink href="#">Community Center</FooterLink>
           </FooterCol>
         </div>
       </div>

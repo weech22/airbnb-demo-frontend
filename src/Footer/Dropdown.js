@@ -20,13 +20,19 @@ const Select = styled.select`
     padding-left: 8px;
     padding-top: 12px;
     padding-bottom: 12px;
-    margin-bottom: 24px;
     background-position: 94.44444444% center;
+    margin-left: 8px;
+    margin-right: 10px;
   }
-  @media only screen and (min-width: 767px) {
+  @media only screen and (min-width: 480px) {
+    margin-right: auto;
+    margin-left: auto;
+  }
+  @media only screen and (min-width: 768px) {
     padding-top: 14px;
     padding-bottom: 15px;
     margin-bottom: 16px;
+
     background-position: 93.18181818% center;
     line-height: 18px;
     font-size: 15px;
