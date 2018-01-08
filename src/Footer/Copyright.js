@@ -5,8 +5,7 @@ import logo from "./logo.svg";
 const CopyrightTag = styled.span`
   font-family: CircularAir, Helvetica Neue, Helvetica, Arial, sans-serif;
   color: #636363;
-  float: right;
-  display: inline-block;
+
   @media only screen and (min-width: 320px) {
     line-height: 14px;
     font-size: 12px;
@@ -29,7 +28,8 @@ const Logo = styled.img`
 `;
 
 const CopyrightBlock = styled.div`
-  display: inline-block;
+  display: flex;
+  align-items: center;
   @media only screen and (min-width: 320px) {
     margin-top: 16px;
   }

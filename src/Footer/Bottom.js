@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Nav from "./Nav";
+import Navigation from "./Nav";
 import styled from "styled-components";
 import Social from "./Social";
 import Copyright from "./Copyright";
@@ -9,7 +9,8 @@ const Wrap = styled.div`
 `;
 
 const NavBlock = styled.div`
-  display: inline-block;
+  display: flex;
+
   @media only screen and (min-width: 320px) {
     margin-top: 11px;
     margin-bottom: 16px;
@@ -32,7 +33,7 @@ class Bottom extends Component {
           </div>
           <div className="col-lg-5 col-md-6 col-xs-9">
             <NavBlock>
-              <Nav />
+              <Navigation />
               <Social />
             </NavBlock>
           </div>

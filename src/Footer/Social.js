@@ -7,7 +7,6 @@ import twitter from "./twitter.svg";
 
 const SocialBlock = styled.div`
   display: inline-block;
-  float: right;
 `;
 
 class Social extends Component {

@@ -5,7 +5,6 @@ const Link = styled.a`
   font-family: CircularAir, Helvetica Neue, Helvetica, Arial, sans-serif;
   color: #636363;
   text-decoration: none;
-  float: left;
   @media only screen and (min-width: 360px) {
     line-height: 14px;
     font-size: 12px;
@@ -18,9 +17,7 @@ const Link = styled.a`
   }
 `;
 
-const FooterNav = styled.div`
-  display: inline-block;
-  float: left;
+const Nav = styled.div`
   @media only screen and (min-width: 768px) {
     margin-right: 12px;
     margin-top: 4px;
@@ -31,16 +28,16 @@ const FooterNav = styled.div`
   }
 `;
 
-class Nav extends Component {
+class Navigation extends Component {
   render() {
     return (
-      <FooterNav>
+      <Nav>
         <Link href="#">Terms</Link>
         <Link href="#">Privacy</Link>
         <Link href="#">Site map</Link>
-      </FooterNav>
+      </Nav>
     );
   }
 }
 
-export default Nav;
+export default Navigation;

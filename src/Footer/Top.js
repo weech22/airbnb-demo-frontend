@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import Dropdown from "./Dropdown";
 import styled from "styled-components";
 
-const FooterCol = styled.div`
+const Col = styled.div`
   @media only screen and (min-width: 320px) {
     display: none;
   }
@@ -12,7 +12,6 @@ const FooterCol = styled.div`
     margin-bottom: 38px;
   }
   @media only screen and (min-width: 992px) {
-    display: block;
     margin-top: 48px;
     margin-bottom: 48px;
   }
@@ -32,7 +31,7 @@ const DropdownCol = styled.div`
   }
 `;
 
-const FooterLink = styled.a`
+const Link = styled.a`
   font-family: CircularAir, Helvetica Neue, Helvetica, Arial, sans-serif;
   font-weight: normal;
   color: #636363;
@@ -50,7 +49,7 @@ const FooterLink = styled.a`
   }
 `;
 
-export const FooterTitle = styled.h5`
+export const Title = styled.h5`
   font-family: CircularAir, Helvetica Neue, Helvetica, Arial, sans-serif;
   font-weight: bold;
   color: #383838;
@@ -78,36 +77,36 @@ class Top extends Component {
           </DropdownCol>
         </div>
         <div className="col-md-2">
-          <FooterCol>
-            <FooterTitle>Airbnb</FooterTitle>
-            <FooterLink href="#">About us</FooterLink>
-            <FooterLink href="#">Careers</FooterLink>
-            <FooterLink href="#">Press</FooterLink>
-            <FooterLink href="#">Policies</FooterLink>
-            <FooterLink href="#">Help</FooterLink>
-            <FooterLink href="#">Diversity & Belonging</FooterLink>
-          </FooterCol>
+          <Col>
+            <Title>Airbnb</Title>
+            <Link href="#">About us</Link>
+            <Link href="#">Careers</Link>
+            <Link href="#">Press</Link>
+            <Link href="#">Policies</Link>
+            <Link href="#">Help</Link>
+            <Link href="#">Diversity & Belonging</Link>
+          </Col>
         </div>
         <div className="col-md-2">
-          <FooterCol>
-            <FooterTitle>Discover</FooterTitle>
-            <FooterLink href="#">Trust & Safety</FooterLink>
-            <FooterLink href="#">Travel Credit</FooterLink>
-            <FooterLink href="#">Gift Cards</FooterLink>
-            <FooterLink href="#">Airbnb Citizen</FooterLink>
-            <FooterLink href="#">Business Travel</FooterLink>
-            <FooterLink href="#">Guidebooks</FooterLink>
-            <FooterLink href="#">Airbnbmag</FooterLink>
-          </FooterCol>
+          <Col>
+            <Title>Discover</Title>
+            <Link href="#">Trust & Safety</Link>
+            <Link href="#">Travel Credit</Link>
+            <Link href="#">Gift Cards</Link>
+            <Link href="#">Airbnb Citizen</Link>
+            <Link href="#">Business Travel</Link>
+            <Link href="#">Guidebooks</Link>
+            <Link href="#">Airbnbmag</Link>
+          </Col>
         </div>
         <div className="col-md-2">
-          <FooterCol>
-            <FooterTitle>Hosting</FooterTitle>
-            <FooterLink href="#">Why Host</FooterLink>
-            <FooterLink href="#">Hospitality</FooterLink>
-            <FooterLink href="#">Responsible Hosting</FooterLink>
-            <FooterLink href="#">Community Center</FooterLink>
-          </FooterCol>
+          <Col>
+            <Title>Hosting</Title>
+            <Link href="#">Why Host</Link>
+            <Link href="#">Hospitality</Link>
+            <Link href="#">Responsible Hosting</Link>
+            <Link href="#">Community Center</Link>
+          </Col>
         </div>
       </div>
     );
