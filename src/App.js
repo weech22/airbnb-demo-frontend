@@ -1,28 +1,13 @@
 import React, { Component } from "react";
-import "normalize.css";
 import "flexboxgrid2/flexboxgrid2.css";
+import "normalize.css";
 import "./Fonts/font.css";
-import Explore from "./Explore";
-import Experience from "./Experience";
-import Homes from "./Homes";
-import Reservation from "./Reservations";
-import Featured from "./Featured";
-import Header from "./Header";
-import Footer from "./Footer";
+import FrontPage from "./FrontPage";
+import HomesPage from "./Homes/HomesPage";
 
 class App extends Component {
   render() {
-    return (
-      <div>
-        <Header />
-        <Explore />
-        <Experience />
-        <Homes />
-        <Reservation />
-        <Featured />
-        <Footer />
-      </div>
-    );
+    return <HomesPage />;
   }
 }
 
