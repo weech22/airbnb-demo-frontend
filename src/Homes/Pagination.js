@@ -13,8 +13,6 @@ const Nav = styled.div`
   font-family: CircularAir;
   line-height: normal;
   font-size: 16px;
-  text-align: center;
-  color: #0f7276;
 `;
 
 const Link = styled.a`

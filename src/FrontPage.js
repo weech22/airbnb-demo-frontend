@@ -13,7 +13,6 @@ class FrontPage extends Component {
   render() {
     return (
       <div>
-        <Header />
         <Explore />
         <Experience />
         <Homes />

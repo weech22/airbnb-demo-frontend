@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import styled from "styled-components";
 import FilterButton from "./FilterButton";
-import GoogleMapReact from "google-map-react";
 
 const Wrap = styled.div`
   background: white;
