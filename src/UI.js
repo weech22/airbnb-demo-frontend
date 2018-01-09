@@ -22,7 +22,8 @@ export const Slider = styled.div`
   margin-right: -8px;
 `;
 
-export const Title = styled.h3`
+export const Title = styled.h2`
+  font-family: CircularAir, Helvetica Neue, Helvetica, Arial, sans-serif;
   font-weight: bold;
   color: #383838;
   display: inline;

@@ -4,7 +4,7 @@ import "normalize.css";
 import "./Fonts/font.css";
 import Header from "./Header";
 import FrontPage from "./FrontPage";
-import HomesPage from "./Homes/HomesPage";
+import HomesPage from "./HomesPage/HomesPage";
 
 import { render } from "react-dom";
 import { BrowserRouter, Route, Link } from "react-router-dom";
@@ -14,7 +14,6 @@ class App extends Component {
     return (
       <BrowserRouter>
         <div>
-          <Header />
           <Route path="/" exact component={FrontPage} />
           <Route path="/homes" component={HomesPage} />
         </div>
@@ -24,3 +23,5 @@ class App extends Component {
 }
 
 export default App;
+
+//  <Header />

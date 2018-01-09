@@ -31,7 +31,7 @@ class SeeAll extends Component {
   render() {
     return (
       <SeeAllBlock>
-        <Link href="#">See all</Link> <img src={arrow} />
+        <Link href="/homes">See all</Link> <img src={arrow} />
       </SeeAllBlock>
     );
   }
