@@ -15,7 +15,7 @@ export const Img = styled.img`
 //overflow: hidden - временное решение; когда будем делать настоящий слайдер, сделаю скролл.
 export const SliderBlock = styled.div`
   width: 100%;
-  overflow: none;
+  overflow: hidden;
 `;
 
 export const Slider = styled.div`
