@@ -37,7 +37,7 @@ export const Name = styled.p`
   }
 `;
 
-const img = styled.img`
+const Img = styled.img`
   width: 100%;
 `;
 
@@ -45,7 +45,7 @@ class Card extends Component {
   render() {
     return (
       <CardBlock href="#">
-        <img src={this.props.img} />
+        <Img src={this.props.img} />
         <Name>{this.props.name}</Name>
       </CardBlock>
     );
