@@ -12,16 +12,22 @@ import { BrowserRouter, Route, Link } from "react-router-dom";
 class App extends Component {
   render() {
     return (
-      <BrowserRouter>
-        <div>
-          <Route path="/" exact component={FrontPage} />
-          <Route path="/homes" component={HomesPage} />
-        </div>
-      </BrowserRouter>
+      <div>
+        <HomesPage />
+      </div>
     );
   }
 }
 
 export default App;
 
-//  <Header />
+/*
+  <Header />
+
+        <BrowserRouter>
+          <div>
+            <Route path="/" exact component={FrontPage} />
+            <Route path="/homes" component={HomesPage} />
+          </div>
+        </BrowserRouter>
+        */

@@ -8,7 +8,10 @@ const Wrap = styled.div`
   align-items: center;
   background: #ffffff;
   padding: 8px;
-  margin-top: 1px;
+  margin-top: 0px;
+  border-top: 1px solid rgba(72, 72, 72, 1);
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
 `;
 
 class Footer extends Component {

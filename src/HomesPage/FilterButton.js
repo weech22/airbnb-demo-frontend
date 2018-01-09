@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import styled from "styled-components";
+import GuestModal from "./Guests/GuestModal";
 
 const Button = styled.button`
   font-family: CircularAir, Helvetica Neue, Helvetica, Arial, sans-serif;
@@ -8,6 +9,7 @@ const Button = styled.button`
   border-radius: 4px;
   background: white;
   color: #383838;
+
   @media only screen and (min-width: 320px) {
     padding: 7px 16px;
     margin: 12px 0;
@@ -17,9 +19,26 @@ const Button = styled.button`
   }
 `;
 
+const Div = styled.div`
+  display: inline-block;
+`;
+
 class FilterButton extends Component {
+  state = {
+    isOpen: false
+  };
+
+  toggleOpen = () => {
+    this.setState({ isOpen: true });
+  };
+
   render() {
-    return <Button>{this.props.children}</Button>;
+    return (
+      <Div>
+        <Button onClick={this.toggleOpen}>{this.props.children}</Button>
+        {this.state.isOpen && <GuestModal />}
+      </Div>
+    );
   }
 }
 

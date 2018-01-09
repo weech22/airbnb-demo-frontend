@@ -4,8 +4,9 @@ import plus from "./plus.svg";
 import minus from "./minus.svg";
 
 const Wrap = styled.div`
-  margin-top: 40px;
-  border: 1px solid red;
+  padding-bottom: 40px;
+  margin-left: 8px;
+  margin-right: 8px;
 `;
 
 const Name = styled.h2`
@@ -16,6 +17,7 @@ const Name = styled.h2`
   color: #383838;
   margin-left: 8px;
   margin-bottom: 6px;
+  vertical-align: center;
 `;
 
 const Desc = styled.h3`
@@ -43,6 +45,8 @@ const Div = styled.div`
   display: flex;
 `;
 
+const Div2 = styled.div``;
+
 const Count = styled.span`
   margin: auto 0;
   font-family: CircularAir;
@@ -56,10 +60,10 @@ class Counter extends Component {
     return (
       <Wrap>
         <div className="row between-xs">
-          <div>
+          <Div2>
             <Name>{this.props.name}</Name>
             <Desc>{this.props.desc}</Desc>
-          </div>
+          </Div2>
           <Div>
             <ImgMinus src={minus} />
             <Count>1</Count>

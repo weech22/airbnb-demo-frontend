@@ -10,19 +10,22 @@ import MapButton from "./MapButton";
 import styled from "styled-components";
 import GuestModal from "./Guests/GuestModal";
 
-//Хэдер передать на роутинг
 class HomesPage extends Component {
   render() {
-    return <GuestModal />;
+    return (
+      <div>
+        <Filter />
+        <List />
+        <Pagination />
+        <Showed />
+        <Disclaimer />
+      </div>
+    );
   }
 }
 
 export default HomesPage;
 
 /*
-        <Filter />
-        <List />
-        <Pagination />
-        <Showed />
-        <Disclaimer />
+
         */
