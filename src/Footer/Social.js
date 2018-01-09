@@ -6,7 +6,7 @@ import instagram from "./instagram.svg";
 import twitter from "./twitter.svg";
 
 const SocialBlock = styled.div`
-  display: inline-block;
+  display: flex;
 `;
 
 class Social extends Component {

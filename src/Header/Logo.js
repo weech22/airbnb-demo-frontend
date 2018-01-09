@@ -4,6 +4,7 @@ import logo from "./logo.svg";
 
 const Img = styled.img`
   margin: 24px 0;
+  margin-left: 0px;
 `;
 
 class Logo extends Component {
