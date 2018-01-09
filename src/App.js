@@ -13,7 +13,14 @@ class App extends Component {
   render() {
     return (
       <div>
-        <HomesPage />
+        <Header />
+
+        <BrowserRouter>
+          <div>
+            <Route path="/" exact component={FrontPage} />
+            <Route path="/homes" component={HomesPage} />
+          </div>
+        </BrowserRouter>
       </div>
     );
   }
@@ -22,12 +29,5 @@ class App extends Component {
 export default App;
 
 /*
-  <Header />
 
-        <BrowserRouter>
-          <div>
-            <Route path="/" exact component={FrontPage} />
-            <Route path="/homes" component={HomesPage} />
-          </div>
-        </BrowserRouter>
         */
