@@ -10,7 +10,8 @@ const Nav = styled.nav`
   display: none;
   margin: 27px 0 29px 0;
   @media only screen and (min-width: 992px) {
-    display: inline-block;
+    display: flex;
+    justify-content: flex-end;
   }
 `;
 

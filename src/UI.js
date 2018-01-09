@@ -2,7 +2,11 @@ import styled from "styled-components";
 
 export const CardBlock = styled.a`
   text-decoration: none;
-  overflow: hidden;
+  overflow: none;
+`;
+
+export const Section = styled.div`
+  position: relative;
 `;
 
 export const Img = styled.img`
@@ -11,7 +15,7 @@ export const Img = styled.img`
 //overflow: hidden - временное решение; когда будем делать настоящий слайдер, сделаю скролл.
 export const SliderBlock = styled.div`
   width: 100%;
-  overflow: hidden;
+  overflow: none;
 `;
 
 export const Slider = styled.div`
