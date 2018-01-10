@@ -7,8 +7,17 @@ import FiltersModal from "./Filter/FilterModal";
 
 const Wrap = styled.div`
   background: white;
-  box-shadow: 0px 0.5px 0px rgba(72, 72, 72, 0.3);
-  margin-bottom: 24px;
+  border-top: 1px solid rgba(200, 200, 200, 1);
+  border-bottom: 1px solid rgba(200, 200, 200, 1);
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
+
+  position: fixed;
+  top: 81px;
+  left: 0;
+  right: 0;
+  z-index: 100;
+
   @media only screen and (min-width: 320px) {
     padding-left: 8px;
   }

@@ -10,15 +10,23 @@ import MapButton from "./MapButton";
 import styled from "styled-components";
 import GuestModal from "./Guests/GuestModal";
 
+const Wrap = styled.div`
+  padding-top: 80px;
+  padding-bottom: 88px;
+`;
+
 class HomesPage extends Component {
   render() {
     return (
       <div>
         <Filter />
-        <List />
-        <Pagination />
-        <Showed />
-        <Disclaimer />
+        <Wrap>
+          <List />
+          <Pagination />
+          <Showed />
+          <Disclaimer />
+        </Wrap>
+        <MapButton />
       </div>
     );
   }
