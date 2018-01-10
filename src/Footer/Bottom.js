@@ -17,7 +17,8 @@ const NavBlock = styled.div`
   }
   @media only screen and (min-width: 768px) {
     margin-top: 36px;
-    
+    justify-content: flex-end;
+  }
   @media only screen and (min-width: 992px) {
     margin-top: 34px;
   }

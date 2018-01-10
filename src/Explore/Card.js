@@ -25,11 +25,10 @@ export const Name = styled.p`
   font-weight: Bold;
   color: #383838;
 
-  @media only screen and (min-width: 320px) {
-    font-size: 12px;
-    line-height: 14px;
-    margin-left: 12px;
-  }
+  font-size: 12px;
+  line-height: 14px;
+  margin-left: 12px;
+
   @media only screen and (min-width: 768px) {
     line-height: 20px;
     font-size: 17px;
@@ -37,8 +36,12 @@ export const Name = styled.p`
   }
 `;
 
-const img = styled.img`
+const Img = styled.img`
   width: 100%;
+
+  @media only screen and (min-width: 768px) {
+    width: 96px;
+  }
 `;
 
 class Card extends Component {
