@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import styled from "styled-components";
 import Header from "../Modal UI/Header";
-import Section from "./Section";
+import RoomType from "./RoomType";
 import Footer from "../Modal UI/Footer";
 
 const Wrap = styled.div`
@@ -22,16 +22,16 @@ const Div = styled.div`
   z-index: 100;
 `;
 
-class GuestModal extends Component {
+class FilterModal extends Component {
   render() {
     return (
       <Wrap>
-        <Header />
-        <Section />
-        <Footer />
+        <Header text="All filters (0)" action="Clear All" />
+        <RoomType />
+        <Footer text="See homes" />
       </Wrap>
     );
   }
 }
 
-export default GuestModal;
+export default FilterModal;

@@ -9,7 +9,7 @@ const Wrap = styled.div`
   background: #ffffff;
   padding: 8px;
   margin-top: 0px;
-  border-top: 1px solid rgba(72, 72, 72, 1);
+  border-top: 1px solid rgba(200, 200, 200, 1);
   -webkit-background-clip: padding-box;
   background-clip: padding-box;
 `;
@@ -18,7 +18,7 @@ class Footer extends Component {
   render() {
     return (
       <Wrap>
-        <RedButton />
+        <RedButton text={this.props.text} />
       </Wrap>
     );
   }

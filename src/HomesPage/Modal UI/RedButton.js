@@ -10,13 +10,14 @@ const Btn = styled.button`
   line-height: normal;
   font-size: 18px;
   color: #ffffff;
-  padding: 12px 132px;
+  padding-top: 12px;
+  padding-bottom: 12px;
   border: none;
 `;
 
 class RedButton extends Component {
   render() {
-    return <Btn>Save</Btn>;
+    return <Btn>{this.props.text}</Btn>;
   }
 }
 

@@ -9,7 +9,7 @@ const Title = styled.h1`
   color: #383838;
 `;
 
-const Reset = styled.span`
+const Action = styled.span`
   font-family: CircularAir;
   line-height: normal;
   font-size: 14px;
@@ -22,7 +22,7 @@ const Wrap = styled.div`
   justify-content: space-between;
   align-items: center;
   background: #ffffff;
-  border-bottom: 1px solid rgba(72, 72, 72, 1);
+  border-bottom: 1px solid rgba(200, 200, 200, 1);
   -webkit-background-clip: padding-box;
   background-clip: padding-box;
 `;
@@ -37,8 +37,8 @@ class Header extends Component {
     return (
       <Wrap>
         <Img src={close} />
-        <Title>Guests</Title>
-        <Reset>Reset</Reset>
+        <Title>{this.props.text}</Title>
+        <Action>{this.props.action}</Action>
       </Wrap>
     );
   }

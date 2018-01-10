@@ -26,9 +26,9 @@ class GuestModal extends Component {
   render() {
     return (
       <Wrap>
-        <Header />
+        <Header text="Guests" action="Reset" />
         <Section />
-        <Footer />
+        <Footer text="Save" />
       </Wrap>
     );
   }
