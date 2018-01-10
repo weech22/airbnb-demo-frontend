@@ -35,9 +35,3 @@ class GuestModal extends Component {
 }
 
 export default GuestModal;
-
-/*
-   
-        
-
-        */

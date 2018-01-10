@@ -35,8 +35,8 @@ class FilterButton extends Component {
   render() {
     return (
       <Div>
-        <Button onClick={this.toggleOpen}>{this.props.children}</Button>
-        {this.state.isOpen && <GuestModal />}
+        <Button onClick={this.toggleOpen}>{this.props.name}</Button>
+        {this.state.isOpen && this.props.children}
       </Div>
     );
   }

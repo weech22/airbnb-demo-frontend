@@ -1,6 +1,9 @@
 import React, { Component } from "react";
 import styled from "styled-components";
 import FilterButton from "./FilterButton";
+import GuestModal from "./Guests/GuestModal";
+import DateModal from "./Date/DateModal";
+import FiltersModal from "./Filter/FilterModal";
 
 const Wrap = styled.div`
   background: white;
@@ -26,14 +29,20 @@ class Filter extends Component {
     return (
       <div className="container">
         <Wrap>
-          <FilterButton>Dates</FilterButton>
-          <FilterButton>Guests</FilterButton>
+          <FilterButton name="Dates">
+            <DateModal />
+          </FilterButton>
+          <FilterButton name="Guests">
+            <GuestModal />
+          </FilterButton>
           <DesktopButtons>
             <FilterButton>Room type</FilterButton>
             <FilterButton>Price</FilterButton>
             <FilterButton>Instant book</FilterButton>
           </DesktopButtons>
-          <FilterButton>More filters</FilterButton>
+          <FilterButton name="More filters">
+            <FiltersModal />
+          </FilterButton>
         </Wrap>
       </div>
     );
