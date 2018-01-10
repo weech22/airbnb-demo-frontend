@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import styled from "styled-components";
 import Header from "../Modal UI/Header";
 import RoomType from "./RoomType";
+import RoomsBeds from "./RoomsBeds";
 import Footer from "../Modal UI/Footer";
 
 const Wrap = styled.div`
@@ -28,6 +29,7 @@ class FilterModal extends Component {
       <Wrap>
         <Header text="All filters (0)" action="Clear All" />
         <RoomType />
+        <RoomsBeds />
         <Footer text="See homes" />
       </Wrap>
     );

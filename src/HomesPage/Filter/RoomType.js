@@ -8,6 +8,9 @@ const Wrap = styled.div`
   margin-top: 0px;
   padding-top: 40px;
   padding-bottom: 16px;
+  border-bottom: 1px solid rgba(200, 200, 200, 1);
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
 `;
 
 class RoomType extends Component {
