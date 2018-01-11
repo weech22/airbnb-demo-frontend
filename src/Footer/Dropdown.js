@@ -15,6 +15,8 @@ const Select = styled.select`
 
   font-family: CircularAir, Helvetica Neue, Helvetica, Arial, sans-serif;
   font-weight: lighter;
+  font-size: 12px;
+  line-height: 14px;
   color: #383838;
   @media only screen and (min-width: 320px) {
     padding-left: 8px;

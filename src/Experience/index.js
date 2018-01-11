@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import SectionTitleAndMore from "../SectionTitleAndMore";
-import { SliderBlock, Slider } from "../UI";
+import { SliderBlock, Slider, Section } from "../UI";
 import Card from "./Card";
 import img1 from "./1.png";
 import img2 from "./2.png";
@@ -12,13 +12,19 @@ class Experience extends Component {
     return (
       <div className="container">
         <SectionTitleAndMore name="Experiences" />
+
         <SliderBlock>
           <Slider>
             <div className="col-lg-3 col-md-4 col-xs-6">
               <Card img={img1} price="29" name="Forest therapy" reviews="44" />
             </div>
             <div className="col-lg-3 col-md-4 col-xs-6">
-              <Card img={img2} price="69" name="Whale watching" reviews="46" />
+              <Card
+                img={img2}
+                price="69"
+                name="Forest Whale watching"
+                reviews="46"
+              />
             </div>
             <div className="col-lg-3 col-md-4 col-xs-6">
               <Card

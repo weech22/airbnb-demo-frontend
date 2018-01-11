@@ -7,13 +7,12 @@ const Type = styled.p`
   font-weight: Bold;
   text-transform: uppercase;
   color: #383838;
-  margin-top: 12px;
+  margin-top: 7px;
   margin-bottom: 0;
-  @media only screen and (min-width: 320px) {
-    line-height: 9px;
-    font-size: 8px;
-  }
+  line-height: 9px;
+  font-size: 8px;
   @media only screen and (min-width: 768px) {
+    margin-top: 12px;
     line-height: 12px;
     font-size: 10px;
   }

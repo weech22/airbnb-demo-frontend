@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import SectionTitleAndMore from "../SectionTitleAndMore";
-import { SliderBlock, Slider } from "../UI";
+import { SliderBlock, Slider, Section } from "../UI";
 import Card from "./Card";
 import img1 from "./1.png";
 import img2 from "./2.png";
@@ -12,6 +12,7 @@ class Reservation extends Component {
     return (
       <div className="container">
         <SectionTitleAndMore name="Popular reservations around the world" />
+
         <SliderBlock>
           <Slider>
             <div className="col-lg-3 col-md-4 col-xs-6">
