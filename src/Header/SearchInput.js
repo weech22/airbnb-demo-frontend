@@ -3,9 +3,9 @@ import styled from "styled-components";
 import search from "./search.svg";
 
 const Input = styled.input`
+  font-family: CircularAir, Helvetica Neue, Helvetica, Arial, sans-serif;
   width: 392px;
   height: 48px;
-  font-family: CircularAir, Helvetica Neue, Helvetica, Arial, sans-serif;
   color: #383838;
   mix-blend-mode: normal;
   line-height: 24px;

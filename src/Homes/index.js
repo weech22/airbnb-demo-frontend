@@ -10,7 +10,7 @@ class Homes extends Component {
   render() {
     return (
       <div className="container">
-        <SectionTitleAndMore name="Homes" />
+        <SectionTitleAndMore name="Homes" link="/homes" />
         <SliderBlock>
           <Slider>
             <div className="col-lg-4 col-md-5 col-xs-6">
