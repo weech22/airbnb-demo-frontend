@@ -3,9 +3,14 @@ import styled from "styled-components";
 import Card from "./Card";
 import SectionTitle from "../SectionTitle";
 import { Title, SliderBlock, Slider } from "../UI";
+import { Link } from "react-router-dom";
 import img1 from "./1.png";
 import img2 from "./2.png";
 import img3 from "./3.png";
+
+const StyledLink = styled(Link)`
+  text-decoration: none;
+`;
 
 class Explore extends Component {
   render() {
@@ -15,7 +20,9 @@ class Explore extends Component {
         <SliderBlock>
           <Slider>
             <div className="col-lg-4 col-md-5 col-xs-6">
-              <Card name="Homes" img={img1} link="/homes" />
+              <StyledLink to="/homes">
+                <Card name="Homes" img={img1} />
+              </StyledLink>
             </div>
             <div className="col-lg-4 col-md-5 col-xs-6">
               <Card name="Experiences" img={img2} />

@@ -1,8 +1,9 @@
 import React, { Component } from "react";
 import styled from "styled-components";
 import arrow from "./arrowRight.svg";
+import { Link } from "react-router-dom";
 
-const Link = styled.a`
+const StyledLink = styled(Link)`
   font-family: CircularAir, Helvetica Neue, Helvetica, Arial, sans-serif;
   font-weight: normal;
   line-height: 24px;
@@ -31,7 +32,9 @@ class SeeAll extends Component {
   render() {
     return (
       <SeeAllBlock>
-        <Link href={this.props.link}>See all</Link> <img src={arrow} />
+        <StyledLink to="/homes">
+          See all <img src={arrow} />
+        </StyledLink>
       </SeeAllBlock>
     );
   }

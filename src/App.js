@@ -14,7 +14,6 @@ class App extends Component {
     return (
       <div>
         <Header />
-
         <BrowserRouter>
           <div>
             <Route path="/" exact component={FrontPage} />
@@ -27,3 +26,7 @@ class App extends Component {
 }
 
 export default App;
+
+/*
+        
+        */
