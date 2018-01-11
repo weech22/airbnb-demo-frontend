@@ -22,7 +22,7 @@ export const Slider = styled.div`
   margin-right: -8px;
 `;
 
-export const Title = styled.h3`
+export const Title = styled.h2`
   font-family: CircularAir, Helvetica Neue, Helvetica, Arial, sans-serif;
   font-weight: bold;
   color: #383838;
@@ -39,7 +39,6 @@ export const Title = styled.h3`
 `;
 
 export const Label = styled.p`
-  font-family: CircularAir, Helvetica Neue, Helvetica, Arial, sans-serif;
   font-weight: normal;
   line-height: 14px;
   font-size: 12px;
@@ -52,7 +51,6 @@ export const Label = styled.p`
 `;
 
 export const Link = styled.a`
-  font-family: CircularAir, Helvetica Neue, Helvetica, Arial, sans-serif;
   font-weight: normal;
   line-height: 24px;
   font-size: 14px;

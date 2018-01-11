@@ -19,7 +19,7 @@ class SectionTitle extends Component {
     return (
       <Wrap>
         <Title>{this.props.name}</Title>
-        <SeeAll />
+        <SeeAll link={this.props.link} />
       </Wrap>
     );
   }

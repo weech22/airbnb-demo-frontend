@@ -15,7 +15,7 @@ class Explore extends Component {
         <SliderBlock>
           <Slider>
             <div className="col-lg-4 col-md-5 col-xs-6">
-              <Card name="Homes" img={img1} />
+              <Card name="Homes" img={img1} link="/homes" />
             </div>
             <div className="col-lg-4 col-md-5 col-xs-6">
               <Card name="Experiences" img={img2} />

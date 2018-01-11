@@ -13,6 +13,7 @@ const Block = styled.header`
   height: 80px;
   background: #ffffff;
   box-shadow: 0px 0.5px 0px rgba(72, 72, 72, 0.3);
+  margin-bottom: 0.5px;
 `;
 
 const Logo = styled.img`
@@ -21,6 +22,7 @@ const Logo = styled.img`
 `;
 
 const Nav = styled.nav`
+  font-family: CircularAir, Helvetica Neue, Helvetica, Arial, sans-serif;
   position: relative;
   margin-top: 27px;
 
