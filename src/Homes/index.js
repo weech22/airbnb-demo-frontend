@@ -11,9 +11,10 @@ class Homes extends Component {
     return (
       <div className="container">
         <SectionTitleAndMore name="Homes" />
+
         <SliderBlock>
           <Slider>
-            <div className="col-lg-4 col-md-5 col-xs-6">
+            <div className="col-lg-4 col-md-5 col-xs-8">
               <Card
                 img={img1}
                 info="Entire house  ·  9 beds"
@@ -21,7 +22,7 @@ class Homes extends Component {
                 hosts="97"
               />
             </div>
-            <div className="col-lg-4 col-md-5 col-xs-6">
+            <div className="col-lg-4 col-md-5 col-xs-8">
               <Card
                 img={img2}
                 info="Entire house  ·  5 beds"
@@ -29,7 +30,7 @@ class Homes extends Component {
                 hosts="161"
               />
             </div>
-            <div className="col-lg-4 col-md-5 col-xs-6">
+            <div className="col-lg-4 col-md-5 col-xs-8">
               <Card
                 img={img3}
                 info="Entire treehouse  ·  1 bed"

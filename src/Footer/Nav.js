@@ -5,11 +5,10 @@ const Link = styled.a`
   font-family: CircularAir, Helvetica Neue, Helvetica, Arial, sans-serif;
   color: #636363;
   text-decoration: none;
-  @media only screen and (min-width: 360px) {
-    line-height: 14px;
-    font-size: 12px;
-    margin-right: 12px;
-  }
+  font-weight: normal;
+  line-height: 14px;
+  font-size: 12px;
+  margin-right: 12px;
   @media only screen and (min-width: 767px) {
     line-height: 18px;
     font-size: 15px;

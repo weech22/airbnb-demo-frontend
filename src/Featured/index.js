@@ -1,7 +1,9 @@
 import React, { Component } from "react";
+
 import Card from "./Card";
+
 import SectionTitle from "../SectionTitle";
-import { SliderBlock, Slider } from "../UI";
+import { SliderBlock, Slider, Section } from "../UI";
 import img1 from "./1.png";
 import img2 from "./2.png";
 import img3 from "./3.png";
@@ -14,6 +16,7 @@ class Featured extends Component {
     return (
       <div className="container">
         <SectionTitle name="Featured destinations" />
+
         <SliderBlock>
           <Slider>
             <div className="col-lg-2 col-md-3 col-xs-4">

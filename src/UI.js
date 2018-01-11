@@ -2,7 +2,11 @@ import styled from "styled-components";
 
 export const CardBlock = styled.a`
   text-decoration: none;
-  overflow: hidden;
+  padding: 0;
+`;
+
+export const Section = styled.div`
+  position: relative;
 `;
 
 export const Img = styled.img`
@@ -38,13 +42,13 @@ export const Title = styled.h3`
   }
 `;
 
-export const Label = styled.p`
+export const Label = styled.span`
   font-family: CircularAir, Helvetica Neue, Helvetica, Arial, sans-serif;
   font-weight: normal;
   line-height: 14px;
   font-size: 12px;
   text-align: Left;
-  display: inline;
+
   color: #383838;
   margin-left: 4px;
   margin-top: 6px;
