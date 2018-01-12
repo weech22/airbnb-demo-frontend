@@ -7,6 +7,7 @@ import Pagination from "./Pagination";
 import Showed from "./Showed";
 import Disclaimer from "./Disclaimer";
 import MapButton from "./MapButton";
+import GoogleMap from "./GoogleMap";
 import styled from "styled-components";
 import GuestModal from "./Guests/GuestModal";
 
@@ -21,11 +22,21 @@ class HomesPage extends Component {
       <div>
         <Filter />
         <Wrap>
-          <List />
-          <Pagination />
-          <Showed />
-          <Disclaimer />
+          <div className="container">
+            <div className="row">
+              <div className="col-lg-8">
+                <List />
+                <Pagination />
+                <Showed />
+                <Disclaimer />
+              </div>
+              <div className="col-lg-4">
+                <GoogleMap />
+              </div>
+            </div>
+          </div>
         </Wrap>
+
         <MapButton />
       </div>
     );

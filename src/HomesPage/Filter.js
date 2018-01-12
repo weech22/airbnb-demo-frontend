@@ -17,12 +17,22 @@ const Wrap = styled.div`
   left: 0;
   right: 0;
   z-index: 100;
+  margin: 0 auto;
 
-  @media only screen and (min-width: 320px) {
-    padding-left: 8px;
+  @media only screen and (min-width: 576px) {
+    max-width: 560px;
   }
+
+  @media only screen and (min-width: 768px) {
+    max-width: 752px;
+  }
+
   @media only screen and (min-width: 992px) {
-    padding-left: 0;
+    max-width: 976px;
+  }
+
+  @media only screen and (min-width: 1200px) {
+    max-width: 1184px;
   }
 `;
 
@@ -56,9 +66,15 @@ class Filter extends Component {
             <GuestModal />
           </Dropdown>
           <DesktopButtons>
-            <Dropdown>Room type</Dropdown>
-            <Dropdown>Price</Dropdown>
-            <Dropdown>Instant book</Dropdown>
+            <Dropdown name="Room type">
+              <GuestModal />
+            </Dropdown>
+            <Dropdown name="Price">
+              <GuestModal />
+            </Dropdown>
+            <Dropdown name="Instant book">
+              <GuestModal />
+            </Dropdown>
           </DesktopButtons>
           <Dropdown name="More filters">
             <FiltersModal />

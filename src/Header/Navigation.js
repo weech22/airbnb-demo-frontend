@@ -6,7 +6,7 @@ const Nav = styled.nav`
   line-height: 24px;
   font-size: 14px;
   text-align: center;
-  color: #383838;
+
   display: none;
   margin: 27px 0 29px 0;
   @media only screen and (min-width: 992px) {
@@ -18,6 +18,7 @@ const Nav = styled.nav`
 const Link = styled.a`
   padding-right: 8px;
   text-decoration: none;
+  color: #383838;
 `;
 
 class Navigation extends Component {

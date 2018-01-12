@@ -7,6 +7,7 @@ import img3 from "./3.png";
 import img4 from "./4.png";
 import img5 from "./5.png";
 import img6 from "./6.png";
+import GoogleMap from "./GoogleMap";
 
 const CardWrap = styled.div`
   margin-bottom: 24px;
@@ -20,7 +21,7 @@ class List extends Component {
     return (
       <div className="container">
         <div className="row">
-          <div className="col-lg-4 col-md-6 col-xs-12">
+          <div className="col-md-6 col-xs-12">
             <CardWrap>
               <Card
                 img={img1}
@@ -30,7 +31,7 @@ class List extends Component {
               />
             </CardWrap>
           </div>
-          <div className="col-lg-4 col-md-6 col-xs-12">
+          <div className="col-md-6 col-xs-12">
             <CardWrap>
               <Card
                 img={img2}
@@ -40,7 +41,7 @@ class List extends Component {
               />
             </CardWrap>
           </div>
-          <div className="col-lg-4 col-md-6 col-xs-12">
+          <div className="col-md-6 col-xs-12">
             <CardWrap>
               <Card
                 img={img3}
@@ -50,7 +51,7 @@ class List extends Component {
               />
             </CardWrap>
           </div>
-          <div className="col-lg-4 col-md-6 col-xs-12">
+          <div className="col-md-6 col-xs-12">
             <CardWrap>
               <Card
                 img={img4}
@@ -60,7 +61,7 @@ class List extends Component {
               />
             </CardWrap>
           </div>
-          <div className="col-lg-4 col-md-6 col-xs-12">
+          <div className="col-md-6 col-xs-12">
             <CardWrap>
               <Card
                 img={img5}
@@ -70,7 +71,7 @@ class List extends Component {
               />
             </CardWrap>
           </div>
-          <div className="col-lg-4 col-md-6 col-xs-12">
+          <div className="col-md-6 col-xs-12">
             <CardWrap>
               <Card
                 img={img6}

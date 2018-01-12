@@ -6,6 +6,9 @@ const Btn = styled.img`
   position: fixed;
   right: 8px;
   bottom: 24px;
+  @media only screen and (min-width: 992px) {
+    display: none;
+  }
 `;
 
 class MapButton extends Component {
