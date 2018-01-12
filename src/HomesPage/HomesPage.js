@@ -24,13 +24,13 @@ class HomesPage extends Component {
         <Wrap>
           <div className="container">
             <div className="row">
-              <div className="col-lg-8">
+              <div className="col-lg-8 col-xs-12">
                 <List />
                 <Pagination />
                 <Showed />
                 <Disclaimer />
               </div>
-              <div className="col-lg-4">
+              <div className="col-lg-4 col-xs-12">
                 <GoogleMap />
               </div>
             </div>

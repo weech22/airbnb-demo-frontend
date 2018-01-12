@@ -18,7 +18,7 @@ const Wrap = styled.div`
   right: 0;
   z-index: 100;
   margin: 0 auto;
-
+  padding-left: 8px;
   @media only screen and (min-width: 576px) {
     max-width: 560px;
   }
