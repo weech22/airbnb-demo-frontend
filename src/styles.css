@@ -1,11 +1,5 @@
 /* DayPicker styles */
 
-.DayPicker-Day--highlighted {
-  background: rgba(0, 132, 137, 0.1);
-  border: 1px solid #9cd9d9;
-  box-sizing: border-box;
-}
-
 .DayPicker {
   display: inline-block;
 }
@@ -57,10 +51,12 @@
 .DayPicker-NavButton--prev {
   margin-right: 1.5rem;
   background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACQAAAAwCAYAAAB5R9gVAAAABGdBTUEAALGPC/xhBQAAAVVJREFUWAnN2G0KgjAYwPHpGfRkaZeqvgQaK+hY3SUHrk1YzNLay/OiEFp92I+/Mp2F2Mh2lLISWnflFjzH263RQjzMZ19wgs73ez0o1WmtW+dgA01VxrE3p6l2GLsnBy1VYQOtVSEH/atCCgqpQgKKqYIOiq2CBkqtggLKqQIKgqgCBjpJ2Y5CdJ+zrT9A7HHSTA1dxUdHgzCqJIEwq0SDsKsEg6iqBIEoq/wEcVRZBXFV+QJxV5mBtlDFB5VjYTaGZ2sf4R9PM7U9ZU+lLuaetPP/5Die3ToO1+u+MKtHs06qODB2zBnI/jBd4MPQm1VkY79Tb18gB+C62FdBFsZR6yeIo1YQiLJWMIiqVjQIu1YSCLNWFgijVjYIuhYYCKoWKAiiFgoopxYaKLUWOii2FgkophYp6F3r42W5A9s9OcgNvva8xQaysKXlFytoqdYmQH6tF3toSUo0INq9AAAAAElFTkSuQmCC");
+  display: none;
 }
 
 .DayPicker-NavButton--next {
   background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACQAAAAwCAYAAAB5R9gVAAAABGdBTUEAALGPC/xhBQAAAXRJREFUWAnN119ugjAcwPHWzJ1gnmxzB/BBE0n24m4xfNkTaOL7wOtsl3AXMMb+Vjaa1BG00N8fSEibPpAP3xAKKs2yjzTPH9RAjhEo9WzPr/Vm8zgE0+gXATAxxuxtqeJ9t5tIwv5AtQAApsfT6TPdbp+kUBcgVwvO51KqVhMkXKsVJFXrOkigVhCIs1Y4iKlWZxB1rX4gwlpRIIpa8SDkWmggrFq4IIRaJKCYWnSgnrXIQV1r8YD+1Vrn+bReagysIFfLABRt31v8oBu1xEBttfRbltmfjgEcWh9snUS2kNdBK6WN1vrOWxObWsz+fjxevsxmB1GQDfINWiev83nhaoiB/CoOU438oPrhXS0WpQ9xc1ZQWxWHqUYe0I0qrKCQKjygDlXIQV2r0IF6ViEBxVTBBSFUQQNhVYkHIVeJAtkNsbQ7c1LtzP6FsObhb2rCKv7NBIGoq4SDmKoEgTirXAcJVGkFSVVpgoSrXICGUMUH/QBZNSUy5XWUhwAAAABJRU5ErkJggg==");
+  display: none;
 }
 
 .DayPicker-NavButton--interactionDisabled {
@@ -70,18 +66,29 @@
 .DayPicker-Caption {
   padding: 0 0.5rem;
   display: table-caption;
-  text-align: left;
+  text-align: center;
   margin-bottom: 0.5rem;
 }
 
 .DayPicker-Caption > div {
   font-size: 1.15rem;
   font-weight: 500;
+  font-family: CircularAir;
+  line-height: normal;
+  font-size: 18px;
+  font-weight: bold;
+  color: #383838;
 }
 
 .DayPicker-Weekdays {
   margin-top: 1rem;
   display: table-header-group;
+  background: #ffffff;
+  box-shadow: 0px 0.5px 0px rgba(72, 72, 72, 0.3);
+}
+
+.DayPicker-Month:last-child .DayPicker-Weekdays {
+  display: none;
 }
 
 .DayPicker-WeekdaysRow {
@@ -90,10 +97,15 @@
 
 .DayPicker-Weekday {
   display: table-cell;
-  padding: 0.5rem;
-  font-size: 0.875em;
+
   text-align: center;
   color: #8b9898;
+  font-family: CircularAir;
+  line-height: normal;
+  font-size: 12px;
+  text-align: center;
+  padding-bottom: 4px;
+  color: #636363;
 }
 
 .DayPicker-Weekday abbr[title] {
@@ -124,6 +136,7 @@
   text-align: center;
   border: 1px solid #d5d5d5;
   color: #383838;
+  background: white;
 }
 
 .DayPicker-WeekNumber {
@@ -186,19 +199,22 @@
 
 .DayPicker-Day--selected:not(.DayPicker-Day--disabled):not(.DayPicker-Day--outside) {
   position: relative;
-  color: #f0f8ff;
-  background-color: #4a90e2;
-  border-radius: 100%;
-}
-
-.DayPicker-Day--selected:not(.DayPicker-Day--disabled):not(.DayPicker-Day--outside):hover {
-  background-color: #51a0fa;
+  background: rgba(0, 132, 137, 0.1);
+  border: 1px solid #9cd9d9;
+  box-sizing: border-box;
+  color: #383838;
 }
 
 .DayPicker:not(.DayPicker--interactionDisabled)
   .DayPicker-Day:not(.DayPicker-Day--disabled):not(.DayPicker-Day--selected):not(.DayPicker-Day--outside):hover {
-  background-color: #f0f8ff;
-  border-radius: 50%;
+  background-color: #ffffff;
+}
+
+.DayPicker-Day--edgeDays:not(.DayPicker-Day--disabled):not(.DayPicker-Day--outside) {
+  color: #ffffff;
+  background: #008489;
+  border: 1px solid #008489;
+  box-sizing: border-box;
 }
 
 /* DayPickerInput */

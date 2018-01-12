@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import close from "./close.svg";
 import styled from "styled-components";
+import CloseButton from "./CloseButton";
 
 const Title = styled.h1`
   font-family: CircularAir;
@@ -27,16 +27,18 @@ const Wrap = styled.div`
   background-clip: padding-box;
 `;
 
-const Img = styled.img`
-  margin: 16.23px 0;
-  margin-left: 8.23px;
-`;
-
 class Header extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      gonnaClose: false
+    };
+  }
+
   render() {
     return (
-      <Wrap>
-        <Img src={close} />
+      <Wrap className={this.props.className}>
+        <CloseButton onClickProp={this.props.onClickProp} />
         <Title>{this.props.text}</Title>
         <Action>{this.props.action}</Action>
       </Wrap>

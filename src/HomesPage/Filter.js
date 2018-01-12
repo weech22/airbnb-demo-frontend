@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import styled from "styled-components";
-import FilterButton from "./FilterButton";
+import Dropdown from "./Dropdown";
 import GuestModal from "./Guests/GuestModal";
 import DateModal from "./Date/DateModal";
 import FiltersModal from "./Filter/FilterModal";
@@ -34,24 +34,35 @@ const DesktopButtons = styled.div`
 `;
 
 class Filter extends Component {
+  constructor(props) {
+    super(props);
+    this.updateState = this.updateState.bind(this);
+    this.state = {
+      gonnaClose: false
+    };
+  }
+  updateState() {
+    this.setState({ gonnaClose: true });
+  }
+
   render() {
     return (
       <div className="container">
         <Wrap>
-          <FilterButton name="Dates">
-            <DateModal />
-          </FilterButton>
-          <FilterButton name="Guests">
+          <Dropdown gonnaClose={this.state.gonnaClose} name="Dates">
+            <DateModal onClickProp={this.updateState} id="Dates" />
+          </Dropdown>
+          <Dropdown name="Guests">
             <GuestModal />
-          </FilterButton>
+          </Dropdown>
           <DesktopButtons>
-            <FilterButton>Room type</FilterButton>
-            <FilterButton>Price</FilterButton>
-            <FilterButton>Instant book</FilterButton>
+            <Dropdown>Room type</Dropdown>
+            <Dropdown>Price</Dropdown>
+            <Dropdown>Instant book</Dropdown>
           </DesktopButtons>
-          <FilterButton name="More filters">
+          <Dropdown name="More filters">
             <FiltersModal />
-          </FilterButton>
+          </Dropdown>
         </Wrap>
       </div>
     );

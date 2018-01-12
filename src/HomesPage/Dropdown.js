@@ -19,11 +19,11 @@ const Button = styled.button`
   }
 `;
 
-const Div = styled.div`
+const Wrap = styled.div`
   display: inline-block;
 `;
 
-class FilterButton extends Component {
+class Dropdown extends Component {
   state = {
     isOpen: false
   };
@@ -32,14 +32,18 @@ class FilterButton extends Component {
     this.setState({ isOpen: true });
   };
 
+  componentWillReceiveProps(nextProps) {
+    this.setState({ isOpen: !nextProps.gonnaClose });
+  }
+
   render() {
     return (
-      <Div>
+      <Wrap>
         <Button onClick={this.toggleOpen}>{this.props.name}</Button>
         {this.state.isOpen && this.props.children}
-      </Div>
+      </Wrap>
     );
   }
 }
 
-export default FilterButton;
+export default Dropdown;

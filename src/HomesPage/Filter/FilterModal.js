@@ -25,14 +25,7 @@ const Div = styled.div`
 
 class FilterModal extends Component {
   render() {
-    return (
-      <Wrap>
-        <Header text="All filters (0)" action="Clear All" />
-        <RoomType />
-        <RoomsBeds />
-        <Footer text="See homes" />
-      </Wrap>
-    );
+    return <div />;
   }
 }
 

@@ -24,20 +24,8 @@ const Div = styled.div`
 
 class GuestModal extends Component {
   render() {
-    return (
-      <Wrap>
-        <Header text="Guests" action="Reset" />
-        <Section />
-        <Footer text="Save" />
-      </Wrap>
-    );
+    return <div />;
   }
 }
 
 export default GuestModal;
-
-/*
-   
-        
-
-        */
