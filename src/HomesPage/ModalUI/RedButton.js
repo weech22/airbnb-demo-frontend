@@ -17,7 +17,7 @@ const Btn = styled.button`
 
 class RedButton extends Component {
   render() {
-    return <Btn>{this.props.text}</Btn>;
+    return <Btn onClick={this.props.onApply}>{this.props.text}</Btn>;
   }
 }
 

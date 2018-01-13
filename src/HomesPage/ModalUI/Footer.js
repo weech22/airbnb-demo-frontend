@@ -20,7 +20,7 @@ class Footer extends Component {
   render() {
     return (
       <Wrap>
-        <RedButton text={this.props.text} />
+        <RedButton onApply={this.props.onApply} text={this.props.text} />
       </Wrap>
     );
   }

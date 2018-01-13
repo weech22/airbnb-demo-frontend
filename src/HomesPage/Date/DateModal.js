@@ -73,7 +73,7 @@ class DateModal extends React.Component {
                   onCancel={this.props.onCancel}
                   onApply={this.handleSaveDates}
                 />
-                <Footer text="Save" />
+                <Footer onApply={this.handleSaveDates} text="Save" />
               </Wrap>
             </div>
           </div>
