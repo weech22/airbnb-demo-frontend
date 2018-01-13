@@ -8,8 +8,7 @@ const Wrap = styled.div`
   margin-top: 0px;
   padding-top: 32px;
   padding-bottom: 16px;
-  border-bottom: 1px solid rgba(200, 200, 200, 1);
-  -webkit-background-clip: padding-box;
+  border-bottom: 1px solid rgba(72, 72, 72, 0.3);
   background-clip: padding-box;
 `;
 

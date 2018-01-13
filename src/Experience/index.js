@@ -16,21 +16,21 @@ class Experience extends Component {
         <SliderBlock>
           <Slider>
             <div className="col-lg-3 col-md-4 col-xs-6">
-              <Card img={img1} price="29" name="Forest therapy" reviews="44" />
+              <Card img={img1} price={29} name="Forest therapy" reviews={44} />
             </div>
             <div className="col-lg-3 col-md-4 col-xs-6">
-              <Card img={img2} price="69" name="Whale watching" reviews="46" />
+              <Card img={img2} price={69} name="Whale watching" reviews={46} />
             </div>
             <div className="col-lg-3 col-md-4 col-xs-6">
               <Card
                 img={img3}
-                price="69"
+                price={69}
                 name="Table Mountain Summit, Cable Car Down"
-                reviews="44"
+                reviews={44}
               />
             </div>
             <div className="col-lg-3 col-md-4 col-xs-6">
-              <Card img={img4} price="50" name="Salsa Night" reviews="44" />
+              <Card img={img4} price={50} name="Salsa Night" reviews={44} />
             </div>
           </Slider>
         </SliderBlock>

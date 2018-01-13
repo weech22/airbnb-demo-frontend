@@ -16,14 +16,14 @@ class Reservation extends Component {
         <SliderBlock>
           <Slider>
             <div className="col-lg-3 col-md-4 col-xs-6">
-              <Card img={img1} type="Speakeasy" name="Chumley’s" price="60" />
+              <Card img={img1} type="Speakeasy" name="Chumley’s" price={60} />
             </div>
             <div className="col-lg-3 col-md-4 col-xs-6">
               <Card
                 img={img2}
                 type="Korean gastropub"
                 name="Hanjan"
-                price="50"
+                price={50}
               />
             </div>
             <div className="col-lg-3 col-md-4 col-xs-6">
@@ -31,11 +31,11 @@ class Reservation extends Component {
                 img={img3}
                 type="German american"
                 name="Prime Meats"
-                price="55"
+                price={55}
               />
             </div>
             <div className="col-lg-3 col-md-4 col-xs-6">
-              <Card img={img4} type="Fine seafood" name="Seaprice" price="70" />
+              <Card img={img4} type="Fine seafood" name="Seaprice" price={70} />
             </div>
           </Slider>
         </SliderBlock>

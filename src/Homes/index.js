@@ -18,7 +18,7 @@ class Homes extends Component {
                 img={img1}
                 info="Entire house  ·  9 beds"
                 name="$82	La Salentina, see, nature & relax"
-                hosts="97"
+                hosts={97}
               />
             </div>
             <div className="col-lg-4 col-md-5 col-xs-8">
@@ -26,7 +26,7 @@ class Homes extends Component {
                 img={img2}
                 info="Entire house  ·  5 beds"
                 name="$82 Your private 3 bedr. riad and exclusi…"
-                hosts="161"
+                hosts={161}
               />
             </div>
             <div className="col-lg-4 col-md-5 col-xs-8">
@@ -34,7 +34,7 @@ class Homes extends Component {
                 img={img3}
                 info="Entire treehouse  ·  1 bed"
                 name="$200 Dreamy Tropical Tree House"
-                hosts="364"
+                hosts={364}
               />
             </div>
           </Slider>

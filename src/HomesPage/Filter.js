@@ -7,11 +7,9 @@ import FiltersModal from "./Filter/FilterModal";
 
 const Wrap = styled.div`
   background: white;
-  border-top: 1px solid rgba(200, 200, 200, 1);
-  border-bottom: 1px solid rgba(200, 200, 200, 1);
-  -webkit-background-clip: padding-box;
+  border-top: 0.5px solid rgba(72, 72, 72, 0.3);
+  border-bottom: 0.5px solid rgba(72, 72, 72, 0.3);
   background-clip: padding-box;
-
   position: fixed;
   top: 81px;
   left: 0;
@@ -20,19 +18,19 @@ const Wrap = styled.div`
   margin: 0 auto;
   padding-left: 8px;
   @media only screen and (min-width: 576px) {
-    max-width: 560px;
+    max-width: 552px;
   }
 
   @media only screen and (min-width: 768px) {
-    max-width: 752px;
+    max-width: 746px;
   }
 
   @media only screen and (min-width: 992px) {
-    max-width: 976px;
+    max-width: 968px;
   }
 
   @media only screen and (min-width: 1200px) {
-    max-width: 1184px;
+    max-width: 1176px;
   }
 `;
 
@@ -46,12 +44,12 @@ const DesktopButtons = styled.div`
 class Filter extends Component {
   constructor(props) {
     super(props);
-    this.updateState = this.updateState.bind(this);
+    this.closeModal = this.closeModal.bind(this);
     this.state = {
       gonnaClose: false
     };
   }
-  updateState() {
+  closeModal() {
     this.setState({ gonnaClose: true });
   }
 
@@ -60,7 +58,7 @@ class Filter extends Component {
       <div className="container">
         <Wrap>
           <Dropdown gonnaClose={this.state.gonnaClose} name="Dates">
-            <DateModal onClickProp={this.updateState} id="Dates" />
+            <DateModal onClickProp={this.closeModal} id="Dates" />
           </Dropdown>
           <Dropdown name="Guests">
             <GuestModal />

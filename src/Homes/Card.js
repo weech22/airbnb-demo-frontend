@@ -25,7 +25,7 @@ const Info = styled.p`
   font-family: CircularAir, Helvetica Neue, Helvetica, Arial, sans-serif;
   font-weight: lighter;
   text-align: Left;
-  display: inlineblock;
+  display: inline-block;
   margin-top: 2px;
   margin-bottom: 0;
 

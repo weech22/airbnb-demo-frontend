@@ -48,7 +48,7 @@ class Card extends Component {
   render() {
     return (
       <CardBlock href={this.props.link}>
-        <img src={this.props.img} />
+        <Img src={this.props.img} />
         <Name>{this.props.name}</Name>
       </CardBlock>
     );
