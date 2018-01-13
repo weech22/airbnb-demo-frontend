@@ -14,7 +14,7 @@ const Action = styled.span`
   line-height: normal;
   font-size: 14px;
   color: #0f7276;
-  margin-right: 7px;
+  margin-right: 15px;
 `;
 
 const Wrap = styled.div`

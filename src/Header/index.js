@@ -12,7 +12,7 @@ const Wrap = styled.div`
   top: 0;
   left: 0;
   right: 0;
-  z-index: 100;
+  z-index: 2000;
 
   margin: 0 auto;
   @media only screen and (min-width: 576px) {

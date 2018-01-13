@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import styled from "styled-components";
-import plus from "../Modal UI/plus.svg";
-import minus from "../Modal UI/minus.svg";
+import plus from "../ModalUI/plus.svg";
+import minus from "../ModalUI/minus.svg";
 
 const Wrap = styled.div`
   margin-left: 8px;

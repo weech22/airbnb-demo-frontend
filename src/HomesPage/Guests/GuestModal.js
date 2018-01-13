@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import styled from "styled-components";
-import Header from "../Modal UI/Header";
+import Header from "../ModalUI/Header";
 import Section from "./Section";
-import Footer from "../Modal UI/Footer";
+import Footer from "../ModalUI/Footer";
 
 const Wrap = styled.div`
   position: fixed;

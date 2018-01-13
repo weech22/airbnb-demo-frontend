@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import styled from "styled-components";
-import Counter from "../Modal UI/Counter";
+import Counter from "../ModalUI/Counter";
 
 const Wrap = styled.div`
   height: calc(100% - 153px);

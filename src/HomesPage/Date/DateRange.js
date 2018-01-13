@@ -2,6 +2,12 @@ import React, { Component } from "react";
 import styled from "styled-components";
 import arrow from "./arrowRight.svg";
 
+const Wrap = styled.div`
+  @media only screen and (min-width: 768px) {
+    display: none;
+  }
+`;
+
 const CheckIn = styled.span`
   font-family: CircularAir;
   line-height: normal;
@@ -27,7 +33,7 @@ const ArrowImg = styled.img`
 class DateRange extends React.Component {
   render() {
     return (
-      <div>
+      <Wrap>
         <CheckIn>
           {!this.props.from && "Check-in"}
           {this.props.from && this.props.from.toLocaleDateString()}
@@ -37,7 +43,7 @@ class DateRange extends React.Component {
           {!this.props.to && "Check-out"}
           {this.props.to && this.props.to.toLocaleDateString()}
         </CheckOut>
-      </div>
+      </Wrap>
     );
   }
 }
