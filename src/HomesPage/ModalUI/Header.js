@@ -1,6 +1,19 @@
 import React, { Component } from "react";
 import styled from "styled-components";
-import CloseButton from "./CloseButton";
+import close from "./close.svg";
+
+const CloseButton = styled.button`
+  appearance: none;
+  cursor: pointer;
+  background-color: white;
+  background-image: url(${close});
+  border: none;
+  background-repeat: no-repeat;
+  margin: 16.23px 0;
+  margin-left: 8.23px;
+  width: 15.53px;
+  height: 15.53px;
+`;
 
 const Title = styled.h1`
   font-family: CircularAir;
@@ -27,23 +40,14 @@ const Wrap = styled.div`
   background-clip: padding-box;
 `;
 
-class Header extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      gonnaClose: false
-    };
-  }
-
-  render() {
-    return (
-      <Wrap className={this.props.className}>
-        <CloseButton onClickProp={this.props.onClickProp} />
-        <Title>{this.props.text}</Title>
-        <Action>{this.props.action}</Action>
-      </Wrap>
-    );
-  }
+function Header(props) {
+  return (
+    <Wrap className={props.className}>
+      <CloseButton onClick={props.onClose} />
+      <Title>{props.text}</Title>
+      <Action onClick={props.onAction}>{props.action}</Action>
+    </Wrap>
+  );
 }
 
 export default Header;

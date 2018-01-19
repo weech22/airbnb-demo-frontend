@@ -3,8 +3,8 @@ import "flexboxgrid2/flexboxgrid2.css";
 import "normalize.css";
 import "./Fonts/font.css";
 import Header from "./Header";
-import FrontPage from "./FrontPage";
-import HomesPage from "./HomesPage/HomesPage";
+import FrontPage from "./Landing";
+import HomesPage from "./HomesPage";
 import { Helmet } from "react-helmet";
 
 import { render } from "react-dom";

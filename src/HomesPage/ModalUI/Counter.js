@@ -17,7 +17,6 @@ const Name = styled.h2`
   color: #383838;
   margin-left: 8px;
   margin-bottom: 6px;
-  vertical-align: center;
 `;
 
 const Desc = styled.h3`
@@ -30,22 +29,39 @@ const Desc = styled.h3`
   margin-left: 8px;
 `;
 
-const ImgPlus = styled.img`
-  display: inline-block;
+const Plus = styled.button`
   margin: auto 0;
-  margin-right: 8px;
   margin-left: 18px;
+  width: 32px;
+  height: 32px;
+  border: none;
+  background-color: white;
+  background-image: url(${plus});
+  background-repeat: no-repeat;
+  background-position: center center;
 `;
 
-const ImgMinus = styled.img`
+const Minus = styled.button`
+  margin: auto 0;
   margin-right: 18px;
+  width: 32px;
+  height: 32px;
+  border: none;
+  background-color: white;
+  background-image: url(${minus});
+  background-repeat: no-repeat;
+  background-position: center center;
 `;
 
-const Div = styled.div`
+const Buttons = styled.div`
   display: flex;
+  margin-right: 8px;
 `;
 
-const Div2 = styled.div``;
+const Text = styled.div`
+  display: flex;
+  margin: auto 0;
+`;
 
 const Count = styled.span`
   margin: auto 0;
@@ -56,19 +72,29 @@ const Count = styled.span`
 `;
 
 class Counter extends Component {
+  incGuests = () => {
+    this.props.onPlus(this.props.name.toLowerCase(), this.props.count + 1);
+  };
+
+  decGuests = () => {
+    this.props.onMinus(this.props.name.toLowerCase(), this.props.count - 1);
+  };
+
   render() {
     return (
       <Wrap>
         <div className="row between-xs">
-          <Div2>
-            <Name>{this.props.name}</Name>
-            <Desc>{this.props.desc}</Desc>
-          </Div2>
-          <Div>
-            <ImgMinus src={minus} />
-            <Count>1</Count>
-            <ImgPlus src={plus} />
-          </Div>
+          <Text>
+            <div>
+              <Name>{this.props.name}</Name>
+              <Desc>{this.props.desc}</Desc>
+            </div>
+          </Text>
+          <Buttons>
+            <Minus onClick={this.decGuests} />
+            <Count>{this.props.count}</Count>
+            <Plus onClick={this.incGuests} />
+          </Buttons>
         </div>
       </Wrap>
     );

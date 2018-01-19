@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import styled from "styled-components";
-import RedButton from "./RedButton";
 
 const Wrap = styled.div`
   display: flex;
@@ -16,14 +15,26 @@ const Wrap = styled.div`
   }
 `;
 
-class Footer extends Component {
-  render() {
-    return (
-      <Wrap>
-        <RedButton onApply={this.props.onApply} text={this.props.text} />
-      </Wrap>
-    );
-  }
+const Btn = styled.button`
+  background: #ff5a5f;
+  border-radius: 4px;
+  width: 100%;
+  height: 100%;
+  font-family: CircularAir;
+  line-height: normal;
+  font-size: 18px;
+  color: #ffffff;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  border: none;
+`;
+
+function Footer(props) {
+  return (
+    <Wrap>
+      <Btn onClick={props.onClick}>{props.text}</Btn>
+    </Wrap>
+  );
 }
 
 export default Footer;

@@ -1,9 +1,11 @@
 import React, { Component } from "react";
 import styled from "styled-components";
-import Dropdown from "./Dropdown";
-import StaticDropdown from "./StaticDropdown";
-import DateModal from "./Date/DateModal";
-import FiltersModal from "./Filter/FilterModal";
+import RoomDropdown from "./Room/Dropdown";
+import BookDropdown from "./Book/Dropdown";
+import PriceDropdown from "./Price/Dropdown";
+import FiltersDropdown from "./Filters/Dropdown";
+import DatesDropdown from "./Dates/Dropdown";
+import GuestsDropdown from "./Guests/Dropdown";
 
 const Wrap = styled.div`
   background: white;
@@ -42,57 +44,18 @@ const DesktopButtons = styled.div`
 `;
 
 class Filter extends Component {
-  constructor(props) {
-    super(props);
-    this.closeModal = this.closeModal.bind(this);
-    this.handleSaveDates = this.handleSaveDates.bind(this);
-
-    this.state = {
-      dateFrom: undefined,
-      dateTo: undefined,
-      gonnaClose: false
-    };
-  }
-  closeModal() {
-    this.setState({ gonnaClose: true });
-  }
-
-  handleSaveDates(dateFrom, dateTo) {
-    this.setState({
-      dateFrom: dateFrom,
-      dateTo: dateTo
-    });
-  }
   render() {
     return (
       <div className="container">
         <Wrap>
-          <Dropdown
-            gonnaClose={this.state.gonnaClose}
-            dateFrom={this.state.dateFrom}
-            dateTo={this.state.dateTo}
-            name="Dates"
-          >
-            <DateModal
-              handleSaveDates={this.handleSaveDates}
-              onCancel={this.closeModal}
-              onClickProp={this.closeModal}
-              monthAmount={
-                matchMedia("(min-width: 992px)").matches
-                  ? 2
-                  : matchMedia("(min-width: 576px)").matches ? 1 : 12
-              }
-              id="Dates"
-            />
-          </Dropdown>
-
-          <StaticDropdown name="Guests" />
+          <DatesDropdown />
+          <GuestsDropdown />
           <DesktopButtons>
-            <StaticDropdown name="Room type" />
-            <StaticDropdown name="Price" />
-            <StaticDropdown name="Instant book" />
+            <RoomDropdown />
+            <PriceDropdown />
+            <BookDropdown />
           </DesktopButtons>
-          <StaticDropdown name="More filters" />
+          <FiltersDropdown />
         </Wrap>
       </div>
     );

@@ -1,8 +1,9 @@
 import React, { Component } from "react";
 import styled from "styled-components";
-import DateModal from "./Date/DateModal";
+import DateModal from "./Date/Modal";
 import ReactDOM from "react-dom";
 import { Portal } from "react-portal";
+import Moment from "react-moment";
 
 const Button = styled.button`
   font-family: CircularAir, Helvetica Neue, Helvetica, Arial, sans-serif;

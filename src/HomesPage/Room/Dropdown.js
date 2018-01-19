@@ -1,8 +1,9 @@
 import React, { Component } from "react";
 import styled from "styled-components";
-import DateModal from "./Date/DateModal";
+import Modal from "./Modal";
 import ReactDOM from "react-dom";
 import { Portal } from "react-portal";
+import Moment from "react-moment";
 
 const Button = styled.button`
   font-family: CircularAir, Helvetica Neue, Helvetica, Arial, sans-serif;
@@ -68,7 +69,7 @@ class Dropdown extends Component {
         </Button>
         {this.state.isOpen && (
           <Portal node={document && document.getElementById("modal")}>
-            <DateModal
+            <Modal
               onCancel={this.toggleClose}
               onApply={this.handleSaveDates}
               monthAmount={
