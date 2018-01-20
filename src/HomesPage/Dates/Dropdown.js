@@ -4,26 +4,16 @@ import Modal from "./Modal";
 import ReactDOM from "react-dom";
 import { Portal } from "react-portal";
 import Moment from "react-moment";
+import {
+  FilterButton as Button,
+  FilterButtonBlock as Wrap,
+  WhiteBackground,
+  DesktopModal
+} from "../ModalUI/UI";
 
-const Button = styled.button`
-  font-family: CircularAir, Helvetica Neue, Helvetica, Arial, sans-serif;
-  border: 1px solid rgba(72, 72, 72, 0.2);
-  box-sizing: border-box;
-  border-radius: 4px;
-  background: ${props => (props.active ? "#008489" : "white")};
-  color: ${props => (props.active ? "white" : "#383838")};
-  cursor: pointer;
-  @media only screen and (min-width: 320px) {
-    padding: 7px 16px;
-    margin: 12px 0;
-    margin-right: 12px;
-    line-height: normal;
-    font-size: 14px;
-  }
-`;
-
-const Wrap = styled.div`
-  display: inline-block;
+const DatesModal = styled(DesktopModal)`
+  top: 52px;
+  left: 8px;
 `;
 
 const formatDateLabel = (from, to, isOpen) => {
@@ -67,19 +57,48 @@ class Dropdown extends Component {
         <Button active={this.state.isOpen} onClick={this.toggleOpen}>
           {formatDateLabel(this.state.from, this.state.to, this.state.isOpen)}
         </Button>
-        {this.state.isOpen && (
-          <Portal node={document && document.getElementById("modal")}>
-            <Modal
-              onCancel={this.toggleClose}
-              onApply={this.saveDates}
-              monthAmount={
-                matchMedia("(min-width: 992px)").matches
-                  ? 2
-                  : matchMedia("(min-width: 576px)").matches ? 1 : 12
-              }
-            />
-          </Portal>
-        )}
+        {this.state.isOpen &&
+          ((matchMedia("(max-width: 575px)").matches && (
+            <Portal node={document && document.getElementById("modal")}>
+              <div className="modal">
+                <div className="modal-container">
+                  <div className="content">
+                    <div className="content-wrap">
+                      <Modal
+                        onCancel={this.toggleClose}
+                        onApply={this.saveDates}
+                        monthAmount={
+                          matchMedia("(min-width: 992px)").matches
+                            ? 2
+                            : matchMedia("(min-width: 576px)").matches ? 1 : 12
+                        }
+                        start={this.state.from}
+                        end={this.state.to}
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </Portal>
+          )) ||
+            (matchMedia("(min-width: 576px)").matches && (
+              <div>
+                <WhiteBackground onClick={this.toggleClose} />
+                <DatesModal>
+                  <Modal
+                    onCancel={this.toggleClose}
+                    onApply={this.saveDates}
+                    monthAmount={
+                      matchMedia("(min-width: 992px)").matches
+                        ? 2
+                        : matchMedia("(min-width: 576px)").matches ? 1 : 12
+                    }
+                    start={this.state.from}
+                    end={this.state.to}
+                  />
+                </DatesModal>
+              </div>
+            )))}
       </Wrap>
     );
   }

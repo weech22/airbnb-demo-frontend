@@ -7,7 +7,6 @@ export const SectionTitle = styled.h2`
   font-size: 18px;
   color: #383838;
   margin: 0;
-  margin-left: 8px;
   margin-bottom: 24px;
 `;
 
@@ -31,4 +30,29 @@ export const FilterButton = styled.button`
 export const ModalWrap = styled.div`
   position: relative;
   background-color: #ffffff;
+`;
+
+export const FilterButtonBlock = styled.div`
+  display: inline-block;
+`;
+
+export const WhiteBackground = styled.div`
+  background: rgba(255, 255, 255, 0.8);
+  position: fixed;
+  z-index: 1013;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+`;
+
+export const DesktopModal = styled.div`
+  position: absolute;
+  background: white;
+  border: 1px solid rgba(72, 72, 72, 0.2);
+  box-sizing: border-box;
+  box-shadow: 0px 2px 4px rgba(72, 72, 72, 0.08);
+  border-radius: 4px;
+
+  z-index: 1014;
 `;

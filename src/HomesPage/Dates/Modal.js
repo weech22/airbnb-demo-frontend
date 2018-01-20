@@ -7,18 +7,9 @@ import DateRange from "./DateRange";
 import BottomPanel from "../ModalUI/BottomPanel";
 import Footer from "../ModalUI/Footer";
 
-const Wrap = styled.div`
-  position: relative;
-  background-color: #ffffff;
-`;
-
 const DateHeader = styled(Header)`
   border: none;
   margin-bottom: 26px;
-
-  @media only screen and (min-width: 768px) {
-    display: none;
-  }
 `;
 
 class Modal extends React.Component {
@@ -27,12 +18,15 @@ class Modal extends React.Component {
     this.clickHandler = this.clickHandler.bind(this);
     this.resetDates = this.resetDates.bind(this);
     this.state = {
-      from: undefined,
-      to: undefined
+      from: this.props.start,
+      to: this.props.end
     };
   }
 
-  clickHandler = day => {
+  clickHandler = (day, { disabled, selected }) => {
+    if (disabled) {
+      return;
+    }
     const range = DateUtils.addDayToRange(day, this.state);
     this.setState(range);
   };
@@ -51,38 +45,27 @@ class Modal extends React.Component {
       edgeDays: [from, to]
     };
     return (
-      <div className="modal">
-        <div className="container">
-          <div className="modal-container">
-            <div className="content">
-              <Wrap>
-                <DateHeader
-                  onClose={this.props.onCancel}
-                  onAction={this.resetDates}
-                  text="Dates"
-                  action="Reset"
-                />
-                {DateRange(this.state.from, this.state.to)}
-                <DayPicker
-                  numberOfMonths={this.props.monthAmount}
-                  selectedDays={[from, { from, to }]}
-                  modifiers={days}
-                  onDayClick={this.clickHandler}
-                  disabledDays={[
-                    {
-                      before: new Date()
-                    }
-                  ]}
-                />
-                <BottomPanel
-                  onCancel={this.props.onCancel}
-                  onApply={this.saveDates}
-                />
-                <Footer onClick={this.saveDates} text="Save" />
-              </Wrap>
-            </div>
-          </div>
-        </div>
+      <div>
+        <DateHeader
+          onClose={this.props.onCancel}
+          onAction={this.resetDates}
+          text="Dates"
+          action="Reset"
+        />
+        {DateRange(this.state.from, this.state.to)}
+        <DayPicker
+          numberOfMonths={this.props.monthAmount}
+          selectedDays={[from, { from, to }]}
+          modifiers={days}
+          onDayClick={this.clickHandler}
+          disabledDays={[
+            {
+              before: new Date()
+            }
+          ]}
+        />
+        <BottomPanel onCancel={this.props.onCancel} onApply={this.saveDates} />
+        <Footer onClick={this.saveDates} text="Save" />
       </div>
     );
   }

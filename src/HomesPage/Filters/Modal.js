@@ -4,29 +4,47 @@ import Header from "../ModalUI/Header";
 import RoomType from "./RoomType";
 import RoomsBeds from "./RoomsBeds";
 import Footer from "../ModalUI/Footer";
+import styles from "../../UI/styles.css";
+import BottomPanel from "../ModalUI/BottomPanel";
+import { ModalWrap as Wrap } from "../ModalUI/UI";
 
-const Wrap = styled.div`
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  z-index: 100;
-`;
-
-const Div = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  height: calc(100% - 48px);
-  background: white;
-  z-index: 100;
-`;
-
-class FilterModal extends Component {
+class Modal extends React.Component {
   render() {
-    return <div />;
+    return (
+      <div className="modal">
+        <div className="modal-container">
+          <div className="content">
+            <Wrap>
+              <Header
+                text="All filters (0)"
+                action="Clear All"
+                onAction={this.props.onReset}
+                onClose={this.props.onCancel}
+              />
+              <RoomType
+                onCheck={this.props.onCheck}
+                home={this.props.home}
+                privateRoom={this.props.privateRoom}
+                sharedRoom={this.props.sharedRoom}
+              />
+              <RoomsBeds
+                bedrooms={this.props.bedrooms}
+                beds={this.props.beds}
+                bathrooms={this.props.bathrooms}
+                onPlus={this.props.onPlus}
+                onMinus={this.props.onMinus}
+              />
+
+              <BottomPanel
+                onCancel={this.props.onCancel}
+                onApply={this.props.onSave}
+              />
+              <Footer onClick={this.props.onSave} text="See homes" />
+            </Wrap>
+          </div>
+        </div>
+      </div>
+    );
   }
 }
-
-export default FilterModal;
+export default Modal;

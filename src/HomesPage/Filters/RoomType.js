@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import styled from "styled-components";
-import Checkbox from "./Checkbox";
+import Checkbox from "../ModalUI/Checkbox";
 import { SectionTitle } from "../ModalUI/UI";
 
 const Wrap = styled.div`
@@ -8,8 +8,8 @@ const Wrap = styled.div`
   margin-top: 0px;
   padding-top: 40px;
   padding-bottom: 16px;
-  border-bottom: 1px solid rgba(200, 200, 200, 1);
-  -webkit-background-clip: padding-box;
+  padding-left: 8px;
+  border-bottom: 1px solid rgba(72, 72, 72, 0.3);
   background-clip: padding-box;
 `;
 
@@ -18,14 +18,26 @@ class RoomType extends Component {
     return (
       <Wrap>
         <SectionTitle>Room type</SectionTitle>
-        <Checkbox name="Entire home" desc="Have a place to yourself" />
         <Checkbox
-          name="Private room"
-          desc="Have your own room and share some common spaces"
+          id="home"
+          name="Entire home"
+          desc="Have a place to yourself"
+          onCheck={this.props.onCheck}
+          field={this.props.home}
         />
         <Checkbox
+          id="privateRoom"
+          name="Private room"
+          desc="Have your own room and share some common spaces"
+          onCheck={this.props.onCheck}
+          field={this.props.privateRoom}
+        />
+        <Checkbox
+          id="sharedRoom"
           name="Shared room"
           desc="Stay in a shared space, like a common room"
+          onCheck={this.props.onCheck}
+          field={this.props.sharedRoom}
         />
       </Wrap>
     );

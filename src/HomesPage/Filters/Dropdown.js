@@ -1,24 +1,10 @@
 import React, { Component } from "react";
 import styled from "styled-components";
+import Modal from "./Modal";
 import ReactDOM from "react-dom";
 import { Portal } from "react-portal";
-
-const Button = styled.button`
-  font-family: CircularAir, Helvetica Neue, Helvetica, Arial, sans-serif;
-  border: 1px solid rgba(72, 72, 72, 0.2);
-  box-sizing: border-box;
-  border-radius: 4px;
-  background: ${props => (props.active ? "#008489" : "white")};
-  color: ${props => (props.active ? "white" : "#383838")};
-  cursor: pointer;
-  @media only screen and (min-width: 320px) {
-    padding: 7px 16px;
-    margin: 12px 0;
-    margin-right: 12px;
-    line-height: normal;
-    font-size: 14px;
-  }
-`;
+import Moment from "react-moment";
+import { FilterButton as Button } from "../ModalUI/UI";
 
 const Wrap = styled.div`
   display: inline-block;
@@ -26,27 +12,85 @@ const Wrap = styled.div`
 
 class Dropdown extends Component {
   state = {
-    isOpen: false
+    isOpen: false,
+    home: false,
+    privateRoom: false,
+    sharedRoom: false,
+    bedrooms: 0,
+    beds: 0,
+    bathrooms: 0
+  };
+
+  resetFilters = () => {
+    this.setState({
+      home: false,
+      privateRoom: false,
+      sharedRoom: false,
+      bedrooms: 0,
+      beds: 0,
+      bathrooms: 0
+    });
+  };
+
+  saveFilters = () => {
+    this.setState({
+      isOpen: false
+    });
+  };
+
+  inc = (field, value) => {
+    this.setState({ [field]: value });
+  };
+
+  dec = (field, value) => {
+    if (value >= 0) {
+      this.setState({ [field]: value });
+    }
   };
 
   toggleOpen = () => {
     this.setState({ isOpen: true });
   };
 
-  componentWillReceiveProps(nextProps) {
+  toggleClose = () => {
     this.setState({
-      isOpen: !nextProps.gonnaClose
+      isOpen: false,
+      home: false,
+      privateRoom: false,
+      sharedRoom: false,
+      bedrooms: 0,
+      beds: 0,
+      bathrooms: 0
     });
-  }
+  };
+
+  handleCheck = (field, value) => {
+    this.setState({ [field]: value });
+  };
 
   render() {
     return (
       <Wrap>
         <Button active={this.state.isOpen} onClick={this.toggleOpen}>
-          More Filters
+          More filters
         </Button>
         {this.state.isOpen && (
-          <Portal node={document && document.getElementById("modal")} />
+          <Portal node={document && document.getElementById("modal")}>
+            <Modal
+              onCancel={this.toggleClose}
+              onReset={this.resetFilters}
+              onSave={this.saveFilters}
+              onCheck={this.handleCheck}
+              home={this.state.home}
+              privateRoom={this.state.privateRoom}
+              sharedRoom={this.state.sharedRoom}
+              bedrooms={this.state.bedrooms}
+              beds={this.state.beds}
+              bathrooms={this.state.bathrooms}
+              onPlus={this.inc}
+              onMinus={this.dec}
+            />
+          </Portal>
         )}
       </Wrap>
     );

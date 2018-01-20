@@ -4,28 +4,17 @@ import plus from "./plus.svg";
 import minus from "./minus.svg";
 
 const Wrap = styled.div`
-  margin-bottom: 40px;
-
-  @media only screen and (min-width: 768px) {
-    margin-bottom: 18px;
-  }
+  margin-bottom: 16px;
 `;
 
 const Name = styled.h2`
   font-family: CircularAir;
-  line-height: 21px;
-  font-size: 18px;
   margin: 0;
   color: #383838;
   margin-bottom: 6px;
-`;
-
-const Desc = styled.h3`
-  font-family: CircularAir;
-  line-height: 16px;
+  line-height: normal;
   font-weight: lighter;
-  margin: 0;
-  font-size: 14px;
+  font-size: 16px;
   color: #383838;
 `;
 
@@ -74,11 +63,11 @@ const Count = styled.span`
 `;
 
 class Counter extends Component {
-  incGuests = () => {
+  inc = () => {
     this.props.onPlus(this.props.name.toLowerCase(), this.props.count + 1);
   };
 
-  decGuests = () => {
+  dec = () => {
     this.props.onMinus(this.props.name.toLowerCase(), this.props.count - 1);
   };
 
@@ -87,16 +76,13 @@ class Counter extends Component {
       <Wrap>
         <div className="row between-xs">
           <Text>
-            <div>
-              <Name>{this.props.name}</Name>
-              <Desc>{this.props.desc}</Desc>
-            </div>
+            <Name>{this.props.name}</Name>
           </Text>
           <div className="col-xs-5">
             <Buttons>
-              <Minus onClick={this.decGuests} />
-              <Count>{this.props.count}</Count>
-              <Plus onClick={this.incGuests} />
+              <Minus onClick={this.dec} />
+              <Count>{this.props.count}+</Count>
+              <Plus onClick={this.inc} />
             </Buttons>
           </div>
         </div>

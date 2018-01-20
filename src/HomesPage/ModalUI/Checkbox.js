@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import styled from "styled-components";
+import checkOn from "./check-on.svg";
 
 const Wrap = styled.div`
   background: #ffffff;
@@ -14,6 +15,12 @@ const CheckboxInput = styled.input`
   border-radius: 4px;
   width: 24px;
   height: 24px;
+  &:checked {
+    background-color: #008489;
+    background-image: url(${checkOn});
+    background-repeat: no-repeat;
+    background-position: center center;
+  }
 `;
 
 const CheckboxBlock = styled.div`
@@ -46,11 +53,28 @@ const Desc = styled.p`
 `;
 
 class Checkbox extends Component {
+  state = {
+    isChecked: false
+  };
+
+  componentWillReceiveProps(nextProps) {
+    this.setState({ isChecked: nextProps.field });
+  }
+
+  handleCheck = () => {
+    this.setState({ isChecked: !this.state.isChecked });
+    this.props.onCheck(this.props.id, this.state.checked);
+  };
+
   render() {
     return (
       <Wrap>
         <CheckboxBlock>
-          <CheckboxInput type="checkbox" />
+          <CheckboxInput
+            type="checkbox"
+            checked={this.state.isChecked}
+            onChange={this.handleCheck}
+          />
           <div>
             <Name>{this.props.name}</Name>
             <Desc>{this.props.desc}</Desc>
