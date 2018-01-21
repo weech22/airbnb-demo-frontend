@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Card from "../../HomesPage/Card";
+import Card from "../../Homes/Card";
 import SectionTitleAndMore from "../../UI/SectionTitleAndMore";
 import { SliderBlock, Slider } from "../../UI/UI";
 import img1 from "./1.png";

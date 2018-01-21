@@ -3,10 +3,9 @@ import "flexboxgrid2/flexboxgrid2.css";
 import "normalize.css";
 import "./Fonts/font.css";
 import Header from "./Header";
-import FrontPage from "./Landing";
-import HomesPage from "./HomesPage";
+import Landing from "./Landing";
+import Homes from "./Homes";
 import { Helmet } from "react-helmet";
-
 import { render } from "react-dom";
 import { BrowserRouter, Route, Link } from "react-router-dom";
 
@@ -20,8 +19,8 @@ class App extends Component {
         <Header />
         <BrowserRouter>
           <div>
-            <Route path="/" exact component={FrontPage} />
-            <Route path="/homes" component={HomesPage} />
+            <Route path="/" exact component={Landing} />
+            <Route path="/homes" component={Homes} />
           </div>
         </BrowserRouter>
       </div>
