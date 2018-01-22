@@ -16,7 +16,7 @@ const Img = styled.img`
 class SocialLink extends Component {
   render() {
     return (
-      <a href="#">
+      <a href="">
         <Img src={this.props.img} />
       </a>
     );

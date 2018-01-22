@@ -1,38 +1,30 @@
 import React, { Component } from "react";
-import "normalize.css";
 import "flexboxgrid2/flexboxgrid2.css";
+import "normalize.css";
 import "./Fonts/font.css";
-import Explore from "./Explore";
-import Experience from "./Experience";
-import Homes from "./Homes";
-import Reservation from "./Reservations";
-import Featured from "./Featured";
 import Header from "./Header";
-import Footer from "./Footer";
+import Landing from "./Landing";
+import Homes from "./Homes";
+import { Helmet } from "react-helmet";
+import { BrowserRouter, Route } from "react-router-dom";
 
 class App extends Component {
   render() {
     return (
       <div>
+        <Helmet>
+          <title>Airbnb</title>
+        </Helmet>
         <Header />
-        <Explore />
-        <Experience />
-        <Homes />
-        <Reservation />
-        <Featured />
-        <Footer />
+        <BrowserRouter>
+          <div>
+            <Route path="/" exact component={Landing} />
+            <Route path="/homes" component={Homes} />
+          </div>
+        </BrowserRouter>
       </div>
     );
   }
 }
 
 export default App;
-
-/*
-        <Explore />
-        <Experience />
-        <Homes />
-        <Reservation />
-        <Featured />
-        <Footer />
-*/

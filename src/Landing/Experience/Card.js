@@ -1,37 +1,37 @@
 import React, { Component } from "react";
+import { CardBlock, Img, Label } from "../../UI/UI";
 import styled from "styled-components";
-import Star from "../UI/Star";
-import { CardBlock, Img, Label } from "../UI/UI";
+import Star from "../../UI/Star";
 
-const Name = styled.p`
+const Name = styled.span`
   font-family: CircularAir, Helvetica Neue, Helvetica, Arial, sans-serif;
-  font-weight: Bold;
-  display: inline-block;
   text-align: Left;
+  font-weight: lighter;
+  color: #383838;
   margin-top: 8px;
   margin-bottom: 0;
-  color: #383838;
-
-  line-height: 15px;
-  font-size: 13px;
-
+  @media only screen and (min-width: 320px) {
+    line-height: 15px;
+    font-size: 13px;
+  }
   @media only screen and (min-width: 768px) {
     line-height: 18px;
     font-size: 15px;
   }
 `;
 
-const Info = styled.p`
+const Price = styled.b`
   font-family: CircularAir, Helvetica Neue, Helvetica, Arial, sans-serif;
-  font-weight: lighter;
+  font-weight: Bold;
   text-align: Left;
-  display: inline-block;
-  margin-top: 2px;
-  margin-bottom: 0;
-
   color: #383838;
-  line-height: 14px;
-  font-size: 12px;
+  padding: 0;
+  margin: 0;
+  margin-top: 8px;
+  @media only screen and (min-width: 320px) {
+    line-height: 15px;
+    font-size: 13px;
+  }
   @media only screen and (min-width: 768px) {
     line-height: 18px;
     font-size: 15px;
@@ -44,14 +44,8 @@ class Card extends Component {
       <CardBlock href="#">
         <Img src={this.props.img} />
         <div>
-          <Name>
-            {this.props.price}$ {this.props.name}
-          </Name>
-        </div>
-        <div>
-          <Info>
-            {this.props.type} · {this.props.bedCount} bed
-          </Info>
+          <Price>${this.props.price} </Price>
+          <Name>{this.props.name}</Name>
         </div>
         <div>
           <Star />
@@ -59,7 +53,7 @@ class Card extends Component {
           <Star />
           <Star />
           <Star />
-          <Label>{this.props.reviews} · Superhost</Label>
+          <Label>{this.props.reviews} reviews</Label>
         </div>
       </CardBlock>
     );

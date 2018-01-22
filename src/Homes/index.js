@@ -1,45 +1,39 @@
 import React, { Component } from "react";
-import Card from "./Card";
-import SectionTitleAndMore from "../SectionTitleAndMore";
-import { SliderBlock, Slider } from "../UI";
-import img1 from "./1.png";
-import img2 from "./2.png";
-import img3 from "./3.png";
+import List from "./List";
+import Filter from "./Filter";
+import Pagination from "./UI/Pagination";
+import Showed from "./UI/Showed";
+import Disclaimer from "./UI/Disclaimer";
+import MapButton from "./UI/MapButton";
+import GoogleMap from "./GoogleMap";
+import styled from "styled-components";
+
+const Wrap = styled.div`
+  padding-top: 80px;
+  padding-bottom: 88px;
+`;
 
 class Homes extends Component {
   render() {
     return (
-      <div className="container">
-        <SectionTitleAndMore name="Homes" />
-
-        <SliderBlock>
-          <Slider>
-            <div className="col-lg-4 col-md-5 col-xs-8">
-              <Card
-                img={img1}
-                info="Entire house  ·  9 beds"
-                name="$82	La Salentina, see, nature & relax"
-                hosts="97"
-              />
+      <div>
+        <Filter />
+        <Wrap>
+          <div className="container">
+            <div className="row">
+              <div className="col-xs-12 col-lg-8">
+                <List />
+                <Pagination />
+                <Showed />
+                <Disclaimer />
+              </div>
+              <div className="col-xs-12 col-lg-4">
+                <GoogleMap />
+              </div>
             </div>
-            <div className="col-lg-4 col-md-5 col-xs-8">
-              <Card
-                img={img2}
-                info="Entire house  ·  5 beds"
-                name="$82 Your private 3 bedr. riad and exclusi…"
-                hosts="161"
-              />
-            </div>
-            <div className="col-lg-4 col-md-5 col-xs-8">
-              <Card
-                img={img3}
-                info="Entire treehouse  ·  1 bed"
-                name="$200 Dreamy Tropical Tree House"
-                hosts="364"
-              />
-            </div>
-          </Slider>
-        </SliderBlock>
+          </div>
+        </Wrap>
+        <MapButton />
       </div>
     );
   }
