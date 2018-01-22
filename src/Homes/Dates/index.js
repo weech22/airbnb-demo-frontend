@@ -21,7 +21,7 @@ const formatDateLabel = (from, to, isOpen) => {
   if (from && to) {
     const start = moment(from);
     const end = moment(to);
-    return start.format("MMM D") + "—" + end.format("MMM D");
+    return start.format("MMM D") + " — " + end.format("MMM D");
   } else if (isOpen) {
     return "Check in — Check out";
   } else {
