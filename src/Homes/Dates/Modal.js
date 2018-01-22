@@ -1,11 +1,9 @@
 import React, { Component } from "react";
 import styled from "styled-components";
 import DayPicker, { DateUtils } from "react-day-picker";
-import Header from "../ModalUI/Header";
 import styles from "../../UI/styles.css";
 import DateRange from "./DateRange";
-import BottomPanel from "../ModalUI/BottomPanel";
-import Footer from "../ModalUI/Footer";
+import { Header, Footer, BottomPanel } from "../ModalUI";
 
 const DateHeader = styled(Header)`
   border: none;

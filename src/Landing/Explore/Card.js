@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 export const CardBlock = styled.a`
   background: #ffffff;
@@ -47,7 +48,7 @@ const Img = styled.img`
 class Card extends Component {
   render() {
     return (
-      <CardBlock href={this.props.link}>
+      <CardBlock>
         <Img src={this.props.img} />
         <Name>{this.props.name}</Name>
       </CardBlock>

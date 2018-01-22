@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import styled from "styled-components";
 import arrow from "./arrowRight.svg";
-import Moment from "react-moment";
+import moment from "moment";
 
 const Wrap = styled.div`
   @media only screen and (min-width: 768px) {
@@ -32,15 +32,13 @@ const ArrowImg = styled.img`
 `;
 
 function DateRange(props) {
+  const start = moment(props.from);
+  const end = moment(props.to);
   return (
     <Wrap>
-      <CheckIn>
-        {props.from ? <Moment format="MMM D" date={props.from} /> : "Check-in"}
-      </CheckIn>
+      <CheckIn>{props.from ? start.format("MMM D") : "Check-in"}</CheckIn>
       <ArrowImg src={arrow} />
-      <CheckOut>
-        {props.to ? <Moment format="MMM D" date={props.to} /> : "Check-out"}
-      </CheckOut>
+      <CheckOut>{props.to ? end.format("MMM D") : "Check-out"}</CheckOut>
     </Wrap>
   );
 }

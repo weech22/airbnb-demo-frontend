@@ -1,4 +1,22 @@
+import React, { Component } from "react";
+import Header from "./Header";
+import Footer from "./Footer";
+import Checkbox from "./Checkbox";
+import BottomPanel from "./BottomPanel";
+import Counter from "./Counter";
+import RBCounter from "./RBCounter";
+import ModalWindow from "./ModalWindow";
 import styled from "styled-components";
+
+export {
+  Header,
+  Footer,
+  Checkbox,
+  BottomPanel,
+  Counter,
+  RBCounter,
+  ModalWindow
+};
 
 export const SectionTitle = styled.h2`
   font-family: CircularAir;
@@ -51,7 +69,7 @@ export const DesktopModal = styled.div`
   z-index: 1014;
 `;
 
-export const ModalWindow = styled.div`
+export const ModalWindowBlock = styled.div`
   position: fixed;
   top: 0;
   right: 0;

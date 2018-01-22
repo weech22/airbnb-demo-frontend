@@ -3,9 +3,7 @@ import styled from "styled-components";
 import Modal from "./Modal";
 import ReactDOM from "react-dom";
 import { Portal } from "react-portal";
-import Moment from "react-moment";
-import ModalWindow from "../ModalUI/ModalWindow";
-import { FilterButton as Button } from "../ModalUI/UI";
+import { FilterButton as Button, ModalWindow } from "../ModalUI";
 
 const Wrap = styled.div`
   display: inline-block;
@@ -89,8 +87,8 @@ class Dropdown extends Component {
                 bedrooms={this.state.bedrooms}
                 beds={this.state.beds}
                 bathrooms={this.state.bathrooms}
-                onPlus={this.inc}
-                onMinus={this.dec}
+                onFilterInc={this.increment}
+                onFilterDec={this.decrement}
               />
             </ModalWindow>
           </Portal>

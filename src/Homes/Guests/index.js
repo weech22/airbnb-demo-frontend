@@ -3,14 +3,13 @@ import styled from "styled-components";
 import Modal from "./Modal";
 import ReactDOM from "react-dom";
 import { Portal } from "react-portal";
-import Moment from "react-moment";
-import ModalWindow from "../ModalUI/ModalWindow";
 import {
   FilterButton as Button,
   FilterButtonBlock as Wrap,
   WhiteBackground,
-  DesktopModal
-} from "../ModalUI/UI";
+  DesktopModal,
+  ModalWindow
+} from "../ModalUI";
 
 const GuestsModal = styled(DesktopModal)`
   top: 52px;

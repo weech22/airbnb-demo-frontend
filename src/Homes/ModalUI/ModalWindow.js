@@ -2,9 +2,9 @@ import React, { Component } from "react";
 import {
   ModalWrap as Wrap,
   Content,
-  ModalWindow as Window,
+  ModalWindowBlock as Window,
   ModalContainer as Container
-} from "./UI";
+} from "./";
 
 class ModalWindow extends React.Component {
   render() {

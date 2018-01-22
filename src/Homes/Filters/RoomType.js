@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import styled from "styled-components";
-import Checkbox from "../ModalUI/Checkbox";
-import { SectionTitle } from "../ModalUI/UI";
+import { SectionTitle, Checkbox } from "../ModalUI";
 
 const Wrap = styled.div`
   background: #ffffff;

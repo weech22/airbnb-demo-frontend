@@ -1,11 +1,9 @@
 import React, { Component } from "react";
 import styled from "styled-components";
-import Header from "../ModalUI/Header";
 import RoomType from "./RoomType";
 import RoomsBeds from "./RoomsBeds";
-import Footer from "../ModalUI/Footer";
 import styles from "../../UI/styles.css";
-import BottomPanel from "../ModalUI/BottomPanel";
+import { Header, Footer, BottomPanel } from "../ModalUI";
 
 class Modal extends React.Component {
   render() {
@@ -27,8 +25,8 @@ class Modal extends React.Component {
           bedrooms={this.props.bedrooms}
           beds={this.props.beds}
           bathrooms={this.props.bathrooms}
-          onPlus={this.props.onPlus}
-          onMinus={this.props.onMinus}
+          onFilterInc={this.props.onFilterInc}
+          onFilterDec={this.props.onFilterDec}
         />
 
         <BottomPanel

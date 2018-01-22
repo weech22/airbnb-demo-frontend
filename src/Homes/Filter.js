@@ -1,11 +1,11 @@
 import React, { Component } from "react";
 import styled from "styled-components";
-import Room from "./Room/Dropdown";
-import Book from "./Book/Dropdown";
-import Price from "./Price/Dropdown";
-import Filters from "./Filters/Dropdown";
-import Dates from "./Dates/Dropdown";
-import Guests from "./Guests/Dropdown";
+import Room from "./Room";
+import Book from "./Book";
+import Price from "./Price";
+import Filters from "./Filters";
+import Dates from "./Dates";
+import Guests from "./Guests";
 
 const Wrap = styled.div`
   background: white;

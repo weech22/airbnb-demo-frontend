@@ -3,9 +3,7 @@ import styled from "styled-components";
 import Modal from "./Modal";
 import ReactDOM from "react-dom";
 import { Portal } from "react-portal";
-import Moment from "react-moment";
-import ModalWindow from "../ModalUI/ModalWindow";
-import { FilterButton as Button } from "../ModalUI/UI";
+import { FilterButton as Button, ModalWindow } from "../ModalUI";
 
 const Wrap = styled.div`
   display: inline-block;
@@ -28,7 +26,7 @@ class Dropdown extends Component {
     return (
       <Wrap>
         <Button active={this.state.isOpen} onClick={this.toggleOpen}>
-          Room type
+          Instant book
         </Button>
         {this.state.isOpen && (
           <Portal node={document && document.getElementById("modal")}>

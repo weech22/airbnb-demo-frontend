@@ -63,12 +63,12 @@ const Count = styled.span`
 `;
 
 class Counter extends Component {
-  inc = () => {
-    this.props.onPlus(this.props.name.toLowerCase(), this.props.count + 1);
+  increment = () => {
+    this.props.onFilterInc(this.props.name.toLowerCase(), this.props.count + 1);
   };
 
-  dec = () => {
-    this.props.onMinus(this.props.name.toLowerCase(), this.props.count - 1);
+  decrement = () => {
+    this.props.onFilterDec(this.props.name.toLowerCase(), this.props.count - 1);
   };
 
   render() {
@@ -80,9 +80,9 @@ class Counter extends Component {
           </Text>
           <div className="col-xs-5">
             <Buttons>
-              <Minus onClick={this.dec} />
+              <Minus onClick={this.decrement} />
               <Count>{this.props.count}+</Count>
-              <Plus onClick={this.inc} />
+              <Plus onClick={this.increment} />
             </Buttons>
           </div>
         </div>

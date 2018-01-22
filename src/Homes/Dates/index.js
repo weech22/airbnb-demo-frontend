@@ -3,14 +3,14 @@ import styled from "styled-components";
 import Modal from "./Modal";
 import ReactDOM from "react-dom";
 import { Portal } from "react-portal";
-import Moment from "react-moment";
-import ModalWindow from "../ModalUI/ModalWindow";
+import moment from "moment";
 import {
   FilterButton as Button,
   FilterButtonBlock as Wrap,
   WhiteBackground,
-  DesktopModal
-} from "../ModalUI/UI";
+  DesktopModal,
+  ModalWindow
+} from "../ModalUI";
 
 const DatesModal = styled(DesktopModal)`
   top: 52px;
@@ -19,13 +19,9 @@ const DatesModal = styled(DesktopModal)`
 
 const formatDateLabel = (from, to, isOpen) => {
   if (from && to) {
-    return (
-      <div>
-        <Moment format="MMM D" date={from} />
-        <span> — </span>
-        <Moment format="MMM D" date={to} />
-      </div>
-    );
+    const start = moment(from);
+    const end = moment(to);
+    return start.format("MMM D") + "—" + end.format("MMM D");
   } else if (isOpen) {
     return "Check in — Check out";
   } else {
