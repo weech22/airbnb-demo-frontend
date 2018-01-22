@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Card from "./Card";
 import SectionTitle from "../../UI/SectionTitle";
-import { SliderBlock, Slider, Section } from "../../UI/UI";
+import { SliderBlock, Slider } from "../../UI/UI";
 import img1 from "./1.png";
 import img2 from "./2.png";
 import img3 from "./3.png";

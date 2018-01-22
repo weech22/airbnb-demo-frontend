@@ -1,8 +1,8 @@
-import React, { Component } from "react";
+import React from "react";
 import styled from "styled-components";
 import DayPicker, { DateUtils } from "react-day-picker";
-import styles from "../../UI/styles.css";
 import DateRange from "./DateRange";
+import styles from "../../UI/styles.css";
 import { Header, Footer, BottomPanel } from "../ModalUI";
 
 const DateHeader = styled(Header)`

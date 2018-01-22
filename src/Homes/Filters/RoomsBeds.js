@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import styled from "styled-components";
-import { SectionTitle, RBCounter } from "../ModalUI";
+import { SectionTitle } from "../ModalUI";
+import Counter from "../UI/RoomsBedsCounter";
 
 const Wrap = styled.div`
   background: #ffffff;
@@ -18,19 +19,19 @@ class RoomsBeds extends Component {
     return (
       <Wrap>
         <SectionTitle>Rooms and beds</SectionTitle>
-        <RBCounter
+        <Counter
           name="Bedrooms"
           count={this.props.bedrooms}
           onFilterInc={this.props.onFilterInc}
           onFilterDec={this.props.onFilterDec}
         />
-        <RBCounter
+        <Counter
           name="Beds"
           count={this.props.beds}
           onFilterInc={this.props.onFilterInc}
           onFilterDec={this.props.onFilterDec}
         />
-        <RBCounter
+        <Counter
           name="Bathrooms"
           count={this.props.bathrooms}
           onFilterInc={this.props.onFilterInc}

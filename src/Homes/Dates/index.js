@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import styled from "styled-components";
 import Modal from "./Modal";
-import ReactDOM from "react-dom";
 import { Portal } from "react-portal";
 import moment from "moment";
 import {
@@ -21,7 +20,7 @@ const formatDateLabel = (from, to, isOpen) => {
   if (from && to) {
     const start = moment(from);
     const end = moment(to);
-    return start.format("MMM D") + " — " + end.format("MMM D");
+    return `${start.format("MMM D")} — ${end.format("MMM D")}`;
   } else if (isOpen) {
     return "Check in — Check out";
   } else {
@@ -29,17 +28,17 @@ const formatDateLabel = (from, to, isOpen) => {
   }
 };
 
-const calculateMonthAmount = () => {
+const getMonthAmount = () => {
   if (matchMedia("(min-width: 992px)").matches) {
     return 2;
-  } else if (matchMedia("(min-width: 576px)").matches) {
-    return 1;
-  } else {
-    return 12;
   }
+  if (matchMedia("(min-width: 576px)").matches) {
+    return 1;
+  }
+  return 12;
 };
 
-const adaptiveModal = (dialog, onClick) => {
+const AdaptiveModal = (dialog, onClick) => {
   if (matchMedia("(min-width: 576px)").matches) {
     return (
       <div>
@@ -76,7 +75,7 @@ class Dropdown extends Component {
   };
 
   render() {
-    const monthAmount = calculateMonthAmount();
+    const monthAmount = getMonthAmount();
     const dialogWindow = (
       <Modal
         onCancel={this.toggleClose}
@@ -87,14 +86,14 @@ class Dropdown extends Component {
       />
     );
 
-    const adequateModal = adaptiveModal(dialogWindow, this.toggleClose);
+    const adaptiveModal = AdaptiveModal(dialogWindow, this.toggleClose);
 
     return (
       <Wrap>
         <Button active={this.state.isOpen} onClick={this.toggleOpen}>
           {formatDateLabel(this.state.from, this.state.to, this.state.isOpen)}
         </Button>
-        {this.state.isOpen && adequateModal}
+        {this.state.isOpen && adaptiveModal}
       </Wrap>
     );
   }

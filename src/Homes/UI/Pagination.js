@@ -28,14 +28,14 @@ class Pagination extends Component {
           <div className="col-lg-4 col-md-5 col-xs-12">
             <Nav>
               <Link href="#">
-                <img src={activePage} />
+                <img src={activePage} alt="" />
               </Link>
               <Link href="#">2</Link>
               <Link href="#">3</Link>
               <Link href="#">...</Link>
               <Link href="#">17</Link>
               <Link href="#">
-                <img src={arrow} />
+                <img src={arrow} alt="" />
               </Link>
             </Nav>
           </div>

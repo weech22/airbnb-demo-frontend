@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import styled from "styled-components";
 import Card from "./Card";
 import SectionTitle from "../../UI/SectionTitle";
-import { Title, SliderBlock, Slider } from "../../UI/UI";
+import { SliderBlock, Slider } from "../../UI/UI";
 import { Link } from "react-router-dom";
 import img1 from "./1.png";
 import img2 from "./2.png";

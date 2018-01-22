@@ -1,9 +1,16 @@
 import React, { Component } from "react";
 import styled from "styled-components";
-import Modal from "./Modal";
-import ReactDOM from "react-dom";
 import { Portal } from "react-portal";
-import { FilterButton as Button, ModalWindow } from "../ModalUI";
+import {
+  FilterButton as Button,
+  ModalWindow,
+  Header,
+  Footer,
+  BottomPanel
+} from "../ModalUI";
+import RoomType from "./RoomType";
+import RoomsBeds from "./RoomsBeds";
+import PriceRange from "./PriceRange";
 
 const Wrap = styled.div`
   display: inline-block;
@@ -76,20 +83,31 @@ class Dropdown extends Component {
         {this.state.isOpen && (
           <Portal node={document && document.getElementById("modal")}>
             <ModalWindow>
-              <Modal
-                onCancel={this.toggleClose}
-                onReset={this.resetFilters}
-                onSave={this.saveFilters}
+              <Header
+                text="All filters (0)"
+                action="Clear All"
+                onAction={this.resetFilters}
+                onClose={this.toggleClose}
+              />
+              <RoomType
                 onCheck={this.handleCheck}
                 home={this.state.home}
                 privateRoom={this.state.privateRoom}
                 sharedRoom={this.state.sharedRoom}
+              />
+              <PriceRange />
+              <RoomsBeds
                 bedrooms={this.state.bedrooms}
                 beds={this.state.beds}
                 bathrooms={this.state.bathrooms}
                 onFilterInc={this.increment}
                 onFilterDec={this.decrement}
               />
+              <BottomPanel
+                onCancel={this.toggleClose}
+                onApply={this.saveFilters}
+              />
+              <Footer onClick={this.saveFilters}>See homes</Footer>
             </ModalWindow>
           </Portal>
         )}

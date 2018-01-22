@@ -25,7 +25,7 @@ class GoogleMap extends Component {
       <div className="container">
         <Wrap>
           <GoogleMapReact
-            apiKey={process.env.REACT_APP_GOOGLE_API}
+            bootstrapURLKeys={{ key: process.env.REACT_APP_GOOGLE_API }}
             defaultCenter={this.props.center}
             defaultZoom={this.props.zoom}
           />

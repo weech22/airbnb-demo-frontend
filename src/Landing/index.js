@@ -4,7 +4,6 @@ import Experience from "./Experience";
 import Homes from "./Homes";
 import Reservation from "./Reservations";
 import Featured from "./Featured";
-import Header from "../Header";
 import Footer from "../Footer";
 
 class FrontPage extends Component {

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import SectionTitleAndMore from "../../UI/SectionTitleAndMore";
-import { SliderBlock, Slider, Section } from "../../UI/UI";
+import { SliderBlock, Slider } from "../../UI/UI";
 import Card from "./Card";
 import img1 from "./1.png";
 import img2 from "./2.png";

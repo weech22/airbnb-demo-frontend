@@ -54,7 +54,7 @@ const Desc = styled.p`
 
 class Checkbox extends Component {
   state = {
-    isChecked: false
+    isChecked: this.props.field
   };
 
   componentWillReceiveProps(nextProps) {

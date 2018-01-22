@@ -1,6 +1,5 @@
-import React, { Component } from "react";
-import styles from "../../UI/styles.css";
-import { Header, Footer, BottomPanel, ModalWrap as Wrap } from "../ModalUI";
+import React from "react";
+import { Header, Footer, BottomPanel } from "../ModalUI";
 import Section from "./Section";
 
 class Modal extends React.Component {

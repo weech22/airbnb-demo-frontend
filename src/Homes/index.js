@@ -1,6 +1,4 @@
 import React, { Component } from "react";
-import Header from "../Header";
-import Card from "./Card";
 import List from "./List";
 import Filter from "./Filter";
 import Pagination from "./UI/Pagination";

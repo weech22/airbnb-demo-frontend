@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import styled from "styled-components";
 import Modal from "./Modal";
-import ReactDOM from "react-dom";
 import { Portal } from "react-portal";
 import { FilterButton as Button, ModalWindow } from "../ModalUI";
 

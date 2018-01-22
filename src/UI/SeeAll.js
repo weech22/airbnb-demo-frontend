@@ -33,7 +33,7 @@ class SeeAll extends Component {
     return (
       <SeeAllBlock>
         <StyledLink to="/homes">
-          See all <img src={arrow} />
+          See all <img src={arrow} alt="" />
         </StyledLink>
       </SeeAllBlock>
     );

@@ -20,21 +20,21 @@ class RoomType extends Component {
         <Checkbox
           id="home"
           name="Entire home"
-          desc="Have a place to yourself"
+          description="Have a place to yourself"
           onCheck={this.props.onCheck}
           field={this.props.home}
         />
         <Checkbox
           id="privateRoom"
           name="Private room"
-          desc="Have your own room and share some common spaces"
+          description="Have your own room and share some common spaces"
           onCheck={this.props.onCheck}
           field={this.props.privateRoom}
         />
         <Checkbox
           id="sharedRoom"
           name="Shared room"
-          desc="Stay in a shared space, like a common room"
+          description="Stay in a shared space, like a common room"
           onCheck={this.props.onCheck}
           field={this.props.sharedRoom}
         />
