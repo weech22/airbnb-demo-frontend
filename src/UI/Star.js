@@ -1,6 +1,6 @@
-import React, { Component } from "react";
-import styled from "styled-components";
-import star from "./star.svg";
+import React from 'react';
+import styled from 'styled-components';
+import star from './star.svg';
 
 const StarImg = styled.img`
   margin-right: 4px;
@@ -8,10 +8,6 @@ const StarImg = styled.img`
   margin-bottom: 0;
 `;
 
-class Star extends Component {
-  render() {
-    return <StarImg src={star} />;
-  }
-}
+const Star = () => <StarImg src={star} alt="" />;
 
 export default Star;

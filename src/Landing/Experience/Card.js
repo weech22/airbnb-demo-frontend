@@ -1,7 +1,7 @@
-import React, { Component } from "react";
-import { CardBlock, Img, Label } from "../../UI/UI";
-import styled from "styled-components";
-import Star from "../../UI/Star";
+import React from 'react';
+import styled from 'styled-components';
+import { CardBlock, Img, Label } from '../../UI/UI';
+import Star from '../../UI/Star';
 
 const Name = styled.span`
   font-family: CircularAir, Helvetica Neue, Helvetica, Arial, sans-serif;
@@ -38,26 +38,22 @@ const Price = styled.b`
   }
 `;
 
-class Card extends Component {
-  render() {
-    return (
-      <CardBlock href="#">
-        <Img src={this.props.img} />
-        <div>
-          <Price>${this.props.price} </Price>
-          <Name>{this.props.name}</Name>
-        </div>
-        <div>
-          <Star />
-          <Star />
-          <Star />
-          <Star />
-          <Star />
-          <Label>{this.props.reviews} reviews</Label>
-        </div>
-      </CardBlock>
-    );
-  }
-}
+const Card = props => (
+  <CardBlock href="#">
+    <Img src={props.img} />
+    <div>
+      <Price>${props.price} </Price>
+      <Name>{props.name}</Name>
+    </div>
+    <div>
+      <Star />
+      <Star />
+      <Star />
+      <Star />
+      <Star />
+      <Label>{props.reviews} reviews</Label>
+    </div>
+  </CardBlock>
+);
 
 export default Card;

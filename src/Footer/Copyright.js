@@ -1,6 +1,6 @@
-import React, { Component } from "react";
-import styled from "styled-components";
-import logo from "./logo.svg";
+import React from 'react';
+import styled from 'styled-components';
+import logo from './logo.svg';
 
 const CopyrightTag = styled.span`
   font-family: CircularAir, Helvetica Neue, Helvetica, Arial, sans-serif;
@@ -42,15 +42,11 @@ const CopyrightBlock = styled.div`
   }
 `;
 
-class Copyright extends Component {
-  render() {
-    return (
-      <CopyrightBlock>
-        <Logo src={logo} />
-        <CopyrightTag>© Airbnb Inc.</CopyrightTag>
-      </CopyrightBlock>
-    );
-  }
-}
+const Copyright = () => (
+  <CopyrightBlock>
+    <Logo src={logo} alt="" />
+    <CopyrightTag>© Airbnb Inc.</CopyrightTag>
+  </CopyrightBlock>
+);
 
 export default Copyright;

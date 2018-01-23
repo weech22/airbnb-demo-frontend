@@ -1,7 +1,7 @@
-import React, { Component } from "react";
-import styled from "styled-components";
-import { SectionTitle } from "../ModalUI";
-import Counter from "../UI/RoomsBedsCounter";
+import React from 'react';
+import styled from 'styled-components';
+import { SectionTitle } from '../ModalUI';
+import Counter from '../UI/RoomsBedsCounter';
 
 const Wrap = styled.div`
   background: #ffffff;
@@ -14,32 +14,28 @@ const Wrap = styled.div`
   background-clip: padding-box;
 `;
 
-class RoomsBeds extends Component {
-  render() {
-    return (
-      <Wrap>
-        <SectionTitle>Rooms and beds</SectionTitle>
-        <Counter
-          name="Bedrooms"
-          count={this.props.bedrooms}
-          onFilterInc={this.props.onFilterInc}
-          onFilterDec={this.props.onFilterDec}
-        />
-        <Counter
-          name="Beds"
-          count={this.props.beds}
-          onFilterInc={this.props.onFilterInc}
-          onFilterDec={this.props.onFilterDec}
-        />
-        <Counter
-          name="Bathrooms"
-          count={this.props.bathrooms}
-          onFilterInc={this.props.onFilterInc}
-          onFilterDec={this.props.onFilterDec}
-        />
-      </Wrap>
-    );
-  }
-}
+const RoomsBeds = props => (
+  <Wrap>
+    <SectionTitle>Rooms and beds</SectionTitle>
+    <Counter
+      name="Bedrooms"
+      count={props.bedrooms}
+      onFilterInc={props.onFilterInc}
+      onFilterDec={props.onFilterDec}
+    />
+    <Counter
+      name="Beds"
+      count={props.beds}
+      onFilterInc={props.onFilterInc}
+      onFilterDec={props.onFilterDec}
+    />
+    <Counter
+      name="Bathrooms"
+      count={props.bathrooms}
+      onFilterInc={props.onFilterInc}
+      onFilterDec={props.onFilterDec}
+    />
+  </Wrap>
+);
 
 export default RoomsBeds;

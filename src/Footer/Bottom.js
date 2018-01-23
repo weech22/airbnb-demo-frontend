@@ -1,8 +1,8 @@
-import React, { Component } from "react";
-import Navigation from "./Nav";
-import styled from "styled-components";
-import Social from "./Social";
-import Copyright from "./Copyright";
+import React from 'react';
+import styled from 'styled-components';
+import Navigation from './Nav';
+import Social from './Social';
+import Copyright from './Copyright';
 
 const Wrap = styled.div`
   box-shadow: 0px -0.5px 0px rgba(72, 72, 72, 0.3);
@@ -24,24 +24,20 @@ const NavBlock = styled.div`
   }
 `;
 
-class Bottom extends Component {
-  render() {
-    return (
-      <Wrap>
-        <div className="row between-md">
-          <div className="col-lg-2 col-md-2 col-xs-5">
-            <Copyright />
-          </div>
-          <div className="col-lg-5 col-md-6 col-xs-9">
-            <NavBlock>
-              <Navigation />
-              <Social />
-            </NavBlock>
-          </div>
-        </div>
-      </Wrap>
-    );
-  }
-}
+const Bottom = () => (
+  <Wrap>
+    <div className="row between-md">
+      <div className="col-xs-5 col-md-2 col-lg-2">
+        <Copyright />
+      </div>
+      <div className="col-xs-9 col-md-6 col-lg-5">
+        <NavBlock>
+          <Navigation />
+          <Social />
+        </NavBlock>
+      </div>
+    </div>
+  </Wrap>
+);
 
 export default Bottom;

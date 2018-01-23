@@ -1,6 +1,6 @@
-import React, { Component } from "react";
-import styled from "styled-components";
-import { Title } from "./UI";
+import React from 'react';
+import styled from 'styled-components';
+import { Title } from './UI';
 
 const Wrap = styled.div`
   @media only screen and (min-width: 320px) {
@@ -13,14 +13,10 @@ const Wrap = styled.div`
   }
 `;
 
-class SectionTitle extends Component {
-  render() {
-    return (
-      <Wrap>
-        <Title>{this.props.name}</Title>
-      </Wrap>
-    );
-  }
-}
+const SectionTitle = props => (
+  <Wrap>
+    <Title>{props.name}</Title>
+  </Wrap>
+);
 
 export default SectionTitle;

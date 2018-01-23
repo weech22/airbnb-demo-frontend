@@ -1,7 +1,7 @@
-import React, { Component } from "react";
-import styled from "styled-components";
-import Star from "../UI/Star";
-import { CardBlock, Img, Label } from "../UI/UI";
+import React from 'react';
+import styled from 'styled-components';
+import Star from '../UI/Star';
+import { CardBlock, Img, Label } from '../UI/UI';
 
 const Name = styled.p`
   font-family: CircularAir, Helvetica Neue, Helvetica, Arial, sans-serif;
@@ -38,32 +38,28 @@ const Info = styled.p`
   }
 `;
 
-class Card extends Component {
-  render() {
-    return (
-      <CardBlock href="#">
-        <Img src={this.props.img} />
-        <div>
-          <Name>
-            {this.props.price}$ {this.props.name}
-          </Name>
-        </div>
-        <div>
-          <Info>
-            {this.props.type} · {this.props.bedCount} bed
-          </Info>
-        </div>
-        <div>
-          <Star />
-          <Star />
-          <Star />
-          <Star />
-          <Star />
-          <Label>{this.props.reviews} · Superhost</Label>
-        </div>
-      </CardBlock>
-    );
-  }
-}
+const Card = props => (
+  <CardBlock href="#">
+    <Img src={props.img} />
+    <div>
+      <Name>
+        {props.price}$ {props.name}
+      </Name>
+    </div>
+    <div>
+      <Info>
+        {props.type} · {props.bedCount} bed
+      </Info>
+    </div>
+    <div>
+      <Star />
+      <Star />
+      <Star />
+      <Star />
+      <Star />
+      <Label>{props.reviews} · Superhost</Label>
+    </div>
+  </CardBlock>
+);
 
 export default Card;

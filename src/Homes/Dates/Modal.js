@@ -1,9 +1,9 @@
-import React from "react";
-import styled from "styled-components";
-import DayPicker, { DateUtils } from "react-day-picker";
-import DateRange from "./DateRange";
-import styles from "../../UI/styles.css";
-import { Header, Footer, BottomPanel } from "../ModalUI";
+import React from 'react';
+import styled from 'styled-components';
+import DayPicker, { DateUtils } from 'react-day-picker';
+import DateRange from './DateRange';
+import '../../UI/styles.css';
+import { Header, Footer, BottomPanel } from '../ModalUI';
 
 const DateHeader = styled(Header)`
   border: none;
@@ -13,10 +13,10 @@ const DateHeader = styled(Header)`
 class Modal extends React.Component {
   state = {
     from: this.props.start,
-    to: this.props.end
+    to: this.props.end,
   };
 
-  dayClickHandler = (day, { disabled, selected }) => {
+  dayClickHandler = (day, { disabled }) => {
     if (!disabled) {
       const range = DateUtils.addDayToRange(day, this.state);
       this.setState(range);
@@ -34,7 +34,7 @@ class Modal extends React.Component {
   render() {
     const { from, to } = this.state;
     const days = {
-      edgeDays: [from, to]
+      edgeDays: [from, to],
     };
 
     return (
@@ -53,8 +53,8 @@ class Modal extends React.Component {
           onDayClick={this.dayClickHandler}
           disabledDays={[
             {
-              before: new Date()
-            }
+              before: new Date(),
+            },
           ]}
         />
         <BottomPanel onCancel={this.props.onCancel} onApply={this.saveDates} />

@@ -1,5 +1,5 @@
-import React, { Component } from "react";
-import styled from "styled-components";
+import React from 'react';
+import styled from 'styled-components';
 
 const Nav = styled.nav`
   font-family: CircularAir, Helvetica Neue, Helvetica, Arial, sans-serif;
@@ -21,17 +21,13 @@ const Link = styled.a`
   color: #383838;
 `;
 
-class Navigation extends Component {
-  render() {
-    return (
-      <Nav>
-        <Link href="#">Become a host</Link>
-        <Link href="#">Help</Link>
-        <Link href="#">Sign Up</Link>
-        <Link href="#">Log In</Link>
-      </Nav>
-    );
-  }
-}
+const Navigation = () => (
+  <Nav>
+    <Link href="#">Become a host</Link>
+    <Link href="#">Help</Link>
+    <Link href="#">Sign Up</Link>
+    <Link href="#">Log In</Link>
+  </Nav>
+);
 
 export default Navigation;

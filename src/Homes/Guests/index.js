@@ -1,14 +1,14 @@
-import React, { Component } from "react";
-import styled from "styled-components";
-import Modal from "./Modal";
-import { Portal } from "react-portal";
+import React, { Component } from 'react';
+import styled from 'styled-components';
+import { Portal } from 'react-portal';
+import Modal from './Modal';
 import {
   FilterButton as Button,
   FilterButtonBlock as Wrap,
   WhiteBackground,
   DesktopModal,
-  ModalWindow
-} from "../ModalUI";
+  ModalWindow,
+} from '../ModalUI';
 
 const GuestsModal = styled(DesktopModal)`
   top: 52px;
@@ -19,8 +19,8 @@ class Dropdown extends Component {
   state = {
     isOpen: false,
     adults: 1,
-    children: 0,
-    infants: 0
+    kids: 0,
+    infants: 0,
   };
 
   toggleOpen = () => {
@@ -31,19 +31,19 @@ class Dropdown extends Component {
     this.setState({
       isOpen: false,
       adults: 1,
-      children: 0,
-      infants: 0
+      kids: 0,
+      infants: 0,
     });
   };
 
   saveGuests = () => {
     this.setState({
-      isOpen: false
+      isOpen: false,
     });
   };
 
   resetGuests = () => {
-    this.setState({ adults: 1, children: 0, infants: 0 });
+    this.setState({ adults: 1, kids: 0, infants: 0 });
   };
 
   increment = (field, value) => {
@@ -63,15 +63,15 @@ class Dropdown extends Component {
           Guests
         </Button>
         {this.state.isOpen &&
-          ((matchMedia("(max-width: 575px)").matches && (
-            <Portal node={document && document.getElementById("modal")}>
+          ((window.matchMedia('(max-width: 575px)').matches && (
+            <Portal node={document && document.getElementById('modal')}>
               <ModalWindow>
                 <Modal
                   onCancel={this.toggleClose}
                   onReset={this.resetGuests}
                   onSave={this.saveGuests}
                   adults={this.state.adults}
-                  children={this.state.children}
+                  kids={this.state.kids}
                   infants={this.state.infants}
                   onGuestInc={this.increment}
                   onGuestDec={this.decrement}
@@ -79,7 +79,7 @@ class Dropdown extends Component {
               </ModalWindow>
             </Portal>
           )) ||
-            (matchMedia("(min-width: 576px)").matches && (
+            (window.matchMedia('(min-width: 576px)').matches && (
               <div>
                 <WhiteBackground onClick={this.toggleClose} />
                 <GuestsModal>
@@ -88,7 +88,7 @@ class Dropdown extends Component {
                     onReset={this.resetGuests}
                     onSave={this.saveGuests}
                     adults={this.state.adults}
-                    children={this.state.children}
+                    kids={this.state.kids}
                     infants={this.state.infants}
                     onGuestInc={this.increment}
                     onGuestDec={this.decrement}

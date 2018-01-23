@@ -1,16 +1,9 @@
-import React from "react";
-import { BottomPanel } from "../ModalUI";
+import React from 'react';
+import { BottomPanel } from '../ModalUI';
 
-class Modal extends React.Component {
-  render() {
-    return (
-      <div>
-        <BottomPanel
-          onCancel={this.props.onCancel}
-          onApply={this.props.onSave}
-        />
-      </div>
-    );
-  }
-}
+const Modal = props => (
+  <div>
+    <BottomPanel onCancel={props.onCancel} onApply={props.onSave} />
+  </div>
+);
 export default Modal;

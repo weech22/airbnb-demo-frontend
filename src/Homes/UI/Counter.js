@@ -1,7 +1,7 @@
-import React, { Component } from "react";
-import styled from "styled-components";
-import plus from "./plus.svg";
-import minus from "./minus.svg";
+import React, { Component } from 'react';
+import styled from 'styled-components';
+import plus from './plus.svg';
+import minus from './minus.svg';
 
 const Wrap = styled.div`
   margin-bottom: 40px;
@@ -75,11 +75,11 @@ const Count = styled.span`
 
 class Counter extends Component {
   increment = () => {
-    this.props.onGuestInc(this.props.name.toLowerCase(), this.props.count + 1);
+    this.props.onGuestInc(this.props.id, this.props.count + 1);
   };
 
   decrement = () => {
-    this.props.onGuestDec(this.props.name.toLowerCase(), this.props.count - 1);
+    this.props.onGuestDec(this.props.id, this.props.count - 1);
   };
 
   render() {

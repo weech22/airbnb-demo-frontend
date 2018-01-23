@@ -1,6 +1,6 @@
-import React, { Component } from "react";
-import arrow from "./arrowDown.svg";
-import styled from "styled-components";
+import React from 'react';
+import styled from 'styled-components';
+import arrow from './arrowDown.svg';
 
 const Img = styled.img`
   margin-top: 38.22px;
@@ -15,10 +15,6 @@ const Img = styled.img`
   }
 `;
 
-class Dropdown extends Component {
-  render() {
-    return <Img src={arrow} />;
-  }
-}
+const Dropdown = () => <Img src={arrow} alt="" />;
 
 export default Dropdown;

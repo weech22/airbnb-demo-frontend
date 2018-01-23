@@ -1,6 +1,6 @@
-import React from "react";
-import styled from "styled-components";
-import close from "./close.svg";
+import React from 'react';
+import styled from 'styled-components';
+import close from './close.svg';
 
 const CloseButton = styled.button`
   appearance: none;

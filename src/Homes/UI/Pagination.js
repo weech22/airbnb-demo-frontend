@@ -1,7 +1,7 @@
-import React, { Component } from "react";
-import styled from "styled-components";
-import arrow from "./arrowRight.svg";
-import activePage from "./activePage.svg";
+import React from 'react';
+import styled from 'styled-components';
+import arrow from './arrowRight.svg';
+import activePage from './activePage.svg';
 
 const Nav = styled.div`
   margin: 16px auto 15px auto;
@@ -20,29 +20,25 @@ const Link = styled.a`
   color: #0f7276;
 `;
 
-class Pagination extends Component {
-  render() {
-    return (
-      <div className="container">
-        <div className="row center-xs">
-          <div className="col-lg-4 col-md-5 col-xs-12">
-            <Nav>
-              <Link href="#">
-                <img src={activePage} alt="" />
-              </Link>
-              <Link href="#">2</Link>
-              <Link href="#">3</Link>
-              <Link href="#">...</Link>
-              <Link href="#">17</Link>
-              <Link href="#">
-                <img src={arrow} alt="" />
-              </Link>
-            </Nav>
-          </div>
-        </div>
+const Pagination = () => (
+  <div className="container">
+    <div className="row center-xs">
+      <div className="col-lg-4 col-md-5 col-xs-12">
+        <Nav>
+          <Link href="#">
+            <img src={activePage} alt="" />
+          </Link>
+          <Link href="#">2</Link>
+          <Link href="#">3</Link>
+          <Link href="#">...</Link>
+          <Link href="#">17</Link>
+          <Link href="#">
+            <img src={arrow} alt="" />
+          </Link>
+        </Nav>
       </div>
-    );
-  }
-}
+    </div>
+  </div>
+);
 
 export default Pagination;

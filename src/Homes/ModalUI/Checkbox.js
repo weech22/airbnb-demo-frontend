@@ -1,6 +1,6 @@
-import React, { Component } from "react";
-import styled from "styled-components";
-import checkOn from "./check-on.svg";
+import React, { Component } from 'react';
+import styled from 'styled-components';
+import checkOn from './check-on.svg';
 
 const Wrap = styled.div`
   background: #ffffff;
@@ -54,7 +54,7 @@ const Desc = styled.p`
 
 class Checkbox extends Component {
   state = {
-    isChecked: this.props.field
+    isChecked: this.props.field,
   };
 
   componentWillReceiveProps(nextProps) {

@@ -1,8 +1,8 @@
-import React, { Component } from "react";
-import styled from "styled-components";
-import { SectionTitle } from "../ModalUI";
-import Rheostat from "rheostat";
-import "./slider.css";
+import React from 'react';
+import Rheostat from 'rheostat';
+import styled from 'styled-components';
+import { SectionTitle } from '../ModalUI';
+import './slider.css';
 
 const Wrap = styled.div`
   background: #ffffff;
@@ -36,19 +36,15 @@ const SliderBlock = styled.div`
   margin: 32px 16px;
 `;
 
-class PriceRange extends Component {
-  render() {
-    return (
-      <Wrap>
-        <SectionTitle>Price range</SectionTitle>
-        <Range>$10 — $1000+</Range>
-        <Average>The average nightly price is $75.</Average>
-        <SliderBlock>
-          <Rheostat min={1} max={100} values={[1, 100]} />
-        </SliderBlock>
-      </Wrap>
-    );
-  }
-}
+const PriceRange = () => (
+  <Wrap>
+    <SectionTitle>Price range</SectionTitle>
+    <Range>$10 — $1000+</Range>
+    <Average>The average nightly price is $75.</Average>
+    <SliderBlock>
+      <Rheostat min={1} max={100} values={[1, 100]} />
+    </SliderBlock>
+  </Wrap>
+);
 
 export default PriceRange;

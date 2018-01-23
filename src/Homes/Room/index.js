@@ -1,8 +1,8 @@
-import React, { Component } from "react";
-import styled from "styled-components";
-import Modal from "./Modal";
-import { Portal } from "react-portal";
-import { FilterButton as Button, ModalWindow } from "../ModalUI";
+import React, { Component } from 'react';
+import styled from 'styled-components';
+import { Portal } from 'react-portal';
+import Modal from './Modal';
+import { FilterButton as Button, ModalWindow } from '../ModalUI';
 
 const Wrap = styled.div`
   display: inline-block;
@@ -10,7 +10,7 @@ const Wrap = styled.div`
 
 class Dropdown extends Component {
   state = {
-    isOpen: false
+    isOpen: false,
   };
 
   toggleOpen = () => {
@@ -28,7 +28,7 @@ class Dropdown extends Component {
           Room type
         </Button>
         {this.state.isOpen && (
-          <Portal node={document && document.getElementById("modal")}>
+          <Portal node={document && document.getElementById('modal')}>
             <ModalWindow>
               <Modal onCancel={this.toggleClose} />
             </ModalWindow>

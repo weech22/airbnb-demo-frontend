@@ -1,6 +1,6 @@
-import React, { Component } from "react";
-import styled from "styled-components";
-import Counter from "../UI/Counter";
+import React from 'react';
+import styled from 'styled-components';
+import Counter from '../UI/Counter';
 
 const Wrap = styled.div`
   height: calc(100vh - 153px);
@@ -18,34 +18,33 @@ const Wrap = styled.div`
   }
 `;
 
-class Section extends Component {
-  render() {
-    return (
-      <Wrap>
-        <Counter
-          count={this.props.adults}
-          onGuestInc={this.props.onGuestInc}
-          onGuestDec={this.props.onGuestDec}
-          name="Adults"
-          desc=""
-        />
-        <Counter
-          count={this.props.children}
-          onGuestInc={this.props.onGuestInc}
-          onGuestDec={this.props.onGuestDec}
-          name="Children"
-          desc="Ages 2 — 12"
-        />
-        <Counter
-          count={this.props.infants}
-          onGuestInc={this.props.onGuestInc}
-          onGuestDec={this.props.onGuestDec}
-          name="Infants"
-          desc="Under 2"
-        />
-      </Wrap>
-    );
-  }
-}
+const Section = props => (
+  <Wrap>
+    <Counter
+      id="adults"
+      count={props.adults}
+      onGuestInc={props.onGuestInc}
+      onGuestDec={props.onGuestDec}
+      name="Adults"
+      desc=""
+    />
+    <Counter
+      id="kids"
+      count={props.kids}
+      onGuestInc={props.onGuestInc}
+      onGuestDec={props.onGuestDec}
+      name="Children"
+      desc="Ages 2 — 12"
+    />
+    <Counter
+      id="infants"
+      count={props.infants}
+      onGuestInc={props.onGuestInc}
+      onGuestDec={props.onGuestDec}
+      name="Infants"
+      desc="Under 2"
+    />
+  </Wrap>
+);
 
 export default Section;

@@ -1,16 +1,16 @@
-import React, { Component } from "react";
-import styled from "styled-components";
-import { Portal } from "react-portal";
+import React, { Component } from 'react';
+import styled from 'styled-components';
+import { Portal } from 'react-portal';
 import {
   FilterButton as Button,
   ModalWindow,
   Header,
   Footer,
-  BottomPanel
-} from "../ModalUI";
-import RoomType from "./RoomType";
-import RoomsBeds from "./RoomsBeds";
-import PriceRange from "./PriceRange";
+  BottomPanel,
+} from '../ModalUI';
+import RoomType from './RoomType';
+import RoomsBeds from './RoomsBeds';
+import PriceRange from './PriceRange';
 
 const Wrap = styled.div`
   display: inline-block;
@@ -24,7 +24,7 @@ class Dropdown extends Component {
     sharedRoom: false,
     bedrooms: 0,
     beds: 0,
-    bathrooms: 0
+    bathrooms: 0,
   };
 
   resetFilters = () => {
@@ -34,13 +34,13 @@ class Dropdown extends Component {
       sharedRoom: false,
       bedrooms: 0,
       beds: 0,
-      bathrooms: 0
+      bathrooms: 0,
     });
   };
 
   saveFilters = () => {
     this.setState({
-      isOpen: false
+      isOpen: false,
     });
   };
 
@@ -66,7 +66,7 @@ class Dropdown extends Component {
       sharedRoom: false,
       bedrooms: 0,
       beds: 0,
-      bathrooms: 0
+      bathrooms: 0,
     });
   };
 
@@ -81,7 +81,7 @@ class Dropdown extends Component {
           More filters
         </Button>
         {this.state.isOpen && (
-          <Portal node={document && document.getElementById("modal")}>
+          <Portal node={document && document.getElementById('modal')}>
             <ModalWindow>
               <Header
                 text="All filters (0)"

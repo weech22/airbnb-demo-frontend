@@ -1,6 +1,6 @@
-import React, { Component } from "react";
-import Dropdown from "./Dropdown";
-import styled from "styled-components";
+import React from 'react';
+import styled from 'styled-components';
+import Dropdown from './Dropdown';
 
 const Col = styled.div`
   @media only screen and (min-width: 320px) {
@@ -66,51 +66,47 @@ export const Title = styled.h5`
   }
 `;
 
-class Top extends Component {
-  render() {
-    return (
-      <div className="row between-md">
-        <div className="col-md-3 col-xs-12">
-          <DropdownCol>
-            <Dropdown option1="English" option2="Russian" />
-            <Dropdown option1="United States dollar" option2="Rubles" />
-          </DropdownCol>
-        </div>
-        <div className="col-md-2">
-          <Col>
-            <Title>Airbnb</Title>
-            <Link href="#">About us</Link>
-            <Link href="#">Careers</Link>
-            <Link href="#">Press</Link>
-            <Link href="#">Policies</Link>
-            <Link href="#">Help</Link>
-            <Link href="#">Diversity & Belonging</Link>
-          </Col>
-        </div>
-        <div className="col-md-2">
-          <Col>
-            <Title>Discover</Title>
-            <Link href="#">Trust & Safety</Link>
-            <Link href="#">Travel Credit</Link>
-            <Link href="#">Gift Cards</Link>
-            <Link href="#">Airbnb Citizen</Link>
-            <Link href="#">Business Travel</Link>
-            <Link href="#">Guidebooks</Link>
-            <Link href="#">Airbnbmag</Link>
-          </Col>
-        </div>
-        <div className="col-md-2">
-          <Col>
-            <Title>Hosting</Title>
-            <Link href="#">Why Host</Link>
-            <Link href="#">Hospitality</Link>
-            <Link href="#">Responsible Hosting</Link>
-            <Link href="#">Community Center</Link>
-          </Col>
-        </div>
-      </div>
-    );
-  }
-}
+const Top = () => (
+  <div className="row between-md">
+    <div className="col-xs-12 col-md-3">
+      <DropdownCol>
+        <Dropdown option1="English" option2="Russian" />
+        <Dropdown option1="United States dollar" option2="Rubles" />
+      </DropdownCol>
+    </div>
+    <div className="col-md-2">
+      <Col>
+        <Title>Airbnb</Title>
+        <Link href="#">About us</Link>
+        <Link href="#">Careers</Link>
+        <Link href="#">Press</Link>
+        <Link href="#">Policies</Link>
+        <Link href="#">Help</Link>
+        <Link href="#">Diversity & Belonging</Link>
+      </Col>
+    </div>
+    <div className="col-md-2">
+      <Col>
+        <Title>Discover</Title>
+        <Link href="#">Trust & Safety</Link>
+        <Link href="#">Travel Credit</Link>
+        <Link href="#">Gift Cards</Link>
+        <Link href="#">Airbnb Citizen</Link>
+        <Link href="#">Business Travel</Link>
+        <Link href="#">Guidebooks</Link>
+        <Link href="#">Airbnbmag</Link>
+      </Col>
+    </div>
+    <div className="col-md-2">
+      <Col>
+        <Title>Hosting</Title>
+        <Link href="#">Why Host</Link>
+        <Link href="#">Hospitality</Link>
+        <Link href="#">Responsible Hosting</Link>
+        <Link href="#">Community Center</Link>
+      </Col>
+    </div>
+  </div>
+);
 
 export default Top;

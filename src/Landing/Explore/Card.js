@@ -1,5 +1,5 @@
-import React, { Component } from "react";
-import styled from "styled-components";
+import React from 'react';
+import styled from 'styled-components';
 
 export const CardBlock = styled.a`
   background: #ffffff;
@@ -44,15 +44,11 @@ const Img = styled.img`
   }
 `;
 
-class Card extends Component {
-  render() {
-    return (
-      <CardBlock>
-        <Img src={this.props.img} />
-        <Name>{this.props.name}</Name>
-      </CardBlock>
-    );
-  }
-}
+const Card = props => (
+  <CardBlock>
+    <Img src={props.img} alt="" />
+    <Name>{props.name}</Name>
+  </CardBlock>
+);
 
 export default Card;

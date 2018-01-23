@@ -1,6 +1,6 @@
-import React, { Component } from "react";
-import styled from "styled-components";
-import { SectionTitle } from "../ModalUI";
+import React from 'react';
+import styled from 'styled-components';
+import { SectionTitle } from '../ModalUI';
 
 const Wrap = styled.div`
   background: #ffffff;
@@ -13,19 +13,10 @@ const Wrap = styled.div`
   background-clip: padding-box;
 `;
 
-class MoreOptions extends Component {
-  render() {
-    return (
-      <Wrap>
-        <SectionTitle>More options</SectionTitle>
-        <Range>$10 — $1000+</Range>
-        <Average>The average nightly price is $75.</Average>
-        <SliderBlock>
-          <Rheostat min={1} max={100} values={[1, 100]} />
-        </SliderBlock>
-      </Wrap>
-    );
-  }
-}
+const MoreOptions = () => (
+  <Wrap>
+    <SectionTitle>More options</SectionTitle>
+  </Wrap>
+);
 
 export default MoreOptions;

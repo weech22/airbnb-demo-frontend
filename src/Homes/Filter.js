@@ -1,11 +1,11 @@
-import React, { Component } from "react";
-import styled from "styled-components";
-import Room from "./Room";
-import Book from "./Book";
-import Price from "./Price";
-import Filters from "./Filters";
-import Dates from "./Dates";
-import Guests from "./Guests";
+import React from 'react';
+import styled from 'styled-components';
+import Room from './Room';
+import Book from './Book';
+import Price from './Price';
+import Filters from './Filters';
+import Dates from './Dates';
+import Guests from './Guests';
 
 const Wrap = styled.div`
   background: white;
@@ -43,23 +43,19 @@ const DesktopButtons = styled.div`
   }
 `;
 
-class Filter extends Component {
-  render() {
-    return (
-      <div className="container">
-        <Wrap>
-          <Dates />
-          <Guests />
-          <DesktopButtons>
-            <Room />
-            <Price />
-            <Book />
-          </DesktopButtons>
-          <Filters />
-        </Wrap>
-      </div>
-    );
-  }
-}
+const Filter = () => (
+  <div className="container">
+    <Wrap>
+      <Dates />
+      <Guests />
+      <DesktopButtons>
+        <Room />
+        <Price />
+        <Book />
+      </DesktopButtons>
+      <Filters />
+    </Wrap>
+  </div>
+);
 
 export default Filter;

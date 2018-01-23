@@ -1,7 +1,7 @@
-import React, { Component } from "react";
-import styled from "styled-components";
-import plus from "./plus.svg";
-import minus from "./minus.svg";
+import React, { Component } from 'react';
+import styled from 'styled-components';
+import plus from './plus.svg';
+import minus from './minus.svg';
 
 const Wrap = styled.div`
   margin-bottom: 16px;
