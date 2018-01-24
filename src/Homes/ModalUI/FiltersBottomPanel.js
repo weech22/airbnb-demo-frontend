@@ -33,6 +33,7 @@ const ApplyBtn = styled.button`
   text-align: center;
   color: white;
   background: #008489;
+  border: none;
   border-radius: 4px;
   width: 147px;
   height: 48px;

@@ -4,7 +4,7 @@ import { Portal } from 'react-portal';
 import {
   FilterButton as Button,
   FilterButtonBlock as Wrap,
-  ModalWindow,
+  FiltersModalWindow as ModalWindow,
   Header,
   Footer,
   FiltersBottomPanel as BottomPanel,
@@ -26,7 +26,7 @@ const FiltersModal = styled(DesktopModal)`
 `;
 
 const AdaptiveModal = (dialog, onClick) => {
-  if (window.matchMedia('(min-width: 768px)').matches) {
+  if (window.matchMedia('(min-width: 992px)').matches) {
     return (
       <div>
         <WhiteBackground onClick={onClick} />
