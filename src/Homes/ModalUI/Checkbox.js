@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import checkOn from './check-on.svg';
+import checkOn from './checkOn.svg';
 
 const Wrap = styled.div`
   background: #ffffff;

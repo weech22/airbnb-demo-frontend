@@ -9,6 +9,7 @@ export { Header, Footer, Checkbox, BottomPanel, ModalWindow };
 
 export const SectionTitle = styled.h2`
   font-family: CircularAir;
+  display: inline-block;
   line-height: 21px;
   font-weight: normal;
   font-size: 18px;

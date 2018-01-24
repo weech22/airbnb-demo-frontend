@@ -1,16 +1,13 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import { Portal } from 'react-portal';
-import {
-  FilterButton as Button,
-  ModalWindow,
-  Header,
-  Footer,
-  BottomPanel,
-} from '../ModalUI';
+import { FilterButton as Button, ModalWindow, Header, Footer, BottomPanel } from '../ModalUI';
 import RoomType from './RoomType';
 import RoomsBeds from './RoomsBeds';
 import PriceRange from './PriceRange';
+import MoreOptions from './MoreOptions';
+import Amenities from './Amenities';
+import Facilities from './Facilities';
 
 const Wrap = styled.div`
   display: inline-block;
@@ -103,10 +100,10 @@ class Dropdown extends Component {
                 onFilterInc={this.increment}
                 onFilterDec={this.decrement}
               />
-              <BottomPanel
-                onCancel={this.toggleClose}
-                onApply={this.saveFilters}
-              />
+              <MoreOptions />
+              <Amenities />
+              <Facilities />
+              <BottomPanel onCancel={this.toggleClose} onApply={this.saveFilters} />
               <Footer onClick={this.saveFilters}>See homes</Footer>
             </ModalWindow>
           </Portal>
