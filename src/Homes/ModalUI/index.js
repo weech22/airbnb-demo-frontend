@@ -85,6 +85,10 @@ export const FiltersModalWindowBlock = styled.div`
     width: 100vw;
     height: calc(100vh - 139px);
   }
+  @media only screen and (min-width: 992px) {
+    bottom: 0;
+    width: 67vw;
+  }
 `;
 
 export const ModalWindowBlock = styled.div`

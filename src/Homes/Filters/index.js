@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import styled from 'styled-components';
 import { Portal } from 'react-portal';
 import {
   FilterButton as Button,
@@ -9,7 +8,6 @@ import {
   Footer,
   FiltersBottomPanel as BottomPanel,
   WhiteBackground,
-  DesktopModal,
 } from '../ModalUI';
 import RoomType from './RoomType';
 import RoomsBeds from './RoomsBeds';
@@ -18,28 +16,12 @@ import MoreOptions from './MoreOptions';
 import Amenities from './Amenities';
 import Facilities from './Facilities';
 
-const FiltersModal = styled(DesktopModal)`
-  @media only screen and (min-width: 768px) {
-    top: 60px;
-    left: 0px;
-  }
-`;
-
-const AdaptiveModal = (dialog, onClick) => {
-  if (window.matchMedia('(min-width: 992px)').matches) {
-    return (
-      <div>
-        <WhiteBackground onClick={onClick} />
-        <FiltersModal>{dialog}</FiltersModal>
-      </div>
-    );
-  }
-  return (
-    <Portal node={document && document.getElementById('modal')}>
-      <ModalWindow>{dialog}</ModalWindow>
-    </Portal>
-  );
-};
+const AdaptiveModal = (dialog, onClick) => (
+  <Portal node={document && document.getElementById('modal')}>
+    <WhiteBackground onClick={onClick} />
+    <ModalWindow>{dialog}</ModalWindow>
+  </Portal>
+);
 
 class Dropdown extends Component {
   state = {

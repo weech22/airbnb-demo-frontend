@@ -10,6 +10,10 @@ const Wrap = styled.div`
     padding-top: 40px;
     padding-bottom: 8px;
   }
+  @media only screen and (min-width: 992px) {
+    justify-content: flex-end;
+    padding-right: 16px;
+  }
 `;
 
 const CancelBtn = styled.button`

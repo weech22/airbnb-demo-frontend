@@ -6,6 +6,9 @@ const Wrap = styled.div`
   padding-bottom: 1px;
   display: flex;
   justify-content: space-between;
+  @media only screen and (min-width: 992px) {
+    display: ${props => (props.id === 'Instant book' ? 'none' : 'flex')};
+  }
 `;
 
 const Title = styled.h4`
@@ -40,7 +43,7 @@ const More = styled.p`
 `;
 
 const SwitchSection = props => (
-  <Wrap>
+  <Wrap id={props.children}>
     <div>
       <Title>{props.children}</Title>
       <Description>{props.description}</Description>
