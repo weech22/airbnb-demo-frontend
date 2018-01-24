@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
+import styled from 'styled-components';
 import { Portal } from 'react-portal';
 import moment from 'moment';
-import styled from 'styled-components';
 import Modal from './Modal';
 import {
   FilterButton as Button,

@@ -44,10 +44,10 @@ export const WhiteBackground = styled.div`
   background: rgba(255, 255, 255, 0.8);
   position: fixed;
   z-index: 1013;
-  top: 0;
+  top: 140;
   left: 0;
-  right: 0;
-  bottom: 0;
+  height: 100vh;
+  width: 100vw;
 `;
 
 export const DesktopModal = styled.div`
