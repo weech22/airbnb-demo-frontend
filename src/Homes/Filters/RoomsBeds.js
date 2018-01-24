@@ -17,24 +17,26 @@ const Wrap = styled.div`
 const RoomsBeds = props => (
   <Wrap>
     <SectionTitle>Rooms and beds</SectionTitle>
-    <Counter
-      name="Bedrooms"
-      count={props.bedrooms}
-      onFilterInc={props.onFilterInc}
-      onFilterDec={props.onFilterDec}
-    />
-    <Counter
-      name="Beds"
-      count={props.beds}
-      onFilterInc={props.onFilterInc}
-      onFilterDec={props.onFilterDec}
-    />
-    <Counter
-      name="Bathrooms"
-      count={props.bathrooms}
-      onFilterInc={props.onFilterInc}
-      onFilterDec={props.onFilterDec}
-    />
+    <div className="col-xs-12 col-md-6">
+      <Counter
+        name="Bedrooms"
+        count={props.bedrooms}
+        onFilterInc={props.onFilterInc}
+        onFilterDec={props.onFilterDec}
+      />
+      <Counter
+        name="Beds"
+        count={props.beds}
+        onFilterInc={props.onFilterInc}
+        onFilterDec={props.onFilterDec}
+      />
+      <Counter
+        name="Bathrooms"
+        count={props.bathrooms}
+        onFilterInc={props.onFilterInc}
+        onFilterDec={props.onFilterDec}
+      />
+    </div>
   </Wrap>
 );
 

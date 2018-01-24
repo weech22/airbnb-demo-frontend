@@ -15,9 +15,11 @@ const Wrap = styled.div`
 
 const MoreOptions = () => (
   <Wrap>
-    <SectionTitle>More options</SectionTitle>
-    <SwitchSection description="Secure a reservation instantly.">Instant book</SwitchSection>
-    <SwitchSection description="Stay with recognized hosts.">Superhost</SwitchSection>
+    <div className="col-xs-12 col-md-6">
+      <SectionTitle>More options</SectionTitle>
+      <SwitchSection description="Secure a reservation instantly.">Instant book</SwitchSection>
+      <SwitchSection description="Stay with recognized hosts.">Superhost</SwitchSection>
+    </div>
   </Wrap>
 );
 

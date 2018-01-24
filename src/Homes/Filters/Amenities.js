@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { SectionTitle } from '../ModalUI';
+import { SectionTitle, Checkbox } from '../ModalUI';
 import arrow from '../ModalUI/arrowDown.svg';
 
 const Wrap = styled.div`
@@ -31,9 +31,22 @@ const Img = styled.img`
   margin-top: 10px;
 `;
 
+const CheckboxBlock = styled.div`
+  display: none;
+  @media only screen and (min-width: 768px) {
+    display: block;
+  }
+`;
+
 const Amenities = () => (
   <Wrap>
     <SectionTitle>Amenities</SectionTitle>
+    <CheckboxBlock>
+      <Checkbox id="heating" name="Heating" />
+      <Checkbox id="kitchen" name="Kitchen" />
+      <Checkbox id="tv" name="TV" />
+      <Checkbox id="wifi" name="Wireless Internet" />
+    </CheckboxBlock>
     <div>
       <More>See all</More>
       <Img src={arrow} alt="" />

@@ -9,7 +9,6 @@ const Wrap = styled.div`
   padding-left: 8px;
   padding-right: 8px;
   padding-bottom: 8px;
-
   display: flex;
   justify-content: space-between;
 `;

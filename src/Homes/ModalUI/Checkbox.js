@@ -31,7 +31,7 @@ const CheckboxBlock = styled.div`
 
 const Name = styled.h3`
   font-family: CircularAir;
-  line-height: normal;
+  line-height: 19px;
   font-size: 16px;
   font-weight: lighter;
   color: #383838;
@@ -39,17 +39,27 @@ const Name = styled.h3`
   margin: 0;
   margin-left: 12px;
   margin-top: 1px;
+  @media only screen and (min-width: 767px) {
+    margin-top: 4px;
+    line-height: 21px;
+    font-size: 18px;
+  }
 `;
 
 const Desc = styled.p`
   font-family: CircularAir;
-  line-height: normal;
+  line-height: 14px;
   font-weight: lighter;
   font-size: 12px;
   margin: 0;
   margin-left: 12px;
   color: #383838;
   margin-top: 3px;
+  @media only screen and (min-width: 767px) {
+    margin-top: 4px;
+    line-height: 16px;
+    font-size: 14px;
+  }
 `;
 
 class Checkbox extends Component {
@@ -77,7 +87,7 @@ class Checkbox extends Component {
           />
           <div>
             <Name>{this.props.name}</Name>
-            <Desc>{this.props.desc}</Desc>
+            <Desc>{this.props.description}</Desc>
           </div>
         </CheckboxBlock>
       </Wrap>
