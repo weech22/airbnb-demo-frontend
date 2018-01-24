@@ -1,10 +1,9 @@
 {
   "parser": "babel-eslint",
   "extends": ["airbnb"],
-  "globals": {
-    "document": true,
-    "window": true,
-    "it": true
+  "env": {
+    "browser": true,
+    "mocha": true
   },
   "rules": {
     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
