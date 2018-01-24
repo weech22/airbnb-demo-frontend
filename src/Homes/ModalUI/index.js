@@ -3,9 +3,10 @@ import Header from './Header';
 import Footer from './Footer';
 import Checkbox from './Checkbox';
 import BottomPanel from './BottomPanel';
+import FiltersBottomPanel from './FiltersBottomPanel';
 import ModalWindow from './ModalWindow';
 
-export { Header, Footer, Checkbox, BottomPanel, ModalWindow };
+export { Header, Footer, Checkbox, BottomPanel, FiltersBottomPanel, ModalWindow };
 
 export const SectionTitle = styled.h2`
   font-family: CircularAir;

@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { SectionTitle } from '../ModalUI';
+import { SectionTitle, Checkbox } from '../ModalUI';
 import arrow from '../ModalUI/arrowDown.svg';
 
 const Wrap = styled.div`
@@ -11,6 +11,11 @@ const Wrap = styled.div`
   padding-bottom: 8px;
   display: flex;
   justify-content: space-between;
+  @media only screen and (min-width: 768px) {
+    display: block;
+    border-bottom: 1px solid rgba(72, 72, 72, 0.3);
+    background-clip: padding-box;
+  }
 `;
 
 const More = styled.span`
@@ -20,6 +25,9 @@ const More = styled.span`
   font-size: 16px;
   color: #0f7276;
   margin-top: 3px;
+  @media only screen and (min-width: 768px) {
+    margin-bottom: 24px;
+  }
 `;
 
 const Img = styled.img`
@@ -34,11 +42,33 @@ const Title = SectionTitle.extend`
   font-size: 20px;
 `;
 
+const CheckboxBlock = styled.div`
+  display: none;
+
+  @media only screen and (min-width: 768px) {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-left: -8px;
+  }
+`;
+
 const Amenities = () => (
   <Wrap>
     <Title>Facilities</Title>
+    <CheckboxBlock>
+      <div className="col-md-5">
+        <Checkbox id="elevator" name="Elevator" />
+        <Checkbox id="pool" name="Pool" />
+      </div>
+
+      <div className="col-md-7">
+        <Checkbox id="parking" name="Free parking on premises" />
+        <Checkbox id="wheelchair" name="Wheelchair accessible" />
+      </div>
+    </CheckboxBlock>
     <div>
-      <More>See all</More>
+      <More>See all{window.matchMedia('(min-width: 768px)').matches && ' facilities'}</More>
       <Img src={arrow} alt="" />
     </div>
   </Wrap>

@@ -1,7 +1,13 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import { Portal } from 'react-portal';
-import { FilterButton as Button, ModalWindow, Header, Footer, BottomPanel } from '../ModalUI';
+import {
+  FilterButton as Button,
+  ModalWindow,
+  Header,
+  Footer,
+  FiltersBottomPanel as BottomPanel,
+} from '../ModalUI';
 import RoomType from './RoomType';
 import RoomsBeds from './RoomsBeds';
 import PriceRange from './PriceRange';

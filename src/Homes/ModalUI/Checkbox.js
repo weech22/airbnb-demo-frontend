@@ -24,7 +24,6 @@ const CheckboxInput = styled.input`
 `;
 
 const CheckboxBlock = styled.div`
-  margin-left: 8px;
   margin-bottom: 16px;
   display: flex;
 `;
@@ -43,6 +42,8 @@ const Name = styled.h3`
     margin-top: 4px;
     line-height: 21px;
     font-size: 18px;
+    margin-top: auto;
+    margin-bottom: auto;
   }
 `;
 
@@ -61,6 +62,8 @@ const Desc = styled.p`
     font-size: 14px;
   }
 `;
+
+const Text = styled.div``;
 
 class Checkbox extends Component {
   state = {
@@ -85,10 +88,10 @@ class Checkbox extends Component {
             checked={this.state.isChecked}
             onChange={this.handleCheck}
           />
-          <div>
+          <Text>
             <Name>{this.props.name}</Name>
             <Desc>{this.props.description}</Desc>
-          </div>
+          </Text>
         </CheckboxBlock>
       </Wrap>
     );
