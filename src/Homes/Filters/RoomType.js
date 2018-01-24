@@ -31,10 +31,14 @@ const Icon = styled.img`
     height: 32px;
     margin-right: 8px;
   }
+  @media only screen and (min-width: 992px) {
+    margin-right: 2px;
+    margin-top: 7px;
+  }
 `;
 
 const RoomType = props => (
-  <Wrap>
+  <Wrap className={props.className}>
     <SectionTitle>Room type</SectionTitle>
     <CheckboxBlock>
       <Checkbox

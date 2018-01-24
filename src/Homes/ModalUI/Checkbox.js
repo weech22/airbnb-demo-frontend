@@ -26,6 +26,9 @@ const CheckboxInput = styled.input`
 const CheckboxBlock = styled.div`
   margin-bottom: 16px;
   display: flex;
+  @media only screen and (min-width: 992px) {
+    margin-bottom: ${props => (props.id === 'sharedRoom' ? '0px' : '16px')};
+  }
 `;
 
 const Name = styled.h3`
@@ -45,6 +48,10 @@ const Name = styled.h3`
     margin-top: auto;
     margin-bottom: auto;
   }
+  @media only screen and (min-width: 992px) {
+    line-height: 19px;
+    font-size: 16px;
+  }
 `;
 
 const Desc = styled.p`
@@ -61,9 +68,19 @@ const Desc = styled.p`
     line-height: 16px;
     font-size: 14px;
   }
+  @media only screen and (min-width: 992px) {
+    line-height: 14px;
+    font-size: 12px;
+    max-width: 196px;
+    margin-top: 6px;
+  }
 `;
 
-const Text = styled.div``;
+const Text = styled.div`
+  @media only screen and (min-width: 992px) {
+    margin-top: 2px;
+  }
+`;
 
 class Checkbox extends Component {
   state = {
@@ -82,7 +99,7 @@ class Checkbox extends Component {
   render() {
     return (
       <Wrap>
-        <CheckboxBlock>
+        <CheckboxBlock id={this.props.id}>
           <CheckboxInput
             type="checkbox"
             checked={this.state.isChecked}

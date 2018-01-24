@@ -16,7 +16,7 @@ const GuestsModal = styled(DesktopModal)`
 `;
 
 const AdaptiveModal = (dialog, onClick) => {
-  if (window.matchMedia('(min-width: 576px)').matches) {
+  if (window.matchMedia('(min-width: 768px)').matches) {
     return (
       <div>
         <WhiteBackground onClick={onClick} />

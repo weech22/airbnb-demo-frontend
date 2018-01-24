@@ -26,6 +26,9 @@ export const SectionTitle = styled.h2`
   color: #383838;
   margin: 0;
   margin-bottom: 24px;
+  @media only screen and (min-width: 992px) {
+    display: none;
+  }
 `;
 
 export const FilterButton = styled.button`
