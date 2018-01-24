@@ -4,17 +4,14 @@ import Counter from '../UI/Counter';
 
 const Wrap = styled.div`
   height: calc(100vh - 153px);
-  width: 95vw;
-  background: #ffffff;
-  margin-top: 0px;
-  padding-top: 40px;
-  padding-left: 8px;
+  padding: 39px 8px;
+  padding-bottom: 0;
   @media only screen and (min-width: 768px) {
+    padding-left: 23px;
+    padding-right: 14px;
+    padding-top: 27px;
+    width: 290px;
     height: auto;
-    width: 326px;
-    padding-top: 30px;
-    padding-left: 24px;
-    padding-right: 15px;
   }
 `;
 
@@ -26,7 +23,7 @@ const Section = props => (
       onGuestInc={props.onGuestInc}
       onGuestDec={props.onGuestDec}
       name="Adults"
-      desc=""
+      description=""
     />
     <Counter
       id="kids"
@@ -34,7 +31,7 @@ const Section = props => (
       onGuestInc={props.onGuestInc}
       onGuestDec={props.onGuestDec}
       name="Children"
-      desc="Ages 2 — 12"
+      description="Ages 2 — 12"
     />
     <Counter
       id="infants"
@@ -42,7 +39,7 @@ const Section = props => (
       onGuestInc={props.onGuestInc}
       onGuestDec={props.onGuestDec}
       name="Infants"
-      desc="Under 2"
+      description="Under 2"
     />
   </Wrap>
 );

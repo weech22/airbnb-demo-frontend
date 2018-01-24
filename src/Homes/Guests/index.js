@@ -15,10 +15,26 @@ const GuestsModal = styled(DesktopModal)`
   left: 89px;
 `;
 
+const AdaptiveModal = (dialog, onClick) => {
+  if (window.matchMedia('(min-width: 576px)').matches) {
+    return (
+      <div>
+        <WhiteBackground onClick={onClick} />
+        <GuestsModal>{dialog}</GuestsModal>
+      </div>
+    );
+  }
+  return (
+    <Portal node={document && document.getElementById('modal')}>
+      <ModalWindow>{dialog}</ModalWindow>
+    </Portal>
+  );
+};
+
 class Dropdown extends Component {
   state = {
     isOpen: false,
-    adults: 1,
+    adults: 0,
     kids: 0,
     infants: 0,
   };
@@ -30,7 +46,7 @@ class Dropdown extends Component {
   toggleClose = () => {
     this.setState({
       isOpen: false,
-      adults: 1,
+      adults: 0,
       kids: 0,
       infants: 0,
     });
@@ -43,7 +59,7 @@ class Dropdown extends Component {
   };
 
   resetGuests = () => {
-    this.setState({ adults: 1, kids: 0, infants: 0 });
+    this.setState({ adults: 0, kids: 0, infants: 0 });
   };
 
   increment = (field, value) => {
@@ -57,45 +73,26 @@ class Dropdown extends Component {
   };
 
   render() {
+    const dialogWindow = (
+      <Modal
+        onCancel={this.toggleClose}
+        onReset={this.resetGuests}
+        onSave={this.saveGuests}
+        adults={this.state.adults}
+        kids={this.state.kids}
+        infants={this.state.infants}
+        onGuestInc={this.increment}
+        onGuestDec={this.decrement}
+      />
+    );
+
+    const adaptiveModal = AdaptiveModal(dialogWindow, this.toggleClose);
     return (
       <Wrap>
         <Button active={this.state.isOpen} onClick={this.toggleOpen}>
           Guests
         </Button>
-        {this.state.isOpen &&
-          ((window.matchMedia('(max-width: 575px)').matches && (
-            <Portal node={document && document.getElementById('modal')}>
-              <ModalWindow>
-                <Modal
-                  onCancel={this.toggleClose}
-                  onReset={this.resetGuests}
-                  onSave={this.saveGuests}
-                  adults={this.state.adults}
-                  kids={this.state.kids}
-                  infants={this.state.infants}
-                  onGuestInc={this.increment}
-                  onGuestDec={this.decrement}
-                />
-              </ModalWindow>
-            </Portal>
-          )) ||
-            (window.matchMedia('(min-width: 576px)').matches && (
-              <div>
-                <WhiteBackground onClick={this.toggleClose} />
-                <GuestsModal>
-                  <Modal
-                    onCancel={this.toggleClose}
-                    onReset={this.resetGuests}
-                    onSave={this.saveGuests}
-                    adults={this.state.adults}
-                    kids={this.state.kids}
-                    infants={this.state.infants}
-                    onGuestInc={this.increment}
-                    onGuestDec={this.decrement}
-                  />
-                </GuestsModal>
-              </div>
-            )))}
+        {this.state.isOpen && adaptiveModal}
       </Wrap>
     );
   }

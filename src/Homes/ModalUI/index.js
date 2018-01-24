@@ -44,7 +44,7 @@ export const WhiteBackground = styled.div`
   background: rgba(255, 255, 255, 0.8);
   position: fixed;
   z-index: 1013;
-  top: 140;
+  top: 130px;
   left: 0;
   height: 100vh;
   width: 100vw;
@@ -57,6 +57,7 @@ export const DesktopModal = styled.div`
   box-sizing: border-box;
   box-shadow: 0px 2px 4px rgba(72, 72, 72, 0.08);
   border-radius: 4px;
+  padding: 1px;
   z-index: 1014;
 `;
 
