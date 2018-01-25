@@ -82,12 +82,30 @@ const Count = styled.span`
 `;
 
 class Counter extends Component {
-  increment = () => {
-    this.props.onGuestInc(this.props.id, this.props.count + 1);
+  state = {
+    count: this.props.count,
   };
 
+  componentWillReceiveProps(nextProps) {
+    this.setState({ count: nextProps.count });
+  }
+
   decrement = () => {
-    this.props.onGuestDec(this.props.id, this.props.count - 1);
+    this.setState(
+      () => ({ count: this.state.count - 1 }),
+      () => {
+        this.props.onGuestsChange(this.props.id, this.state.count);
+      },
+    );
+  };
+
+  increment = () => {
+    this.setState(
+      () => ({ count: this.state.count + 1 }),
+      () => {
+        this.props.onGuestsChange(this.props.id, this.state.count);
+      },
+    );
   };
 
   render() {
@@ -99,7 +117,7 @@ class Counter extends Component {
         </Text>
         <Buttons>
           <Minus onClick={this.decrement} />
-          <Count>{this.props.count}</Count>
+          <Count>{this.state.count}</Count>
           <Plus onClick={this.increment} />
         </Buttons>
       </Wrap>

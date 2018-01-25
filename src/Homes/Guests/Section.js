@@ -20,26 +20,23 @@ const Section = props => (
     <Counter
       id="adults"
       count={props.adults}
-      onGuestInc={props.onGuestInc}
-      onGuestDec={props.onGuestDec}
       name="Adults"
       description=""
+      onGuestsChange={props.onGuestsChange}
     />
     <Counter
       id="kids"
       count={props.kids}
-      onGuestInc={props.onGuestInc}
-      onGuestDec={props.onGuestDec}
       name="Children"
       description="Ages 2 — 12"
+      onGuestsChange={props.onGuestsChange}
     />
     <Counter
       id="infants"
       count={props.infants}
-      onGuestInc={props.onGuestInc}
-      onGuestDec={props.onGuestDec}
       name="Infants"
       description="Under 2"
+      onGuestsChange={props.onGuestsChange}
     />
   </Wrap>
 );

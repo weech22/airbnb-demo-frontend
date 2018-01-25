@@ -44,45 +44,26 @@ class Dropdown extends Component {
   };
 
   toggleClose = () => {
-    this.setState({
-      isOpen: false,
-      adults: 0,
-      kids: 0,
-      infants: 0,
-    });
+    this.setState({ isOpen: false });
   };
 
-  saveGuests = () => {
+  saveGuests = (adults, kids, infants) => {
     this.setState({
+      adults,
+      kids,
+      infants,
       isOpen: false,
     });
-  };
-
-  resetGuests = () => {
-    this.setState({ adults: 0, kids: 0, infants: 0 });
-  };
-
-  increment = (field, value) => {
-    this.setState({ [field]: value });
-  };
-
-  decrement = (field, value) => {
-    if (value >= 0) {
-      this.setState({ [field]: value });
-    }
   };
 
   render() {
     const dialogWindow = (
       <Modal
         onCancel={this.toggleClose}
-        onReset={this.resetGuests}
-        onSave={this.saveGuests}
+        onApply={this.saveGuests}
         adults={this.state.adults}
         kids={this.state.kids}
         infants={this.state.infants}
-        onGuestInc={this.increment}
-        onGuestDec={this.decrement}
       />
     );
 
