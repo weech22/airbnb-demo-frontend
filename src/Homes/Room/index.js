@@ -15,9 +15,8 @@ const RoomModal = styled(DesktopModal)`
 class Dropdown extends Component {
   state = {
     isOpen: false,
-    home: false,
-    privateRoom: false,
-    sharedRoom: false,
+    min: 1,
+    max: 100,
   };
 
   toggleOpen = () => {

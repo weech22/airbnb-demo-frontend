@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { Component } from 'react';
 import Rheostat from 'rheostat';
 import styled from 'styled-components';
 import { SectionTitle } from '../ModalUI';
 import './slider.css';
+import Histogramm from './Histogramm';
 
 const Wrap = styled.div`
   background: #ffffff;
@@ -67,15 +68,25 @@ const SliderBlock = styled.div`
   }
 `;
 
-const PriceRange = props => (
-  <Wrap className={props.className}>
-    <SectionTitle>Price range</SectionTitle>
-    <Range>$10 — $1000+</Range>
-    <Average>The average nightly price is $75.</Average>
-    <SliderBlock>
-      <Rheostat min={1} max={100} values={[1, 100]} />
-    </SliderBlock>
-  </Wrap>
-);
+class PriceRange extends Component {
+  state = {
+    min: 1,
+    max: 100,
+  };
+
+  render() {
+    return (
+      <Wrap className={this.props.className}>
+        <SectionTitle>Price range</SectionTitle>
+        <Range>$10 — $1000+</Range>
+        <Average>The average nightly price is $75.</Average>
+        <SliderBlock>
+          <Histogramm />
+          <Rheostat min={this.state.min} max={this.state.max} values={[1, 100]} />
+        </SliderBlock>
+      </Wrap>
+    );
+  }
+}
 
 export default PriceRange;
