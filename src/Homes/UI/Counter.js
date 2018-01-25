@@ -91,12 +91,14 @@ class Counter extends Component {
   }
 
   decrement = () => {
-    this.setState(
-      () => ({ count: this.state.count - 1 }),
-      () => {
-        this.props.onGuestsChange(this.props.id, this.state.count);
-      },
-    );
+    if (this.state.count > 0) {
+      this.setState(
+        () => ({ count: this.state.count - 1 }),
+        () => {
+          this.props.onGuestsChange(this.props.id, this.state.count);
+        },
+      );
+    }
   };
 
   increment = () => {

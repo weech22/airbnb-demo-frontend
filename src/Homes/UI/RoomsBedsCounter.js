@@ -63,12 +63,32 @@ const Count = styled.span`
 `;
 
 class Counter extends Component {
-  increment = () => {
-    this.props.onFilterInc(this.props.name.toLowerCase(), this.props.count + 1);
+  state = {
+    count: this.props.count,
   };
 
+  componentWillReceiveProps(nextProps) {
+    this.setState({ count: nextProps.count });
+  }
+
   decrement = () => {
-    this.props.onFilterDec(this.props.name.toLowerCase(), this.props.count - 1);
+    if (this.state.count > 0) {
+      this.setState(
+        () => ({ count: this.state.count - 1 }),
+        () => {
+          this.props.onFilterChange(this.props.id, this.state.count);
+        },
+      );
+    }
+  };
+
+  increment = () => {
+    this.setState(
+      () => ({ count: this.state.count + 1 }),
+      () => {
+        this.props.onFilterChange(this.props.id, this.state.count);
+      },
+    );
   };
 
   render() {
@@ -81,7 +101,7 @@ class Counter extends Component {
           <div className="col-xs-5">
             <Buttons>
               <Minus onClick={this.decrement} />
-              <Count>{this.props.count}+</Count>
+              <Count>{this.state.count}+</Count>
               <Plus onClick={this.increment} />
             </Buttons>
           </div>

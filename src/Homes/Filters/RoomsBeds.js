@@ -19,22 +19,17 @@ const RoomsBeds = props => (
     <SectionTitle>Rooms and beds</SectionTitle>
     <div className="col-xs-12 col-md-6">
       <Counter
-        name="Bedrooms"
+        id="bedrooms"
         count={props.bedrooms}
-        onFilterInc={props.onFilterInc}
-        onFilterDec={props.onFilterDec}
+        name="Bedrooms"
+        onFilterChange={props.onFilterChange}
       />
+      <Counter id="beds" count={props.beds} name="Beds" onFilterChange={props.onFilterChange} />
       <Counter
-        name="Beds"
-        count={props.beds}
-        onFilterInc={props.onFilterInc}
-        onFilterDec={props.onFilterDec}
-      />
-      <Counter
-        name="Bathrooms"
+        id="bathrooms"
         count={props.bathrooms}
-        onFilterInc={props.onFilterInc}
-        onFilterDec={props.onFilterDec}
+        name="Bathrooms"
+        onFilterChange={props.onFilterChange}
       />
     </div>
   </Wrap>
