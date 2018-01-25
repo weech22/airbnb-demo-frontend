@@ -9,6 +9,9 @@ const Column = styled.div`
   @media only screen and (min-width: 768px) {
     width: 16px;
   }
+  @media only screen and (min-width: 992px) {
+    width: 6px;
+  }
 `;
 
 const Wrap = styled.div`

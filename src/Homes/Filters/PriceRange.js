@@ -32,6 +32,7 @@ const Range = styled.div`
   @media only screen and (min-width: 992px) {
     font-size: 16px;
     line-height: 19px;
+    margin-bottom: 9px;
   }
 `;
 
@@ -65,6 +66,7 @@ const SliderBlock = styled.div`
     margin-top: 32px;
     margin-left: 16px;
     margin-right: 16px;
+    margin-bottom: 29px;
   }
 `;
 

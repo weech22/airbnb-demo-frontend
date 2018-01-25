@@ -10,7 +10,7 @@ const ModalWindow = props => (
   <Window>
     <Container>
       <Content>
-        <Wrap>{props.children}</Wrap>
+        <Wrap> {props.children}</Wrap>
       </Content>
     </Container>
   </Window>

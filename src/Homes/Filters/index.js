@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import styled from 'styled-components';
 import { Portal } from 'react-portal';
 import Modal from './Modal';
 import {
@@ -14,6 +15,10 @@ const AdaptiveModal = (dialog, onClick) => (
     <ModalWindow>{dialog}</ModalWindow>
   </Portal>
 );
+
+const HiddenWrap = styled(Wrap)`
+  display: none;
+`;
 
 class Dropdown extends Component {
   state = {
@@ -102,12 +107,12 @@ class Dropdown extends Component {
     const adaptiveModal = AdaptiveModal(dialogWindow, this.toggleClose);
 
     return (
-      <Wrap>
+      <HiddenWrap>
         <Button active={this.state.isOpen} onClick={this.toggleOpen}>
           More filters
         </Button>
         {this.state.isOpen && adaptiveModal}
-      </Wrap>
+      </HiddenWrap>
     );
   }
 }
