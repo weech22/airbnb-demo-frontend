@@ -9,7 +9,7 @@ const Wrap = styled.div`
 
 const RoomModal = styled(DesktopModal)`
   top: 52px;
-  left: 178px;
+  left: 179px;
 `;
 
 class Dropdown extends Component {

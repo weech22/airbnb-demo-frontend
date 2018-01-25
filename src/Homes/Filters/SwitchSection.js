@@ -19,6 +19,13 @@ const Title = styled.h4`
   color: #383838;
   margin-bottom: 4px;
   margin-top: 0px;
+  @media only screen and (min-width: 992px) {
+    line-height: 21px;
+    font-weight: normal;
+    font-size: 18px;
+    margin-left: 15px;
+    margin-bottom: 6px;
+  }
 `;
 
 const Description = styled.p`
@@ -29,6 +36,11 @@ const Description = styled.p`
   color: #383838;
   margin-bottom: 4px;
   margin-top: 0px;
+  @media only screen and (min-width: 992px) {
+    max-width: 200px;
+    margin-left: 14px;
+    margin-bottom: 16px;
+  }
 `;
 
 const More = styled.p`
@@ -40,18 +52,29 @@ const More = styled.p`
   color: #0f7276;
   margin-top: 0px;
   margin-bottom: 31px;
+  @media only screen and (min-width: 992px) {
+    display: none;
+  }
+`;
+
+const Div = styled.div`
+  @media only screen and (min-width: 992px) {
+    margin-top: 15px;
+    margin-right: 16px;
+    margin-left: 30px;
+  }
 `;
 
 const SwitchSection = props => (
-  <Wrap id={props.children}>
+  <Wrap id={props.children} className={props.className}>
     <div>
       <Title>{props.children}</Title>
       <Description>{props.description}</Description>
       <More>Learn more</More>
     </div>
-    <div>
+    <Div>
       <SwitchButton />
-    </div>
+    </Div>
   </Wrap>
 );
 

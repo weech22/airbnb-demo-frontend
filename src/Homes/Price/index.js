@@ -1,11 +1,15 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import { Portal } from 'react-portal';
 import Modal from './Modal';
-import { FilterButton as Button, ModalWindow } from '../ModalUI';
+import { FilterButton as Button, DesktopModal, WhiteBackground } from '../ModalUI';
 
 const Wrap = styled.div`
   display: inline-block;
+`;
+
+const PriceModal = styled(DesktopModal)`
+  top: 52px;
+  left: 292px;
 `;
 
 class Dropdown extends Component {
@@ -28,11 +32,12 @@ class Dropdown extends Component {
           Price
         </Button>
         {this.state.isOpen && (
-          <Portal node={document && document.getElementById('modal')}>
-            <ModalWindow>
-              <Modal onCancel={this.toggleClose} />
-            </ModalWindow>
-          </Portal>
+          <div>
+            <WhiteBackground onClick={this.toggleClose} />
+            <PriceModal>
+              <Modal />
+            </PriceModal>
+          </div>
         )}
       </Wrap>
     );

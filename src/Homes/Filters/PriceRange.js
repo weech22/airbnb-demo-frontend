@@ -28,6 +28,10 @@ const Range = styled.div`
     font-size: 18px;
     line-height: 21px;
   }
+  @media only screen and (min-width: 992px) {
+    font-size: 16px;
+    line-height: 19px;
+  }
 `;
 
 const Average = styled.div`
@@ -39,6 +43,10 @@ const Average = styled.div`
   @media only screen and (min-width: 767px) {
     font-size: 14px;
     line-height: 16px;
+  }
+  @media only screen and (min-width: 992px) {
+    font-size: 12px;
+    line-height: 14px;
   }
 `;
 
@@ -52,10 +60,15 @@ const SliderBlock = styled.div`
     margin-left: 40px;
     margin-right: 40px;
   }
+  @media only screen and (min-width: 992px) {
+    margin-top: 32px;
+    margin-left: 16px;
+    margin-right: 16px;
+  }
 `;
 
-const PriceRange = () => (
-  <Wrap>
+const PriceRange = props => (
+  <Wrap className={props.className}>
     <SectionTitle>Price range</SectionTitle>
     <Range>$10 — $1000+</Range>
     <Average>The average nightly price is $75.</Average>
