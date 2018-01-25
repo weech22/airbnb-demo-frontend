@@ -15,10 +15,33 @@ const DesktopRoomType = styled(RoomType)`
   }
 `;
 
-const Modal = props => (
-  <div>
-    <DesktopRoomType />
-    <BottomPanel onCancel={props.onCancel} onApply={props.onSave} />
-  </div>
-);
+class Modal extends React.Component {
+  state = {
+    home: this.props.home,
+    privateRoom: this.props.privateRoom,
+    sharedRoom: this.props.sharedRoom,
+  };
+
+  saveFilters = () => {
+    this.props.onApply(this.state.home, this.state.privateRoom, this.state.sharedRoom);
+  };
+
+  handleFilterChange = (field, value) => {
+    this.setState({ [field]: value });
+  };
+
+  render() {
+    return (
+      <div>
+        <DesktopRoomType
+          home={this.state.home}
+          privateRoom={this.state.privateRoom}
+          sharedRoom={this.state.sharedRoom}
+          onFilterChange={this.handleFilterChange}
+        />
+        <BottomPanel onCancel={this.props.onCancel} onApply={this.saveFilters} />
+      </div>
+    );
+  }
+}
 export default Modal;

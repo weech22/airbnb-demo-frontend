@@ -15,6 +15,9 @@ const RoomModal = styled(DesktopModal)`
 class Dropdown extends Component {
   state = {
     isOpen: false,
+    home: false,
+    privateRoom: false,
+    sharedRoom: false,
   };
 
   toggleOpen = () => {
@@ -23,6 +26,15 @@ class Dropdown extends Component {
 
   toggleClose = () => {
     this.setState({ isOpen: false });
+  };
+
+  saveFilters = (home, privateRoom, sharedRoom) => {
+    this.setState({
+      home,
+      privateRoom,
+      sharedRoom,
+      isOpen: false,
+    });
   };
 
   render() {
@@ -35,7 +47,13 @@ class Dropdown extends Component {
           <div>
             <WhiteBackground onClick={this.toggleClose} />
             <RoomModal>
-              <Modal />
+              <Modal
+                onCancel={this.toggleClose}
+                onApply={this.saveFilters}
+                home={this.state.home}
+                privateRoom={this.state.privateRoom}
+                sharedRoom={this.state.sharedRoom}
+              />
             </RoomModal>
           </div>
         )}

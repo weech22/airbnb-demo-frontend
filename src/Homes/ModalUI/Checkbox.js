@@ -98,8 +98,6 @@ class Checkbox extends Component {
         this.props.onFilterChange(this.props.id, this.state.checked);
       },
     );
-
-    console.log(this.props.checked);
   };
 
   render() {
