@@ -40,9 +40,7 @@ class Modal extends React.Component {
   };
 
   handleFilterChange = (field, value) => {
-    if (value >= 0) {
-      this.setState({ [field]: value });
-    }
+    this.setState({ [field]: value });
   };
 
   render() {
@@ -54,7 +52,12 @@ class Modal extends React.Component {
           text="All filters (0)"
           action="Clear All"
         />
-        <RoomType />
+        <RoomType
+          home={this.state.home}
+          privateRoom={this.state.privateRoom}
+          sharedRoom={this.state.sharedRoom}
+          onFilterChange={this.handleFilterChange}
+        />
         <PriceRange />
         <RoomsBeds
           bedrooms={this.state.bedrooms}

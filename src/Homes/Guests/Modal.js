@@ -18,9 +18,7 @@ class Modal extends React.Component {
   };
 
   handleGuestsChange = (field, value) => {
-    if (value >= 0) {
-      this.setState({ [field]: value });
-    }
+    this.setState({ [field]: value });
   };
 
   render() {

@@ -41,15 +41,33 @@ const RoomType = props => (
   <Wrap className={props.className}>
     <SectionTitle>Room type</SectionTitle>
     <CheckboxBlock>
-      <Checkbox name="Entire home" description="Have a place to yourself" />
+      <Checkbox
+        id="home"
+        checked={props.home}
+        name="Entire home"
+        description="Have a place to yourself"
+        onFilterChange={props.onFilterChange}
+      />
       <Icon src={home} alt="" />
     </CheckboxBlock>
     <CheckboxBlock>
-      <Checkbox name="Private room" description="Have your own room and share some common spaces" />
+      <Checkbox
+        id="privateRoom"
+        checked={props.privateRoom}
+        name="Private room"
+        description="Have your own room and share some common spaces"
+        onFilterChange={props.onFilterChange}
+      />
       <Icon src={privateRoom} alt="" />
     </CheckboxBlock>
     <CheckboxBlock>
-      <Checkbox name="Shared room" description="Stay in a shared space, like a common room" />
+      <Checkbox
+        id="sharedRoom"
+        checked={props.sharedRoom}
+        name="Shared room"
+        description="Stay in a shared space, like a common room"
+        onFilterChange={props.onFilterChange}
+      />
       <Icon src={sharedRoom} alt="" />
     </CheckboxBlock>
   </Wrap>

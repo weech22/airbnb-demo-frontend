@@ -84,16 +84,22 @@ const Text = styled.div`
 
 class Checkbox extends Component {
   state = {
-    isChecked: this.props.field,
+    checked: this.props.checked,
   };
 
   componentWillReceiveProps(nextProps) {
-    this.setState({ isChecked: nextProps.field });
+    this.setState({ checked: nextProps.checked });
   }
 
-  handleCheck = () => {
-    this.setState({ isChecked: !this.state.isChecked });
-    this.props.onCheck(this.props.id, this.state.checked);
+  handleChange = () => {
+    this.setState(
+      () => ({ checked: !this.state.checked }),
+      () => {
+        this.props.onFilterChange(this.props.id, this.state.checked);
+      },
+    );
+
+    console.log(this.props.checked);
   };
 
   render() {
@@ -102,8 +108,8 @@ class Checkbox extends Component {
         <CheckboxBlock id={this.props.id}>
           <CheckboxInput
             type="checkbox"
-            checked={this.state.isChecked}
-            onChange={this.handleCheck}
+            checked={this.state.checked}
+            onChange={this.handleChange}
           />
           <Text>
             <Name>{this.props.name}</Name>
