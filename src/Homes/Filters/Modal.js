@@ -15,6 +15,14 @@ class Modal extends React.Component {
     bedrooms: this.props.bedrooms,
     beds: this.props.beds,
     bathrooms: this.props.bathrooms,
+    heating: this.props.heating,
+    kitchen: this.props.kitchen,
+    tv: this.props.tv,
+    wifi: this.props.wifi,
+    elevator: this.props.elevator,
+    parking: this.props.parking,
+    pool: this.props.pool,
+    wheelchair: this.props.wheelchair,
   };
 
   resetFilters = () => {
@@ -25,6 +33,14 @@ class Modal extends React.Component {
       bedrooms: 0,
       beds: 0,
       bathrooms: 0,
+      heating: false,
+      kitchen: false,
+      tv: false,
+      wifi: false,
+      elevator: false,
+      parking: false,
+      pool: false,
+      wheelchair: false,
     });
   };
 
@@ -36,6 +52,14 @@ class Modal extends React.Component {
       this.state.bedrooms,
       this.state.beds,
       this.state.bathrooms,
+      this.state.heating,
+      this.state.kitchen,
+      this.state.tv,
+      this.state.wifi,
+      this.state.elevator,
+      this.state.parking,
+      this.state.pool,
+      this.state.wheelchair,
     );
   };
 
@@ -66,8 +90,20 @@ class Modal extends React.Component {
           onFilterChange={this.handleFilterChange}
         />
         <MoreOptions />
-        <Amenities />
-        <Facilities />
+        <Amenities
+          heating={this.state.heating}
+          kitchen={this.state.kitchen}
+          tv={this.state.tv}
+          wifi={this.state.wifi}
+          onFilterChange={this.handleFilterChange}
+        />
+        <Facilities
+          elevator={this.state.elevator}
+          parking={this.state.parking}
+          pool={this.state.pool}
+          wheelchair={this.state.wheelchair}
+          onFilterChange={this.handleFilterChange}
+        />
         <BottomPanel onCancel={this.props.onCancel} onApply={this.saveFilters} />
         <Footer onClick={this.saveFilters}>See homes</Footer>
       </div>

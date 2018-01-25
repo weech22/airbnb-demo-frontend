@@ -24,6 +24,14 @@ class Dropdown extends Component {
     bedrooms: 0,
     beds: 0,
     bathrooms: 0,
+    heating: false,
+    kitchen: false,
+    tv: false,
+    wifi: false,
+    elevator: false,
+    parking: false,
+    pool: false,
+    wheelchair: false,
   };
 
   toggleOpen = () => {
@@ -34,7 +42,22 @@ class Dropdown extends Component {
     this.setState({ isOpen: false });
   };
 
-  saveFilters = (home, privateRoom, sharedRoom, bedrooms, beds, bathrooms) => {
+  saveFilters = (
+    home,
+    privateRoom,
+    sharedRoom,
+    bedrooms,
+    beds,
+    bathrooms,
+    heating,
+    kitchen,
+    tv,
+    wifi,
+    elevator,
+    parking,
+    pool,
+    wheelchair,
+  ) => {
     this.setState({
       home,
       privateRoom,
@@ -42,6 +65,14 @@ class Dropdown extends Component {
       bedrooms,
       beds,
       bathrooms,
+      heating,
+      kitchen,
+      tv,
+      wifi,
+      elevator,
+      parking,
+      pool,
+      wheelchair,
       isOpen: false,
     });
   };
@@ -57,6 +88,14 @@ class Dropdown extends Component {
         bedrooms={this.state.bedrooms}
         beds={this.state.beds}
         bathrooms={this.state.bathrooms}
+        heating={this.state.heating}
+        kitchen={this.state.kitchen}
+        tv={this.state.tv}
+        wifi={this.state.wifi}
+        elevator={this.state.elevator}
+        parking={this.state.parking}
+        pool={this.state.pool}
+        wheelchair={this.state.wheelchair}
       />
     );
 

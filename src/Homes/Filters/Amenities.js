@@ -50,18 +50,33 @@ const CheckboxBlock = styled.div`
   }
 `;
 
-const Amenities = () => (
+const Amenities = props => (
   <Wrap>
     <SectionTitle>Amenities</SectionTitle>
     <CheckboxBlock>
       <div className="col-md-5">
-        <Checkbox id="heating" name="Heating" />
-        <Checkbox id="tv" name="TV" />
+        <Checkbox
+          id="heating"
+          checked={props.heating}
+          name="Heating"
+          onFilterChange={props.onFilterChange}
+        />
+        <Checkbox id="tv" checked={props.tv} name="TV" onFilterChange={props.onFilterChange} />
       </div>
 
       <div className="col-md-7">
-        <Checkbox id="kitchen" name="Kitchen" />
-        <Checkbox id="wifi" name="Wireless Internet" />
+        <Checkbox
+          id="kitchen"
+          checked={props.kitchen}
+          name="Kitchen"
+          onFilterChange={props.onFilterChange}
+        />
+        <Checkbox
+          id="wifi"
+          checked={props.wifi}
+          name="Wireless Internet"
+          onFilterChange={props.onFilterChange}
+        />
       </div>
     </CheckboxBlock>
     <div>
