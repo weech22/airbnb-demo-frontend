@@ -31,7 +31,7 @@ class SwitchButton extends Component {
     this.setState(
       () => ({ checked: !this.state.checked }),
       () => {
-        this.props.onFilterChange('checked', this.state.checked);
+        this.props.onFilterChange(this.props.id, this.state.checked);
       },
     );
   };

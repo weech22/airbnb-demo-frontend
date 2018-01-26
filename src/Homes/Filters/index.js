@@ -37,6 +37,10 @@ class Dropdown extends Component {
     parking: false,
     pool: false,
     wheelchair: false,
+    min: 10,
+    max: 1000,
+    instantBook: false,
+    superhost: false,
   };
 
   componentWillReceiveProps(nextProps) {
@@ -74,6 +78,10 @@ class Dropdown extends Component {
     parking,
     pool,
     wheelchair,
+    min,
+    max,
+    instantBook,
+    superhost,
   ) => {
     this.setState({
       home,
@@ -90,6 +98,10 @@ class Dropdown extends Component {
       parking,
       pool,
       wheelchair,
+      min,
+      max,
+      instantBook,
+      superhost,
       isOpen: false,
     });
   };
@@ -113,18 +125,22 @@ class Dropdown extends Component {
         parking={this.state.parking}
         pool={this.state.pool}
         wheelchair={this.state.wheelchair}
+        min={this.state.min}
+        max={this.state.max}
+        instantBook={this.state.instantBook}
+        superhost={this.state.superhost}
       />
     );
 
     const adaptiveModal = AdaptiveModal(dialogWindow, this.toggleClose);
 
     return (
-      <HiddenWrap>
+      <Wrap>
         <Button active={this.state.isOpen} onClick={this.toggleOpen}>
           More filters
         </Button>
         {this.state.isOpen && adaptiveModal}
-      </HiddenWrap>
+      </Wrap>
     );
   }
 }

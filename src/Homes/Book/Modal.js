@@ -34,6 +34,7 @@ class Modal extends React.Component {
     return (
       <Wrap>
         <DesktopSwitchSection
+          id="checked"
           checked={this.state.checked}
           onFilterChange={this.handleFilterChange}
           description="Listings you can book without waiting for host approval."

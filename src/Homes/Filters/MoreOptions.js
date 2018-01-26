@@ -13,12 +13,26 @@ const Wrap = styled.div`
   background-clip: padding-box;
 `;
 
-const MoreOptions = () => (
+const MoreOptions = props => (
   <Wrap>
     <div className="col-xs-12 col-md-6">
       <SectionTitle>More options</SectionTitle>
-      <SwitchSection description="Secure a reservation instantly.">Instant book</SwitchSection>
-      <SwitchSection description="Stay with recognized hosts.">Superhost</SwitchSection>
+      <SwitchSection
+        id="instantBook"
+        checked={props.instantBook}
+        description="Secure a reservation instantly."
+        onFilterChange={props.onFilterChange}
+      >
+        Instant book
+      </SwitchSection>
+      <SwitchSection
+        id="superhost"
+        checked={props.superhost}
+        description="Stay with recognized hosts."
+        onFilterChange={props.onFilterChange}
+      >
+        Superhost
+      </SwitchSection>
     </div>
   </Wrap>
 );

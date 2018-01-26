@@ -73,7 +73,7 @@ const SwitchSection = props => (
       <More>Learn more</More>
     </div>
     <ButtonContainer>
-      <SwitchButton checked={props.checked} onFilterChange={props.onFilterChange} />
+      <SwitchButton id={props.id} checked={props.checked} onFilterChange={props.onFilterChange} />
     </ButtonContainer>
   </Wrap>
 );

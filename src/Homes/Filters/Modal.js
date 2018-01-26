@@ -23,6 +23,10 @@ class Modal extends React.Component {
     parking: this.props.parking,
     pool: this.props.pool,
     wheelchair: this.props.wheelchair,
+    min: this.props.min,
+    max: this.props.max,
+    instantBook: this.props.instantBook,
+    superhost: this.props.superhost,
   };
 
   resetFilters = () => {
@@ -41,6 +45,10 @@ class Modal extends React.Component {
       parking: false,
       pool: false,
       wheelchair: false,
+      min: 10,
+      max: 1000,
+      instantBook: false,
+      superhost: false,
     });
   };
 
@@ -60,6 +68,10 @@ class Modal extends React.Component {
       this.state.parking,
       this.state.pool,
       this.state.wheelchair,
+      this.state.min,
+      this.state.max,
+      this.state.instantBook,
+      this.state.superhost,
     );
   };
 
@@ -82,14 +94,22 @@ class Modal extends React.Component {
           sharedRoom={this.state.sharedRoom}
           onFilterChange={this.handleFilterChange}
         />
-        <PriceRange />
+        <PriceRange
+          min={this.state.min}
+          max={this.state.max}
+          onFilterChange={this.handleFilterChange}
+        />
         <RoomsBeds
           bedrooms={this.state.bedrooms}
           beds={this.state.beds}
           bathrooms={this.state.bathrooms}
           onFilterChange={this.handleFilterChange}
         />
-        <MoreOptions />
+        <MoreOptions
+          instantBook={this.state.instantBook}
+          superhost={this.state.superhost}
+          onFilterChange={this.handleFilterChange}
+        />
         <Amenities
           heating={this.state.heating}
           kitchen={this.state.kitchen}
