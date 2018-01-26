@@ -26,9 +26,6 @@ export const SectionTitle = styled.h2`
   color: #383838;
   margin: 0;
   margin-bottom: 24px;
-  @media only screen and (min-width: 992px) {
-    display: none;
-  }
 `;
 
 export const FilterButton = styled.button`
@@ -55,7 +52,7 @@ export const FilterButtonBlock = styled.div`
 export const WhiteBackground = styled.div`
   background: rgba(255, 255, 255, 0.8);
   position: fixed;
-  z-index: 1013;
+  z-index: 1014;
   top: 130px;
   left: 0;
   height: 100vh;
@@ -87,10 +84,6 @@ export const FiltersModalWindowBlock = styled.div`
     bottom: auto;
     width: 100vw;
     height: calc(100vh - 139px);
-  }
-  @media only screen and (min-width: 992px) {
-    bottom: 0;
-    width: 67vw;
   }
 `;
 

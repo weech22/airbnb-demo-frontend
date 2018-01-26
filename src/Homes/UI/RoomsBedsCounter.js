@@ -5,6 +5,8 @@ import minus from './minus.svg';
 
 const Wrap = styled.div`
   margin-bottom: 16px;
+  display: flex;
+  justify-content: space-between;
 `;
 
 const Name = styled.h2`
@@ -43,15 +45,6 @@ const Minus = styled.button`
 const Buttons = styled.div`
   display: flex;
   justify-content: space-between;
-`;
-
-const Text = styled.div`
-  display: flex;
-  margin: auto 0;
-  padding-left: 8px;
-  @media only screen and (min-width: 768px) {
-    padding-left: 0;
-  }
 `;
 
 const Count = styled.span`
@@ -94,17 +87,14 @@ class Counter extends Component {
   render() {
     return (
       <Wrap>
-        <div className="row between-xs">
-          <Text>
-            <Name>{this.props.name}</Name>
-          </Text>
-          <div className="col-xs-5">
-            <Buttons>
-              <Minus onClick={this.decrement} />
-              <Count>{this.state.count}+</Count>
-              <Plus onClick={this.increment} />
-            </Buttons>
-          </div>
+        <Name>{this.props.name}</Name>
+
+        <div className="col-xs-5">
+          <Buttons>
+            <Minus onClick={this.decrement} />
+            <Count>{this.state.count}+</Count>
+            <Plus onClick={this.increment} />
+          </Buttons>
         </div>
       </Wrap>
     );

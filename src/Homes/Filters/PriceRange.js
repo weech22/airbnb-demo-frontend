@@ -70,6 +70,12 @@ const SliderBlock = styled.div`
   }
 `;
 
+const Title = styled(SectionTitle)`
+  @media only screen and (min-width: 992px) {
+    display: none;
+  }
+`;
+
 class PriceRange extends Component {
   state = {
     min: this.props.min,
@@ -81,7 +87,6 @@ class PriceRange extends Component {
   }
 
   updateValue = (sliderState) => {
-    this.setState({});
     this.setState(
       () => ({ min: sliderState.values[0], max: sliderState.values[1] }),
       () => {
@@ -94,7 +99,7 @@ class PriceRange extends Component {
   render() {
     return (
       <Wrap className={this.props.className}>
-        <SectionTitle>Price range</SectionTitle>
+        <Title>Price range</Title>
         <Range>
           ${this.state.min} — ${this.state.max}+
         </Range>

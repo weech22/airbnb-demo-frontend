@@ -7,16 +7,25 @@ const Wrap = styled.div`
   background: #ffffff;
   margin-top: 0px;
   padding-top: 32px;
-  padding-left: 8px;
-  padding-right: 8px;
+
   border-bottom: 1px solid rgba(72, 72, 72, 0.3);
   background-clip: padding-box;
+  @media only screen and (min-width: 768px) {
+    padding-top: 23px;
+  }
+  @media only screen and (min-width: 992px) {
+  }
+`;
+
+const Title = styled(SectionTitle)`
+  line-height: 23px;
+  font-size: 20px;
 `;
 
 const MoreOptions = props => (
   <Wrap>
     <div className="col-xs-12 col-md-6">
-      <SectionTitle>More options</SectionTitle>
+      <Title>More options</Title>
       <SwitchSection
         id="instantBook"
         checked={props.instantBook}

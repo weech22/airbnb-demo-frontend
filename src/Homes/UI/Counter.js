@@ -30,6 +30,7 @@ const Description = styled.span`
   display: inline-block;
   font-family: CircularAir;
   line-height: 16px;
+  font-weight: lighter;
   font-size: 14px;
   color: #383838;
   margin-top: 6px;

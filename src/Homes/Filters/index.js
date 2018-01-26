@@ -8,13 +8,19 @@ import {
   FiltersModalWindow as ModalWindow,
   WhiteBackground,
 } from '../ModalUI';
+import DesktopModalWindow from '../ModalUI/FilterModalWindow';
 
-const AdaptiveModal = (dialog, onClick) => (
-  <Portal node={document && document.getElementById('modal')}>
-    <WhiteBackground onClick={onClick} />
-    <ModalWindow>{dialog}</ModalWindow>
-  </Portal>
-);
+const AdaptiveModal = (dialog, onClick) => {
+  if (window.matchMedia('(min-width: 992px)').matches) {
+    return <DesktopModalWindow onClick={onClick}>{dialog}</DesktopModalWindow>;
+  }
+  return (
+    <Portal node={document && document.getElementById('modal')}>
+      <WhiteBackground onClick={onClick} />
+      <ModalWindow>{dialog}</ModalWindow>
+    </Portal>
+  );
+};
 
 const HiddenWrap = styled(Wrap)`
   display: none;

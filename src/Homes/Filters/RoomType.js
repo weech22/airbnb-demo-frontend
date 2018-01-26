@@ -23,6 +23,12 @@ const CheckboxBlock = styled.div`
   justify-content: space-between;
 `;
 
+const Title = styled(SectionTitle)`
+  @media only screen and (min-width: 992px) {
+    display: none;
+  }
+`;
+
 const Icon = styled.img`
   display: none;
   @media only screen and (min-width: 767px) {
@@ -39,7 +45,7 @@ const Icon = styled.img`
 
 const RoomType = props => (
   <Wrap className={props.className}>
-    <SectionTitle>Room type</SectionTitle>
+    <Title>Room type</Title>
     <CheckboxBlock>
       <Checkbox
         id="home"
