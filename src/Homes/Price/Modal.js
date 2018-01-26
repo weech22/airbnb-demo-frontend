@@ -15,10 +15,35 @@ const DesktopPriceRange = styled(PriceRange)`
   }
 `;
 
-const Modal = props => (
-  <div>
-    <DesktopPriceRange />
-    <BottomPanel onCancel={props.onCancel} onApply={props.onSave} />
-  </div>
-);
+class Modal extends React.Component {
+  state = {
+    min: this.props.min,
+    max: this.props.max,
+  };
+
+  resetFilter = () => {
+    this.setState({ min: 10, max: 1000 });
+  };
+
+  saveFilter = () => {
+    this.props.onApply(this.state.min, this.state.max);
+  };
+
+  handleFilterChange = (field, value) => {
+    this.setState({ [field]: value });
+  };
+
+  render() {
+    return (
+      <div>
+        <DesktopPriceRange
+          min={this.state.min}
+          max={this.state.max}
+          onFilterChange={this.handleFilterChange}
+        />
+        <BottomPanel onCancel={this.props.onCancel} onApply={this.saveFilter} />
+      </div>
+    );
+  }
+}
 export default Modal;

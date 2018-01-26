@@ -15,6 +15,8 @@ const PriceModal = styled(DesktopModal)`
 class Dropdown extends Component {
   state = {
     isOpen: false,
+    min: 10,
+    max: 1000,
   };
 
   toggleOpen = () => {
@@ -23,6 +25,10 @@ class Dropdown extends Component {
 
   toggleClose = () => {
     this.setState({ isOpen: false });
+  };
+
+  saveFilter = (min, max) => {
+    this.setState({ min, max, isOpen: false });
   };
 
   render() {
@@ -35,7 +41,12 @@ class Dropdown extends Component {
           <div>
             <WhiteBackground onClick={this.toggleClose} />
             <PriceModal>
-              <Modal />
+              <Modal
+                onCancel={this.toggleClose}
+                onApply={this.saveFilter}
+                min={this.state.min}
+                max={this.state.max}
+              />
             </PriceModal>
           </div>
         )}

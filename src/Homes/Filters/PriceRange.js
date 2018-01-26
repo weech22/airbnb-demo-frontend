@@ -72,19 +72,41 @@ const SliderBlock = styled.div`
 
 class PriceRange extends Component {
   state = {
-    min: 1,
-    max: 100,
+    min: this.props.min,
+    max: this.props.max,
+  };
+
+  componentWillReceiveProps(nextProps) {
+    this.setState({ min: nextProps.min, max: nextProps.max });
+  }
+
+  updateValue = (sliderState) => {
+    this.setState({});
+    this.setState(
+      () => ({ min: sliderState.values[0], max: sliderState.values[1] }),
+      () => {
+        this.props.onFilterChange('min', this.state.min);
+        this.props.onFilterChange('max', this.state.max);
+      },
+    );
   };
 
   render() {
     return (
       <Wrap className={this.props.className}>
         <SectionTitle>Price range</SectionTitle>
-        <Range>$10 — $1000+</Range>
+        <Range>
+          ${this.state.min} — ${this.state.max}+
+        </Range>
         <Average>The average nightly price is $75.</Average>
         <SliderBlock>
           <Histogramm />
-          <Rheostat min={this.state.min} max={this.state.max} values={[1, 100]} />
+          <Rheostat
+            min={10}
+            max={1000}
+            values={[this.state.min, this.state.max]}
+            onValuesUpdated={this.updateValue}
+          />
         </SliderBlock>
       </Wrap>
     );
