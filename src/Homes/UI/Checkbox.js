@@ -21,6 +21,7 @@ const CheckboxInput = styled.input`
     background-repeat: no-repeat;
     background-position: center center;
   }
+  cursor: pointer;
 `;
 
 const CheckboxBlock = styled.div`

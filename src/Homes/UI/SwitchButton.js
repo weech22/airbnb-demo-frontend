@@ -14,7 +14,7 @@ const Button = styled.button`
   background-image: ${props => (props.checked ? `url(${checkOn})` : `url(${cross})`)};
   background-repeat: no-repeat;
   background-position: ${props => (props.checked ? 'center right' : 'center left')};
-  }
+  cursor: pointer;
 `;
 
 class SwitchButton extends Component {

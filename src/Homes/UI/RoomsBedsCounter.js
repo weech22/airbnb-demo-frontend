@@ -29,6 +29,8 @@ const Plus = styled.button`
   background-image: url(${plus});
   background-repeat: no-repeat;
   background-position: center center;
+
+  cursor: pointer;
 `;
 
 const Minus = styled.button`
@@ -40,6 +42,8 @@ const Minus = styled.button`
   background-image: url(${minus});
   background-repeat: no-repeat;
   background-position: center center;
+
+  cursor: pointer;
 `;
 
 const Buttons = styled.div`
