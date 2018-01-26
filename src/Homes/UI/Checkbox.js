@@ -31,7 +31,7 @@ const CheckboxBlock = styled.div`
   }
 `;
 
-const Name = styled.h3`
+const Name = styled.label`
   font-family: CircularAir;
   line-height: 19px;
   font-size: 16px;
@@ -105,12 +105,13 @@ class Checkbox extends Component {
       <Wrap>
         <CheckboxBlock id={this.props.id}>
           <CheckboxInput
+            id={this.props.id}
             type="checkbox"
             checked={this.state.checked}
             onChange={this.handleChange}
           />
           <Text>
-            <Name>{this.props.name}</Name>
+            <Name for={this.props.id}>{this.props.name}</Name>
             <Desc>{this.props.description}</Desc>
           </Text>
         </CheckboxBlock>
