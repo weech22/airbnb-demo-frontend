@@ -27,6 +27,9 @@ export const FilterButton = styled.button`
   background: ${props => (props.active ? '#008489' : 'white')};
   color: ${props => (props.active ? 'white' : '#383838')};
   cursor: pointer;
+  &:hover {
+    background: ${props => (props.active ? '#006c70' : '#f2f2f2')};
+  }
   @media only screen and (min-width: 320px) {
     padding: 7px 16px;
     margin: 12px 0;
