@@ -15,6 +15,7 @@ const BookModal = styled(DesktopModal)`
 class Dropdown extends Component {
   state = {
     isOpen: false,
+    checked: false,
   };
 
   toggleOpen = () => {
@@ -23,6 +24,10 @@ class Dropdown extends Component {
 
   toggleClose = () => {
     this.setState({ isOpen: false });
+  };
+
+  saveFilter = (checked) => {
+    this.setState({ checked, isOpen: false });
   };
 
   render() {
@@ -35,7 +40,11 @@ class Dropdown extends Component {
           <div>
             <WhiteBackground onClick={this.toggleClose} />
             <BookModal>
-              <Modal />
+              <Modal
+                onCancel={this.toggleClose}
+                onApply={this.saveFilter}
+                checked={this.state.checked}
+              />
             </BookModal>
           </div>
         )}

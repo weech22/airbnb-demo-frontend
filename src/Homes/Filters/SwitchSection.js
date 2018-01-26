@@ -57,7 +57,7 @@ const More = styled.p`
   }
 `;
 
-const Div = styled.div`
+const ButtonContainer = styled.div`
   @media only screen and (min-width: 992px) {
     margin-top: 15px;
     margin-right: 16px;
@@ -72,9 +72,9 @@ const SwitchSection = props => (
       <Description>{props.description}</Description>
       <More>Learn more</More>
     </div>
-    <Div>
-      <SwitchButton />
-    </Div>
+    <ButtonContainer>
+      <SwitchButton checked={props.checked} onFilterChange={props.onFilterChange} />
+    </ButtonContainer>
   </Wrap>
 );
 
