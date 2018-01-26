@@ -17,16 +17,15 @@ const DesktopPriceRange = styled(PriceRange)`
 
 class Modal extends React.Component {
   state = {
-    min: this.props.min,
-    max: this.props.max,
+    prices: this.props.prices,
   };
 
   resetFilter = () => {
-    this.setState({ min: 10, max: 1000 });
+    this.setState({ prices: [10, 1000] });
   };
 
   saveFilter = () => {
-    this.props.onApply(this.state.min, this.state.max);
+    this.props.onApply(this.state.prices);
   };
 
   handleFilterChange = (field, value) => {
@@ -36,11 +35,7 @@ class Modal extends React.Component {
   render() {
     return (
       <div>
-        <DesktopPriceRange
-          min={this.state.min}
-          max={this.state.max}
-          onFilterChange={this.handleFilterChange}
-        />
+        <DesktopPriceRange prices={this.state.prices} onFilterChange={this.handleFilterChange} />
         <BottomPanel onCancel={this.props.onCancel} onApply={this.saveFilter} />
       </div>
     );

@@ -78,20 +78,18 @@ const Title = styled(SectionTitle)`
 
 class PriceRange extends Component {
   state = {
-    min: this.props.min,
-    max: this.props.max,
+    prices: this.props.prices,
   };
 
   componentWillReceiveProps(nextProps) {
-    this.setState({ min: nextProps.min, max: nextProps.max });
+    this.setState({ prices: nextProps.prices });
   }
 
   updateValue = (sliderState) => {
     this.setState(
-      () => ({ min: sliderState.values[0], max: sliderState.values[1] }),
+      () => ({ prices: sliderState.values }),
       () => {
-        this.props.onFilterChange('min', this.state.min);
-        this.props.onFilterChange('max', this.state.max);
+        this.props.onFilterChange('prices', this.state.prices);
       },
     );
   };
@@ -101,7 +99,7 @@ class PriceRange extends Component {
       <Wrap className={this.props.className}>
         <Title>Price range</Title>
         <Range>
-          ${this.state.min} — ${this.state.max}+
+          ${this.state.prices[0]} — ${this.state.prices[1]}+
         </Range>
         <Average>The average nightly price is $75.</Average>
         <SliderBlock>
@@ -109,7 +107,7 @@ class PriceRange extends Component {
           <Rheostat
             min={10}
             max={1000}
-            values={[this.state.min, this.state.max]}
+            values={this.state.prices}
             onValuesUpdated={this.updateValue}
           />
         </SliderBlock>

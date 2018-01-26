@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import styled from 'styled-components';
 import { Portal } from 'react-portal';
 import Modal from './Modal';
 import {
@@ -22,10 +21,6 @@ const AdaptiveModal = (dialog, onClick) => {
   );
 };
 
-const HiddenWrap = styled(Wrap)`
-  display: none;
-`;
-
 class Dropdown extends Component {
   state = {
     isOpen: this.props.isOpen,
@@ -43,8 +38,7 @@ class Dropdown extends Component {
     parking: false,
     pool: false,
     wheelchair: false,
-    min: 10,
-    max: 1000,
+    prices: [10, 1000],
     instantBook: false,
     superhost: false,
   };
@@ -84,8 +78,7 @@ class Dropdown extends Component {
     parking,
     pool,
     wheelchair,
-    min,
-    max,
+    prices,
     instantBook,
     superhost,
   ) => {
@@ -104,8 +97,7 @@ class Dropdown extends Component {
       parking,
       pool,
       wheelchair,
-      min,
-      max,
+      prices,
       instantBook,
       superhost,
       isOpen: false,
@@ -131,8 +123,7 @@ class Dropdown extends Component {
         parking={this.state.parking}
         pool={this.state.pool}
         wheelchair={this.state.wheelchair}
-        min={this.state.min}
-        max={this.state.max}
+        prices={this.state.prices}
         instantBook={this.state.instantBook}
         superhost={this.state.superhost}
       />

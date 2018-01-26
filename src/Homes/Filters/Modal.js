@@ -23,8 +23,7 @@ class Modal extends React.Component {
     parking: this.props.parking,
     pool: this.props.pool,
     wheelchair: this.props.wheelchair,
-    min: this.props.min,
-    max: this.props.max,
+    prices: this.props.prices,
     instantBook: this.props.instantBook,
     superhost: this.props.superhost,
   };
@@ -45,8 +44,7 @@ class Modal extends React.Component {
       parking: false,
       pool: false,
       wheelchair: false,
-      min: 10,
-      max: 1000,
+      prices: [10, 1000],
       instantBook: false,
       superhost: false,
     });
@@ -68,8 +66,7 @@ class Modal extends React.Component {
       this.state.parking,
       this.state.pool,
       this.state.wheelchair,
-      this.state.min,
-      this.state.max,
+      this.state.prices,
       this.state.instantBook,
       this.state.superhost,
     );
@@ -94,11 +91,7 @@ class Modal extends React.Component {
           sharedRoom={this.state.sharedRoom}
           onFilterChange={this.handleFilterChange}
         />
-        <PriceRange
-          min={this.state.min}
-          max={this.state.max}
-          onFilterChange={this.handleFilterChange}
-        />
+        <PriceRange prices={this.state.prices} onFilterChange={this.handleFilterChange} />
         <RoomsBeds
           bedrooms={this.state.bedrooms}
           beds={this.state.beds}

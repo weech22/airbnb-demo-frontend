@@ -10,8 +10,7 @@ import {
 class Dropdown extends Component {
   state = {
     isOpen: this.props.isOpen,
-    min: 10,
-    max: 1000,
+    prices: [10, 1000],
   };
 
   componentWillReceiveProps(nextProps) {
@@ -41,8 +40,8 @@ class Dropdown extends Component {
     };
     this.props.openModal(filterState);
   };
-  saveFilter = (min, max) => {
-    this.setState({ min, max, isOpen: false });
+  saveFilter = (prices) => {
+    this.setState({ prices, isOpen: false });
   };
 
   render() {
@@ -61,8 +60,7 @@ class Dropdown extends Component {
               <Modal
                 onCancel={this.toggleClose}
                 onApply={this.saveFilter}
-                min={this.state.min}
-                max={this.state.max}
+                prices={this.state.prices}
               />
             </DesktopModal>
           </div>
