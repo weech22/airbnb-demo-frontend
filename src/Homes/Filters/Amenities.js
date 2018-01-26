@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import { SectionTitle, Checkbox } from '../ModalUI';
+import { SectionTitle } from '../ModalUI';
+import Checkbox from '../UI/Checkbox';
 import arrow from '../ModalUI/arrowDown.svg';
 
 const Wrap = styled.div`

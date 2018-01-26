@@ -7,10 +7,20 @@ const Wrap = styled.div`
   display: inline-block;
 `;
 
-const RoomModal = styled(DesktopModal)`
-  top: 52px;
-  left: 179px;
-`;
+const formatRoomTypeLabel = (home, privateRoom, sharedRoom) => {
+  if (home && privateRoom && sharedRoom) {
+    return 'Room type · 3';
+  } else if ((home && privateRoom) || (home && sharedRoom) || (sharedRoom && privateRoom)) {
+    return 'Room type · 2';
+  } else if (home) {
+    return 'Entire home';
+  } else if (sharedRoom) {
+    return 'Shared room';
+  } else if (privateRoom) {
+    return 'Private room';
+  }
+  return 'Room type';
+};
 
 class Dropdown extends Component {
   state = {
@@ -50,15 +60,16 @@ class Dropdown extends Component {
   };
 
   render() {
+    const isAnyFilter = this.state.home || this.state.privateRoom || this.state.sharedRoom;
     return (
       <Wrap>
-        <Button active={this.state.isOpen} onClick={this.toggleOpen}>
-          Room type
+        <Button active={this.state.isOpen || isAnyFilter} onClick={this.toggleOpen}>
+          {formatRoomTypeLabel(this.state.home, this.state.privateRoom, this.state.sharedRoom)}
         </Button>
         {this.state.isOpen && (
           <div>
             <WhiteBackground onClick={this.toggleClose} />
-            <RoomModal>
+            <DesktopModal>
               <Modal
                 onCancel={this.toggleClose}
                 onApply={this.saveFilters}
@@ -66,7 +77,7 @@ class Dropdown extends Component {
                 privateRoom={this.state.privateRoom}
                 sharedRoom={this.state.sharedRoom}
               />
-            </RoomModal>
+            </DesktopModal>
           </div>
         )}
       </Wrap>

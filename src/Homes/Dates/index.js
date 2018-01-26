@@ -13,7 +13,7 @@ import {
 
 const DatesModal = styled(DesktopModal)`
   top: 52px;
-  left: 8px;
+  left: 0;
 `;
 
 const formatDateLabel = (from, to, isOpen) => {
@@ -38,7 +38,7 @@ const getMonthAmount = () => {
 };
 
 const AdaptiveModal = (dialog, onClick) => {
-  if (window.matchMedia('(min-width: 576px)').matches) {
+  if (window.matchMedia('(min-width: 768px)').matches) {
     return (
       <div>
         <WhiteBackground onClick={onClick} />
@@ -100,7 +100,10 @@ class Dropdown extends Component {
 
     return (
       <Wrap>
-        <Button active={this.state.isOpen} onClick={this.toggleOpen}>
+        <Button
+          active={this.state.isOpen || this.state.from || this.state.to}
+          onClick={this.toggleOpen}
+        >
           {formatDateLabel(this.state.from, this.state.to, this.state.isOpen)}
         </Button>
         {this.state.isOpen && adaptiveModal}

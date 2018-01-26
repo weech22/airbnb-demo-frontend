@@ -1,16 +1,11 @@
 import React, { Component } from 'react';
-import styled from 'styled-components';
 import Modal from './Modal';
-import { FilterButton as Button, DesktopModal, WhiteBackground } from '../ModalUI';
-
-const Wrap = styled.div`
-  display: inline-block;
-`;
-
-const PriceModal = styled(DesktopModal)`
-  top: 52px;
-  left: 292px;
-`;
+import {
+  FilterButton as Button,
+  DesktopModal,
+  WhiteBackground,
+  FilterButtonBlock as Wrap,
+} from '../ModalUI';
 
 class Dropdown extends Component {
   state = {
@@ -45,20 +40,23 @@ class Dropdown extends Component {
   render() {
     return (
       <Wrap>
-        <Button active={this.state.isOpen} onClick={this.toggleOpen}>
+        <Button
+          active={this.state.isOpen || (this.state.min !== 10 || this.state.max !== 1000)}
+          onClick={this.toggleOpen}
+        >
           Price
         </Button>
         {this.state.isOpen && (
           <div>
             <WhiteBackground onClick={this.toggleClose} />
-            <PriceModal>
+            <DesktopModal>
               <Modal
                 onCancel={this.toggleClose}
                 onApply={this.saveFilter}
                 min={this.state.min}
                 max={this.state.max}
               />
-            </PriceModal>
+            </DesktopModal>
           </div>
         )}
       </Wrap>

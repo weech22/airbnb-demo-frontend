@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import { SectionTitle, Checkbox } from '../ModalUI';
+import { SectionTitle } from '../ModalUI';
+import Checkbox from '../UI/Checkbox';
 import sharedRoom from '../ModalUI/sharedRoom.svg';
 import privateRoom from '../ModalUI/privateRoom.svg';
 import home from '../ModalUI/home.svg';

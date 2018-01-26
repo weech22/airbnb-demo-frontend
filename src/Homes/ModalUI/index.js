@@ -1,21 +1,12 @@
 import styled from 'styled-components';
 import Header from './Header';
 import Footer from './Footer';
-import Checkbox from './Checkbox';
 import BottomPanel from './BottomPanel';
 import FiltersBottomPanel from './FiltersBottomPanel';
 import ModalWindow from './ModalWindow';
 import FiltersModalWindow from './FiltersModalWindow';
 
-export {
-  Header,
-  Footer,
-  Checkbox,
-  BottomPanel,
-  FiltersBottomPanel,
-  FiltersModalWindow,
-  ModalWindow,
-};
+export { Header, Footer, BottomPanel, FiltersBottomPanel, FiltersModalWindow, ModalWindow };
 
 export const SectionTitle = styled.h2`
   font-family: CircularAir;
@@ -68,6 +59,7 @@ export const DesktopModal = styled.div`
   border-radius: 4px;
   padding: 1px;
   z-index: 1014;
+  top: 52px;
 `;
 
 export const FiltersModalWindowBlock = styled.div`

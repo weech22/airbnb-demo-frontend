@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import SwitchButton from '../ModalUI/SwitchButton';
+import SwitchButton from '../UI/SwitchButton';
 
 const Wrap = styled.div`
   padding-bottom: 1px;

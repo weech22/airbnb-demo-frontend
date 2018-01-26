@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import checkOn from '../ModalUI/buttonCheckOn.svg';
-import cross from '../ModalUI/buttonCross.svg';
+import checkOn from './buttonCheckOn.svg';
+import cross from './buttonCross.svg';
 
 const Button = styled.button`
   margin: auto 0;

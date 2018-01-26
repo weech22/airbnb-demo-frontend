@@ -7,11 +7,6 @@ const Wrap = styled.div`
   display: inline-block;
 `;
 
-const BookModal = styled(DesktopModal)`
-  top: 52px;
-  left: 369px;
-`;
-
 class Dropdown extends Component {
   state = {
     isOpen: this.props.isOpen,
@@ -45,19 +40,19 @@ class Dropdown extends Component {
   render() {
     return (
       <Wrap>
-        <Button active={this.state.isOpen} onClick={this.toggleOpen}>
+        <Button active={this.state.isOpen || this.state.checked} onClick={this.toggleOpen}>
           Instant book
         </Button>
         {this.state.isOpen && (
           <div>
             <WhiteBackground onClick={this.toggleClose} />
-            <BookModal>
+            <DesktopModal>
               <Modal
                 onCancel={this.toggleClose}
                 onApply={this.saveFilter}
                 checked={this.state.checked}
               />
-            </BookModal>
+            </DesktopModal>
           </div>
         )}
       </Wrap>

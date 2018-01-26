@@ -10,7 +10,7 @@ class Modal extends React.Component {
   };
 
   resetGuests = () => {
-    this.setState({ adults: 0, kids: 0, infants: 0 });
+    this.setState({ adults: 1, kids: 0, infants: 0 });
   };
 
   saveGuests = () => {

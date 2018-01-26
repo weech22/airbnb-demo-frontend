@@ -9,8 +9,7 @@ import Guests from './Guests';
 
 const Wrap = styled.div`
   background: white;
-  border-top: 0.5px solid rgba(72, 72, 72, 0.3);
-  border-bottom: 0.5px solid rgba(72, 72, 72, 0.3);
+  box-shadow: 0px 0.5px 0px rgba(72, 72, 72, 0.3);
   background-clip: padding-box;
   position: fixed;
   top: 81px;
@@ -19,21 +18,6 @@ const Wrap = styled.div`
   z-index: 1000;
   margin: 0 auto;
   padding-left: 8px;
-  @media only screen and (min-width: 576px) {
-    max-width: 552px;
-  }
-
-  @media only screen and (min-width: 768px) {
-    max-width: 746px;
-  }
-
-  @media only screen and (min-width: 992px) {
-    max-width: 968px;
-  }
-
-  @media only screen and (min-width: 1200px) {
-    max-width: 1176px;
-  }
 `;
 
 const DesktopButtons = styled.div`
@@ -41,6 +25,10 @@ const DesktopButtons = styled.div`
   @media only screen and (min-width: 992px) {
     display: inline-block;
   }
+`;
+
+const ModalWrap = styled.div`
+  position: relative;
 `;
 
 class Filter extends Component {
@@ -59,18 +47,20 @@ class Filter extends Component {
 
   render() {
     return (
-      <div className="container">
-        <Wrap>
-          <Dates isOpen={this.state.isDatesOpen} openModal={this.openModal} />
-          <Guests isOpen={this.state.isGuestsOpen} openModal={this.openModal} />
-          <DesktopButtons>
-            <Room isOpen={this.state.isRoomOpen} openModal={this.openModal} />
-            <Price isOpen={this.state.isPriceOpen} openModal={this.openModal} />
-            <Book isOpen={this.state.isBookOpen} openModal={this.openModal} />
-          </DesktopButtons>
-          <Filters isOpen={this.state.isFiltersOpen} openModal={this.openModal} />
-        </Wrap>
-      </div>
+      <Wrap>
+        <div className="container">
+          <ModalWrap>
+            <Dates isOpen={this.state.isDatesOpen} openModal={this.openModal} />
+            <Guests isOpen={this.state.isGuestsOpen} openModal={this.openModal} />
+            <DesktopButtons>
+              <Room isOpen={this.state.isRoomOpen} openModal={this.openModal} />
+              <Price isOpen={this.state.isPriceOpen} openModal={this.openModal} />
+              <Book isOpen={this.state.isBookOpen} openModal={this.openModal} />
+            </DesktopButtons>
+            <Filters isOpen={this.state.isFiltersOpen} openModal={this.openModal} />
+          </ModalWrap>
+        </div>
+      </Wrap>
     );
   }
 }

@@ -2,25 +2,27 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 import { Portal } from 'react-portal';
 import Modal from './Modal';
-import {
-  FilterButton as Button,
-  FilterButtonBlock as Wrap,
-  WhiteBackground,
-  DesktopModal,
-  ModalWindow,
-} from '../ModalUI';
+import { FilterButton as Button, WhiteBackground, DesktopModal, ModalWindow } from '../ModalUI';
 
-const GuestsModal = styled(DesktopModal)`
-  top: 52px;
-  left: 89px;
+const Wrap = styled.div`
+  display: inline-block;
 `;
+
+const formatGuestsLabel = (adults, kids, infants) => {
+  if (infants) {
+    return `${adults + kids} guests, ${infants} infants`;
+  } else if (adults || kids) {
+    return `${adults + kids} guests`;
+  }
+  return 'Guests';
+};
 
 const AdaptiveModal = (dialog, onClick) => {
   if (window.matchMedia('(min-width: 768px)').matches) {
     return (
       <div>
         <WhiteBackground onClick={onClick} />
-        <GuestsModal>{dialog}</GuestsModal>
+        <DesktopModal>{dialog}</DesktopModal>
       </div>
     );
   }
@@ -34,7 +36,7 @@ const AdaptiveModal = (dialog, onClick) => {
 class Dropdown extends Component {
   state = {
     isOpen: this.props.isOpen,
-    adults: 0,
+    adults: 1,
     kids: 0,
     infants: 0,
   };
@@ -69,6 +71,7 @@ class Dropdown extends Component {
   };
 
   render() {
+    const isAnyFilter = this.state.adults > 1 || this.state.kids || this.state.infants;
     const dialogWindow = (
       <Modal
         onCancel={this.toggleClose}
@@ -82,8 +85,8 @@ class Dropdown extends Component {
     const adaptiveModal = AdaptiveModal(dialogWindow, this.toggleClose);
     return (
       <Wrap>
-        <Button active={this.state.isOpen} onClick={this.toggleOpen}>
-          Guests
+        <Button active={this.state.isOpen || isAnyFilter} onClick={this.toggleOpen}>
+          {formatGuestsLabel(this.state.adults, this.state.kids, this.state.infants)}
         </Button>
         {this.state.isOpen && adaptiveModal}
       </Wrap>
