@@ -33,14 +33,26 @@ const AdaptiveModal = (dialog, onClick) => {
 
 class Dropdown extends Component {
   state = {
-    isOpen: false,
+    isOpen: this.props.isOpen,
     adults: 0,
     kids: 0,
     infants: 0,
   };
 
+  componentWillReceiveProps(nextProps) {
+    this.setState({ isOpen: nextProps.isOpen });
+  }
+
   toggleOpen = () => {
-    this.setState({ isOpen: true });
+    const filterState = {
+      isDatesOpen: false,
+      isGuestsOpen: true,
+      isRoomOpen: false,
+      isPriceOpen: false,
+      isBookOpen: false,
+      isFiltersOpen: false,
+    };
+    this.props.openModal(filterState);
   };
 
   toggleClose = () => {

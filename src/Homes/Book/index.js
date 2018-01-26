@@ -14,12 +14,24 @@ const BookModal = styled(DesktopModal)`
 
 class Dropdown extends Component {
   state = {
-    isOpen: false,
+    isOpen: this.props.isOpen,
     checked: false,
   };
 
+  componentWillReceiveProps(nextProps) {
+    this.setState({ isOpen: nextProps.isOpen });
+  }
+
   toggleOpen = () => {
-    this.setState({ isOpen: true });
+    const filterState = {
+      isDatesOpen: false,
+      isGuestsOpen: false,
+      isRoomOpen: false,
+      isPriceOpen: false,
+      isBookOpen: true,
+      isFiltersOpen: false,
+    };
+    this.props.openModal(filterState);
   };
 
   toggleClose = () => {

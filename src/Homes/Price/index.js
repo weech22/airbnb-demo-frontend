@@ -14,15 +14,26 @@ const PriceModal = styled(DesktopModal)`
 
 class Dropdown extends Component {
   state = {
-    isOpen: false,
+    isOpen: this.props.isOpen,
     min: 10,
     max: 1000,
   };
 
-  toggleOpen = () => {
-    this.setState({ isOpen: true });
-  };
+  componentWillReceiveProps(nextProps) {
+    this.setState({ isOpen: nextProps.isOpen });
+  }
 
+  toggleOpen = () => {
+    const filterState = {
+      isDatesOpen: false,
+      isGuestsOpen: false,
+      isRoomOpen: false,
+      isPriceOpen: true,
+      isBookOpen: false,
+      isFiltersOpen: false,
+    };
+    this.props.openModal(filterState);
+  };
   toggleClose = () => {
     this.setState({ isOpen: false });
   };

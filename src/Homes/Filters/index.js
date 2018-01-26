@@ -22,7 +22,7 @@ const HiddenWrap = styled(Wrap)`
 
 class Dropdown extends Component {
   state = {
-    isOpen: false,
+    isOpen: this.props.isOpen,
     home: false,
     privateRoom: false,
     sharedRoom: false,
@@ -39,8 +39,20 @@ class Dropdown extends Component {
     wheelchair: false,
   };
 
+  componentWillReceiveProps(nextProps) {
+    this.setState({ isOpen: nextProps.isOpen });
+  }
+
   toggleOpen = () => {
-    this.setState({ isOpen: true });
+    const filterState = {
+      isDatesOpen: false,
+      isGuestsOpen: false,
+      isRoomOpen: false,
+      isPriceOpen: false,
+      isBookOpen: false,
+      isFiltersOpen: true,
+    };
+    this.props.openModal(filterState);
   };
 
   toggleClose = () => {

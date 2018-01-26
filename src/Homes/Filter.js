@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import styled from 'styled-components';
 import Room from './Room';
 import Book from './Book';
@@ -43,19 +43,38 @@ const DesktopButtons = styled.div`
   }
 `;
 
-const Filter = () => (
-  <div className="container">
-    <Wrap>
-      <Dates />
-      <Guests />
-      <DesktopButtons>
-        <Room />
-        <Price />
-        <Book />
-      </DesktopButtons>
-      <Filters />
-    </Wrap>
-  </div>
-);
+class Filter extends Component {
+  state = {
+    isDatesOpen: false,
+    isGuestsOpen: false,
+    isRoomOpen: false,
+    isPriceOpen: false,
+    isBookOpen: false,
+    isFiltersOpen: false,
+  };
+
+  openModal = (filterState) => {
+    this.setState(filterState);
+  };
+
+  render() {
+    return (
+      <div className="container">
+        <Wrap>
+          <Dates isOpen={this.state.isDatesOpen} openModal={this.openModal} />
+          <Guests isOpen={this.state.isGuestsOpen} openModal={this.openModal} />
+          <DesktopButtons>
+            <Room isOpen={this.state.isRoomOpen} openModal={this.openModal} />
+            <Price isOpen={this.state.isPriceOpen} openModal={this.openModal} />
+            <Book isOpen={this.state.isBookOpen} openModal={this.openModal} />
+          </DesktopButtons>
+          <Filters isOpen={this.state.isFiltersOpen} openModal={this.openModal} />
+        </Wrap>
+      </div>
+    );
+  }
+}
 
 export default Filter;
+
+//
