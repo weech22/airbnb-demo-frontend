@@ -9,7 +9,7 @@ import Guests from './Guests';
 
 const Wrap = styled.div`
   background: white;
-  box-shadow: 0px 0.5px 0px rgba(72, 72, 72, 0.3);
+  box-shadow: ${props => (props.anyFilterOpened ? 'none' : '0px 0.5px 0px rgba(72, 72, 72, 0.3)')};
   background-clip: padding-box;
   position: fixed;
   top: 81px;
@@ -46,8 +46,15 @@ class Filter extends Component {
   };
 
   render() {
+    const isAnyState =
+      this.state.isDatesOpen ||
+      this.state.isGuestsOpen ||
+      this.state.isRoomOpen ||
+      this.state.isPriceOpen ||
+      this.state.isBookOpen ||
+      this.state.isFilterOpen;
     return (
-      <Wrap>
+      <Wrap anyFilterOpened={isAnyState}>
         <div className="container">
           <ModalWrap>
             <Dates isOpen={this.state.isDatesOpen} openModal={this.openModal} />

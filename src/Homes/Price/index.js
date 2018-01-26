@@ -29,10 +29,18 @@ class Dropdown extends Component {
     };
     this.props.openModal(filterState);
   };
-  toggleClose = () => {
-    this.setState({ isOpen: false });
-  };
 
+  toggleClose = () => {
+    const filterState = {
+      isDatesOpen: false,
+      isGuestsOpen: false,
+      isRoomOpen: false,
+      isPriceOpen: false,
+      isBookOpen: false,
+      isFiltersOpen: false,
+    };
+    this.props.openModal(filterState);
+  };
   saveFilter = (min, max) => {
     this.setState({ min, max, isOpen: false });
   };
