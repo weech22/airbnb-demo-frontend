@@ -43,7 +43,7 @@ const Window = styled.div`
 
 const Container = styled.div`
   position: absolute;
-  width: 75%;
+  width: 65.5%;
   height: 100%;
   z-index: 7000;
 `;
