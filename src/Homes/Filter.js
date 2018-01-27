@@ -54,7 +54,7 @@ class Filter extends Component {
   isAnyModalOpened = () => {
     const modalList = Object.keys(this.state);
     for (let i = 0; i < modalList.length; i += 1) {
-      if (modalList[i]) {
+      if (this.state[modalList[i]]) {
         return true;
       }
     }
@@ -63,6 +63,7 @@ class Filter extends Component {
 
   render() {
     const isAnyState = this.isAnyModalOpened();
+
     return (
       <Wrap anyFilterOpened={isAnyState}>
         <div className="container">

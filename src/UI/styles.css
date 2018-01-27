@@ -159,6 +159,11 @@
   color: #383838;
   background: white;
 }
+.DayPicker-Day:hover:not(.DayPicker-Day--disabled):not(.DayPicker-Day--outside) {
+  background: #e4e7e7 !important;
+  border: 1px solid #d4d9d9 !important;
+  border-radius: 0 !important;
+}
 
 .DayPicker-WeekNumber {
   display: table-cell;
@@ -200,6 +205,8 @@
   cursor: default;
   color: #8b9898;
   border: none;
+  width: 40px;
+  height: 40px;
 }
 
 .DayPicker-Day--disabled {
