@@ -32,7 +32,7 @@ export const FilterButton = styled.button`
   }
   @media only screen and (min-width: 320px) {
     padding: 7px 16px;
-    margin: 0;
+    margin: 12px 0;
     margin-right: 12px;
     line-height: normal;
     font-size: 14px;
@@ -47,7 +47,7 @@ export const WhiteBackground = styled.div`
   background: rgba(255, 255, 255, 0.8);
   position: fixed;
   z-index: 1014;
-  top: 130px;
+  top: 138px;
   left: 0;
   height: 100vh;
   width: 100vw;

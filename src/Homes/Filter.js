@@ -18,8 +18,6 @@ const Wrap = styled.div`
   z-index: 1000;
   margin: 0 auto;
   padding-left: 8px;
-  padding-top: 12px;
-  padding-bottom: 12px;
 `;
 
 const DesktopButtons = styled.div`
