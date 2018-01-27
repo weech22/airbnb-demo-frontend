@@ -7,6 +7,13 @@ import {
   FilterButtonBlock as Wrap,
 } from '../ModalUI';
 
+const formatPriceLabel = (min, max) => {
+  if (min !== 10 || max !== 1000) {
+    return `$${min} — $${max}`;
+  }
+  return 'Price';
+};
+
 class Dropdown extends Component {
   state = {
     isOpen: this.props.isOpen,
@@ -38,7 +45,7 @@ class Dropdown extends Component {
           }
           onClick={this.toggleOpen}
         >
-          Price
+          {formatPriceLabel(this.state.prices[0], this.state.prices[1])}
         </Button>
         {this.state.isOpen && (
           <div>
