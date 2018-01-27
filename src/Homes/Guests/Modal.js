@@ -4,7 +4,7 @@ import Section from './Section';
 
 class Modal extends React.Component {
   state = {
-    adults: this.props.adults,
+    adults: this.props.adults ? this.props.adults : 1,
     kids: this.props.kids,
     infants: this.props.infants,
   };

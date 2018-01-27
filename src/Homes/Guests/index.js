@@ -36,7 +36,7 @@ const AdaptiveModal = (dialog, onClick) => {
 class Dropdown extends Component {
   state = {
     isOpen: this.props.isOpen,
-    adults: 1,
+    adults: 0,
     kids: 0,
     infants: 0,
   };
