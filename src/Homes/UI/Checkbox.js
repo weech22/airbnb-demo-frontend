@@ -32,7 +32,7 @@ const CheckboxBlock = styled.div`
   }
 `;
 
-const Name = styled.label`
+const Name = styled.p`
   font-family: CircularAir;
   line-height: 19px;
   font-size: 16px;
@@ -42,6 +42,7 @@ const Name = styled.label`
   margin: 0;
   margin-left: 12px;
   margin-top: 1px;
+  cursor: pointer;
   @media only screen and (min-width: 767px) {
     margin-top: 4px;
     line-height: 21px;
@@ -64,6 +65,7 @@ const Desc = styled.p`
   margin-left: 12px;
   color: #383838;
   margin-top: 3px;
+  cursor: pointer;
   @media only screen and (min-width: 767px) {
     margin-top: 4px;
     line-height: 16px;
@@ -75,6 +77,10 @@ const Desc = styled.p`
     max-width: 196px;
     margin-top: 6px;
   }
+`;
+
+const Label = styled.label`
+  display: flex;
 `;
 
 const Text = styled.div`
@@ -105,16 +111,18 @@ class Checkbox extends Component {
     return (
       <Wrap>
         <CheckboxBlock id={this.props.id}>
-          <CheckboxInput
-            id={this.props.id}
-            type="checkbox"
-            checked={this.state.checked}
-            onChange={this.handleChange}
-          />
-          <Text>
-            <Name for={this.props.id}>{this.props.name}</Name>
-            <Desc>{this.props.description}</Desc>
-          </Text>
+          <Label>
+            <CheckboxInput
+              id={this.props.id}
+              type="checkbox"
+              checked={this.state.checked}
+              onChange={this.handleChange}
+            />
+            <Text>
+              <Name for={this.props.id}>{this.props.name}</Name>
+              <Desc>{this.props.description}</Desc>
+            </Text>
+          </Label>
         </CheckboxBlock>
       </Wrap>
     );

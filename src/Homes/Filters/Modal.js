@@ -12,6 +12,13 @@ const Scrollable = styled.div`
   height: 100%;
   padding-top: 50px;
   padding-bottom: 64px;
+  @media only screen and (min-width: 768px) {
+    padding-top: 0px;
+    padding-bottom: 0px;
+  }
+  @media only screen and (min-width: 992px) {
+    padding-bottom: 0px;
+  }
 `;
 
 class Modal extends React.Component {
@@ -84,7 +91,6 @@ class Modal extends React.Component {
   };
 
   render() {
-    console.log(this.state);
     return (
       <div>
         <Header

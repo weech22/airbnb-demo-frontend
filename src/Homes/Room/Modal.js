@@ -12,6 +12,7 @@ const DesktopRoomType = styled(RoomType)`
     padding-left: 14px;
     padding-right: 12px;
     padding-bottom: 0px;
+    box-shadow: none;
   }
 `;
 

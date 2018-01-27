@@ -6,7 +6,6 @@ import arrow from '../ModalUI/arrowDown.svg';
 
 const Wrap = styled.div`
   background: #ffffff;
-  padding-top: 32px;
   padding-left: 8px;
   padding-right: 8px;
   padding-bottom: 8px;

@@ -3,16 +3,18 @@ import styled from 'styled-components';
 
 const Wrap = styled.div`
   display: none;
+  position: relative;
+  background: white;
+
   @media only screen and (min-width: 768px) {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding-top: 40px;
     padding-bottom: 8px;
   }
   @media only screen and (min-width: 992px) {
     justify-content: flex-end;
-    padding-right: 16px;
+    padding-right: 0px;
   }
 `;
 
