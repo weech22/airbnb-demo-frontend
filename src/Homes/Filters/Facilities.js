@@ -14,8 +14,8 @@ const Wrap = styled.div`
   justify-content: space-between;
   @media only screen and (min-width: 768px) {
     display: block;
-    border-bottom: 1px solid rgba(72, 72, 72, 0.3);
-    background-clip: padding-box;
+    margin-bottom: 1px;
+    box-shadow: 0px 0.5px 0px rgba(72, 72, 72, 0.3);
   }
 `;
 
@@ -51,6 +51,7 @@ const CheckboxBlock = styled.div`
     justify-content: space-between;
     width: 100%;
     margin-left: -8px;
+    max-width: 800px;
   }
 `;
 

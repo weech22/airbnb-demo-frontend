@@ -29,7 +29,6 @@ const Plus = styled.button`
   background-image: url(${plus});
   background-repeat: no-repeat;
   background-position: center center;
-
   cursor: pointer;
 `;
 
@@ -49,6 +48,7 @@ const Minus = styled.button`
 const Buttons = styled.div`
   display: flex;
   justify-content: space-between;
+  max-width: 112px;
 `;
 
 const Count = styled.span`

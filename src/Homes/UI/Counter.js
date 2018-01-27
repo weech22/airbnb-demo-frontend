@@ -69,8 +69,6 @@ const Buttons = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  max-width: 112px;
-  width: 100%;
 `;
 
 const Text = styled.div`

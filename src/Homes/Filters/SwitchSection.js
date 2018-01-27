@@ -10,6 +10,7 @@ const Wrap = styled.div`
   @media only screen and (min-width: 992px) {
     display: ${props => (props.id === 'Instant book' ? 'none' : 'flex')};
   }
+  max-width: 392px;
 `;
 
 const Title = styled.h4`

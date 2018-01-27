@@ -11,8 +11,9 @@ const Wrap = styled.div`
   padding-top: 32px;
   padding-left: 8px;
   padding-right: 8px;
-  border-bottom: 1px solid rgba(72, 72, 72, 0.3);
-  background-clip: padding-box;
+  border-bottom: 1px solid white;
+  margin-bottom: 1px;
+  box-shadow: 0px 0.5px 0px rgba(72, 72, 72, 0.3);
   @media only screen and (min-width: 992px) {
     display: none;
   }

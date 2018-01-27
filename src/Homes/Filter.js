@@ -51,14 +51,18 @@ class Filter extends Component {
     this.setState(result);
   };
 
+  isAnyModalOpened = () => {
+    const modalList = Object.keys(this.state);
+    for (let i = 0; i < modalList.length; i += 1) {
+      if (modalList[i]) {
+        return true;
+      }
+    }
+    return false;
+  };
+
   render() {
-    const isAnyState =
-      this.state.isDatesOpen ||
-      this.state.isGuestsOpen ||
-      this.state.isRoomOpen ||
-      this.state.isPriceOpen ||
-      this.state.isBookOpen ||
-      this.state.isFiltersOpen;
+    const isAnyState = this.isAnyModalOpened();
     return (
       <Wrap anyFilterOpened={isAnyState}>
         <div className="container">

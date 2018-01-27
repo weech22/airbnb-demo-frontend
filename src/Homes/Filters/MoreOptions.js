@@ -7,13 +7,10 @@ const Wrap = styled.div`
   background: #ffffff;
   margin-top: 0px;
   padding-top: 32px;
-
-  border-bottom: 1px solid rgba(72, 72, 72, 0.3);
-  background-clip: padding-box;
+  margin-bottom: 1px;
+  box-shadow: 0px 0.5px 0px rgba(72, 72, 72, 0.3);
   @media only screen and (min-width: 768px) {
     padding-top: 23px;
-  }
-  @media only screen and (min-width: 992px) {
   }
 `;
 
