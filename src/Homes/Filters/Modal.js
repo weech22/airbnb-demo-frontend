@@ -70,7 +70,7 @@ class Modal extends React.Component {
         <Header
           onClose={this.props.onCancel}
           onAction={this.resetFilters}
-          text="All filters (0)"
+          text={`All filters (${this.props.filterCount})`}
           action="Clear All"
         />
         <RoomType filter={this.state.roomType} onFilterChange={this.handleFilterChange} />

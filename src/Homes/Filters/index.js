@@ -21,6 +21,33 @@ const AdaptiveModal = (dialog, onClick) => {
   );
 };
 
+const getFilterCount = (state) => {
+  let count = 0;
+  const sectionList = Object.keys(state);
+  for (let i = 0; i < sectionList.length; i += 1) {
+    const filterList = Object.keys(state[sectionList[i]]);
+    for (let j = 0; j < filterList.length; j += 1) {
+      if (state[sectionList[i]][filterList[j]]) {
+        count += 1;
+      }
+    }
+  }
+  if (state.prices[0] === 10 && state.prices[1] === 1000) {
+    count -= 2;
+  } else if (state.prices[0] !== 10 || state.prices[1] !== 1000) {
+    count -= 1;
+  }
+  return count;
+};
+
+const formatFiltersLabel = (state) => {
+  const filtersOpened = getFilterCount(state);
+  if (filtersOpened) {
+    return `More filters · ${filtersOpened}`;
+  }
+  return 'More filters';
+};
+
 class Dropdown extends Component {
   state = {
     isOpen: this.props.isOpen,
@@ -94,10 +121,13 @@ class Dropdown extends Component {
   };
 
   render() {
+    const filterCount = getFilterCount(this.state);
+
     const dialogWindow = (
       <Modal
         onCancel={this.toggleClose}
         onApply={this.saveFilters}
+        filterCount={filterCount}
         roomType={this.state.roomType}
         roomsBeds={this.state.roomsBeds}
         ameneties={this.state.ameneties}
@@ -111,8 +141,8 @@ class Dropdown extends Component {
 
     return (
       <Wrap>
-        <Button active={this.state.isOpen} onClick={this.toggleOpen}>
-          More filters
+        <Button active={this.state.isOpen || filterCount} onClick={this.toggleOpen}>
+          {formatFiltersLabel(this.state)}
         </Button>
         {this.state.isOpen && adaptiveModal}
       </Wrap>
