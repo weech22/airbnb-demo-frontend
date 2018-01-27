@@ -12,12 +12,14 @@ const Wrap = styled.div`
   box-shadow: ${props => (props.anyFilterOpened ? 'none' : '0px 0.5px 0px rgba(72, 72, 72, 0.3)')};
   background-clip: padding-box;
   position: fixed;
-  top: 81px;
+  top: 86px;
   left: 0;
   right: 0;
   z-index: 1000;
   margin: 0 auto;
   padding-left: 8px;
+  padding-top: 12px;
+  padding-bottom: 12px;
 `;
 
 const DesktopButtons = styled.div`
