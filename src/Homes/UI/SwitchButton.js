@@ -10,6 +10,7 @@ const Button = styled.button`
   border: 1px solid rgba(72, 72, 72, 0.3);
   box-sizing: border-box;
   border-radius: 24px;
+  transition: background-color 0.4s, background-position 0.3s;
   background-color: ${props => (props.checked ? '#008489' : 'rgba(72, 72, 72, 0.08)')};
   background-image: ${props => (props.checked ? `url(${checkOn})` : `url(${cross})`)};
   background-repeat: no-repeat;
