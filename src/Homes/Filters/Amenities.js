@@ -64,7 +64,7 @@ class Amenities extends Component {
     this.setState(
       () => ({ [field]: value }),
       () => {
-        this.props.onFilterChange('ameneties', this.state);
+        this.props.onFilterChange('amenities', this.state);
       },
     );
   };

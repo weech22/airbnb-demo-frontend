@@ -1,14 +1,22 @@
 import React from 'react';
 import styled from 'styled-components';
 
+const FixedContainer = styled.div`
+  position: fixed;
+  top: auto;
+  bottom: 0;
+  left: 0;
+  right: 0;
+`;
+
 const Wrap = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
   background: #ffffff;
   padding: 8px;
-  margin-top: 0px;
-  border-top: 1px solid rgba(72, 72, 72, 0.3);
+  margin-top: 1px;
+  box-shadow: 0px 0.5px 0px rgba(72, 72, 72, 0.3);
   background-clip: padding-box;
   @media only screen and (min-width: 576px) {
     display: none;
@@ -31,9 +39,11 @@ const Btn = styled.button`
 
 function Footer(props) {
   return (
-    <Wrap>
-      <Btn onClick={props.onClick}>{props.children}</Btn>
-    </Wrap>
+    <FixedContainer>
+      <Wrap>
+        <Btn onClick={props.onClick}>{props.children}</Btn>
+      </Wrap>
+    </FixedContainer>
   );
 }
 

@@ -25,6 +25,13 @@ class MoreOptions extends Component {
     superhost: this.props.filter.superhost,
   };
 
+  componentWillReceiveProps(nextProps) {
+    this.setState({
+      instantBook: nextProps.filter.instantBook,
+      superhost: nextProps.filter.superhost,
+    });
+  }
+
   handleFilterChange = (field, value) => {
     this.setState(
       () => ({ [field]: value }),

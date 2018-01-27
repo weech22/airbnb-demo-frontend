@@ -10,6 +10,17 @@ const DateHeader = styled(Header)`
   margin-bottom: 26px;
 `;
 
+const Scrollable = styled.div`
+  height: 100%;
+  padding-top: 80px;
+  padding-bottom: 64px;
+  @media only screen and (min-width: 767px) {
+    height: auto;
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+`;
+
 class Modal extends React.Component {
   state = {
     from: this.props.start,
@@ -39,24 +50,26 @@ class Modal extends React.Component {
 
     return (
       <div>
-        <DateHeader
-          onClose={this.props.onCancel}
-          onAction={this.resetDates}
-          text="Dates"
-          action="Reset"
-        />
-        <DateRange from={this.state.from} to={this.state.to} />
-        <DayPicker
-          numberOfMonths={this.props.monthAmount}
-          selectedDays={[from, { from, to }]}
-          modifiers={days}
-          onDayClick={this.dayClickHandler}
-          disabledDays={[
-            {
-              before: new Date(),
-            },
-          ]}
-        />
+        <Scrollable>
+          <DateHeader
+            onClose={this.props.onCancel}
+            onAction={this.resetDates}
+            text="Dates"
+            action="Reset"
+          />
+          <DateRange from={this.state.from} to={this.state.to} />
+          <DayPicker
+            numberOfMonths={this.props.monthAmount}
+            selectedDays={[from, { from, to }]}
+            modifiers={days}
+            onDayClick={this.dayClickHandler}
+            disabledDays={[
+              {
+                before: new Date(),
+              },
+            ]}
+          />
+        </Scrollable>
         <BottomPanel onCancel={this.props.onCancel} onApply={this.saveDates} />
         <Footer onClick={this.saveDates}>Save</Footer>
       </div>

@@ -61,7 +61,7 @@ class Dropdown extends Component {
       beds: 0,
       bathrooms: 0,
     },
-    ameneties: {
+    amenities: {
       heating: false,
       kitchen: false,
       tv: false,
@@ -92,11 +92,11 @@ class Dropdown extends Component {
     this.props.openModal('Filters', false);
   };
 
-  saveFilters = (roomType, roomsBeds, ameneties, facilities, prices, moreOptions) => {
+  saveFilters = (roomType, roomsBeds, amenities, facilities, prices, moreOptions) => {
     this.setState({
       roomType,
       roomsBeds,
-      ameneties,
+      amenities,
       facilities,
       prices,
       moreOptions,
@@ -114,7 +114,7 @@ class Dropdown extends Component {
         filterCount={filterCount}
         roomType={this.state.roomType}
         roomsBeds={this.state.roomsBeds}
-        ameneties={this.state.ameneties}
+        amenities={this.state.amenities}
         facilities={this.state.facilities}
         prices={this.state.prices}
         moreOptions={this.state.moreOptions}

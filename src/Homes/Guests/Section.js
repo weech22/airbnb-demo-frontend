@@ -3,8 +3,8 @@ import styled from 'styled-components';
 import Counter from '../UI/Counter';
 
 const Wrap = styled.div`
-  height: calc(100vh - 153px);
-  padding: 39px 8px;
+  height: 100vh;
+  padding: 92px 8px;
   padding-bottom: 0;
   @media only screen and (min-width: 768px) {
     padding-left: 23px;

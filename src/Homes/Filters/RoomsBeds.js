@@ -23,6 +23,14 @@ class RoomsBeds extends Component {
     bathrooms: this.props.filter.bathrooms,
   };
 
+  componentWillReceiveProps(nextProps) {
+    this.setState({
+      bedrooms: nextProps.filter.bedrooms,
+      beds: nextProps.filter.beds,
+      bathrooms: nextProps.filter.bathrooms,
+    });
+  }
+
   handleFilterChange = (field, value) => {
     this.setState(
       () => ({ [field]: value }),

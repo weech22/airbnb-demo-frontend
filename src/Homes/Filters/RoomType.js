@@ -14,6 +14,9 @@ const Wrap = styled.div`
   padding-left: 8px;
   margin-bottom: 1px;
   box-shadow: 0px 0.5px 0px rgba(72, 72, 72, 0.3);
+  @media only screen and (min-width: 767px) {
+    box-shadow: none;
+  }
   @media only screen and (min-width: 992px) {
     display: none;
   }
@@ -50,6 +53,14 @@ class RoomType extends Component {
     privateRoom: this.props.filter.privateRoom,
     sharedRoom: this.props.filter.sharedRoom,
   };
+
+  componentWillReceiveProps(nextProps) {
+    this.setState({
+      home: nextProps.filter.home,
+      privateRoom: nextProps.filter.privateRoom,
+      sharedRoom: nextProps.filter.sharedRoom,
+    });
+  }
 
   handleFilterChange = (field, value) => {
     this.setState(
