@@ -12,7 +12,7 @@ const Wrap = styled.div`
   box-shadow: ${props => (props.anyFilterOpened ? 'none' : '0px 0.5px 0px rgba(72, 72, 72, 0.3)')};
   background-clip: padding-box;
   position: fixed;
-  top: 86px;
+  top: 83px;
   left: 0;
   right: 0;
   z-index: 1000;
@@ -41,8 +41,14 @@ class Filter extends Component {
     isFiltersOpen: false,
   };
 
-  openModal = (filterState) => {
-    this.setState(filterState);
+  openModal = (filterName, action) => {
+    const modalList = Object.keys(this.state);
+    const result = {};
+    for (let i = 0; i < modalList.length; i += 1) {
+      result[modalList[i]] = false;
+      result[`is${filterName}Open`] = action;
+    }
+    this.setState(result);
   };
 
   render() {

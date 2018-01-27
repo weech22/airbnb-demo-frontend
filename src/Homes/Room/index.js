@@ -35,27 +35,11 @@ class Dropdown extends Component {
   }
 
   toggleOpen = () => {
-    const filterState = {
-      isDatesOpen: false,
-      isGuestsOpen: false,
-      isRoomOpen: true,
-      isPriceOpen: false,
-      isBookOpen: false,
-      isFiltersOpen: false,
-    };
-    this.props.openModal(filterState);
+    this.props.openModal('Room', true);
   };
 
   toggleClose = () => {
-    const filterState = {
-      isDatesOpen: false,
-      isGuestsOpen: false,
-      isRoomOpen: false,
-      isPriceOpen: false,
-      isBookOpen: false,
-      isFiltersOpen: false,
-    };
-    this.props.openModal(filterState);
+    this.props.openModal('Room', false);
   };
 
   saveFilters = (home, privateRoom, sharedRoom) => {
