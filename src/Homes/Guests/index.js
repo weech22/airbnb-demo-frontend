@@ -8,11 +8,18 @@ const Wrap = styled.div`
   display: inline-block;
 `;
 
+const pluralize = (count, singular) => {
+  if (count === 1) {
+    return `${count} ${singular}`;
+  }
+  return `${count} ${singular}s`;
+};
+
 const formatGuestsLabel = (adults, kids, infants) => {
   if (infants) {
-    return `${adults + kids} guests, ${infants} infants`;
+    return `${pluralize(adults + kids, 'Guest')}, ${pluralize(infants, 'Infant')}`;
   } else if (adults || kids) {
-    return `${adults + kids} guests`;
+    return pluralize(adults + kids, 'Guest');
   }
   return 'Guests';
 };
@@ -63,7 +70,7 @@ class Dropdown extends Component {
   };
 
   render() {
-    const isAnyFilter = this.state.adults > 1 || this.state.kids || this.state.infants;
+    const isAnyFilter = this.state.adults || this.state.kids || this.state.infants;
     const dialogWindow = (
       <Modal
         onCancel={this.toggleClose}
