@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import styled from 'styled-components';
 import { SectionTitle } from '../ModalUI';
 import Checkbox from '../UI/Checkbox';
@@ -54,45 +54,63 @@ const CheckboxBlock = styled.div`
   }
 `;
 
-const Amenities = props => (
-  <Wrap>
-    <Title>Facilities</Title>
-    <CheckboxBlock>
-      <div className="col-md-5">
-        <Checkbox
-          id="elevator"
-          checked={props.elevator}
-          name="Elevator"
-          onFilterChange={props.onFilterChange}
-        />
-        <Checkbox
-          id="pool"
-          checked={props.pool}
-          name="Pool"
-          onFilterChange={props.onFilterChange}
-        />
-      </div>
+class Facilities extends Component {
+  state = {
+    elevator: this.props.filter.elevator,
+    pool: this.props.filter.pool,
+    parking: this.props.filter.parking,
+    wheelchair: this.props.filter.wheelchair,
+  };
 
-      <div className="col-md-7">
-        <Checkbox
-          id="parking"
-          checked={props.parking}
-          name="Free parking on premises"
-          onFilterChange={props.onFilterChange}
-        />
-        <Checkbox
-          id="wheelchair"
-          checked={props.wheelchair}
-          name="Wheelchair accessible"
-          onFilterChange={props.onFilterChange}
-        />
-      </div>
-    </CheckboxBlock>
-    <div>
-      <More>See all{window.matchMedia('(min-width: 768px)').matches && ' facilities'}</More>
-      <Img src={arrow} alt="" />
-    </div>
-  </Wrap>
-);
+  handleFilterChange = (field, value) => {
+    this.setState(
+      () => ({ [field]: value }),
+      () => {
+        this.props.onFilterChange('facilities', this.state);
+      },
+    );
+  };
+  render() {
+    return (
+      <Wrap>
+        <Title>Facilities</Title>
+        <CheckboxBlock>
+          <div className="col-md-5">
+            <Checkbox
+              id="elevator"
+              checked={this.state.elevator}
+              name="Elevator"
+              onFilterChange={this.handleFilterChange}
+            />
+            <Checkbox
+              id="pool"
+              checked={this.state.pool}
+              name="Pool"
+              onFilterChange={this.handleFilterChange}
+            />
+          </div>
 
-export default Amenities;
+          <div className="col-md-7">
+            <Checkbox
+              id="parking"
+              checked={this.state.parking}
+              name="Free parking on premises"
+              onFilterChange={this.handleFilterChange}
+            />
+            <Checkbox
+              id="wheelchair"
+              checked={this.state.wheelchair}
+              name="Wheelchair accessible"
+              onFilterChange={this.handleFilterChange}
+            />
+          </div>
+        </CheckboxBlock>
+        <div>
+          <More>See all{window.matchMedia('(min-width: 768px)').matches && ' facilities'}</More>
+          <Img src={arrow} alt="" />
+        </div>
+      </Wrap>
+    );
+  }
+}
+export default Facilities;

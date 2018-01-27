@@ -24,23 +24,33 @@ const AdaptiveModal = (dialog, onClick) => {
 class Dropdown extends Component {
   state = {
     isOpen: this.props.isOpen,
-    home: false,
-    privateRoom: false,
-    sharedRoom: false,
-    bedrooms: 0,
-    beds: 0,
-    bathrooms: 0,
-    heating: false,
-    kitchen: false,
-    tv: false,
-    wifi: false,
-    elevator: false,
-    parking: false,
-    pool: false,
-    wheelchair: false,
+    roomType: {
+      home: false,
+      privateRoom: false,
+      sharedRoom: false,
+    },
+    roomsBeds: {
+      bedrooms: 0,
+      beds: 0,
+      bathrooms: 0,
+    },
+    ameneties: {
+      heating: false,
+      kitchen: false,
+      tv: false,
+      wifi: false,
+    },
+    facilities: {
+      elevator: false,
+      parking: false,
+      pool: false,
+      wheelchair: false,
+    },
     prices: [10, 1000],
-    instantBook: false,
-    superhost: false,
+    moreOptions: {
+      instantBook: false,
+      superhost: false,
+    },
   };
 
   componentWillReceiveProps(nextProps) {
@@ -60,46 +70,25 @@ class Dropdown extends Component {
   };
 
   toggleClose = () => {
-    this.setState({ isOpen: false });
+    const filterState = {
+      isDatesOpen: false,
+      isGuestsOpen: false,
+      isRoomOpen: false,
+      isPriceOpen: false,
+      isBookOpen: false,
+      isFiltersOpen: false,
+    };
+    this.props.openModal(filterState);
   };
 
-  saveFilters = (
-    home,
-    privateRoom,
-    sharedRoom,
-    bedrooms,
-    beds,
-    bathrooms,
-    heating,
-    kitchen,
-    tv,
-    wifi,
-    elevator,
-    parking,
-    pool,
-    wheelchair,
-    prices,
-    instantBook,
-    superhost,
-  ) => {
+  saveFilters = (roomType, roomsBeds, ameneties, facilities, prices, moreOptions) => {
     this.setState({
-      home,
-      privateRoom,
-      sharedRoom,
-      bedrooms,
-      beds,
-      bathrooms,
-      heating,
-      kitchen,
-      tv,
-      wifi,
-      elevator,
-      parking,
-      pool,
-      wheelchair,
+      roomType,
+      roomsBeds,
+      ameneties,
+      facilities,
       prices,
-      instantBook,
-      superhost,
+      moreOptions,
       isOpen: false,
     });
   };
@@ -109,23 +98,12 @@ class Dropdown extends Component {
       <Modal
         onCancel={this.toggleClose}
         onApply={this.saveFilters}
-        home={this.state.home}
-        privateRoom={this.state.privateRoom}
-        sharedRoom={this.state.sharedRoom}
-        bedrooms={this.state.bedrooms}
-        beds={this.state.beds}
-        bathrooms={this.state.bathrooms}
-        heating={this.state.heating}
-        kitchen={this.state.kitchen}
-        tv={this.state.tv}
-        wifi={this.state.wifi}
-        elevator={this.state.elevator}
-        parking={this.state.parking}
-        pool={this.state.pool}
-        wheelchair={this.state.wheelchair}
+        roomType={this.state.roomType}
+        roomsBeds={this.state.roomsBeds}
+        ameneties={this.state.ameneties}
+        facilities={this.state.facilities}
         prices={this.state.prices}
-        instantBook={this.state.instantBook}
-        superhost={this.state.superhost}
+        moreOptions={this.state.moreOptions}
       />
     );
 

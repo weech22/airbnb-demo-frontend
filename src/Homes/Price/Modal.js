@@ -35,7 +35,7 @@ class Modal extends React.Component {
   render() {
     return (
       <div>
-        <DesktopPriceRange prices={this.state.prices} onFilterChange={this.handleFilterChange} />
+        <DesktopPriceRange filter={this.state.prices} onFilterChange={this.handleFilterChange} />
         <BottomPanel onCancel={this.props.onCancel} onApply={this.saveFilter} />
       </div>
     );

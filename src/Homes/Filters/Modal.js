@@ -9,66 +9,54 @@ import Facilities from './Facilities';
 
 class Modal extends React.Component {
   state = {
-    home: this.props.home,
-    privateRoom: this.props.privateRoom,
-    sharedRoom: this.props.sharedRoom,
-    bedrooms: this.props.bedrooms,
-    beds: this.props.beds,
-    bathrooms: this.props.bathrooms,
-    heating: this.props.heating,
-    kitchen: this.props.kitchen,
-    tv: this.props.tv,
-    wifi: this.props.wifi,
-    elevator: this.props.elevator,
-    parking: this.props.parking,
-    pool: this.props.pool,
-    wheelchair: this.props.wheelchair,
+    roomType: this.props.roomType,
+    roomsBeds: this.props.roomsBeds,
+    ameneties: this.props.ameneties,
+    facilities: this.props.facilities,
     prices: this.props.prices,
-    instantBook: this.props.instantBook,
-    superhost: this.props.superhost,
+    moreOptions: this.props.moreOptions,
   };
 
   resetFilters = () => {
     this.setState({
-      home: false,
-      privateRoom: false,
-      sharedRoom: false,
-      bedrooms: 0,
-      beds: 0,
-      bathrooms: 0,
-      heating: false,
-      kitchen: false,
-      tv: false,
-      wifi: false,
-      elevator: false,
-      parking: false,
-      pool: false,
-      wheelchair: false,
+      roomType: {
+        home: false,
+        privateRoom: false,
+        sharedRoom: false,
+      },
+      roomsBeds: {
+        bedrooms: 0,
+        beds: 0,
+        bathrooms: 0,
+      },
+      ameneties: {
+        heating: false,
+        kitchen: false,
+        tv: false,
+        wifi: false,
+      },
+      facilities: {
+        elevator: false,
+        parking: false,
+        pool: false,
+        wheelchair: false,
+      },
       prices: [10, 1000],
-      instantBook: false,
-      superhost: false,
+      moreOptions: {
+        instantBook: false,
+        superhost: false,
+      },
     });
   };
 
   saveFilters = () => {
     this.props.onApply(
-      this.state.home,
-      this.state.privateRoom,
-      this.state.sharedRoom,
-      this.state.bedrooms,
-      this.state.beds,
-      this.state.bathrooms,
-      this.state.heating,
-      this.state.kitchen,
-      this.state.tv,
-      this.state.wifi,
-      this.state.elevator,
-      this.state.parking,
-      this.state.pool,
-      this.state.wheelchair,
+      this.state.roomType,
+      this.state.roomsBeds,
+      this.state.ameneties,
+      this.state.facilities,
       this.state.prices,
-      this.state.instantBook,
-      this.state.superhost,
+      this.state.moreOptions,
     );
   };
 
@@ -85,38 +73,12 @@ class Modal extends React.Component {
           text="All filters (0)"
           action="Clear All"
         />
-        <RoomType
-          home={this.state.home}
-          privateRoom={this.state.privateRoom}
-          sharedRoom={this.state.sharedRoom}
-          onFilterChange={this.handleFilterChange}
-        />
-        <PriceRange prices={this.state.prices} onFilterChange={this.handleFilterChange} />
-        <RoomsBeds
-          bedrooms={this.state.bedrooms}
-          beds={this.state.beds}
-          bathrooms={this.state.bathrooms}
-          onFilterChange={this.handleFilterChange}
-        />
-        <MoreOptions
-          instantBook={this.state.instantBook}
-          superhost={this.state.superhost}
-          onFilterChange={this.handleFilterChange}
-        />
-        <Amenities
-          heating={this.state.heating}
-          kitchen={this.state.kitchen}
-          tv={this.state.tv}
-          wifi={this.state.wifi}
-          onFilterChange={this.handleFilterChange}
-        />
-        <Facilities
-          elevator={this.state.elevator}
-          parking={this.state.parking}
-          pool={this.state.pool}
-          wheelchair={this.state.wheelchair}
-          onFilterChange={this.handleFilterChange}
-        />
+        <RoomType filter={this.state.roomType} onFilterChange={this.handleFilterChange} />
+        <PriceRange filter={this.state.prices} onFilterChange={this.handleFilterChange} />
+        <RoomsBeds filter={this.state.roomsBeds} onFilterChange={this.handleFilterChange} />
+        <MoreOptions filter={this.state.moreOptions} onFilterChange={this.handleFilterChange} />
+        <Amenities filter={this.state.ameneties} onFilterChange={this.handleFilterChange} />
+        <Facilities filter={this.state.facilities} onFilterChange={this.handleFilterChange} />
         <BottomPanel onCancel={this.props.onCancel} onApply={this.saveFilters} />
         <Footer onClick={this.saveFilters}>See homes</Footer>
       </div>

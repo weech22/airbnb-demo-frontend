@@ -52,7 +52,7 @@ class Filter extends Component {
       this.state.isRoomOpen ||
       this.state.isPriceOpen ||
       this.state.isBookOpen ||
-      this.state.isFilterOpen;
+      this.state.isFiltersOpen;
     return (
       <Wrap anyFilterOpened={isAnyState}>
         <div className="container">

@@ -27,18 +27,14 @@ class Modal extends React.Component {
   };
 
   handleFilterChange = (field, value) => {
-    this.setState({ [field]: value });
+    this.setState(value);
   };
 
   render() {
+    const filter = this.state;
     return (
       <div>
-        <DesktopRoomType
-          home={this.state.home}
-          privateRoom={this.state.privateRoom}
-          sharedRoom={this.state.sharedRoom}
-          onFilterChange={this.handleFilterChange}
-        />
+        <DesktopRoomType filter={filter} onFilterChange={this.handleFilterChange} />
         <BottomPanel onCancel={this.props.onCancel} onApply={this.saveFilters} />
       </div>
     );

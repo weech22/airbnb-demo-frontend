@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import styled from 'styled-components';
 import { SectionTitle } from '../ModalUI';
 import SwitchSection from './SwitchSection';
@@ -22,28 +22,46 @@ const Title = styled(SectionTitle)`
   font-size: 20px;
 `;
 
-const MoreOptions = props => (
-  <Wrap>
-    <div className="col-xs-12 col-md-6">
-      <Title>More options</Title>
-      <SwitchSection
-        id="instantBook"
-        checked={props.instantBook}
-        description="Secure a reservation instantly."
-        onFilterChange={props.onFilterChange}
-      >
-        Instant book
-      </SwitchSection>
-      <SwitchSection
-        id="superhost"
-        checked={props.superhost}
-        description="Stay with recognized hosts."
-        onFilterChange={props.onFilterChange}
-      >
-        Superhost
-      </SwitchSection>
-    </div>
-  </Wrap>
-);
+class MoreOptions extends Component {
+  state = {
+    instantBook: this.props.filter.instantBook,
+    superhost: this.props.filter.superhost,
+  };
+
+  handleFilterChange = (field, value) => {
+    this.setState(
+      () => ({ [field]: value }),
+      () => {
+        this.props.onFilterChange('moreOptions', this.state);
+      },
+    );
+  };
+
+  render() {
+    return (
+      <Wrap>
+        <div className="col-xs-12 col-md-6">
+          <Title>More options</Title>
+          <SwitchSection
+            id="instantBook"
+            checked={this.state.instantBook}
+            description="Secure a reservation instantly."
+            onFilterChange={this.handleFilterChange}
+          >
+            Instant book
+          </SwitchSection>
+          <SwitchSection
+            id="superhost"
+            checked={this.state.superhost}
+            description="Stay with recognized hosts."
+            onFilterChange={this.handleFilterChange}
+          >
+            Superhost
+          </SwitchSection>
+        </div>
+      </Wrap>
+    );
+  }
+}
 
 export default MoreOptions;

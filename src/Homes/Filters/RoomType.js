@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import styled from 'styled-components';
 import { SectionTitle } from '../ModalUI';
 import Checkbox from '../UI/Checkbox';
@@ -44,40 +44,59 @@ const Icon = styled.img`
   }
 `;
 
-const RoomType = props => (
-  <Wrap className={props.className}>
-    <Title>Room type</Title>
-    <CheckboxBlock>
-      <Checkbox
-        id="home"
-        checked={props.home}
-        name="Entire home"
-        description="Have a place to yourself"
-        onFilterChange={props.onFilterChange}
-      />
-      <Icon src={home} alt="" />
-    </CheckboxBlock>
-    <CheckboxBlock>
-      <Checkbox
-        id="privateRoom"
-        checked={props.privateRoom}
-        name="Private room"
-        description="Have your own room and share some common spaces"
-        onFilterChange={props.onFilterChange}
-      />
-      <Icon src={privateRoom} alt="" />
-    </CheckboxBlock>
-    <CheckboxBlock>
-      <Checkbox
-        id="sharedRoom"
-        checked={props.sharedRoom}
-        name="Shared room"
-        description="Stay in a shared space, like a common room"
-        onFilterChange={props.onFilterChange}
-      />
-      <Icon src={sharedRoom} alt="" />
-    </CheckboxBlock>
-  </Wrap>
-);
+class RoomType extends Component {
+  state = {
+    home: this.props.filter.home,
+    privateRoom: this.props.filter.privateRoom,
+    sharedRoom: this.props.filter.sharedRoom,
+  };
+
+  handleFilterChange = (field, value) => {
+    this.setState(
+      () => ({ [field]: value }),
+      () => {
+        this.props.onFilterChange('roomType', this.state);
+      },
+    );
+  };
+
+  render() {
+    return (
+      <Wrap className={this.props.className}>
+        <Title>Room type</Title>
+        <CheckboxBlock>
+          <Checkbox
+            id="home"
+            checked={this.state.home}
+            name="Entire home"
+            description="Have a place to yourself"
+            onFilterChange={this.handleFilterChange}
+          />
+          <Icon src={home} alt="" />
+        </CheckboxBlock>
+        <CheckboxBlock>
+          <Checkbox
+            id="privateRoom"
+            checked={this.state.privateRoom}
+            name="Private room"
+            description="Have your own room and share some common spaces"
+            onFilterChange={this.handleFilterChange}
+          />
+          <Icon src={privateRoom} alt="" />
+        </CheckboxBlock>
+        <CheckboxBlock>
+          <Checkbox
+            id="sharedRoom"
+            checked={this.state.sharedRoom}
+            name="Shared room"
+            description="Stay in a shared space, like a common room"
+            onFilterChange={this.handleFilterChange}
+          />
+          <Icon src={sharedRoom} alt="" />
+        </CheckboxBlock>
+      </Wrap>
+    );
+  }
+}
 
 export default RoomType;

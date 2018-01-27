@@ -48,7 +48,9 @@ class Dropdown extends Component {
     return (
       <Wrap>
         <Button
-          active={this.state.isOpen || (this.state.min !== 10 || this.state.max !== 1000)}
+          active={
+            this.state.isOpen || (this.state.prices[0] !== 10 || this.state.prices[1] !== 1000)
+          }
           onClick={this.toggleOpen}
         >
           Price

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import styled from 'styled-components';
 import { SectionTitle } from '../ModalUI';
 import Checkbox from '../UI/Checkbox';
@@ -51,40 +51,65 @@ const CheckboxBlock = styled.div`
   }
 `;
 
-const Amenities = props => (
-  <Wrap>
-    <SectionTitle>Amenities</SectionTitle>
-    <CheckboxBlock>
-      <div className="col-md-5">
-        <Checkbox
-          id="heating"
-          checked={props.heating}
-          name="Heating"
-          onFilterChange={props.onFilterChange}
-        />
-        <Checkbox id="tv" checked={props.tv} name="TV" onFilterChange={props.onFilterChange} />
-      </div>
+class Amenities extends Component {
+  state = {
+    heating: this.props.filter.heating,
+    kitchen: this.props.filter.kitchen,
+    tv: this.props.filter.tv,
+    wifi: this.props.filter.wifi,
+  };
 
-      <div className="col-md-7">
-        <Checkbox
-          id="kitchen"
-          checked={props.kitchen}
-          name="Kitchen"
-          onFilterChange={props.onFilterChange}
-        />
-        <Checkbox
-          id="wifi"
-          checked={props.wifi}
-          name="Wireless Internet"
-          onFilterChange={props.onFilterChange}
-        />
-      </div>
-    </CheckboxBlock>
-    <div>
-      <More>See all{window.matchMedia('(min-width: 768px)').matches && ' amenities'}</More>
-      <Img src={arrow} alt="" />
-    </div>
-  </Wrap>
-);
+  handleFilterChange = (field, value) => {
+    this.setState(
+      () => ({ [field]: value }),
+      () => {
+        this.props.onFilterChange('ameneties', this.state);
+      },
+    );
+  };
+
+  render() {
+    return (
+      <Wrap>
+        <SectionTitle>Amenities</SectionTitle>
+        <CheckboxBlock>
+          <div className="col-md-5">
+            <Checkbox
+              id="heating"
+              checked={this.state.heating}
+              name="Heating"
+              onFilterChange={this.handleFilterChange}
+            />
+            <Checkbox
+              id="tv"
+              checked={this.state.tv}
+              name="TV"
+              onFilterChange={this.handleFilterChange}
+            />
+          </div>
+
+          <div className="col-md-7">
+            <Checkbox
+              id="kitchen"
+              checked={this.state.kitchen}
+              name="Kitchen"
+              onFilterChange={this.handleFilterChange}
+            />
+            <Checkbox
+              id="wifi"
+              checked={this.state.wifi}
+              name="Wireless Internet"
+              onFilterChange={this.handleFilterChange}
+            />
+          </div>
+        </CheckboxBlock>
+        <div>
+          <More>See all{window.matchMedia('(min-width: 768px)').matches && ' amenities'}</More>
+          <Img src={arrow} alt="" />
+        </div>
+      </Wrap>
+    );
+  }
+}
 
 export default Amenities;

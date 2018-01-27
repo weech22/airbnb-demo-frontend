@@ -78,11 +78,11 @@ const Title = styled(SectionTitle)`
 
 class PriceRange extends Component {
   state = {
-    prices: this.props.prices,
+    prices: this.props.filter,
   };
 
   componentWillReceiveProps(nextProps) {
-    this.setState({ prices: nextProps.prices });
+    this.setState({ prices: nextProps.filter });
   }
 
   updateValue = (sliderState) => {
