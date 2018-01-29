@@ -43,22 +43,23 @@ class Filter extends Component {
 
   openModal = (filterName, action) => {
     const modalList = Object.keys(this.state);
-    const result = {};
-    for (let i = 0; i < modalList.length; i += 1) {
-      result[modalList[i]] = false;
-      result[`is${filterName}Open`] = action;
-    }
+
+    const result = modalList.reduce((res, filter) => {
+      if (filter === `is${filterName}Open`) {
+        res[filter] = action;
+      } else {
+        res[filter] = false;
+      }
+      return res;
+    }, {});
+
     this.setState(result);
   };
 
   isAnyModalOpened = () => {
-    const modalList = Object.keys(this.state);
-    for (let i = 0; i < modalList.length; i += 1) {
-      if (this.state[modalList[i]]) {
-        return true;
-      }
-    }
-    return false;
+    const isOn = filter => this.state[filter] === true;
+    const activeFilter = Object.keys(this.state).find(isOn);
+    return activeFilter;
   };
 
   render() {

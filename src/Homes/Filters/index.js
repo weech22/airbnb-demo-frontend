@@ -22,22 +22,21 @@ const AdaptiveModal = (dialog, onClick) => {
 };
 
 const getFilterCount = (state) => {
-  let count = 0;
   const sectionList = Object.keys(state);
-  for (let i = 0; i < sectionList.length; i += 1) {
-    const filterList = Object.keys(state[sectionList[i]]);
-    for (let j = 0; j < filterList.length; j += 1) {
-      if (state[sectionList[i]][filterList[j]]) {
-        count += 1;
-      }
+  const result = sectionList.reduce((res, section) => {
+    const filterList = Object.keys(state[section]);
+    if (section === 'prices') {
+      return state[section][0] === 10 && state[section][1] === 1000 ? res : res + 1;
     }
-  }
-  if (state.prices[0] === 10 && state.prices[1] === 1000) {
-    count -= 2;
-  } else if (state.prices[0] !== 10 || state.prices[1] !== 1000) {
-    count -= 1;
-  }
-  return count;
+    const activeFilterCount = filterList.reduce((count, filter) => {
+      if (state[section][filter]) {
+        return count + 1;
+      }
+      return count;
+    }, 0);
+    return res + activeFilterCount;
+  }, 0);
+  return result;
 };
 
 const formatFiltersLabel = (state) => {
@@ -106,6 +105,7 @@ class Dropdown extends Component {
 
   render() {
     const filterCount = getFilterCount(this.state);
+    console.log('filterCount === ', filterCount);
 
     const dialogWindow = (
       <Modal

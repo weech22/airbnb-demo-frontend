@@ -7,6 +7,7 @@ const FixedContainer = styled.div`
   bottom: 0;
   left: 0;
   right: 0;
+  z-index: 9;
 `;
 
 const Wrap = styled.div`

@@ -8,6 +8,39 @@ import MoreOptions from './MoreOptions';
 import Amenities from './Amenities';
 import Facilities from './Facilities';
 
+const defaultRoomType = {
+  home: false,
+  privateRoom: false,
+  sharedRoom: false,
+};
+
+const defaultRoomBeds = {
+  bedrooms: 0,
+  beds: 0,
+  bathrooms: 0,
+};
+
+const defaultAmenities = {
+  heating: false,
+  kitchen: false,
+  tv: false,
+  wifi: false,
+};
+
+const defaultFacilities = {
+  elevator: false,
+  parking: false,
+  pool: false,
+  wheelchair: false,
+};
+
+const defaultPrices = [10, 1000];
+
+const defaultOptions = {
+  instantBook: false,
+  superhost: false,
+};
+
 const Scrollable = styled.div`
   height: 100%;
   padding-top: 50px;
@@ -32,39 +65,6 @@ class Modal extends React.Component {
   };
 
   resetFilters = () => {
-    const defaultRoomType = {
-      home: false,
-      privateRoom: false,
-      sharedRoom: false,
-    };
-
-    const defaultRoomBeds = {
-      bedrooms: 0,
-      beds: 0,
-      bathrooms: 0,
-    };
-
-    const defaultAmenities = {
-      heating: false,
-      kitchen: false,
-      tv: false,
-      wifi: false,
-    };
-
-    const defaultFacilities = {
-      elevator: false,
-      parking: false,
-      pool: false,
-      wheelchair: false,
-    };
-
-    const defaultPrices = [10, 1000];
-
-    const defaultOptions = {
-      instantBook: false,
-      superhost: false,
-    };
-
     this.setState({
       roomType: defaultRoomType,
       roomsBeds: defaultRoomBeds,
