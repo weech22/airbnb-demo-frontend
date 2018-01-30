@@ -65,11 +65,11 @@ class Dropdown extends Component {
   }
 
   toggleOpen = () => {
-    this.props.openModal('Dates', true);
+    this.props.openModal('Dates');
   };
 
   toggleClose = () => {
-    this.props.openModal('Dates', false);
+    this.setState({ isOpen: false });
   };
 
   saveDates = (from, to) => {

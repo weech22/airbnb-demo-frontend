@@ -35,11 +35,11 @@ class Dropdown extends Component {
   }
 
   toggleOpen = () => {
-    this.props.openModal('Room', true);
+    this.props.openModal('Room');
   };
 
   toggleClose = () => {
-    this.props.openModal('Room', false);
+    this.setState({ isOpen: false });
   };
 
   saveFilters = (home, privateRoom, sharedRoom) => {

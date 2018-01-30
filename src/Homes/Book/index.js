@@ -18,11 +18,11 @@ class Dropdown extends Component {
   }
 
   toggleOpen = () => {
-    this.props.openModal('Book', true);
+    this.props.openModal('Book');
   };
 
   toggleClose = () => {
-    this.props.openModal('Book', false);
+    this.setState({ isOpen: false });
   };
 
   saveFilter = (checked) => {

@@ -33,27 +33,11 @@ const ModalWrap = styled.div`
 
 class Filter extends Component {
   state = {
-    isDatesOpen: false,
-    isGuestsOpen: false,
-    isRoomOpen: false,
-    isPriceOpen: false,
-    isBookOpen: false,
-    isFiltersOpen: false,
+    filterOpened: null,
   };
 
-  openModal = (filterName, action) => {
-    const modalList = Object.keys(this.state);
-
-    const result = modalList.reduce((res, filter) => {
-      if (filter === `is${filterName}Open`) {
-        res[filter] = action;
-      } else {
-        res[filter] = false;
-      }
-      return res;
-    }, {});
-
-    this.setState(result);
+  openModal = (filterName) => {
+    this.setState({ filterOpened: filterName });
   };
 
   isAnyModalOpened = () => {
@@ -69,14 +53,14 @@ class Filter extends Component {
       <Wrap anyFilterOpened={isAnyState}>
         <div className="container">
           <ModalWrap>
-            <Dates isOpen={this.state.isDatesOpen} openModal={this.openModal} />
-            <Guests isOpen={this.state.isGuestsOpen} openModal={this.openModal} />
+            <Dates isOpen={this.state.filterOpened === 'Dates'} openModal={this.openModal} />
+            <Guests isOpen={this.state.filterOpened === 'Guests'} openModal={this.openModal} />
             <DesktopButtons>
-              <Room isOpen={this.state.isRoomOpen} openModal={this.openModal} />
-              <Price isOpen={this.state.isPriceOpen} openModal={this.openModal} />
-              <Book isOpen={this.state.isBookOpen} openModal={this.openModal} />
+              <Room isOpen={this.state.filterOpened === 'Room'} openModal={this.openModal} />
+              <Price isOpen={this.state.filterOpened === 'Price'} openModal={this.openModal} />
+              <Book isOpen={this.state.filterOpened === 'Book'} openModal={this.openModal} />
             </DesktopButtons>
-            <Filters isOpen={this.state.isFiltersOpen} openModal={this.openModal} />
+            <Filters isOpen={this.state.filterOpened === 'Filters'} openModal={this.openModal} />
           </ModalWrap>
         </div>
       </Wrap>

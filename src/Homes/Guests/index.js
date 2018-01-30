@@ -53,11 +53,11 @@ class Dropdown extends Component {
   }
 
   toggleOpen = () => {
-    this.props.openModal('Guests', true);
+    this.props.openModal('Guests');
   };
 
   toggleClose = () => {
-    this.props.openModal('Guests', false);
+    this.setState({ isOpen: false });
   };
 
   saveGuests = (adults, kids, infants) => {

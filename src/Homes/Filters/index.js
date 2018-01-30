@@ -84,11 +84,11 @@ class Dropdown extends Component {
   }
 
   toggleOpen = () => {
-    this.props.openModal('Filters', true);
+    this.props.openModal('Filters');
   };
 
   toggleClose = () => {
-    this.props.openModal('Filters', false);
+    this.setState({ isOpen: false });
   };
 
   saveFilters = (roomType, roomsBeds, amenities, facilities, prices, moreOptions) => {
