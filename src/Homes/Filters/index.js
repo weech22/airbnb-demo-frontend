@@ -105,7 +105,6 @@ class Dropdown extends Component {
 
   render() {
     const filterCount = getFilterCount(this.state);
-    console.log('filterCount === ', filterCount);
 
     const dialogWindow = (
       <Modal
