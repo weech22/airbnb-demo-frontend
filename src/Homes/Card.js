@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import styled from "styled-components";
+
 import Star from "../UI/Star";
 import { CardBlock, Img, Label } from "../UI/UI";
 
@@ -38,11 +39,26 @@ const Info = styled.p`
   }
 `;
 
+const pluralize = (count, singular) => {
+  if (count === 1) {
+    return `${count} ${singular}`;
+  }
+  return `${count} ${singular}s`;
+};
+
+const kindFormatter = kind => {
+  const result = (kind.charAt(0).toUpperCase() + kind.substr(1)).replace(
+    "_",
+    " "
+  );
+  return result;
+};
+
 class Card extends Component {
   render() {
     return (
       <CardBlock href="#">
-        <Img src={this.props.img} />
+        <Img src={this.props.images[0].picture} />
         <div>
           <Name>
             {this.props.price}$ {this.props.name}
@@ -50,7 +66,8 @@ class Card extends Component {
         </div>
         <div>
           <Info>
-            {this.props.type} · {this.props.bedCount} bed
+            {kindFormatter(this.props.kind)}
+            {` · ${pluralize(this.props.bedsCount, "bed")}`}
           </Info>
         </div>
         <div>
@@ -59,7 +76,10 @@ class Card extends Component {
           <Star />
           <Star />
           <Star />
-          <Label>{this.props.reviews} · Superhost</Label>
+          <Label>
+            {this.props.reviewsCount}
+            {this.props.isSuperhost ? " · Superhost" : " · Reviews"}
+          </Label>
         </div>
       </CardBlock>
     );
