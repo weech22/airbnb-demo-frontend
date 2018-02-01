@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
+import styled from 'styled-components';
 import { Portal } from 'react-portal';
 import moment from 'moment';
-import styled from 'styled-components';
 import Modal from './Modal';
 import {
   FilterButton as Button,
@@ -13,7 +13,7 @@ import {
 
 const DatesModal = styled(DesktopModal)`
   top: 52px;
-  left: 8px;
+  left: 0;
 `;
 
 const formatDateLabel = (from, to, isOpen) => {
@@ -38,7 +38,7 @@ const getMonthAmount = () => {
 };
 
 const AdaptiveModal = (dialog, onClick) => {
-  if (window.matchMedia('(min-width: 576px)').matches) {
+  if (window.matchMedia('(min-width: 768px)').matches) {
     return (
       <div>
         <WhiteBackground onClick={onClick} />
@@ -55,13 +55,17 @@ const AdaptiveModal = (dialog, onClick) => {
 
 class Dropdown extends Component {
   state = {
-    isOpen: false,
+    isOpen: this.props.isOpen,
     from: undefined,
     to: undefined,
   };
 
+  componentWillReceiveProps(nextProps) {
+    this.setState({ isOpen: nextProps.isOpen });
+  }
+
   toggleOpen = () => {
-    this.setState({ isOpen: true });
+    this.props.openModal('Dates');
   };
 
   toggleClose = () => {
@@ -88,7 +92,10 @@ class Dropdown extends Component {
 
     return (
       <Wrap>
-        <Button active={this.state.isOpen} onClick={this.toggleOpen}>
+        <Button
+          active={this.state.isOpen || this.state.from || this.state.to}
+          onClick={this.toggleOpen}
+        >
           {formatDateLabel(this.state.from, this.state.to, this.state.isOpen)}
         </Button>
         {this.state.isOpen && adaptiveModal}

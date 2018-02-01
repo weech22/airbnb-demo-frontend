@@ -1,116 +1,133 @@
 import React, { Component } from 'react';
-import styled from 'styled-components';
 import { Portal } from 'react-portal';
+import Modal from './Modal';
 import {
   FilterButton as Button,
-  ModalWindow,
-  Header,
-  Footer,
-  BottomPanel,
+  FilterButtonBlock as Wrap,
+  FiltersModalWindow as ModalWindow,
+  WhiteBackground,
 } from '../ModalUI';
-import RoomType from './RoomType';
-import RoomsBeds from './RoomsBeds';
-import PriceRange from './PriceRange';
+import DesktopModalWindow from '../ModalUI/FilterModalWindow';
 
-const Wrap = styled.div`
-  display: inline-block;
-`;
+const AdaptiveModal = (dialog, onClick) => {
+  if (window.matchMedia('(min-width: 992px)').matches) {
+    return <DesktopModalWindow onClick={onClick}>{dialog}</DesktopModalWindow>;
+  }
+  return (
+    <Portal node={document && document.getElementById('modal')}>
+      <WhiteBackground onClick={onClick} />
+      <ModalWindow>{dialog}</ModalWindow>
+    </Portal>
+  );
+};
+
+const getFilterCount = (state) => {
+  const sectionList = Object.keys(state);
+  const result = sectionList.reduce((res, section) => {
+    const filterList = Object.keys(state[section]);
+    if (section === 'prices') {
+      return state[section][0] === 10 && state[section][1] === 1000 ? res : res + 1;
+    }
+    const activeFilterCount = filterList.reduce((count, filter) => {
+      if (state[section][filter]) {
+        return count + 1;
+      }
+      return count;
+    }, 0);
+    return res + activeFilterCount;
+  }, 0);
+  return result;
+};
+
+const formatFiltersLabel = (state) => {
+  const filtersOpened = getFilterCount(state);
+  if (filtersOpened) {
+    return `More filters · ${filtersOpened}`;
+  }
+  return 'More filters';
+};
 
 class Dropdown extends Component {
   state = {
-    isOpen: false,
-    home: false,
-    privateRoom: false,
-    sharedRoom: false,
-    bedrooms: 0,
-    beds: 0,
-    bathrooms: 0,
-  };
-
-  resetFilters = () => {
-    this.setState({
+    isOpen: this.props.isOpen,
+    roomType: {
       home: false,
       privateRoom: false,
       sharedRoom: false,
+    },
+    roomsBeds: {
       bedrooms: 0,
       beds: 0,
       bathrooms: 0,
-    });
+    },
+    amenities: {
+      heating: false,
+      kitchen: false,
+      tv: false,
+      wifi: false,
+    },
+    facilities: {
+      elevator: false,
+      parking: false,
+      pool: false,
+      wheelchair: false,
+    },
+    prices: [10, 1000],
+    moreOptions: {
+      instantBook: false,
+      superhost: false,
+    },
   };
 
-  saveFilters = () => {
-    this.setState({
-      isOpen: false,
-    });
-  };
-
-  increment = (field, value) => {
-    this.setState({ [field]: value });
-  };
-
-  decrement = (field, value) => {
-    if (value >= 0) {
-      this.setState({ [field]: value });
-    }
-  };
+  componentWillReceiveProps(nextProps) {
+    this.setState({ isOpen: nextProps.isOpen });
+  }
 
   toggleOpen = () => {
-    this.setState({ isOpen: true });
+    this.props.openModal('Filters');
   };
 
   toggleClose = () => {
+    this.setState({ isOpen: false });
+  };
+
+  saveFilters = (roomType, roomsBeds, amenities, facilities, prices, moreOptions) => {
     this.setState({
+      roomType,
+      roomsBeds,
+      amenities,
+      facilities,
+      prices,
+      moreOptions,
       isOpen: false,
-      home: false,
-      privateRoom: false,
-      sharedRoom: false,
-      bedrooms: 0,
-      beds: 0,
-      bathrooms: 0,
     });
   };
 
-  handleCheck = (field, value) => {
-    this.setState({ [field]: value });
-  };
-
   render() {
+    const filterCount = getFilterCount(this.state);
+
+    const dialogWindow = (
+      <Modal
+        onCancel={this.toggleClose}
+        onApply={this.saveFilters}
+        filterCount={filterCount}
+        roomType={this.state.roomType}
+        roomsBeds={this.state.roomsBeds}
+        amenities={this.state.amenities}
+        facilities={this.state.facilities}
+        prices={this.state.prices}
+        moreOptions={this.state.moreOptions}
+      />
+    );
+
+    const adaptiveModal = AdaptiveModal(dialogWindow, this.toggleClose);
+
     return (
       <Wrap>
-        <Button active={this.state.isOpen} onClick={this.toggleOpen}>
-          More filters
+        <Button active={this.state.isOpen || filterCount} onClick={this.toggleOpen}>
+          {formatFiltersLabel(this.state)}
         </Button>
-        {this.state.isOpen && (
-          <Portal node={document && document.getElementById('modal')}>
-            <ModalWindow>
-              <Header
-                text="All filters (0)"
-                action="Clear All"
-                onAction={this.resetFilters}
-                onClose={this.toggleClose}
-              />
-              <RoomType
-                onCheck={this.handleCheck}
-                home={this.state.home}
-                privateRoom={this.state.privateRoom}
-                sharedRoom={this.state.sharedRoom}
-              />
-              <PriceRange />
-              <RoomsBeds
-                bedrooms={this.state.bedrooms}
-                beds={this.state.beds}
-                bathrooms={this.state.bathrooms}
-                onFilterInc={this.increment}
-                onFilterDec={this.decrement}
-              />
-              <BottomPanel
-                onCancel={this.toggleClose}
-                onApply={this.saveFilters}
-              />
-              <Footer onClick={this.saveFilters}>See homes</Footer>
-            </ModalWindow>
-          </Portal>
-        )}
+        {this.state.isOpen && adaptiveModal}
       </Wrap>
     );
   }

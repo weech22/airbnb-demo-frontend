@@ -3,18 +3,15 @@ import styled from 'styled-components';
 import Counter from '../UI/Counter';
 
 const Wrap = styled.div`
-  height: calc(100vh - 153px);
-  width: 95vw;
-  background: #ffffff;
-  margin-top: 0px;
-  padding-top: 40px;
-  padding-left: 8px;
+  height: 100vh;
+  padding: 92px 8px;
+  padding-bottom: 0;
   @media only screen and (min-width: 768px) {
+    padding-left: 23px;
+    padding-right: 14px;
+    padding-top: 27px;
+    width: 290px;
     height: auto;
-    width: 326px;
-    padding-top: 30px;
-    padding-left: 24px;
-    padding-right: 15px;
   }
 `;
 
@@ -23,26 +20,23 @@ const Section = props => (
     <Counter
       id="adults"
       count={props.adults}
-      onGuestInc={props.onGuestInc}
-      onGuestDec={props.onGuestDec}
       name="Adults"
-      desc=""
+      description=""
+      onGuestsChange={props.onGuestsChange}
     />
     <Counter
       id="kids"
       count={props.kids}
-      onGuestInc={props.onGuestInc}
-      onGuestDec={props.onGuestDec}
       name="Children"
-      desc="Ages 2 — 12"
+      description="Ages 2 — 12"
+      onGuestsChange={props.onGuestsChange}
     />
     <Counter
       id="infants"
       count={props.infants}
-      onGuestInc={props.onGuestInc}
-      onGuestDec={props.onGuestDec}
       name="Infants"
-      desc="Under 2"
+      description="Under 2"
+      onGuestsChange={props.onGuestsChange}
     />
   </Wrap>
 );

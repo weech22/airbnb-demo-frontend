@@ -5,6 +5,8 @@ import minus from './minus.svg';
 
 const Wrap = styled.div`
   margin-bottom: 16px;
+  display: flex;
+  justify-content: space-between;
 `;
 
 const Name = styled.h2`
@@ -27,6 +29,7 @@ const Plus = styled.button`
   background-image: url(${plus});
   background-repeat: no-repeat;
   background-position: center center;
+  cursor: pointer;
 `;
 
 const Minus = styled.button`
@@ -38,20 +41,14 @@ const Minus = styled.button`
   background-image: url(${minus});
   background-repeat: no-repeat;
   background-position: center center;
+
+  cursor: pointer;
 `;
 
 const Buttons = styled.div`
   display: flex;
   justify-content: space-between;
-`;
-
-const Text = styled.div`
-  display: flex;
-  margin: auto 0;
-  padding-left: 8px;
-  @media only screen and (min-width: 768px) {
-    padding-left: 0;
-  }
+  max-width: 112px;
 `;
 
 const Count = styled.span`
@@ -63,28 +60,45 @@ const Count = styled.span`
 `;
 
 class Counter extends Component {
-  increment = () => {
-    this.props.onFilterInc(this.props.name.toLowerCase(), this.props.count + 1);
+  state = {
+    count: this.props.count,
   };
 
+  componentWillReceiveProps(nextProps) {
+    this.setState({ count: nextProps.count });
+  }
+
   decrement = () => {
-    this.props.onFilterDec(this.props.name.toLowerCase(), this.props.count - 1);
+    if (this.state.count > 0) {
+      this.setState(
+        () => ({ count: this.state.count - 1 }),
+        () => {
+          this.props.onFilterChange(this.props.id, this.state.count);
+        },
+      );
+    }
+  };
+
+  increment = () => {
+    this.setState(
+      () => ({ count: this.state.count + 1 }),
+      () => {
+        this.props.onFilterChange(this.props.id, this.state.count);
+      },
+    );
   };
 
   render() {
     return (
       <Wrap>
-        <div className="row between-xs">
-          <Text>
-            <Name>{this.props.name}</Name>
-          </Text>
-          <div className="col-xs-5">
-            <Buttons>
-              <Minus onClick={this.decrement} />
-              <Count>{this.props.count}+</Count>
-              <Plus onClick={this.increment} />
-            </Buttons>
-          </div>
+        <Name>{this.props.name}</Name>
+
+        <div className="col-xs-5">
+          <Buttons>
+            <Minus onClick={this.decrement} />
+            <Count>{this.state.count}+</Count>
+            <Plus onClick={this.increment} />
+          </Buttons>
         </div>
       </Wrap>
     );

@@ -2,100 +2,92 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 import { Portal } from 'react-portal';
 import Modal from './Modal';
-import {
-  FilterButton as Button,
-  FilterButtonBlock as Wrap,
-  WhiteBackground,
-  DesktopModal,
-  ModalWindow,
-} from '../ModalUI';
+import { FilterButton as Button, WhiteBackground, DesktopModal, ModalWindow } from '../ModalUI';
 
-const GuestsModal = styled(DesktopModal)`
-  top: 52px;
-  left: 89px;
+const Wrap = styled.div`
+  display: inline-block;
 `;
+
+const pluralize = (count, singular) => {
+  if (count === 1) {
+    return `${count} ${singular}`;
+  }
+  return `${count} ${singular}s`;
+};
+
+const formatGuestsLabel = (adults, kids, infants) => {
+  if (infants) {
+    return `${pluralize(adults + kids, 'Guest')}, ${pluralize(infants, 'Infant')}`;
+  } else if (adults || kids) {
+    return pluralize(adults + kids, 'Guest');
+  }
+  return 'Guests';
+};
+
+const AdaptiveModal = (dialog, onClick) => {
+  if (window.matchMedia('(min-width: 768px)').matches) {
+    return (
+      <div>
+        <WhiteBackground onClick={onClick} />
+        <DesktopModal>{dialog}</DesktopModal>
+      </div>
+    );
+  }
+  return (
+    <Portal node={document && document.getElementById('modal')}>
+      <ModalWindow>{dialog}</ModalWindow>
+    </Portal>
+  );
+};
 
 class Dropdown extends Component {
   state = {
-    isOpen: false,
-    adults: 1,
+    isOpen: this.props.isOpen,
+    adults: 0,
     kids: 0,
     infants: 0,
   };
 
+  componentWillReceiveProps(nextProps) {
+    this.setState({ isOpen: nextProps.isOpen });
+  }
+
   toggleOpen = () => {
-    this.setState({ isOpen: true });
+    this.props.openModal('Guests');
   };
 
   toggleClose = () => {
-    this.setState({
-      isOpen: false,
-      adults: 1,
-      kids: 0,
-      infants: 0,
-    });
+    this.setState({ isOpen: false });
   };
 
-  saveGuests = () => {
+  saveGuests = (adults, kids, infants) => {
     this.setState({
+      adults,
+      kids,
+      infants,
       isOpen: false,
     });
-  };
-
-  resetGuests = () => {
-    this.setState({ adults: 1, kids: 0, infants: 0 });
-  };
-
-  increment = (field, value) => {
-    this.setState({ [field]: value });
-  };
-
-  decrement = (field, value) => {
-    if (value >= 0) {
-      this.setState({ [field]: value });
-    }
   };
 
   render() {
+    const isAnyFilter = this.state.adults || this.state.kids || this.state.infants;
+    const dialogWindow = (
+      <Modal
+        onCancel={this.toggleClose}
+        onApply={this.saveGuests}
+        adults={this.state.adults}
+        kids={this.state.kids}
+        infants={this.state.infants}
+      />
+    );
+
+    const adaptiveModal = AdaptiveModal(dialogWindow, this.toggleClose);
     return (
       <Wrap>
-        <Button active={this.state.isOpen} onClick={this.toggleOpen}>
-          Guests
+        <Button active={this.state.isOpen || isAnyFilter} onClick={this.toggleOpen}>
+          {formatGuestsLabel(this.state.adults, this.state.kids, this.state.infants)}
         </Button>
-        {this.state.isOpen &&
-          ((window.matchMedia('(max-width: 575px)').matches && (
-            <Portal node={document && document.getElementById('modal')}>
-              <ModalWindow>
-                <Modal
-                  onCancel={this.toggleClose}
-                  onReset={this.resetGuests}
-                  onSave={this.saveGuests}
-                  adults={this.state.adults}
-                  kids={this.state.kids}
-                  infants={this.state.infants}
-                  onGuestInc={this.increment}
-                  onGuestDec={this.decrement}
-                />
-              </ModalWindow>
-            </Portal>
-          )) ||
-            (window.matchMedia('(min-width: 576px)').matches && (
-              <div>
-                <WhiteBackground onClick={this.toggleClose} />
-                <GuestsModal>
-                  <Modal
-                    onCancel={this.toggleClose}
-                    onReset={this.resetGuests}
-                    onSave={this.saveGuests}
-                    adults={this.state.adults}
-                    kids={this.state.kids}
-                    infants={this.state.infants}
-                    onGuestInc={this.increment}
-                    onGuestDec={this.decrement}
-                  />
-                </GuestsModal>
-              </div>
-            )))}
+        {this.state.isOpen && adaptiveModal}
       </Wrap>
     );
   }

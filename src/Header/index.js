@@ -15,21 +15,6 @@ const Wrap = styled.div`
   z-index: 2000;
 
   margin: 0 auto;
-  @media only screen and (min-width: 576px) {
-    max-width: 560px;
-  }
-
-  @media only screen and (min-width: 768px) {
-    max-width: 752px;
-  }
-
-  @media only screen and (min-width: 992px) {
-    max-width: 976px;
-  }
-
-  @media only screen and (min-width: 1200px) {
-    max-width: 1184px;
-  }
 `;
 
 const Header = () => (
