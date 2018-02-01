@@ -6,6 +6,7 @@
     "@trainline/react-skeletor": "^1.0.2",
     "flexboxgrid2": "^7.0.0-alpha12",
     "google-map-react": "^0.27.0",
+    "lodash": "^4.17.4",
     "matchmedia-polyfill": "^0.3.0",
     "moment": "^2.20.1",
     "react": "^16.2.0",

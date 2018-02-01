@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import styled from "styled-components";
-
+import _ from "lodash";
 import Star from "../UI/Star";
 import { CardBlock, Img, Label } from "../UI/UI";
 
@@ -39,6 +39,10 @@ const Info = styled.p`
   }
 `;
 
+const StarBlock = props => {
+  return _.times(Math.floor(props.rating), () => <Star />);
+};
+
 const pluralize = (count, singular) => {
   if (count === 1) {
     return `${count} ${singular}`;
@@ -71,11 +75,7 @@ class Card extends Component {
           </Info>
         </div>
         <div>
-          <Star />
-          <Star />
-          <Star />
-          <Star />
-          <Star />
+          <StarBlock rating={this.props.rating} />
           <Label>
             {this.props.reviewsCount}
             {this.props.isSuperhost ? " · Superhost" : " · Reviews"}
