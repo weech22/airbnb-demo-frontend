@@ -50,12 +50,9 @@ const pluralize = (count, singular) => {
   return `${count} ${singular}s`;
 };
 
-const kindFormatter = kind => {
-  const result = (kind.charAt(0).toUpperCase() + kind.substr(1)).replace(
-    "_",
-    " "
-  );
-  return result;
+const roomType = {
+  entire_home: "Entire home",
+  private_room: "Private room"
 };
 
 class Card extends Component {
@@ -70,7 +67,7 @@ class Card extends Component {
         </div>
         <div>
           <Info>
-            {kindFormatter(this.props.kind)}
+            {roomType[this.props.kind]}
             {` · ${pluralize(this.props.bedsCount, "bed")}`}
           </Info>
         </div>

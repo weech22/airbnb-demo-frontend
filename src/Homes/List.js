@@ -21,23 +21,7 @@ class List extends Component {
 
     fetch(url)
       .then(response => response.json())
-      .then(data =>
-        data.items.map(card => ({
-          images: card.images,
-          price: card.price,
-          name: card.name,
-          kind: card.kind,
-          bedsCount: card.bedsCount,
-          rating: card.rating,
-          reviewsCount: card.reviewsCount,
-          isSuperhost: card.isSuperhost
-        }))
-      )
-      .then(cardList =>
-        this.setState({
-          cardList
-        })
-      );
+      .then(data => this.setState({ cardList: data.items }));
   }
   render() {
     const cardList = this.state.cardList;
