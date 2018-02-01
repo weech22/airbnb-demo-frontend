@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import styled from "styled-components";
-import _ from "lodash";
+import times from "lodash/times";
 import Star from "../UI/Star";
 import { CardBlock, Img, Label } from "../UI/UI";
 
@@ -40,7 +40,7 @@ const Info = styled.p`
 `;
 
 const StarBlock = props => {
-  return _.times(Math.floor(props.rating), () => <Star />);
+  return times(Math.floor(props.rating), () => <Star />);
 };
 
 const pluralize = (count, singular) => {
