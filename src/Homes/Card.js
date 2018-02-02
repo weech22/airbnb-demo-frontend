@@ -43,11 +43,11 @@ const StarBlock = props => {
   return times(Math.floor(props.rating), () => <Star />);
 };
 
-const pluralize = (count, plural) => {
+const pluralize = (count, word) => {
   if (count === 1) {
-    return `${count} ${plural}`;
+    return `${count} ${word}`;
   }
-  return `${count} ${plural}s`;
+  return `${count} ${word}s`;
 };
 
 const roomType = {
