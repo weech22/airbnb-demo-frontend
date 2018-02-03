@@ -13,7 +13,7 @@ const CardWrap = styled.div`
 
 class List extends Component {
   state = {
-    cardList: []
+    homes: []
   };
 
   componentWillMount() {
@@ -21,13 +21,13 @@ class List extends Component {
 
     fetch(url)
       .then(response => response.json())
-      .then(data => this.setState({ cardList: data.items }));
+      .then(data => this.setState({ homes: data.items }));
   }
   render() {
-    const cardList = this.state.cardList;
+    const homes = this.state.homes;
     return (
       <div className="row">
-        {cardList.map(card => {
+        {homes.map(card => {
           return (
             <div className="col-xs-12 col-md-6">
               <CardWrap>
