@@ -1,5 +1,5 @@
-import React, { Component } from "react";
-import styled from "styled-components";
+import React from 'react';
+import styled from 'styled-components';
 
 const Text = styled.p`
   font-family: CircularAir, Helvetica Neue, Helvetica, Arial, sans-serif;
@@ -9,17 +9,10 @@ const Text = styled.p`
   color: #636363;
 `;
 
-class Disclaimer extends Component {
-  render() {
-    return (
-      <div className="container">
-        <Text>
-          Enter dates to see full pricing. Additional fees apply. Taxes may be
-          added.
-        </Text>
-      </div>
-    );
-  }
-}
+const Disclaimer = () => (
+  <div className="container">
+    <Text>Enter dates to see full pricing. Additional fees apply. Taxes may be added.</Text>
+  </div>
+);
 
 export default Disclaimer;

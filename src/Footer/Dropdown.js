@@ -1,6 +1,6 @@
-import React, { Component } from "react";
-import styled from "styled-components";
-import arrow from "./arrowDown.svg";
+import React from 'react';
+import styled from 'styled-components';
+import arrow from './arrowDown.svg';
 
 const Select = styled.select`
   background: #ffffff;
@@ -47,15 +47,11 @@ const Select = styled.select`
   }
 `;
 
-class Dropdown extends Component {
-  render() {
-    return (
-      <Select>
-        <option>{this.props.option1}</option>
-        <option>{this.props.option2}</option>
-      </Select>
-    );
-  }
-}
+const Dropdown = props => (
+  <Select>
+    <option>{props.option1}</option>
+    <option>{props.option2}</option>
+  </Select>
+);
 
 export default Dropdown;

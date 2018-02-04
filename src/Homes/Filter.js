@@ -1,39 +1,23 @@
-import React, { Component } from "react";
-import styled from "styled-components";
-import Room from "./Room";
-import Book from "./Book";
-import Price from "./Price";
-import Filters from "./Filters";
-import Dates from "./Dates";
-import Guests from "./Guests";
+import React, { Component } from 'react';
+import styled from 'styled-components';
+import Room from './Room';
+import Book from './Book';
+import Price from './Price';
+import Filters from './Filters';
+import Dates from './Dates';
+import Guests from './Guests';
 
 const Wrap = styled.div`
   background: white;
-  border-top: 0.5px solid rgba(72, 72, 72, 0.3);
-  border-bottom: 0.5px solid rgba(72, 72, 72, 0.3);
+  box-shadow: ${props => (props.anyFilterOpened ? 'none' : '0px 0.5px 0px rgba(72, 72, 72, 0.3)')};
   background-clip: padding-box;
   position: fixed;
-  top: 81px;
+  top: 83px;
   left: 0;
   right: 0;
-  z-index: 1012;
+  z-index: 1000;
   margin: 0 auto;
   padding-left: 8px;
-  @media only screen and (min-width: 576px) {
-    max-width: 552px;
-  }
-
-  @media only screen and (min-width: 768px) {
-    max-width: 746px;
-  }
-
-  @media only screen and (min-width: 992px) {
-    max-width: 968px;
-  }
-
-  @media only screen and (min-width: 1200px) {
-    max-width: 1176px;
-  }
 `;
 
 const DesktopButtons = styled.div`
@@ -43,23 +27,47 @@ const DesktopButtons = styled.div`
   }
 `;
 
+const ModalWrap = styled.div`
+  position: relative;
+`;
+
 class Filter extends Component {
+  state = {
+    filterOpened: null,
+  };
+
+  openModal = (filterName) => {
+    this.setState({ filterOpened: filterName });
+  };
+
+  isAnyModalOpened = () => {
+    const isOn = filter => this.state[filter] === true;
+    const activeFilter = Object.keys(this.state).find(isOn);
+    return activeFilter;
+  };
+
   render() {
+    const isAnyState = this.isAnyModalOpened();
+
     return (
-      <div className="container">
-        <Wrap>
-          <Dates />
-          <Guests />
-          <DesktopButtons>
-            <Room />
-            <Price />
-            <Book />
-          </DesktopButtons>
-          <Filters />
-        </Wrap>
-      </div>
+      <Wrap anyFilterOpened={isAnyState}>
+        <div className="container">
+          <ModalWrap>
+            <Dates isOpen={this.state.filterOpened === 'Dates'} openModal={this.openModal} />
+            <Guests isOpen={this.state.filterOpened === 'Guests'} openModal={this.openModal} />
+            <DesktopButtons>
+              <Room isOpen={this.state.filterOpened === 'Room'} openModal={this.openModal} />
+              <Price isOpen={this.state.filterOpened === 'Price'} openModal={this.openModal} />
+              <Book isOpen={this.state.filterOpened === 'Book'} openModal={this.openModal} />
+            </DesktopButtons>
+            <Filters isOpen={this.state.filterOpened === 'Filters'} openModal={this.openModal} />
+          </ModalWrap>
+        </div>
+      </Wrap>
     );
   }
 }
 
 export default Filter;
+
+//

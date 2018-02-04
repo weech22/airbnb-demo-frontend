@@ -1,42 +1,69 @@
-import React, { Component } from "react";
-import styled from "styled-components";
-import { SectionTitle } from "../ModalUI";
-import Counter from "../UI/RoomsBedsCounter";
+import React, { Component } from 'react';
+import styled from 'styled-components';
+import { SectionTitle } from '../ModalUI';
+import Counter from '../UI/RoomsBedsCounter';
 
 const Wrap = styled.div`
   background: #ffffff;
   margin-top: 0px;
   padding-top: 32px;
   padding-bottom: 16px;
+  margin-bottom: 1px;
+  box-shadow: 0px 0.5px 0px rgba(72, 72, 72, 0.3);
+`;
+
+const Title = styled(SectionTitle)`
   padding-left: 8px;
-  padding-right: 8px;
-  border-bottom: 1px solid rgba(72, 72, 72, 0.3);
-  background-clip: padding-box;
 `;
 
 class RoomsBeds extends Component {
+  state = {
+    bedrooms: this.props.filter.bedrooms,
+    beds: this.props.filter.beds,
+    bathrooms: this.props.filter.bathrooms,
+  };
+
+  componentWillReceiveProps(nextProps) {
+    this.setState({
+      bedrooms: nextProps.filter.bedrooms,
+      beds: nextProps.filter.beds,
+      bathrooms: nextProps.filter.bathrooms,
+    });
+  }
+
+  handleFilterChange = (field, value) => {
+    this.setState(
+      () => ({ [field]: value }),
+      () => {
+        this.props.onFilterChange('roomsBeds', this.state);
+      },
+    );
+  };
+
   render() {
     return (
       <Wrap>
-        <SectionTitle>Rooms and beds</SectionTitle>
-        <Counter
-          name="Bedrooms"
-          count={this.props.bedrooms}
-          onFilterInc={this.props.onFilterInc}
-          onFilterDec={this.props.onFilterDec}
-        />
-        <Counter
-          name="Beds"
-          count={this.props.beds}
-          onFilterInc={this.props.onFilterInc}
-          onFilterDec={this.props.onFilterDec}
-        />
-        <Counter
-          name="Bathrooms"
-          count={this.props.bathrooms}
-          onFilterInc={this.props.onFilterInc}
-          onFilterDec={this.props.onFilterDec}
-        />
+        <Title>Rooms and beds</Title>
+        <div className="col-xs-12 col-md-6">
+          <Counter
+            id="bedrooms"
+            count={this.state.bedrooms}
+            name="Bedrooms"
+            onFilterChange={this.handleFilterChange}
+          />
+          <Counter
+            id="beds"
+            count={this.state.beds}
+            name="Beds"
+            onFilterChange={this.handleFilterChange}
+          />
+          <Counter
+            id="bathrooms"
+            count={this.state.bathrooms}
+            name="Bathrooms"
+            onFilterChange={this.handleFilterChange}
+          />
+        </div>
       </Wrap>
     );
   }

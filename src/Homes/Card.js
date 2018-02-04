@@ -1,3 +1,4 @@
+
 import React, { Component } from "react";
 import styled from "styled-components";
 import times from "lodash/times";
@@ -84,3 +85,4 @@ class Card extends Component {
 }
 
 export default Card;
+

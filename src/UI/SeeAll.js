@@ -1,7 +1,7 @@
-import React, { Component } from "react";
-import styled from "styled-components";
-import arrow from "./arrowRight.svg";
-import { Link } from "react-router-dom";
+import React from 'react';
+import styled from 'styled-components';
+import { Link } from 'react-router-dom';
+import arrow from './arrowRight.svg';
 
 const StyledLink = styled(Link)`
   font-family: CircularAir, Helvetica Neue, Helvetica, Arial, sans-serif;
@@ -28,16 +28,12 @@ const SeeAllBlock = styled.div`
   }
 `;
 
-class SeeAll extends Component {
-  render() {
-    return (
-      <SeeAllBlock>
-        <StyledLink to="/homes">
-          See all <img src={arrow} alt="" />
-        </StyledLink>
-      </SeeAllBlock>
-    );
-  }
-}
+const SeeAll = () => (
+  <SeeAllBlock>
+    <StyledLink to="/homes">
+      See all <img src={arrow} alt="" />
+    </StyledLink>
+  </SeeAllBlock>
+);
 
 export default SeeAll;

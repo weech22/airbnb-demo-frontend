@@ -1,6 +1,6 @@
-import React, { Component } from "react";
-import styled from "styled-components";
-import search from "./search.svg";
+import React from 'react';
+import styled from 'styled-components';
+import search from './search.svg';
 
 const Search = styled.input`
   font-family: CircularAir, Helvetica Neue, Helvetica, Arial, sans-serif;
@@ -26,10 +26,6 @@ const Search = styled.input`
   background-position: 16.2px center;
 `;
 
-class SearchInput extends Component {
-  render() {
-    return <Search type="text" placeholder="Try &quot;Miami&quot;" />;
-  }
-}
+const SearchInput = () => <Search type="text" placeholder="Try &quot;Miami&quot;" />;
 
 export default SearchInput;

@@ -1,6 +1,16 @@
-import React from "react";
-import styled from "styled-components";
-import close from "./close.svg";
+import React from 'react';
+import styled from 'styled-components';
+import close from './close.svg';
+
+const FixedContainer = styled.div`
+  position: fixed;
+  top: 0;
+  bottom: auto;
+  left: 0;
+  right: 0;
+  background: white;
+  z-index: 5000;
+`;
 
 const CloseButton = styled.button`
   appearance: none;
@@ -44,11 +54,13 @@ const Wrap = styled.div`
 
 function Header(props) {
   return (
-    <Wrap className={props.className}>
-      <CloseButton onClick={props.onClose} />
-      <Title>{props.text}</Title>
-      <Action onClick={props.onAction}>{props.action}</Action>
-    </Wrap>
+    <FixedContainer>
+      <Wrap className={props.className}>
+        <CloseButton onClick={props.onClose} />
+        <Title>{props.text}</Title>
+        <Action onClick={props.onAction}>{props.action}</Action>
+      </Wrap>
+    </FixedContainer>
   );
 }
 

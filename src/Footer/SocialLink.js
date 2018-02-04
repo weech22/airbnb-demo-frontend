@@ -1,5 +1,5 @@
-import React, { Component } from "react";
-import styled from "styled-components";
+import React from 'react';
+import styled from 'styled-components';
 
 const Img = styled.img`
   width: 16px;
@@ -13,14 +13,10 @@ const Img = styled.img`
   }
 `;
 
-class SocialLink extends Component {
-  render() {
-    return (
-      <a href="">
-        <Img src={this.props.img} />
-      </a>
-    );
-  }
-}
+const SocialLink = props => (
+  <a href="#">
+    <Img src={props.img} alt="" />
+  </a>
+);
 
 export default SocialLink;

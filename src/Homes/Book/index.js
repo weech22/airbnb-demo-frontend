@@ -1,8 +1,7 @@
-import React, { Component } from "react";
-import styled from "styled-components";
-import Modal from "./Modal";
-import { Portal } from "react-portal";
-import { FilterButton as Button, ModalWindow } from "../ModalUI";
+import React, { Component } from 'react';
+import styled from 'styled-components';
+import Modal from './Modal';
+import { FilterButton as Button, WhiteBackground, DesktopModal } from '../ModalUI';
 
 const Wrap = styled.div`
   display: inline-block;
@@ -10,29 +9,43 @@ const Wrap = styled.div`
 
 class Dropdown extends Component {
   state = {
-    isOpen: false
+    isOpen: this.props.isOpen,
+    checked: false,
   };
 
+  componentWillReceiveProps(nextProps) {
+    this.setState({ isOpen: nextProps.isOpen });
+  }
+
   toggleOpen = () => {
-    this.setState({ isOpen: true });
+    this.props.openModal('Book');
   };
 
   toggleClose = () => {
     this.setState({ isOpen: false });
   };
 
+  saveFilter = (checked) => {
+    this.setState({ checked, isOpen: false });
+  };
+
   render() {
     return (
       <Wrap>
-        <Button active={this.state.isOpen} onClick={this.toggleOpen}>
+        <Button active={this.state.isOpen || this.state.checked} onClick={this.toggleOpen}>
           Instant book
         </Button>
         {this.state.isOpen && (
-          <Portal node={document && document.getElementById("modal")}>
-            <ModalWindow>
-              <Modal onCancel={this.toggleClose} />
-            </ModalWindow>
-          </Portal>
+          <div>
+            <WhiteBackground onClick={this.toggleClose} />
+            <DesktopModal>
+              <Modal
+                onCancel={this.toggleClose}
+                onApply={this.saveFilter}
+                checked={this.state.checked}
+              />
+            </DesktopModal>
+          </div>
         )}
       </Wrap>
     );

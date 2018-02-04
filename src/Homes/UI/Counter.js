@@ -1,36 +1,47 @@
-import React, { Component } from "react";
-import styled from "styled-components";
-import plus from "./plus.svg";
-import minus from "./minus.svg";
+import React, { Component } from 'react';
+import styled from 'styled-components';
+import plus from './plus.svg';
+import minus from './minus.svg';
 
 const Wrap = styled.div`
-  margin-bottom: 40px;
-
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: ${props => (props.id === 'kids' ? '33px' : '28px')};
   @media only screen and (min-width: 768px) {
-    margin-bottom: 18px;
+    margin-bottom: ${props => (props.id === 'kids' ? '26px' : '22px')};
   }
 `;
 
-const Name = styled.h2`
+const Name = styled.h3`
+  margin: 0;
+  padding: 0;
   font-family: CircularAir;
   line-height: 21px;
   font-size: 18px;
-  margin: 0;
   color: #383838;
-  margin-bottom: 6px;
+  font-weight: normal;
+  @media only screen and (min-width: 768px) {
+    line-height: 23px;
+    font-size: 20px;
+  }
 `;
 
-const Desc = styled.h3`
+const Description = styled.span`
+  display: inline-block;
   font-family: CircularAir;
   line-height: 16px;
   font-weight: lighter;
-  margin: 0;
   font-size: 14px;
   color: #383838;
+  margin-top: 6px;
+  @media only screen and (min-width: 768px) {
+    line-height: 19px;
+    font-size: 16px;
+    margin-top: 10px;
+  }
 `;
 
 const Plus = styled.button`
-  margin: auto 0;
   width: 32px;
   height: 32px;
   border: none;
@@ -38,10 +49,10 @@ const Plus = styled.button`
   background-image: url(${plus});
   background-repeat: no-repeat;
   background-position: center center;
+  cursor: pointer;
 `;
 
 const Minus = styled.button`
-  margin: auto 0;
   width: 32px;
   height: 32px;
   border: none;
@@ -49,57 +60,73 @@ const Minus = styled.button`
   background-image: url(${minus});
   background-repeat: no-repeat;
   background-position: center center;
+  &:hover {
+    cursor: pointer;
+  }
 `;
 
 const Buttons = styled.div`
   display: flex;
+  align-items: center;
   justify-content: space-between;
+  max-width: 112px;
+  width: 100%;
 `;
 
 const Text = styled.div`
-  display: flex;
-  margin: auto 0;
-  padding-left: 8px;
-  @media only screen and (min-width: 768px) {
-    padding-left: 0;
-  }
+  display: ${props => (props.id === 'adults' ? 'flex' : 'block')};
+  align-items: center;
 `;
 
 const Count = styled.span`
-  margin: auto 0;
   font-family: CircularAir;
-  line-height: normal;
+  line-height: 21px;
   font-size: 18px;
   color: #383838;
+  font-weight: lighter;
 `;
 
 class Counter extends Component {
-  increment = () => {
-    this.props.onGuestInc(this.props.name.toLowerCase(), this.props.count + 1);
+  state = {
+    count: this.props.count,
   };
 
+  componentWillReceiveProps(nextProps) {
+    this.setState({ count: nextProps.count });
+  }
+
   decrement = () => {
-    this.props.onGuestDec(this.props.name.toLowerCase(), this.props.count - 1);
+    if (this.state.count > 0) {
+      this.setState(
+        () => ({ count: this.state.count - 1 }),
+        () => {
+          this.props.onGuestsChange(this.props.id, this.state.count);
+        },
+      );
+    }
+  };
+
+  increment = () => {
+    this.setState(
+      () => ({ count: this.state.count + 1 }),
+      () => {
+        this.props.onGuestsChange(this.props.id, this.state.count);
+      },
+    );
   };
 
   render() {
     return (
-      <Wrap>
-        <div className="row between-xs">
-          <Text>
-            <div>
-              <Name>{this.props.name}</Name>
-              <Desc>{this.props.desc}</Desc>
-            </div>
-          </Text>
-          <div className="col-xs-5">
-            <Buttons>
-              <Minus onClick={this.decrement} />
-              <Count>{this.props.count}</Count>
-              <Plus onClick={this.increment} />
-            </Buttons>
-          </div>
-        </div>
+      <Wrap id={this.props.id}>
+        <Text id={this.props.id}>
+          <Name>{this.props.name}</Name>
+          <Description>{this.props.description}</Description>
+        </Text>
+        <Buttons>
+          <Minus onClick={this.decrement} />
+          <Count>{this.state.count}</Count>
+          <Plus onClick={this.increment} />
+        </Buttons>
       </Wrap>
     );
   }

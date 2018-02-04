@@ -1,6 +1,6 @@
-import React, { Component } from "react";
-import styled from "styled-components";
-import { CardBlock, Img } from "../../UI/UI";
+import React from 'react';
+import styled from 'styled-components';
+import { CardBlock, Img } from '../../UI/UI';
 
 const City = styled.p`
   font-family: CircularAir, Helvetica Neue, Helvetica, Arial, sans-serif;
@@ -18,15 +18,11 @@ const City = styled.p`
   }
 `;
 
-class FeatureCard extends Component {
-  render() {
-    return (
-      <CardBlock href="#">
-        <Img src={this.props.img} />
-        <City>{this.props.city}</City>
-      </CardBlock>
-    );
-  }
-}
+const FeatureCard = props => (
+  <CardBlock href="#">
+    <Img src={props.img} alt="" />
+    <City>{props.city}</City>
+  </CardBlock>
+);
 
 export default FeatureCard;

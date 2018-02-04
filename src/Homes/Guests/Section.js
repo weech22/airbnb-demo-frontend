@@ -1,51 +1,44 @@
-import React, { Component } from "react";
-import styled from "styled-components";
-import Counter from "../UI/Counter";
+import React from 'react';
+import styled from 'styled-components';
+import Counter from '../UI/Counter';
 
 const Wrap = styled.div`
-  height: calc(100vh - 153px);
-  width: 95vw;
-  background: #ffffff;
-  margin-top: 0px;
-  padding-top: 40px;
-  padding-left: 8px;
+  height: 100vh;
+  padding: 92px 8px;
+  padding-bottom: 0;
   @media only screen and (min-width: 768px) {
+    padding-left: 23px;
+    padding-right: 14px;
+    padding-top: 27px;
+    width: 290px;
     height: auto;
-    width: 326px;
-    padding-top: 30px;
-    padding-left: 24px;
-    padding-right: 15px;
   }
 `;
 
-class Section extends Component {
-  render() {
-    return (
-      <Wrap>
-        <Counter
-          count={this.props.adults}
-          onGuestInc={this.props.onGuestInc}
-          onGuestDec={this.props.onGuestDec}
-          name="Adults"
-          desc=""
-        />
-        <Counter
-          count={this.props.children}
-          onGuestInc={this.props.onGuestInc}
-          onGuestDec={this.props.onGuestDec}
-          name="Children"
-          desc="Ages 2 — 12"
-        />
-        <Counter
-          count={this.props.infants}
-          onGuestInc={this.props.onGuestInc}
-          onGuestDec={this.props.onGuestDec}
-          name="Infants"
-          desc="Under 2"
-        />
-      </Wrap>
-    );
-  }
-}
+const Section = props => (
+  <Wrap>
+    <Counter
+      id="adults"
+      count={props.adults}
+      name="Adults"
+      description=""
+      onGuestsChange={props.onGuestsChange}
+    />
+    <Counter
+      id="kids"
+      count={props.kids}
+      name="Children"
+      description="Ages 2 — 12"
+      onGuestsChange={props.onGuestsChange}
+    />
+    <Counter
+      id="infants"
+      count={props.infants}
+      name="Infants"
+      description="Under 2"
+      onGuestsChange={props.onGuestsChange}
+    />
+  </Wrap>
+);
 
 export default Section;

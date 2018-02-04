@@ -1,69 +1,71 @@
-import React, { Component } from "react";
-import styled from "styled-components";
-import Modal from "./Modal";
-import { Portal } from "react-portal";
-import moment from "moment";
+import React, { Component } from 'react';
+import styled from 'styled-components';
+import { Portal } from 'react-portal';
+import moment from 'moment';
+import Modal from './Modal';
 import {
   FilterButton as Button,
   FilterButtonBlock as Wrap,
   WhiteBackground,
   DesktopModal,
-  ModalWindow
-} from "../ModalUI";
+  ModalWindow,
+} from '../ModalUI';
 
 const DatesModal = styled(DesktopModal)`
   top: 52px;
-  left: 8px;
+  left: 0;
 `;
 
 const formatDateLabel = (from, to, isOpen) => {
   if (from && to) {
     const start = moment(from);
     const end = moment(to);
-    return `${start.format("MMM D")} — ${end.format("MMM D")}`;
+    return `${start.format('MMM D')} — ${end.format('MMM D')}`;
   } else if (isOpen) {
-    return "Check in — Check out";
-  } else {
-    return "Dates";
+    return 'Check in — Check out';
   }
+  return 'Dates';
 };
 
 const getMonthAmount = () => {
-  if (matchMedia("(min-width: 992px)").matches) {
+  if (window.matchMedia('(min-width: 992px)').matches) {
     return 2;
   }
-  if (matchMedia("(min-width: 576px)").matches) {
+  if (window.matchMedia('(min-width: 576px)').matches) {
     return 1;
   }
   return 12;
 };
 
 const AdaptiveModal = (dialog, onClick) => {
-  if (matchMedia("(min-width: 576px)").matches) {
+  if (window.matchMedia('(min-width: 768px)').matches) {
     return (
       <div>
         <WhiteBackground onClick={onClick} />
         <DatesModal>{dialog}</DatesModal>
       </div>
     );
-  } else {
-    return (
-      <Portal node={document && document.getElementById("modal")}>
-        <ModalWindow>{dialog}</ModalWindow>
-      </Portal>
-    );
   }
+  return (
+    <Portal node={document && document.getElementById('modal')}>
+      <ModalWindow>{dialog}</ModalWindow>
+    </Portal>
+  );
 };
 
 class Dropdown extends Component {
   state = {
-    isOpen: false,
+    isOpen: this.props.isOpen,
     from: undefined,
-    to: undefined
+    to: undefined,
   };
 
+  componentWillReceiveProps(nextProps) {
+    this.setState({ isOpen: nextProps.isOpen });
+  }
+
   toggleOpen = () => {
-    this.setState({ isOpen: true });
+    this.props.openModal('Dates');
   };
 
   toggleClose = () => {
@@ -71,7 +73,7 @@ class Dropdown extends Component {
   };
 
   saveDates = (from, to) => {
-    this.setState({ from: from, to: to, isOpen: false });
+    this.setState({ from, to, isOpen: false });
   };
 
   render() {
@@ -90,7 +92,10 @@ class Dropdown extends Component {
 
     return (
       <Wrap>
-        <Button active={this.state.isOpen} onClick={this.toggleOpen}>
+        <Button
+          active={this.state.isOpen || this.state.from || this.state.to}
+          onClick={this.toggleOpen}
+        >
           {formatDateLabel(this.state.from, this.state.to, this.state.isOpen)}
         </Button>
         {this.state.isOpen && adaptiveModal}
