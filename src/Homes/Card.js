@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import styled from "styled-components";
+import times from "lodash/times";
 import Star from "../UI/Star";
 import { CardBlock, Img, Label } from "../UI/UI";
 
@@ -38,11 +39,27 @@ const Info = styled.p`
   }
 `;
 
+const StarBlock = props => {
+  return times(Math.floor(props.rating), () => <Star />);
+};
+
+const pluralize = (count, word) => {
+  if (count === 1) {
+    return `${count} ${word}`;
+  }
+  return `${count} ${word}s`;
+};
+
+const roomType = {
+  entire_home: "Entire home",
+  private_room: "Private room"
+};
+
 class Card extends Component {
   render() {
     return (
       <CardBlock href="#">
-        <Img src={this.props.img} />
+        <Img src={this.props.images[0].picture} />
         <div>
           <Name>
             {this.props.price}$ {this.props.name}
@@ -50,16 +67,16 @@ class Card extends Component {
         </div>
         <div>
           <Info>
-            {this.props.type} · {this.props.bedCount} bed
+            {roomType[this.props.kind]}
+            {` · ${pluralize(this.props.bedsCount, "bed")}`}
           </Info>
         </div>
         <div>
-          <Star />
-          <Star />
-          <Star />
-          <Star />
-          <Star />
-          <Label>{this.props.reviews} · Superhost</Label>
+          <StarBlock rating={this.props.rating} />
+          <Label>
+            {this.props.reviewsCount}
+            {this.props.isSuperhost ? " · Superhost" : " · Reviews"}
+          </Label>
         </div>
       </CardBlock>
     );
