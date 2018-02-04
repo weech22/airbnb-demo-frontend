@@ -1,7 +1,9 @@
-import React from 'react';
-import styled from 'styled-components';
-import Star from '../UI/Star';
-import { CardBlock, Img, Label } from '../UI/UI';
+
+import React, { Component } from "react";
+import styled from "styled-components";
+import times from "lodash/times";
+import Star from "../UI/Star";
+import { CardBlock, Img, Label } from "../UI/UI";
 
 const Name = styled.p`
   font-family: CircularAir, Helvetica Neue, Helvetica, Arial, sans-serif;
@@ -38,28 +40,49 @@ const Info = styled.p`
   }
 `;
 
-const Card = props => (
-  <CardBlock href="#">
-    <Img src={props.img} />
-    <div>
-      <Name>
-        {props.price}$ {props.name}
-      </Name>
-    </div>
-    <div>
-      <Info>
-        {props.type} · {props.bedCount} bed
-      </Info>
-    </div>
-    <div>
-      <Star />
-      <Star />
-      <Star />
-      <Star />
-      <Star />
-      <Label>{props.reviews} · Superhost</Label>
-    </div>
-  </CardBlock>
-);
+const StarBlock = props => {
+  return times(Math.floor(props.rating), () => <Star />);
+};
+
+const pluralize = (count, word) => {
+  if (count === 1) {
+    return `${count} ${word}`;
+  }
+  return `${count} ${word}s`;
+};
+
+const roomType = {
+  entire_home: "Entire home",
+  private_room: "Private room"
+};
+
+class Card extends Component {
+  render() {
+    return (
+      <CardBlock href="#">
+        <Img src={this.props.images[0].picture} />
+        <div>
+          <Name>
+            {this.props.price}$ {this.props.name}
+          </Name>
+        </div>
+        <div>
+          <Info>
+            {roomType[this.props.kind]}
+            {` · ${pluralize(this.props.bedsCount, "bed")}`}
+          </Info>
+        </div>
+        <div>
+          <StarBlock rating={this.props.rating} />
+          <Label>
+            {this.props.reviewsCount}
+            {this.props.isSuperhost ? " · Superhost" : " · Reviews"}
+          </Label>
+        </div>
+      </CardBlock>
+    );
+  }
+}
 
 export default Card;
+
