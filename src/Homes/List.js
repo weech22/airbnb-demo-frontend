@@ -1,7 +1,7 @@
-import React, { Component } from "react";
-import styled from "styled-components";
-import "whatwg-fetch";
-import Card from "./Card";
+import React, { Component } from 'react';
+import styled from 'styled-components';
+import 'whatwg-fetch';
+import Card from './Card';
 
 const CardWrap = styled.div`
   margin-bottom: 24px;
@@ -13,38 +13,36 @@ const CardWrap = styled.div`
 
 class List extends Component {
   state = {
-    homes: []
+    homes: [],
   };
 
   componentWillMount() {
-    const url = "https://airbnb-demo-api.now.sh/v1/homes";
+    const url = 'https://airbnb-demo-api.now.sh/v1/homes';
 
     fetch(url)
       .then(response => response.json())
       .then(data => this.setState({ homes: data.items }));
   }
   render() {
-    const homes = this.state.homes;
+    const [...homes] = this.state.homes;
     return (
       <div className="row">
-        {homes.map(card => {
-          return (
-            <div className="col-xs-12 col-md-6">
-              <CardWrap>
-                <Card
-                  images={card.images}
-                  price={card.price}
-                  name={card.name}
-                  kind={card.kind}
-                  bedsCount={card.bedsCount}
-                  rating={card.rating}
-                  reviewsCount={card.reviewsCount}
-                  isSuperhost={card.isSuperhost}
-                />
-              </CardWrap>
-            </div>
-          );
-        })}
+        {homes.map(card => (
+          <div className="col-xs-12 col-md-6">
+            <CardWrap>
+              <Card
+                images={card.images}
+                price={card.price}
+                name={card.name}
+                kind={card.kind}
+                bedsCount={card.bedsCount}
+                rating={card.rating}
+                reviewsCount={card.reviewsCount}
+                isSuperhost={card.isSuperhost}
+              />
+            </CardWrap>
+          </div>
+        ))}
       </div>
     );
   }
