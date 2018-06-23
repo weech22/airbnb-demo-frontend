@@ -1,60 +1,56 @@
-import React, { Component } from "react";
-import "whatwg-fetch";
-import Card from "../../Homes/Card";
-import SectionTitleAndMore from "../../UI/SectionTitleAndMore";
-import { SliderBlock, Slider } from "../../UI/UI";
+import React, { Component } from 'react';
+import 'whatwg-fetch';
+import Card from '../../Homes/Card';
+import SectionTitleAndMore from '../../UI/SectionTitleAndMore';
+import { SliderBlock, Slider } from '../../UI/UI';
 
 class Homes extends Component {
   state = {
-    cardList: []
+    cardList: [],
   };
 
   componentWillMount() {
-    const url = "https://airbnb-demo-api.now.sh/v1/homes";
+    const url = 'https://jsonblob.com/api/jsonBlob/7fab98eb-76f4-11e8-9c19-1bb844127a7d';
 
     fetch(url)
       .then(response => response.json())
       .then(data =>
         data.items.map(card => ({
-          images: card.images,
+          image: card.image,
           price: card.price,
           name: card.name,
           kind: card.kind,
           bedsCount: card.bedsCount,
           rating: card.rating,
           reviewsCount: card.reviewsCount,
-          isSuperhost: card.isSuperhost
-        }))
-      )
+          isSuperhost: card.isSuperhost,
+        })))
       .then(cardList =>
         this.setState({
-          cardList
-        })
-      );
+          cardList,
+        }));
   }
   render() {
-    const cardList = this.state.cardList;
+    const [...cardList] = this.state.cardList;
     return (
       <div className="container">
         <SectionTitleAndMore name="Homes" link="/homes" />
         <SliderBlock>
           <Slider>
-            {cardList.map(card => {
-              return (
-                <div className="col-xs-8 col-md-5 col-lg-4">
-                  <Card
-                    images={card.images}
-                    price={card.price}
-                    name={card.name}
-                    kind={card.kind}
-                    bedsCount={card.bedsCount}
-                    rating={card.rating}
-                    reviewsCount={card.reviewsCount}
-                    isSuperhost={card.isSuperhost}
-                  />
-                </div>
-              );
-            })}
+            {cardList.map(card => (
+              <div className="col-xs-8 col-md-5 col-lg-4">
+                <Card
+                  image={card.image}
+                  price={card.price}
+                  name={card.name}
+                  kind={card.kind}
+                  bedsCount={card.bedsCount}
+                  rating={card.rating}
+                  reviewsCount={card.reviewsCount}
+                  isSuperhost={card.isSuperhost}
+                />
+              </div>
+            ))}
           </Slider>
         </SliderBlock>
       </div>
