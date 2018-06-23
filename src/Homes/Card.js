@@ -55,7 +55,7 @@ const roomType = {
 
 const Card = props => (
   <CardBlock href="#">
-    <Img src={props.images[0].picture} />
+    <Img src={props.image} />
     <div>
       <Name>
         {props.price}$ {props.name}

@@ -17,12 +17,13 @@ class List extends Component {
   };
 
   componentWillMount() {
-    const url = 'https://airbnb-demo-api.now.sh/v1/homes';
+    const url = 'https://jsonblob.com/api/jsonBlob/7fab98eb-76f4-11e8-9c19-1bb844127a7d';
 
     fetch(url)
       .then(response => response.json())
       .then(data => this.setState({ homes: data.items }));
   }
+
   render() {
     const [...homes] = this.state.homes;
     return (
@@ -31,7 +32,7 @@ class List extends Component {
           <div className="col-xs-12 col-md-6">
             <CardWrap>
               <Card
-                images={card.images}
+                image={card.image}
                 price={card.price}
                 name={card.name}
                 kind={card.kind}
