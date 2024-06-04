@@ -16,7 +16,7 @@ const Wrap = styled.div`
 
 class GoogleMap extends Component {
   static defaultProps = {
-    center: { lat: 59.95, lng: 30.33 },
+    center: { lat: 39.983334, lng: -82.983330 },
     zoom: 11,
   };
 

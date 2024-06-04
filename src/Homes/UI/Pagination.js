@@ -25,14 +25,14 @@ const Pagination = () => (
     <div className="row center-xs">
       <div className="col-lg-4 col-md-5 col-xs-12">
         <Nav>
-          <Link href="#">
+          <Link href="/homes">
             <img src={activePage} alt="" />
           </Link>
-          <Link href="#">2</Link>
-          <Link href="#">3</Link>
-          <Link href="#">...</Link>
-          <Link href="#">17</Link>
-          <Link href="#">
+          <Link href="/homes">2</Link>
+          <Link href="/homes">3</Link>
+          <Link href="/homes">...</Link>
+          <Link href="/homes">17</Link>
+          <Link href="/homes">
             <img src={arrow} alt="" />
           </Link>
         </Nav>
